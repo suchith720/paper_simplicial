@@ -160,11 +160,16 @@ with open(master_eval_path, 'w', encoding='utf-8') as f:
 
 # Generate Summary Report
 summary_md = EVAL_DIR / 'EVALUATION_REPORT.md'
+triads_by_rank = {t['rank']: t for t in digest_data.get('triads', [])}
+
+def clean_title(s):
+    return ' '.join(s.replace(r'\ud', '').replace(r'\u27', "'").split())
+
 with open(summary_md, 'w', encoding='utf-8') as f:
     f.write("# Top 25 Paper Triads: Gemini Scientific Evaluation & Research Synthesis\n\n")
     f.write(f"Evaluated **{len(all_evals)} candidate simplicial triads** using Gemini with high-reasoning effort.\n\n")
-    f.write("| Rank | Triad Quality Score | Verdict | Thematic Coherence | Complementarity | Non-Triviality | Top Research Statement Title |\n")
-    f.write("| :---: | :---: | :--- | :---: | :---: | :---: | :--- |\n")
+    f.write("| Rank | Quality Score | Verdict | Paper 1 Title | Paper 2 Title | Paper 3 Title | Top Synthesized Research Direction | Thematic Coherence | Complementarity | Non-Triviality |\n")
+    f.write("| :---: | :---: | :--- | :--- | :--- | :--- | :--- | :---: | :---: | :---: |\n")
     for ev in all_evals:
         t_id = ev.get('triad_id', 'N/A')
         e = ev.get('evaluation', {})
@@ -175,7 +180,13 @@ with open(summary_md, 'w', encoding='utf-8') as f:
         mc = dim.get('methodological_complementarity', 'N/A')
         nt = dim.get('non_triviality', 'N/A')
         top_title = ev.get('research_statements', [{}])[0].get('title', 'N/A')
-        f.write(f"| **#{t_id}** | **{score}/10** | {verdict} | {tc} | {mc} | {nt} | *{top_title}* |\n")
+
+        triad = triads_by_rank.get(t_id, {})
+        p1 = clean_title(triad.get('papers', {}).get('paper_1', {}).get('title', 'N/A'))
+        p2 = clean_title(triad.get('papers', {}).get('paper_2', {}).get('title', 'N/A'))
+        p3 = clean_title(triad.get('papers', {}).get('paper_3', {}).get('title', 'N/A'))
+
+        f.write(f"| **#{t_id}** | **{score}/10** | {verdict} | *{p1}* | *{p2}* | *{p3}* | *{top_title}* | {tc} | {mc} | {nt} |\n")
 
 print("\nEvaluation successfully completed for all 25 triads!")
 print(f"Master evaluation JSON: {master_eval_path}")
