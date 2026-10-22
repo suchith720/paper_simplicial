@@ -12,6 +12,18 @@ This project lifts pairwise scientific paper embedding graphs into **topological
 
 ---
 
+## ⚡ Quickstart: Launch the Interactive Web App
+
+A full-featured, zero-dependency web application is included to explore the simplicial complex, inspect all 1,000 ranked triads, and view the Gemini Pro evaluations and 125 synthesized hypotheses.
+
+```bash
+cd /DATATWO/users/mridul2/paper_simplicial
+python run_webapp.py --port 8501
+```
+Open **`http://localhost:8501`** in your browser. (Requires no external pip packages—runs directly on standard library Python).
+
+---
+
 ## 2. Pipeline Architecture
 
 ```
