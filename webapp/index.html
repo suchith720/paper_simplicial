@@ -291,6 +291,183 @@
 </footer>
 
 <script>
+/** GitHub Pages: …/paper_simplicial/webapp/ — local server: / */
+const WEB_BASE = (() => {
+  const m = location.pathname.match(/^(.*?\/webapp)\/?/);
+  return m ? m[1] : '';
+})();
+const STATIC_MODE = location.hostname.endsWith('github.io') || location.protocol === 'file:';
+
+function dataUrl(relative) {
+  const path = relative.startsWith('/') ? relative : '/' + relative;
+  return WEB_BASE + path;
+}
+
+async function fetchJsonOrApi(apiPath, staticPath) {
+  if (!STATIC_MODE) {
+    try {
+      const res = await fetch(apiPath);
+      if (res.ok) return res.json();
+    } catch (_) { /* fall through to static */ }
+  }
+  const res = await fetch(dataUrl(staticPath));
+  if (!res.ok) throw new Error('Failed to load ' + staticPath);
+  return res.json();
+}
+
+let graphBundle = null;
+async function ensureGraphBundle() {
+  if (graphBundle) return graphBundle;
+  const res = await fetch(dataUrl('/data/graph.json'));
+  if (!res.ok) throw new Error('graph.json missing — run scripts/export_webapp_static_data.py');
+  graphBundle = await res.json();
+  return graphBundle;
+}
+
+function scorePaperQuery(query, node, g) {
+  const q = query.trim().toLowerCase();
+  if (!q || node < 0 || node >= g.n_nodes) return 0;
+  const title = g.titles[node].toLowerCase();
+  const pid = g.paper_ids[node].toLowerCase();
+  if (/^\d+$/.test(q)) {
+    if (q === String(node)) return 10000;
+    if (q === pid) return 9000;
+    if (pid.startsWith(q) || pid.includes(q)) return 5000;
+  }
+  if (title.includes(q)) return 3000 + q.length;
+  const words = q.match(/[a-z0-9]+/g) || [];
+  if (!words.length) return 0;
+  const titleTok = new Set(title.match(/[a-z0-9]+/g) || []);
+  let overlap = 0;
+  words.forEach(w => { if (titleTok.has(w)) overlap++; });
+  if (!overlap) return 0;
+  return overlap * 100 + (overlap / words.length) * 50;
+}
+
+function searchPapersStatic(query, limit, g) {
+  limit = Math.max(1, Math.min(100, limit));
+  if (!query.trim() || !g.n_nodes) return [];
+  const scored = [];
+  for (let i = 0; i < g.n_nodes; i++) {
+    const s = scorePaperQuery(query, i, g);
+    if (s > 0) scored.push([s, i]);
+  }
+  scored.sort((a, b) => b[0] - a[0] || a[1] - b[1]);
+  return scored.slice(0, limit).map(([s, i]) => ({
+    node: i,
+    paper_id: g.paper_ids[i],
+    title: g.titles[i],
+    match_score: Math.round(s * 100) / 100,
+  }));
+}
+
+function expandNeighborhoodStatic(center, nNeighbors, g) {
+  nNeighbors = Math.max(1, Math.min(20, nNeighbors));
+  const selected = new Set([center]);
+  const knnIdx = g.knn_idx;
+  const knnSim = g.knn_sim;
+  if (!knnIdx?.length) return selected;
+
+  const direct = [];
+  for (let j = 0; j < knnIdx[center].length; j++) {
+    const nb = knnIdx[center][j];
+    if (nb !== center) direct.push([knnSim[center][j], nb]);
+  }
+  direct.sort((a, b) => b[0] - a[0]);
+  for (const [, nb] of direct) {
+    if (selected.size >= 1 + nNeighbors) break;
+    selected.add(nb);
+  }
+  if (selected.size >= 1 + nNeighbors) return selected;
+
+  const second = [];
+  for (const [sim1, nb1] of direct) {
+    for (let j = 0; j < knnIdx[nb1].length; j++) {
+      const nb2 = knnIdx[nb1][j];
+      if (nb2 === center) continue;
+      second.push([sim1 * knnSim[nb1][j], nb2]);
+    }
+  }
+  second.sort((a, b) => b[0] - a[0]);
+  for (const [, nb] of second) {
+    if (selected.size >= 1 + nNeighbors) break;
+    selected.add(nb);
+  }
+  return selected;
+}
+
+function inducedSubgraphStatic(nodes, g) {
+  const nodeList = [...nodes].sort((a, b) => a - b);
+  const inSet = new Set(nodeList);
+  const adj = g._adj;
+  const edgeW = g._edgeW;
+  const edgesOut = [];
+  for (const u of nodeList) {
+    const nbs = adj.get(u);
+    if (!nbs) continue;
+    for (const v of nbs) {
+      if (v > u && inSet.has(v)) {
+        const w = edgeW.get(u + ',' + v) ?? 0;
+        edgesOut.push({ from: u, to: v, weight: w });
+      }
+    }
+  }
+  const triangles = [];
+  for (let i = 0; i < nodeList.length; i++) {
+    const a = nodeList[i];
+    for (let j = i + 1; j < nodeList.length; j++) {
+      const b = nodeList[j];
+      if (!adj.get(a)?.has(b)) continue;
+      for (let k = j + 1; k < nodeList.length; k++) {
+        const c = nodeList[k];
+        if (adj.get(a)?.has(c) && adj.get(b)?.has(c)) triangles.push([a, b, c]);
+      }
+    }
+  }
+  const nodesOut = nodeList.map(n => ({
+    id: n,
+    paper_id: g.paper_ids[n],
+    title: g.titles[n],
+    is_center: false,
+  }));
+  return { nodesOut, edgesOut, triangles };
+}
+
+function buildGraphIndexes(g) {
+  if (g._adj) return g;
+  const adj = new Map();
+  const edgeW = new Map();
+  for (const [u, v, w] of g.edges) {
+    if (!adj.has(u)) adj.set(u, new Set());
+    if (!adj.has(v)) adj.set(v, new Set());
+    adj.get(u).add(v);
+    adj.get(v).add(u);
+    const key = u < v ? u + ',' + v : v + ',' + u;
+    edgeW.set(key, w);
+  }
+  g._adj = adj;
+  g._edgeW = edgeW;
+  return g;
+}
+
+async function graphExploreStatic(center, neighbors) {
+  const g = buildGraphIndexes(await ensureGraphBundle());
+  if (center < 0 || center >= g.n_nodes) return { error: 'node out of range' };
+  const nodesSet = expandNeighborhoodStatic(center, neighbors, g);
+  const { nodesOut, edgesOut, triangles } = inducedSubgraphStatic(nodesSet, g);
+  nodesOut.forEach(n => { n.is_center = n.id === center; });
+  return {
+    center_node: center,
+    n_neighbors_requested: Math.min(20, Math.max(1, neighbors)),
+    n_nodes: nodesOut.length,
+    n_edges: edgesOut.length,
+    n_triangles: triangles.length,
+    nodes: nodesOut,
+    edges: edgesOut,
+    triangles,
+  };
+}
+
 let allTriads = [];
 let triadPage = 1;
 const triadPageSize = 25;
@@ -316,13 +493,17 @@ function switchTab(name) {
 
 async function init() {
   lucide.createIcons();
-  const stats = await fetch('/api/stats').then(r => r.json());
-  document.getElementById('header-stats').textContent =
-    `${stats.n_papers?.toLocaleString()} papers · ${stats.n_edges?.toLocaleString()} edges · ${stats.n_ranked_triads} ranked triads · ${stats.n_hypotheses ?? 125} hypotheses`;
+  try {
+    const stats = await fetchJsonOrApi('/api/stats', '/data/stats.json');
+    document.getElementById('header-stats').textContent =
+      `${stats.n_papers?.toLocaleString()} papers · ${stats.n_edges?.toLocaleString()} edges · ${stats.n_ranked_triads} ranked triads · ${stats.n_hypotheses ?? 125} hypotheses`;
+  } catch (e) {
+    document.getElementById('header-stats').textContent = 'Stats unavailable (check data bundle)';
+  }
 
   await loadEvaluations();
 
-  const tri = await fetch('/api/triads/all').then(r => r.json());
+  const tri = await fetchJsonOrApi('/api/triads/all', '/data/triads.json');
   allTriads = tri.triads || [];
   renderTriads();
 
@@ -392,8 +573,17 @@ async function searchPapers() {
     box.classList.add('hidden');
     return;
   }
-  const data = await fetch('/api/papers/search?q=' + encodeURIComponent(q) + '&limit=35').then(r => r.json());
-  const hits = data.results || [];
+  let hits;
+  if (!STATIC_MODE) {
+    try {
+      const data = await fetch('/api/papers/search?q=' + encodeURIComponent(q) + '&limit=35').then(r => r.json());
+      hits = data.results || [];
+    } catch (_) { hits = null; }
+  }
+  if (hits == null) {
+    const g = buildGraphIndexes(await ensureGraphBundle());
+    hits = searchPapersStatic(q, 35, g);
+  }
   if (!hits.length) {
     box.innerHTML = '<div class="p-3 text-slate-500 text-xs">No papers matched.</div>';
     box.classList.remove('hidden');
@@ -425,13 +615,32 @@ async function runGraphExplore() {
   if (selectedPaperNode == null) {
     const q = document.getElementById('paper-query').value.trim();
     if (!q) { alert('Enter a query and select a paper from the list.'); return; }
-    const data = await fetch('/api/papers/search?q=' + encodeURIComponent(q) + '&limit=1').then(r => r.json());
-    if (!data.results?.length) { alert('No paper found.'); return; }
-    selectedPaperNode = data.results[0].node;
+    let hit = null;
+    if (!STATIC_MODE) {
+      try {
+        const data = await fetch('/api/papers/search?q=' + encodeURIComponent(q) + '&limit=1').then(r => r.json());
+        hit = data.results?.[0];
+      } catch (_) {}
+    }
+    if (!hit) {
+      const g = buildGraphIndexes(await ensureGraphBundle());
+      const hits = searchPapersStatic(q, 1, g);
+      hit = hits[0];
+    }
+    if (!hit) { alert('No paper found.'); return; }
+    selectedPaperNode = hit.node;
   }
-  const neighbors = document.getElementById('neighbor-count').value;
-  const url = `/api/graph/explore?node=${selectedPaperNode}&neighbors=${neighbors}`;
-  const data = await fetch(url).then(r => r.json());
+  const neighbors = parseInt(document.getElementById('neighbor-count').value, 10);
+  let data;
+  if (!STATIC_MODE) {
+    try {
+      const url = `/api/graph/explore?node=${selectedPaperNode}&neighbors=${neighbors}`;
+      data = await fetch(url).then(r => r.json());
+    } catch (_) { data = null; }
+  }
+  if (data == null) {
+    data = await graphExploreStatic(selectedPaperNode, neighbors);
+  }
   if (data.error) { alert(data.error); return; }
 
   document.getElementById('graph-summary').innerHTML = `
@@ -523,7 +732,7 @@ function bindTriangleFaces(net, triangles) {
 async function loadPipelineArticle() {
   const art = document.getElementById('pipeline-article');
   try {
-    const p = await fetch('/api/pipeline').then(r => r.json());
+    const p = await fetchJsonOrApi('/api/pipeline', '/data/pipeline.json');
     const m = p.metrics || {};
     let body = '';
 
@@ -607,22 +816,12 @@ function fmt(n) {
 async function loadEvaluations() {
   const container = document.getElementById('evaluations-container');
   try {
-    const res = await fetch('/api/evaluations');
-    if (!res.ok) throw new Error('API error');
-    const data = await res.json();
+    const data = await fetchJsonOrApi('/api/evaluations', '/data/evaluations.json');
     evaluationsData = data.evaluations || [];
     updateEvalFilterCounts();
     renderEvaluations(evaluationsData);
-  } catch (e) {
-    try {
-      const res = await fetch('/data/evaluations.json');
-      const data = await res.json();
-      evaluationsData = data.evaluations || [];
-      updateEvalFilterCounts();
-      renderEvaluations(evaluationsData);
-    } catch (err) {
-      container.innerHTML = '<div class="text-rose-400 text-center py-8">Failed to load evaluations.</div>';
-    }
+  } catch (err) {
+    container.innerHTML = '<div class="text-rose-400 text-center py-8">Failed to load evaluations.</div>';
   }
 }
 

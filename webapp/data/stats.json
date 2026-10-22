@@ -1,0 +1,1 @@
+{"n_papers":42164,"n_edges":166993,"n_simplices_total":94180,"n_ranked_triads":1000,"n_evaluations":25,"n_hypotheses":125,"avg_synergy_score":6.5,"verdict_breakdown":{"genuine_synergy":11,"moderate_overlap":9,"spurious":5},"knn_k":5}

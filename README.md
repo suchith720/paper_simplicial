@@ -23,6 +23,17 @@ python run_webapp.py --port 8501
 ```
 Open **`http://localhost:8501`** in your browser.
 
+### GitHub Pages (static demo)
+
+The UI at [suchith720.github.io/paper_simplicial/webapp/](https://suchith720.github.io/paper_simplicial/webapp/) is **static only** (no Python on Pages). Regenerate bundled JSON after pipeline or content changes:
+
+```bash
+python run_webapp.py --export-static
+# or: python scripts/export_webapp_static_data.py
+```
+
+Commit `webapp/data/*.json` and `webapp/index.html`, then push to `main`. Pages serves the `webapp/` folder under the repo path `/paper_simplicial/webapp/`.
+
 ---
 
 ## 2. Pipeline Architecture

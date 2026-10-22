@@ -447,7 +447,17 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Paper Simplicial Discovery web app")
     parser.add_argument("--host", default="0.0.0.0")
     parser.add_argument("--port", type=int, default=8501)
+    parser.add_argument(
+        "--export-static",
+        action="store_true",
+        help="Write webapp/data/*.json for GitHub Pages, then exit",
+    )
     args = parser.parse_args()
+
+    if args.export_static:
+        from scripts.export_webapp_static_data import main as export_main
+
+        return export_main()
 
     if not WEBAPP_DIR.is_dir():
         print(f"Missing {WEBAPP_DIR}", file=sys.stderr)
