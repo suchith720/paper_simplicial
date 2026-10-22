@@ -393,11 +393,13 @@
     // State
     let currentTab = 'evaluations';
     let evaluationsData = [];
+    let allTriadsData = [];
     let currentFilter = 'all';
     let currentExplorerPage = 1;
     let explorerLimit = 20;
     let networkInstance = null;
     let activeVisualizerTriad = 1;
+    let isStaticMode = false;
 
     // Initialize App
     document.addEventListener('DOMContentLoaded', async () => {
@@ -408,49 +410,51 @@
       initNetworkGraph();
     });
 
-    // Tab Switching
-    function switchTab(tabId) {
-      currentTab = tabId;
-      document.querySelectorAll('.tab-view').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('border-emerald-500', 'text-emerald-400');
-        btn.classList.add('border-transparent', 'text-slate-400');
-      });
-
-      document.getElementById(`view-${tabId}`).classList.remove('hidden');
-      const activeBtn = document.getElementById(`tab-btn-${tabId}`);
-      activeBtn.classList.remove('border-transparent', 'text-slate-400');
-      activeBtn.classList.add('border-emerald-500', 'text-emerald-400');
-
-      if (tabId === 'visualizer' && networkInstance) {
-        setTimeout(() => networkInstance.fit(), 100);
-      }
-    }
-
     // Load Stats
     async function loadStats() {
       try {
-        const res = await fetch('/api/stats');
+        let res = await fetch('/api/stats');
+        if (!res.ok) throw new Error('API not available, fallback to static');
         const data = await res.json();
-        document.getElementById('stat-papers').innerText = data.n_papers.toLocaleString() + ' papers';
-        document.getElementById('stat-simplices').innerText = data.n_simplices_total.toLocaleString();
-        document.getElementById('stat-ranked').innerText = data.n_ranked_triads.toLocaleString();
-        document.getElementById('stat-hypotheses').innerText = data.n_hypotheses.toLocaleString();
+        updateStatsUI(data);
       } catch (e) {
-        console.warn('API error, using cached stats:', e);
+        try {
+          isStaticMode = true;
+          const res = await fetch('data/stats.json');
+          const data = await res.json();
+          updateStatsUI(data);
+        } catch (err) {
+          console.warn('Using fallback stats:', err);
+        }
       }
+    }
+
+    function updateStatsUI(data) {
+      document.getElementById('stat-papers').innerText = data.n_papers.toLocaleString() + ' papers';
+      document.getElementById('stat-simplices').innerText = data.n_simplices_total.toLocaleString();
+      document.getElementById('stat-ranked').innerText = data.n_ranked_triads.toLocaleString();
+      document.getElementById('stat-hypotheses').innerText = data.n_hypotheses.toLocaleString();
     }
 
     // Load Evaluations
     async function loadEvaluations() {
       const container = document.getElementById('evaluations-container');
       try {
-        const res = await fetch('/api/evaluations');
+        let res = await fetch('/api/evaluations');
+        if (!res.ok) throw new Error('API not available');
         const data = await res.json();
         evaluationsData = data.evaluations || [];
         renderEvaluations(evaluationsData);
       } catch (e) {
-        container.innerHTML = `<div class="text-rose-400 text-center py-8">Failed to load evaluations from API.</div>`;
+        try {
+          isStaticMode = true;
+          const res = await fetch('data/evaluations.json');
+          const data = await res.json();
+          evaluationsData = data.evaluations || [];
+          renderEvaluations(evaluationsData);
+        } catch (err) {
+          container.innerHTML = `<div class="text-rose-400 text-center py-8">Failed to load evaluations data.</div>`;
+        }
       }
     }
 
@@ -681,26 +685,65 @@
     }
 
     async function loadTriads() {
-      const q = document.getElementById('explorer-search').value;
-      const minScore = document.getElementById('min-score-slider').value;
+      const q = document.getElementById('explorer-search').value.toLowerCase().trim();
+      const minScore = parseFloat(document.getElementById('min-score-slider').value);
       const tbody = document.getElementById('triads-table-body');
 
       try {
-        const url = `/api/triads?q=${encodeURIComponent(q)}&min_score=${minScore}&page=${currentExplorerPage}&limit=${explorerLimit}`;
-        const res = await fetch(url);
-        const data = await res.json();
+        let items = [];
+        let total = 0;
+        let totalPages = 1;
 
-        document.getElementById('triads-count-display').innerText = data.total.toLocaleString();
-        document.getElementById('pagination-info').innerText = `Page ${data.page} of ${data.total_pages || 1} (${data.total.toLocaleString()} total)`;
-        document.getElementById('btn-prev-page').disabled = (data.page <= 1);
-        document.getElementById('btn-next-page').disabled = (data.page >= data.total_pages);
+        if (!isStaticMode) {
+          try {
+            const url = `/api/triads?q=${encodeURIComponent(q)}&min_score=${minScore}&page=${currentExplorerPage}&limit=${explorerLimit}`;
+            const res = await fetch(url);
+            if (!res.ok) throw new Error('API not available');
+            const data = await res.json();
+            items = data.triads;
+            total = data.total;
+            totalPages = data.total_pages;
+          } catch (e) {
+            isStaticMode = true;
+          }
+        }
 
-        if (!data.triads || data.triads.length === 0) {
+        if (isStaticMode) {
+          if (allTriadsData.length === 0) {
+            const res = await fetch('data/triads.json');
+            const data = await res.json();
+            allTriadsData = data.triads || [];
+          }
+
+          let filtered = allTriadsData;
+          if (minScore > 0) {
+            filtered = filtered.filter(t => t.score >= minScore);
+          }
+          if (q) {
+            filtered = filtered.filter(t => 
+              t.title_u.toLowerCase().includes(q) ||
+              t.title_v.toLowerCase().includes(q) ||
+              t.title_w.toLowerCase().includes(q) ||
+              t.paper_id_u.includes(q) || t.paper_id_v.includes(q) || t.paper_id_w.includes(q)
+            );
+          }
+          total = filtered.length;
+          totalPages = Math.ceil(total / explorerLimit) || 1;
+          const start = (currentExplorerPage - 1) * explorerLimit;
+          items = filtered.slice(start, start + explorerLimit);
+        }
+
+        document.getElementById('triads-count-display').innerText = total.toLocaleString();
+        document.getElementById('pagination-info').innerText = `Page ${currentExplorerPage} of ${totalPages} (${total.toLocaleString()} total)`;
+        document.getElementById('btn-prev-page').disabled = (currentExplorerPage <= 1);
+        document.getElementById('btn-next-page').disabled = (currentExplorerPage >= totalPages);
+
+        if (!items || items.length === 0) {
           tbody.innerHTML = `<tr><td colspan="6" class="text-center py-8 text-slate-500">No triads matched your criteria.</td></tr>`;
           return;
         }
 
-        tbody.innerHTML = data.triads.map(t => {
+        tbody.innerHTML = items.map(t => {
           return `
             <tr class="hover:bg-slate-800/40 transition">
               <td class="py-3 px-4 font-mono font-bold text-slate-400 text-center">#${t.rank}</td>
@@ -722,7 +765,7 @@
 
         lucide.createIcons();
       } catch (e) {
-        tbody.innerHTML = `<tr><td colspan="6" class="text-center py-8 text-rose-400">Failed to load triads.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="6" class="text-center py-8 text-rose-400">Failed to load triads data.</td></tr>`;
       }
     }
 
@@ -742,10 +785,35 @@
       body.innerHTML = `<div class="text-center py-8 text-slate-500">Loading details...</div>`;
 
       try {
-        const res = await fetch(`/api/triad/${rank}`);
-        const data = await res.json();
-        const t = data.triad;
-        const ev = data.evaluation;
+        let t = null;
+        let ev = null;
+
+        if (!isStaticMode) {
+          try {
+            const res = await fetch(`/api/triad/${rank}`);
+            if (res.ok) {
+              const data = await res.json();
+              t = data.triad;
+              ev = data.evaluation;
+            } else {
+              isStaticMode = true;
+            }
+          } catch (e) {
+            isStaticMode = true;
+          }
+        }
+
+        if (isStaticMode) {
+          if (allTriadsData.length === 0) {
+            const res = await fetch('data/triads.json');
+            const data = await res.json();
+            allTriadsData = data.triads || [];
+          }
+          t = allTriadsData.find(x => x.rank === rank);
+          ev = evaluationsData.find(x => x.triad_id === rank);
+        }
+
+        if (!t) throw new Error('Triad not found');
 
         body.innerHTML = `
           <div class="grid grid-cols-3 gap-3 text-center pb-2 border-b border-slate-800">
@@ -799,10 +867,35 @@
       const container = document.getElementById('network-canvas');
 
       try {
-        const res = await fetch(`/api/triad/${activeVisualizerTriad}`);
-        const data = await res.json();
-        const t = data.triad;
-        const ev = data.evaluation;
+        let t = null;
+        let ev = null;
+
+        if (!isStaticMode) {
+          try {
+            const res = await fetch(`/api/triad/${activeVisualizerTriad}`);
+            if (res.ok) {
+              const data = await res.json();
+              t = data.triad;
+              ev = data.evaluation;
+            } else {
+              isStaticMode = true;
+            }
+          } catch (e) {
+            isStaticMode = true;
+          }
+        }
+
+        if (isStaticMode) {
+          if (allTriadsData.length === 0) {
+            const res = await fetch('data/triads.json');
+            const data = await res.json();
+            allTriadsData = data.triads || [];
+          }
+          t = allTriadsData.find(x => x.rank === activeVisualizerTriad);
+          ev = evaluationsData.find(x => x.triad_id === activeVisualizerTriad);
+        }
+
+        if (!t) return;
 
         // Update inspector panel
         document.getElementById('inspector-title').innerText = `Triad #${activeVisualizerTriad}`;
