@@ -3,964 +3,811 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PaperSimplex AI — Topological Simplicial Discovery & Hypothesis Synthesis</title>
-  
-  <!-- Tailwind CSS CDN -->
+  <title>Paper Simplicial Discovery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- Vis.js Network for interactive graph visualization -->
-  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
-  
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+          },
           colors: {
-            brand: {
-              50: '#f0fdf4',
-              100: '#dcfce7',
-              500: '#22c55e',
-              600: '#16a34a',
-              700: '#15803d',
-              900: '#14532d',
-            },
-            synergy: {
-              green: '#10b981',
-              blue: '#3b82f6',
-              amber: '#f59e0b',
-              red: '#ef4444',
-            }
-          }
-        }
-      }
-    }
+            ink: { 950: '#070b14', 900: '#0c1222', 800: '#131c31' },
+            accent: { cyan: '#22d3ee', violet: '#a78bfa', mint: '#34d399', rose: '#fb7185' },
+          },
+          boxShadow: {
+            glow: '0 0 40px -8px rgba(34, 211, 238, 0.35)',
+            card: '0 4px 24px -4px rgba(0,0,0,0.45)',
+          },
+        },
+      },
+    };
   </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <style>
-    .glass {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
+    :root {
+      --glass: rgba(15, 23, 42, 0.55);
+      --glass-border: rgba(148, 163, 184, 0.12);
+      --gradient-brand: linear-gradient(135deg, #22d3ee 0%, #818cf8 45%, #c084fc 100%);
     }
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: #070b14;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(34, 211, 238, 0.15), transparent),
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(167, 139, 250, 0.18), transparent),
+        radial-gradient(ellipse 50% 30% at 50% 100%, rgba(52, 211, 153, 0.08), transparent);
+      background-attachment: fixed;
     }
-    .custom-scrollbar::-webkit-scrollbar-track {
-      background: #f1f5f9;
+    .glass-panel {
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.4);
     }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 4px;
+    .brand-text {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
+    .tab-btn {
+      transition: all 0.2s ease;
+      border-radius: 9999px;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #94a3b8;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .tab-btn:hover { color: #e2e8f0; background: rgba(255,255,255,0.04); }
+    .tab-btn.tab-active {
+      color: #0f172a;
+      background: var(--gradient-brand);
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 0 24px -4px rgba(34, 211, 238, 0.5);
+    }
+    .input-modern {
+      background: rgba(7, 11, 20, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 12px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .input-modern:focus {
+      outline: none;
+      border-color: rgba(34, 211, 238, 0.5);
+      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
+    }
+    .btn-primary {
+      background: var(--gradient-brand);
+      color: #0f172a;
+      font-weight: 700;
+      border-radius: 12px;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px -6px rgba(34, 211, 238, 0.45);
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #cbd5e1;
+    }
+    .eval-filter-btn { transition: all 0.15s; border-radius: 9999px; }
+    .eval-filter-btn.filter-active {
+      background: rgba(34, 211, 238, 0.15) !important;
+      border-color: rgba(34, 211, 238, 0.4) !important;
+      color: #67e8f9 !important;
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.35); border-radius: 4px; }
+    .paper-hit {
+      border-left: 3px solid transparent;
+      transition: all 0.15s;
+    }
+    .paper-hit:hover {
+      background: rgba(129, 140, 248, 0.12);
+      border-left-color: #818cf8;
+    }
+    .paper-hit.selected {
+      background: rgba(52, 211, 153, 0.12);
+      border-left-color: #34d399;
+    }
+    #network { border-radius: 16px; }
+    .medium-article { font-family: 'Instrument Serif', Georgia, serif; }
+    .medium-article .sans { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .medium-article h1 { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 2.25rem; line-height: 1.15; letter-spacing: -0.02em; }
+    .medium-article .subtitle { font-size: 1.25rem; line-height: 1.5; color: #94a3b8; font-weight: 400; }
+    .medium-article .lead { font-size: 1.125rem; line-height: 1.75; color: #cbd5e1; }
+    .medium-article h2 { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #f1f5f9; }
+    .medium-article h3 { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 1.1rem; margin-top: 1.5rem; color: #e2e8f0; }
+    .medium-article p { margin-bottom: 1.25rem; color: #cbd5e1; line-height: 1.8; }
+    .medium-article .pullquote { border-left: 4px solid #10b981; padding: 0.75rem 0 0.75rem 1.25rem; margin: 2rem 0; font-size: 1.15rem; font-style: italic; color: #e2e8f0; background: rgba(16,185,129,0.06); border-radius: 0 8px 8px 0; }
+    .medium-article .stage-card { border: 1px solid #334155; border-radius: 12px; padding: 1rem; background: #0f172a; }
+    .medium-article table { width: 100%; border-collapse: collapse; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; }
+    .medium-article th, .medium-article td { border-bottom: 1px solid #334155; padding: 0.65rem 0.5rem; text-align: left; }
+    .medium-article th { color: #94a3b8; font-weight: 600; }
+    .medium-article .example-card { background: #0f172a; border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
   </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans antialiased">
+<body class="text-slate-100 min-h-screen flex flex-col antialiased">
 
-  <!-- Top Navbar -->
-  <header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-50 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-          <i data-lucide="triangle" class="w-5 h-5 text-white"></i>
-        </div>
-        <div>
-          <div class="flex items-center space-x-2">
-            <span class="font-bold text-lg tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">PaperSimplex AI</span>
-            <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-medium border border-emerald-500/30">Gemini 3.1 Pro</span>
-          </div>
-          <p class="text-xs text-slate-400 hidden sm:block">Topological Simplicial Discovery & Hypothesis Generation</p>
-        </div>
+<header class="sticky top-0 z-50 glass-panel border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+    <div class="flex items-center gap-4">
+      <div class="relative w-12 h-12 rounded-2xl flex items-center justify-center shadow-glow" style="background: var(--gradient-brand);">
+        <i data-lucide="shapes" class="w-6 h-6 text-ink-950"></i>
       </div>
+      <div>
+        <h1 class="text-lg font-extrabold tracking-tight brand-text">Paper Simplicial Discovery</h1>
+        <p class="text-[11px] text-slate-400 font-medium mt-0.5" id="header-stats">Loading corpus stats…</p>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-2" id="header-chips">
+      <span class="chip"><i data-lucide="layers" class="w-3 h-3 text-cyan-400"></i> 2-Simplices</span>
+      <span class="chip"><i data-lucide="sparkles" class="w-3 h-3 text-violet-400"></i> LLM Hypotheses</span>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 pb-4 flex gap-2 overflow-x-auto custom-scrollbar">
+    <button type="button" data-tab="evaluations" class="tab-btn tab-active">✦ Top 25 Evaluations</button>
+    <button type="button" data-tab="explorer" class="tab-btn">1,000 Triads</button>
+    <button type="button" data-tab="graph" class="tab-btn">Neighborhood Graph</button>
+    <button type="button" data-tab="article" class="tab-btn">Architecture</button>
+  </div>
+</header>
 
-      <!-- Quick Metrics Pills -->
-      <div class="hidden lg:flex items-center space-x-3 text-xs">
-        <div class="px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/60 flex items-center space-x-2">
-          <span class="text-slate-400">Corpus:</span>
-          <span class="font-semibold text-slate-200" id="stat-papers">42,164 papers</span>
-        </div>
-        <div class="px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/60 flex items-center space-x-2">
-          <span class="text-slate-400">2-Simplices:</span>
-          <span class="font-semibold text-indigo-400" id="stat-simplices">94,180</span>
-        </div>
-        <div class="px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/60 flex items-center space-x-2">
-          <span class="text-slate-400">Ranked Triads:</span>
-          <span class="font-semibold text-emerald-400" id="stat-ranked">1,000</span>
-        </div>
-        <div class="px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/60 flex items-center space-x-2">
-          <span class="text-slate-400">Synthesized Hypotheses:</span>
-          <span class="font-semibold text-amber-400" id="stat-hypotheses">125</span>
+<main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-8">
+
+  <!-- TOP 25 EVALUATIONS (from original webapp) -->
+  <section id="view-evaluations" class="tab-panel space-y-6">
+    <div class="glass-panel p-5 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="flex items-center gap-2 overflow-x-auto custom-scrollbar pb-1 md:pb-0">
+        <span class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mr-2 shrink-0">Verdict</span>
+        <button type="button" onclick="filterEvaluations('all')" class="eval-filter-btn filter-active px-3 py-1.5 text-xs font-semibold border border-white/10 bg-white/5" data-filter="all">All (25)</button>
+        <button type="button" onclick="filterEvaluations('genuine')" class="eval-filter-btn px-3 py-1.5 text-xs font-semibold text-emerald-400 border border-emerald-500/25 bg-emerald-500/5" data-filter="genuine">Genuine</button>
+        <button type="button" onclick="filterEvaluations('moderate')" class="eval-filter-btn px-3 py-1.5 text-xs font-semibold text-sky-400 border border-sky-500/25 bg-sky-500/5" data-filter="moderate">Moderate</button>
+        <button type="button" onclick="filterEvaluations('spurious')" class="eval-filter-btn px-3 py-1.5 text-xs font-semibold text-rose-400 border border-rose-500/25 bg-rose-500/5" data-filter="spurious">Spurious</button>
+      </div>
+      <div class="relative w-full md:w-80 shrink-0">
+        <i data-lucide="search" class="w-4 h-4 text-slate-500 absolute left-3.5 top-3"></i>
+        <input type="text" id="eval-search-input" oninput="searchEvaluations(this.value)" placeholder="Search hypotheses, titles, topics…"
+          class="input-modern w-full pl-10 pr-4 py-2.5 text-sm text-slate-200 placeholder-slate-500">
+      </div>
+    </div>
+    <div id="evaluations-container" class="space-y-6">
+      <div class="text-center py-12 text-slate-500 text-sm flex items-center justify-center gap-2">
+        <i data-lucide="loader" class="w-5 h-5 animate-spin"></i>
+        <span>Loading Gemini Pro evaluations…</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP 1000 EXPLORER -->
+  <section id="view-explorer" class="tab-panel hidden space-y-5">
+    <div class="glass-panel rounded-2xl p-5 flex flex-wrap gap-4 items-center">
+      <div class="flex-1 min-w-[240px]">
+        <input id="triad-search" type="text" placeholder="Search titles or paper IDs…"
+          class="input-modern w-full px-4 py-2.5 text-sm">
+      </div>
+      <label class="text-xs text-slate-400 flex items-center gap-2 font-medium">
+        Min score
+        <input id="triad-min-score" type="range" min="0.944" max="0.972" step="0.001" value="0.944" class="w-32 accent-cyan-400">
+        <span id="triad-min-label" class="font-mono text-cyan-300 tabular-nums">0.944</span>
+      </label>
+      <span class="chip"><span id="triad-count">0</span> triads</span>
+    </div>
+    <div class="glass-panel rounded-2xl overflow-hidden">
+      <div class="overflow-x-auto custom-scrollbar max-h-[70vh]">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-ink-950/80 text-slate-400 uppercase text-[10px] tracking-wider sticky top-0 backdrop-blur">
+            <tr>
+              <th class="p-3 w-14">Rank</th>
+              <th class="p-3 w-24">Score</th>
+              <th class="p-3">Paper 1</th>
+              <th class="p-3">Paper 2</th>
+              <th class="p-3">Paper 3</th>
+            </tr>
+          </thead>
+          <tbody id="triad-tbody" class="divide-y divide-slate-800"></tbody>
+        </table>
+      </div>
+      <div class="p-4 border-t border-white/5 flex justify-between items-center text-xs text-slate-400">
+        <span id="triad-page-info" class="font-medium">Page 1</span>
+        <div class="flex gap-2">
+          <button type="button" id="triad-prev" class="px-4 py-1.5 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 font-semibold">Prev</button>
+          <button type="button" id="triad-next" class="px-4 py-1.5 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 font-semibold">Next</button>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Sub-navigation Tabs -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-1 border-t border-slate-800/60 overflow-x-auto custom-scrollbar">
-      <button onclick="switchTab('evaluations')" id="tab-btn-evaluations" class="tab-btn flex items-center space-x-2 px-4 py-3 border-b-2 font-medium text-sm transition-all border-emerald-500 text-emerald-400">
-        <i data-lucide="sparkles" class="w-4 h-4"></i>
-        <span>AI Evaluations & Hypotheses (Top 25)</span>
-      </button>
-      <button onclick="switchTab('explorer')" id="tab-btn-explorer" class="tab-btn flex items-center space-x-2 px-4 py-3 border-b-2 font-medium text-sm transition-all border-transparent text-slate-400 hover:text-slate-200">
-        <i data-lucide="list-ordered" class="w-4 h-4"></i>
-        <span>Top 1,000 Triads Explorer</span>
-      </button>
-      <button onclick="switchTab('visualizer')" id="tab-btn-visualizer" class="tab-btn flex items-center space-x-2 px-4 py-3 border-b-2 font-medium text-sm transition-all border-transparent text-slate-400 hover:text-slate-200">
-        <i data-lucide="network" class="w-4 h-4"></i>
-        <span>Interactive Simplex Graph</span>
-      </button>
-      <button onclick="switchTab('methodology')" id="tab-btn-methodology" class="tab-btn flex items-center space-x-2 px-4 py-3 border-b-2 font-medium text-sm transition-all border-transparent text-slate-400 hover:text-slate-200">
-        <i data-lucide="book-open" class="w-4 h-4"></i>
-        <span>Architecture & Pipeline</span>
-      </button>
-    </div>
-  </header>
-
-  <!-- Main Content Container -->
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
-
-    <!-- ============================================================== -->
-    <!-- TAB 1: AI EVALUATIONS & HYPOTHESES (TOP 25)                     -->
-    <!-- ============================================================== -->
-    <section id="view-evaluations" class="tab-view block space-y-6">
-      
-      <!-- Top Filter Bar -->
-      <div class="bg-slate-800/60 p-4 rounded-2xl border border-slate-700/60 flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div class="flex items-center space-x-2 overflow-x-auto custom-scrollbar pb-1 md:pb-0">
-          <span class="text-xs text-slate-400 font-medium uppercase tracking-wider mr-2">Filter by Verdict:</span>
-          <button onclick="filterEvaluations('all')" class="eval-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-700 text-white border border-slate-600 transition" data-filter="all">All (25)</button>
-          <button onclick="filterEvaluations('genuine')" class="eval-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-emerald-400 hover:bg-slate-700 border border-emerald-500/20 transition" data-filter="genuine">Genuine Synergy (11)</button>
-          <button onclick="filterEvaluations('moderate')" class="eval-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-blue-400 hover:bg-slate-700 border border-blue-500/20 transition" data-filter="moderate">Moderate Overlap (9)</button>
-          <button onclick="filterEvaluations('spurious')" class="eval-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-rose-400 hover:bg-slate-700 border border-rose-500/20 transition" data-filter="spurious">Spurious (5)</button>
-        </div>
-
-        <div class="relative w-full md:w-72">
-          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
-          <input type="text" id="eval-search-input" oninput="searchEvaluations(this.value)" placeholder="Search hypotheses, titles, topics..." class="w-full bg-slate-900 border border-slate-700 rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500">
-        </div>
-      </div>
-
-      <!-- Evaluation Cards List -->
-      <div id="evaluations-container" class="space-y-6">
-        <div class="text-center py-12 text-slate-500 text-sm flex items-center justify-center space-x-2">
-          <i data-lucide="loader" class="w-5 h-5 animate-spin"></i>
-          <span>Loading Gemini Pro evaluations...</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================== -->
-    <!-- TAB 2: TOP 1,000 TRIADS EXPLORER                                -->
-    <!-- ============================================================== -->
-    <section id="view-explorer" class="tab-view hidden space-y-6">
-      
-      <!-- Explorer Search & Controls -->
-      <div class="bg-slate-800/60 p-4 rounded-2xl border border-slate-700/60 flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div class="flex-1 relative">
-          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
-          <input type="text" id="explorer-search" oninput="debounceSearchTriads(this.value)" placeholder="Search 1,000 triads by paper title, keyword, or paper ID..." class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500">
-        </div>
-        
-        <div class="flex items-center space-x-4">
-          <div class="flex items-center space-x-2 text-xs text-slate-400">
-            <span>Min Score:</span>
-            <input type="range" id="min-score-slider" min="0.94" max="0.97" step="0.005" value="0.94" oninput="updateMinScore(this.value)" class="w-24 accent-indigo-500">
-            <span id="min-score-val" class="font-mono text-indigo-400">0.940</span>
-          </div>
-
-          <div class="text-xs text-slate-400 font-mono">
-            Showing <span id="triads-count-display" class="font-semibold text-slate-200">0</span> triads
-          </div>
-        </div>
-      </div>
-
-      <!-- Table Container -->
-      <div class="bg-slate-800/60 rounded-2xl border border-slate-700/60 overflow-hidden shadow-xl">
-        <div class="overflow-x-auto custom-scrollbar">
-          <table class="w-full text-left text-xs text-slate-300">
-            <thead class="bg-slate-900/80 text-slate-400 font-semibold uppercase tracking-wider border-b border-slate-700/60">
-              <tr>
-                <th class="py-3 px-4 w-16 text-center">Rank</th>
-                <th class="py-3 px-4 w-28">Score</th>
-                <th class="py-3 px-4">Paper 1</th>
-                <th class="py-3 px-4">Paper 2</th>
-                <th class="py-3 px-4">Paper 3</th>
-                <th class="py-3 px-4 w-24 text-center">Actions</th>
-              </tr>
-            </thead>
-            <tbody id="triads-table-body" class="divide-y divide-slate-800/60">
-              <tr>
-                <td colspan="6" class="text-center py-10 text-slate-500">Loading triads...</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Pagination Bar -->
-        <div class="p-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
-          <div id="pagination-info">Page 1 of 50</div>
-          <div class="flex space-x-2">
-            <button onclick="changePage(-1)" id="btn-prev-page" class="px-3 py-1.5 rounded-lg bg-slate-700 hover:bg-slate-600 text-slate-200 disabled:opacity-40 transition">Previous</button>
-            <button onclick="changePage(1)" id="btn-next-page" class="px-3 py-1.5 rounded-lg bg-slate-700 hover:bg-slate-600 text-slate-200 disabled:opacity-40 transition">Next</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================== -->
-    <!-- TAB 3: INTERACTIVE SIMPLEX GRAPH                               -->
-    <!-- ============================================================== -->
-    <section id="view-visualizer" class="tab-view hidden space-y-6">
-      <div class="bg-slate-800/60 p-4 rounded-2xl border border-slate-700/60 flex flex-col md:flex-row md:items-center justify-between gap-4">
+  <!-- NEIGHBORHOOD GRAPH -->
+  <section id="view-graph" class="tab-panel hidden space-y-5">
+    <div class="glass-panel rounded-2xl p-6 space-y-4">
+      <p class="text-sm text-slate-400 leading-relaxed">Search by <span class="text-cyan-300 font-semibold">node id</span>, <span class="text-violet-300 font-semibold">paper_id</span>, or <span class="text-emerald-300 font-semibold">title</span> — select a match, choose up to 20 neighbors, then visualize filled 2-simplices.</p>
+      <div class="grid md:grid-cols-2 gap-4">
         <div>
-          <h2 class="text-base font-semibold text-slate-200 flex items-center space-x-2">
-            <i data-lucide="triangle" class="w-5 h-5 text-indigo-400"></i>
-            <span>2-Simplex Graph Network Visualizer</span>
-          </h2>
-          <p class="text-xs text-slate-400">Interactive physics visualization of the 3 papers forming the closed 2-simplex face with pairwise cosine similarities.</p>
+          <label class="text-xs text-slate-400 block mb-1">Search query</label>
+          <input id="paper-query" type="text" placeholder="e.g. 2508, energy simulation, 81572374"
+            class="input-modern w-full px-4 py-2.5 text-sm">
+          <div id="paper-results" class="mt-2 max-h-48 overflow-y-auto custom-scrollbar glass-panel rounded-xl hidden"></div>
+          <p id="paper-selected" class="text-[11px] text-emerald-400 mt-2 hidden"></p>
         </div>
-
-        <!-- Preset Selector -->
-        <div class="flex items-center space-x-2">
-          <label class="text-xs text-slate-400">Select Triad:</label>
-          <select id="visualizer-triad-select" onchange="loadVisualizerTriad(this.value)" class="bg-slate-900 border border-slate-700 text-xs text-slate-200 rounded-lg px-3 py-1.5 focus:outline-none focus:border-indigo-500">
-            <option value="1">Triad #01: Renewable Energy & Microreactors (7.8/10)</option>
-            <option value="2">Triad #02: Heterocycle Catalysis & Herbimycin (7.3/10)</option>
-            <option value="7">Triad #07: Cancer Mechanophenotyping (8.2/10)</option>
-            <option value="11">Triad #11: Stem Cell & DNA Damage Preservation (8.2/10)</option>
-            <option value="14">Triad #14: Targeted Oncology Dual-Imaging (8.4/10)</option>
-            <option value="18">Triad #18: Geriatric Robotics & Dementia (8.3/10)</option>
-            <option value="19">Triad #19: Liposomal Gene Vector Kinetics (8.7/10)</option>
-            <option value="21">Triad #21: Exosome Nanogels & Optical Tweezers (8.7/10)</option>
-            <option value="5">Triad #05: Spurious Keyword Co-occurrence (3.2/10)</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Graph Canvas and Inspector -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <!-- Interactive Canvas -->
-        <div class="lg:col-span-2 bg-slate-950 rounded-2xl border border-slate-800 p-4 h-[520px] relative overflow-hidden flex flex-col justify-between shadow-2xl">
-          <div id="network-canvas" class="w-full h-full"></div>
-          <div class="absolute bottom-4 left-4 text-[10px] text-slate-500 bg-slate-900/80 px-2.5 py-1 rounded-md backdrop-blur border border-slate-800">
-            Click & drag nodes • Scroll to zoom • Green edge labels indicate pairwise cosine similarities
-          </div>
-        </div>
-
-        <!-- Node / Triad Inspector Panel -->
-        <div class="bg-slate-800/60 rounded-2xl border border-slate-700/60 p-5 flex flex-col justify-between">
-          <div id="inspector-content" class="space-y-4">
-            <div class="border-b border-slate-700/60 pb-3">
-              <span class="text-xs font-semibold uppercase tracking-wider text-indigo-400">Active Simplex Details</span>
-              <h3 id="inspector-title" class="text-sm font-bold text-slate-100 mt-1">Triad #01</h3>
-              <p id="inspector-verdict" class="text-xs text-emerald-400 font-medium">Genuine Cross-Disciplinary Synergy</p>
-            </div>
-
-            <div class="space-y-3 text-xs">
-              <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-700/40">
-                <span class="text-slate-400 block mb-1 font-semibold">Paper 1:</span>
-                <span id="inspect-p1-title" class="text-slate-200">Loading...</span>
-              </div>
-              <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-700/40">
-                <span class="text-slate-400 block mb-1 font-semibold">Paper 2:</span>
-                <span id="inspect-p2-title" class="text-slate-200">Loading...</span>
-              </div>
-              <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-700/40">
-                <span class="text-slate-400 block mb-1 font-semibold">Paper 3:</span>
-                <span id="inspect-p3-title" class="text-slate-200">Loading...</span>
-              </div>
-            </div>
-
-            <div class="pt-2">
-              <span class="text-xs text-slate-400 font-semibold block mb-1">Top Synthesized Direction:</span>
-              <p id="inspect-top-hypothesis" class="text-xs text-slate-300 italic">"..."</p>
-            </div>
-          </div>
-
-          <button onclick="viewActiveTriadInEval()" class="mt-4 w-full py-2 bg-gradient-to-r from-emerald-600 to-indigo-600 hover:from-emerald-500 hover:to-indigo-500 text-white rounded-xl text-xs font-semibold shadow-lg shadow-indigo-500/20 transition flex items-center justify-center space-x-2">
-            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-            <span>View Full Evaluation & 5 Hypotheses</span>
+        <div class="space-y-3">
+          <label class="text-xs text-slate-400 flex justify-between">
+            <span>Neighbors to explore</span>
+            <span class="font-mono text-emerald-400" id="neighbor-val">5</span>
+          </label>
+          <input id="neighbor-count" type="range" min="1" max="20" value="5" class="w-full accent-emerald-500">
+          <button type="button" id="graph-search-btn" class="btn-primary w-full py-3 text-sm disabled:opacity-40">
+            Search & draw graph
           </button>
         </div>
       </div>
-    </section>
-
-    <!-- ============================================================== -->
-    <!-- TAB 4: ARCHITECTURE & METHODOLOGY                              -->
-    <!-- ============================================================== -->
-    <section id="view-methodology" class="tab-view hidden space-y-6">
-      <div class="bg-slate-800/60 p-8 rounded-2xl border border-slate-700/60 space-y-8 max-w-4xl mx-auto">
+    </div>
+    <div class="grid lg:grid-cols-3 gap-4">
+      <div class="lg:col-span-2 glass-panel rounded-2xl h-[540px] relative overflow-hidden">
+        <div id="network" class="w-full h-full bg-ink-950/50"></div>
+        <p class="absolute bottom-3 left-3 text-[10px] text-slate-400 glass-panel px-3 py-1.5 rounded-full">▲ Filled faces = triangles · hover for titles</p>
+      </div>
+      <div class="glass-panel rounded-2xl p-5 text-xs space-y-4">
+        <h3 class="font-bold text-slate-100 text-sm flex items-center gap-2"><i data-lucide="activity" class="w-4 h-4 text-cyan-400"></i> Subgraph summary</h3>
+        <div id="graph-summary" class="text-slate-400 space-y-1">Select a paper and click Search.</div>
         <div>
-          <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Theoretical Foundations</span>
-          <h2 class="text-2xl font-extrabold text-slate-100 mt-1">Why Topological Simplicial Complexes for Scientific Discovery?</h2>
-          <p class="text-sm text-slate-400 mt-2 leading-relaxed">
-            Conventional literature retrieval and graph analytics rely entirely on <strong>pairwise similarity</strong> ($A \sim B$ and $B \sim C$). However, dense continuous embedding spaces suffer from severe semantic drift and intransitivity: two papers connected through an intermediate paper rarely form a coherent cross-disciplinary synthesis on their own.
-          </p>
+          <h4 class="text-slate-500 font-medium mb-1">Triangles in this subgraph</h4>
+          <ul id="triangle-list" class="max-h-48 overflow-y-auto custom-scrollbar text-[10px] text-slate-400 space-y-1"></ul>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-700/60 space-y-2">
-            <div class="flex items-center space-x-2 text-rose-400 font-semibold text-sm">
-              <i data-lucide="x-circle" class="w-4 h-4"></i>
-              <span>The Pairwise Limitation</span>
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Standard 1D graphs only capture edges ($1$-simplices). They cannot distinguish between open 2-hop chains ($A - B - C$) and closed, mutual three-way interactions where all three pairs independently share strong cosine alignment.
-            </p>
-          </div>
-
-          <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-700/60 space-y-2">
-            <div class="flex items-center space-x-2 text-emerald-400 font-semibold text-sm">
-              <i data-lucide="check-circle" class="w-4 h-4"></i>
-              <span>The Simplicial Solution</span>
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Lifting the $k\text{NN}$ graph into a <strong>2-simplex</strong> (clique or neighbor complex) requires complete mutual adjacency. The filled 2-simplex face represents a genuine higher-order thematic triad capable of yielding revolutionary scientific hypotheses.
-            </p>
-          </div>
-        </div>
-
-        <div class="border-t border-slate-700/60 pt-6 space-y-4">
-          <h3 class="text-lg font-bold text-slate-200">The 5-Stage Discovery Pipeline</h3>
-          
-          <div class="space-y-4 text-xs text-slate-300">
-            <div class="flex items-start space-x-3">
-              <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold flex-shrink-0">1</div>
-              <div>
-                <strong class="text-slate-100">Embedding & Deduplication:</strong>
-                <p class="text-slate-400 mt-0.5">45,666 scientific papers from the CoreX corpus embedded with MatSciBERT. Exact and near-duplicates merged at cosine $\ge 0.99$ yielding 42,164 unique nodes.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start space-x-3">
-              <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold flex-shrink-0">2</div>
-              <div>
-                <strong class="text-slate-100">Undirected kNN Graph (k=5):</strong>
-                <p class="text-slate-400 mt-0.5">PyTorch GPU-accelerated cosine similarity with mean-centering and union symmetrization, producing 166,993 undirected edges.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start space-x-3">
-              <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold flex-shrink-0">3</div>
-              <div>
-                <strong class="text-slate-100">TopoNetX Simplicial Lifting:</strong>
-                <p class="text-slate-400 mt-0.5">Lifting graph edges into 2-simplices using TopoNetX's Clique and Neighbor complex transformations, identifying 94,180 filled triangles.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start space-x-3">
-              <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold flex-shrink-0">4</div>
-              <div>
-                <strong class="text-slate-100">Geometric Tightness Ranking:</strong>
-                <p class="text-slate-400 mt-0.5">Scoring triangles via bottleneck $\text{min}(w) \times (w_1 w_2 w_3)^{1/3}$ combined with English title heuristics to rank the top 1,000 triads.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start space-x-3">
-              <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold flex-shrink-0">5</div>
-              <div>
-                <strong class="text-slate-100">Gemini Pro Reasoning & Hypothesis Formulation:</strong>
-                <p class="text-slate-400 mt-0.5">Feeding 4-section Executive Digests to Gemini Pro to rigorously evaluate conceptual synergy and synthesize 5 testable research statements per triad.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Detail Modal for Explorer -->
-  <div id="triad-modal" class="fixed inset-0 bg-black/80 z-50 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-slate-900 border border-slate-700 max-w-3xl w-full rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
-      <div class="p-5 border-b border-slate-800 flex items-center justify-between">
-        <div class="flex items-center space-x-3">
-          <span id="modal-rank" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold text-xs">#01</span>
-          <h3 id="modal-title" class="font-bold text-slate-100 text-sm">Triad Details</h3>
-        </div>
-        <button onclick="closeModal()" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <div class="p-6 overflow-y-auto custom-scrollbar space-y-4 text-xs" id="modal-body">
-        <!-- Injected via JS -->
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Client-side Logic Script -->
-  <script>
-    // State
-    let currentTab = 'evaluations';
-    let evaluationsData = [];
-    let allTriadsData = [];
-    let currentFilter = 'all';
-    let currentExplorerPage = 1;
-    let explorerLimit = 20;
-    let networkInstance = null;
-    let activeVisualizerTriad = 1;
-    let isStaticMode = false;
+  <!-- ARTICLE -->
+  <section id="view-article" class="tab-panel hidden">
+    <article id="pipeline-article" class="medium-article max-w-2xl mx-auto glass-panel rounded-3xl px-6 sm:px-12 py-12 sm:py-16 shadow-card">
+      <p class="text-slate-500 text-center sans text-sm">Loading article…</p>
+    </article>
+  </section>
+</main>
 
-    // Initialize App
-    document.addEventListener('DOMContentLoaded', async () => {
-      lucide.createIcons();
-      await loadStats();
-      await loadEvaluations();
-      await loadTriads();
-      initNetworkGraph();
+<footer class="border-t border-white/5 py-6 text-center text-[11px] text-slate-600 font-medium">
+  Paper Simplicial Discovery · OSI Hackathon 2026 · Higher-order literature exploration
+</footer>
+
+<script>
+let allTriads = [];
+let triadPage = 1;
+const triadPageSize = 25;
+let selectedPaperNode = null;
+let network = null;
+let graphTriangles = [];
+let paperSearchTimer = null;
+let evaluationsData = [];
+let currentEvalFilter = 'all';
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+});
+
+function switchTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(el => el.classList.add('hidden'));
+  document.getElementById('view-' + name).classList.remove('hidden');
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.toggle('tab-active', b.dataset.tab === name);
+  });
+  lucide.createIcons();
+}
+
+async function init() {
+  lucide.createIcons();
+  const stats = await fetch('/api/stats').then(r => r.json());
+  document.getElementById('header-stats').textContent =
+    `${stats.n_papers?.toLocaleString()} papers · ${stats.n_edges?.toLocaleString()} edges · ${stats.n_ranked_triads} ranked triads · ${stats.n_hypotheses ?? 125} hypotheses`;
+
+  await loadEvaluations();
+
+  const tri = await fetch('/api/triads/all').then(r => r.json());
+  allTriads = tri.triads || [];
+  renderTriads();
+
+  document.getElementById('triad-search').addEventListener('input', () => { triadPage = 1; renderTriads(); });
+  document.getElementById('triad-min-score').addEventListener('input', e => {
+    document.getElementById('triad-min-label').textContent = parseFloat(e.target.value).toFixed(3);
+    triadPage = 1; renderTriads();
+  });
+  document.getElementById('triad-prev').addEventListener('click', () => { if (triadPage > 1) { triadPage--; renderTriads(); } });
+  document.getElementById('triad-next').addEventListener('click', () => { triadPage++; renderTriads(); });
+
+  document.getElementById('paper-query').addEventListener('input', onPaperQueryInput);
+  document.getElementById('neighbor-count').addEventListener('input', e => {
+    document.getElementById('neighbor-val').textContent = e.target.value;
+  });
+  document.getElementById('graph-search-btn').addEventListener('click', runGraphExplore);
+
+  loadPipelineArticle();
+}
+
+function filteredTriads() {
+  const q = document.getElementById('triad-search').value.toLowerCase().trim();
+  const minS = parseFloat(document.getElementById('triad-min-score').value);
+  return allTriads.filter(t => {
+    if (t.score < minS) return false;
+    if (!q) return true;
+    return [t.title_u, t.title_v, t.title_w, t.paper_id_u, t.paper_id_v, t.paper_id_w]
+      .some(s => String(s).toLowerCase().includes(q));
+  });
+}
+
+function renderTriads() {
+  const list = filteredTriads();
+  const totalPages = Math.max(1, Math.ceil(list.length / triadPageSize));
+  if (triadPage > totalPages) triadPage = totalPages;
+  const start = (triadPage - 1) * triadPageSize;
+  const page = list.slice(start, start + triadPageSize);
+  document.getElementById('triad-count').textContent = list.length.toLocaleString();
+  document.getElementById('triad-page-info').textContent = `Page ${triadPage} of ${totalPages}`;
+  document.getElementById('triad-prev').disabled = triadPage <= 1;
+  document.getElementById('triad-next').disabled = triadPage >= totalPages;
+
+  const tbody = document.getElementById('triad-tbody');
+  if (!page.length) {
+    tbody.innerHTML = '<tr><td colspan="5" class="p-6 text-center text-slate-500">No matches</td></tr>';
+    return;
+  }
+  tbody.innerHTML = page.map(t => `
+    <tr class="hover:bg-cyan-500/5 transition-colors border-b border-white/[0.03]">
+      <td class="p-3.5 font-mono font-bold text-slate-500">#${t.rank}</td>
+      <td class="p-3.5 font-mono font-semibold text-cyan-300">${t.score.toFixed(4)}</td>
+      <td class="p-3 max-w-xs"><span class="line-clamp-2">${esc(t.title_u)}</span></td>
+      <td class="p-3 max-w-xs"><span class="line-clamp-2">${esc(t.title_v)}</span></td>
+      <td class="p-3 max-w-xs"><span class="line-clamp-2">${esc(t.title_w)}</span></td>
+    </tr>`).join('');
+}
+
+function onPaperQueryInput() {
+  clearTimeout(paperSearchTimer);
+  paperSearchTimer = setTimeout(searchPapers, 200);
+}
+
+async function searchPapers() {
+  const q = document.getElementById('paper-query').value.trim();
+  const box = document.getElementById('paper-results');
+  if (q.length < 1) {
+    box.classList.add('hidden');
+    return;
+  }
+  const data = await fetch('/api/papers/search?q=' + encodeURIComponent(q) + '&limit=35').then(r => r.json());
+  const hits = data.results || [];
+  if (!hits.length) {
+    box.innerHTML = '<div class="p-3 text-slate-500 text-xs">No papers matched.</div>';
+    box.classList.remove('hidden');
+    return;
+  }
+  box.innerHTML = hits.map(h => `
+    <button type="button" class="paper-hit w-full text-left p-2.5 border-b border-slate-800 text-xs block ${selectedPaperNode === h.node ? 'selected' : ''}"
+      data-node="${h.node}">
+      <span class="text-emerald-400 font-mono">node ${h.node}</span>
+      <span class="text-slate-500 font-mono ml-2">id ${esc(h.paper_id)}</span>
+      <div class="text-slate-200 mt-0.5 line-clamp-2">${esc(h.title)}</div>
+    </button>`).join('');
+  box.classList.remove('hidden');
+  box.querySelectorAll('.paper-hit').forEach(btn => {
+    btn.addEventListener('click', () => selectPaper(parseInt(btn.dataset.node, 10), btn.textContent));
+  });
+}
+
+function selectPaper(node, label) {
+  selectedPaperNode = node;
+  document.getElementById('paper-selected').textContent = 'Selected: node ' + node;
+  document.getElementById('paper-selected').classList.remove('hidden');
+  document.querySelectorAll('.paper-hit').forEach(el => {
+    el.classList.toggle('selected', parseInt(el.dataset.node, 10) === node);
+  });
+}
+
+async function runGraphExplore() {
+  if (selectedPaperNode == null) {
+    const q = document.getElementById('paper-query').value.trim();
+    if (!q) { alert('Enter a query and select a paper from the list.'); return; }
+    const data = await fetch('/api/papers/search?q=' + encodeURIComponent(q) + '&limit=1').then(r => r.json());
+    if (!data.results?.length) { alert('No paper found.'); return; }
+    selectedPaperNode = data.results[0].node;
+  }
+  const neighbors = document.getElementById('neighbor-count').value;
+  const url = `/api/graph/explore?node=${selectedPaperNode}&neighbors=${neighbors}`;
+  const data = await fetch(url).then(r => r.json());
+  if (data.error) { alert(data.error); return; }
+
+  document.getElementById('graph-summary').innerHTML = `
+    <div><strong class="text-slate-300">Center:</strong> node ${data.center_node}</div>
+    <div><strong class="text-slate-300">Nodes:</strong> ${data.n_nodes} · <strong>Edges:</strong> ${data.n_edges} · <strong>Triangles:</strong> ${data.n_triangles}</div>`;
+
+  const triList = document.getElementById('triangle-list');
+  if (!data.triangles?.length) {
+    triList.innerHTML = '<li>No 2-simplices among these papers.</li>';
+  } else {
+    triList.innerHTML = data.triangles.slice(0, 40).map((tr, i) => {
+      const titles = tr.map(id => {
+        const n = data.nodes.find(x => x.id === id);
+        return n ? truncate(n.title, 40) : id;
+      });
+      return `<li>#${i+1}: ${titles.join(' · ')}</li>`;
+    }).join('') + (data.triangles.length > 40 ? `<li>… +${data.triangles.length - 40} more</li>` : '');
+  }
+
+  const visNodes = new vis.DataSet(data.nodes.map(n => ({
+    id: n.id,
+    label: n.is_center ? '★ ' + truncate(n.title, 28) : truncate(n.title, 28),
+    title: `<b>node ${n.id}</b><br>id: ${esc(n.paper_id)}<br>${esc(n.title)}`,
+    color: n.is_center ? '#10b981' : '#6366f1',
+    size: n.is_center ? 22 : 14,
+    font: { size: 10, color: '#e2e8f0' }
+  })));
+  const visEdges = new vis.DataSet(data.edges.map(e => ({
+    from: e.from, to: e.to,
+    label: e.weight.toFixed(3),
+    width: 1 + e.weight * 2,
+    color: { color: '#64748b', highlight: '#94a3b8' },
+    font: { size: 9, align: 'middle', color: '#94a3b8' }
+  })));
+
+  const container = document.getElementById('network');
+  if (network) network.destroy();
+  graphTriangles = data.triangles || [];
+  network = new vis.Network(container, { nodes: visNodes, edges: visEdges }, {
+    physics: {
+      barnesHut: { gravitationalConstant: -8000, springLength: 120, avoidOverlap: 0.2 },
+      stabilization: { iterations: 120 }
+    },
+    interaction: { hover: true, tooltipDelay: 80 },
+    edges: { smooth: { type: 'continuous' } }
+  });
+  bindTriangleFaces(network, graphTriangles);
+}
+
+/** Draw filled 2-simplex faces under edges/nodes (vis-network beforeDrawing). */
+function bindTriangleFaces(net, triangles) {
+  const palette = [
+    'rgba(244, 63, 94, 0.28)',
+    'rgba(99, 102, 241, 0.26)',
+    'rgba(16, 185, 129, 0.24)',
+    'rgba(245, 158, 11, 0.22)',
+    'rgba(168, 85, 247, 0.24)',
+  ];
+  const stroke = 'rgba(251, 113, 133, 0.55)';
+
+  net.on('beforeDrawing', (ctx) => {
+    if (!triangles.length) return;
+    let positions;
+    try {
+      positions = net.getPositions();
+    } catch (e) {
+      return;
+    }
+    triangles.forEach((tri, idx) => {
+      const [a, b, c] = tri;
+      const pa = positions[a];
+      const pb = positions[b];
+      const pc = positions[c];
+      if (!pa || !pb || !pc) return;
+      ctx.beginPath();
+      ctx.moveTo(pa.x, pa.y);
+      ctx.lineTo(pb.x, pb.y);
+      ctx.lineTo(pc.x, pc.y);
+      ctx.closePath();
+      ctx.fillStyle = palette[idx % palette.length];
+      ctx.fill();
+      ctx.strokeStyle = stroke;
+      ctx.lineWidth = 1.25;
+      ctx.stroke();
     });
+  });
+}
 
-    // Load Stats
-    async function loadStats() {
-      try {
-        let res = await fetch('/api/stats');
-        if (!res.ok) throw new Error('API not available, fallback to static');
-        const data = await res.json();
-        updateStatsUI(data);
-      } catch (e) {
-        try {
-          isStaticMode = true;
-          const res = await fetch('data/stats.json');
-          const data = await res.json();
-          updateStatsUI(data);
-        } catch (err) {
-          console.warn('Using fallback stats:', err);
-        }
+async function loadPipelineArticle() {
+  const art = document.getElementById('pipeline-article');
+  try {
+    const p = await fetch('/api/pipeline').then(r => r.json());
+    const m = p.metrics || {};
+    let body = '';
+
+    body += `
+      <header class="sans mb-10 pb-8 border-b border-slate-700/80">
+        <p class="text-xs uppercase tracking-[0.2em] text-emerald-400 font-semibold mb-3">Architecture & pipeline</p>
+        <h1 class="text-white font-bold">${esc(p.title)}</h1>
+        <p class="subtitle mt-4">${esc(p.subtitle)}</p>
+        <p class="text-sm text-slate-500 mt-6">${esc(p.byline)} · ${p.read_minutes || 10} min read</p>
+        ${p.github ? `<p class="mt-2 text-sm"><a href="${esc(p.github)}" class="text-indigo-400 hover:underline sans" target="_blank" rel="noopener">Code &amp; demo on GitHub</a></p>` : ''}
+      </header>`;
+
+    body += `<section><h2 class="sans">Abstract</h2><p class="lead">${esc(p.abstract)}</p></section>`;
+
+    for (const sec of (p.sections || [])) {
+      body += `<section id="${esc(sec.id)}"><h2 class="sans">${esc(sec.heading)}</h2>`;
+      if (sec.paragraphs) {
+        sec.paragraphs.forEach(para => { body += `<p>${esc(para)}</p>`; });
       }
-    }
-
-    function updateStatsUI(data) {
-      document.getElementById('stat-papers').innerText = data.n_papers.toLocaleString() + ' papers';
-      document.getElementById('stat-simplices').innerText = data.n_simplices_total.toLocaleString();
-      document.getElementById('stat-ranked').innerText = data.n_ranked_triads.toLocaleString();
-      document.getElementById('stat-hypotheses').innerText = data.n_hypotheses.toLocaleString();
-    }
-
-    // Load Evaluations
-    async function loadEvaluations() {
-      const container = document.getElementById('evaluations-container');
-      try {
-        let res = await fetch('/api/evaluations');
-        if (!res.ok) throw new Error('API not available');
-        const data = await res.json();
-        evaluationsData = data.evaluations || [];
-        renderEvaluations(evaluationsData);
-      } catch (e) {
-        try {
-          isStaticMode = true;
-          const res = await fetch('data/evaluations.json');
-          const data = await res.json();
-          evaluationsData = data.evaluations || [];
-          renderEvaluations(evaluationsData);
-        } catch (err) {
-          container.innerHTML = `<div class="text-rose-400 text-center py-8">Failed to load evaluations data.</div>`;
-        }
+      if (sec.pullquote) {
+        body += `<blockquote class="pullquote">${esc(sec.pullquote)}</blockquote>`;
       }
-    }
-
-    function renderEvaluations(list) {
-      const container = document.getElementById('evaluations-container');
-      if (!list || list.length === 0) {
-        container.innerHTML = `<div class="text-slate-500 text-center py-12">No evaluations match the current filter.</div>`;
-        return;
-      }
-
-      container.innerHTML = list.map(ev => {
-        const tid = ev.triad_id;
-        const e = ev.evaluation || {};
-        const score = e.triad_quality_score || 0;
-        const verdict = e.verdict || 'Evaluation Pending';
-        const dims = e.dimension_ratings || {};
-        const stmts = ev.research_statements || [];
-        const digest = ev.digest || {};
-        const papers = digest.papers || {};
-
-        let badgeColor = 'bg-slate-700 text-slate-300 border-slate-600';
-        let scoreColor = 'text-slate-300';
-        if (verdict.includes('Genuine')) {
-          badgeColor = 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30';
-          scoreColor = 'text-emerald-400';
-        } else if (verdict.includes('Moderate')) {
-          badgeColor = 'bg-blue-500/10 text-blue-400 border-blue-500/30';
-          scoreColor = 'text-blue-400';
-        } else if (verdict.includes('Spurious')) {
-          badgeColor = 'bg-rose-500/10 text-rose-400 border-rose-500/30';
-          scoreColor = 'text-rose-400';
-        }
-
-        return `
-          <div class="bg-slate-800/60 rounded-2xl border border-slate-700/60 overflow-hidden shadow-xl transition hover:border-slate-600">
-            <!-- Header -->
-            <div class="p-6 border-b border-slate-700/60 flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <div class="space-y-1">
-                <div class="flex items-center space-x-3">
-                  <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 font-mono font-bold text-xs text-slate-300">Triad #${tid}</span>
-                  <span class="px-3 py-1 rounded-lg border text-xs font-semibold ${badgeColor}">${verdict}</span>
-                </div>
-                <div class="text-xs text-slate-400 pt-1">
-                  Bottleneck Cosine: <span class="font-mono text-slate-200">${digest.min_edge_cosine || '0.985'}</span> • Mean Cosine: <span class="font-mono text-slate-200">${digest.mean_edge_cosine || '0.986'}</span>
-                </div>
-              </div>
-
-              <!-- Quality Score Box -->
-              <div class="flex items-center space-x-6">
-                <div class="text-right">
-                  <div class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Synergy Score</div>
-                  <div class="text-3xl font-black ${scoreColor}">${score}<span class="text-sm font-normal text-slate-500">/10</span></div>
-                </div>
-
-                <div class="h-10 w-px bg-slate-700/60 hidden sm:block"></div>
-
-                <div class="grid grid-cols-3 gap-3 text-center text-[10px]">
-                  <div class="bg-slate-900/60 px-2 py-1.5 rounded-lg border border-slate-700/40">
-                    <span class="text-slate-400 block">Coherence</span>
-                    <span class="font-bold text-slate-200">${dims.thematic_coherence || '-'}</span>
-                  </div>
-                  <div class="bg-slate-900/60 px-2 py-1.5 rounded-lg border border-slate-700/40">
-                    <span class="text-slate-400 block">Complement</span>
-                    <span class="font-bold text-slate-200">${dims.methodological_complementarity || '-'}</span>
-                  </div>
-                  <div class="bg-slate-900/60 px-2 py-1.5 rounded-lg border border-slate-700/40">
-                    <span class="text-slate-400 block">Non-Trivial</span>
-                    <span class="font-bold text-slate-200">${dims.non_triviality || '-'}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- In-Depth Gemini Critique -->
-            <div class="px-6 py-4 bg-slate-900/40 border-b border-slate-700/40">
-              <span class="text-[11px] font-bold text-indigo-400 uppercase tracking-wider flex items-center space-x-1.5 mb-1.5">
-                <i data-lucide="brain" class="w-3.5 h-3.5"></i>
-                <span>Gemini Pro Expert Critique</span>
-              </span>
-              <p class="text-xs text-slate-300 leading-relaxed">${e.detailed_reasoning || 'No reasoning available.'}</p>
-            </div>
-
-            <!-- 3 Papers Grid -->
-            <div class="p-6 border-b border-slate-700/60">
-              <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-3">Papers in 2-Simplex (Pairwise Edges)</span>
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                ${['paper_1', 'paper_2', 'paper_3'].map((pk, idx) => {
-                  const p = papers[pk] || {};
-                  const sec = p.executive_digest || {};
-                  return `
-                    <div class="bg-slate-900/80 rounded-xl p-4 border border-slate-700/50 flex flex-col justify-between space-y-3">
-                      <div>
-                        <div class="flex items-center justify-between text-[10px] text-slate-400 mb-1">
-                          <span class="font-bold text-emerald-400">Paper ${idx+1}</span>
-                          <span class="font-mono">ID: ${p.paper_id || '-'}</span>
-                        </div>
-                        <h4 class="text-xs font-semibold text-slate-100 line-clamp-2">${p.title || 'Untitled'}</h4>
-                      </div>
-
-                      <!-- Accordion to read sections -->
-                      <details class="text-[11px] text-slate-400 group">
-                        <summary class="cursor-pointer text-indigo-400 hover:text-indigo-300 font-medium list-none flex items-center justify-between pt-2 border-t border-slate-800">
-                          <span>Read Executive Digest</span>
-                          <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition group-open:rotate-180"></i>
-                        </summary>
-                        <div class="mt-2 space-y-2 pt-2 text-[10px] text-slate-300 leading-normal border-t border-slate-800 max-h-48 overflow-y-auto custom-scrollbar">
-                          <div>
-                            <strong class="text-slate-100 block">Abstract / Aims:</strong>
-                            ${sec.abstract_and_aims ? sec.abstract_and_aims.slice(0, 300) + '...' : '-'}
-                          </div>
-                          <div>
-                            <strong class="text-slate-100 block">Core Methodology:</strong>
-                            ${sec.core_methodology_and_architecture ? sec.core_methodology_and_architecture.slice(0, 300) + '...' : '-'}
-                          </div>
-                        </div>
-                      </details>
-                    </div>
-                  `;
-                }).join('')}
-              </div>
-            </div>
-
-            <!-- Formulated Hypotheses / Research Statements -->
-            <div class="p-6 bg-slate-900/30">
-              <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider flex items-center space-x-1.5 mb-3">
-                <i data-lucide="lightbulb" class="w-4 h-4 text-amber-400"></i>
-                <span>5 Formulated High-Impact Research Statements</span>
-              </span>
-
-              <div class="space-y-3">
-                ${stmts.map(s => {
-                  let feasColor = 'bg-emerald-500/20 text-emerald-300';
-                  if (s.estimated_feasibility && s.estimated_feasibility.includes('Medium')) feasColor = 'bg-blue-500/20 text-blue-300';
-                  if (s.estimated_feasibility && s.estimated_feasibility.includes('Risk')) feasColor = 'bg-amber-500/20 text-amber-300';
-
-                  return `
-                    <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-700/60 space-y-2.5">
-                      <div class="flex items-start justify-between gap-3">
-                        <div class="space-y-1">
-                          <span class="text-[10px] font-bold text-slate-500 font-mono">Statement #${s.statement_id}</span>
-                          <h5 class="text-xs font-bold text-slate-100 leading-snug">${s.title}</h5>
-                        </div>
-                        <span class="px-2 py-0.5 rounded text-[10px] font-semibold whitespace-nowrap ${feasColor}">${s.estimated_feasibility || 'Medium'}</span>
-                      </div>
-
-                      <p class="text-xs text-slate-300 leading-relaxed font-serif italic border-l-2 border-emerald-500/50 pl-3 py-0.5">${s.research_statement}</p>
-
-                      <div class="pt-1 text-[11px] space-y-1 text-slate-400">
-                        <div><strong class="text-indigo-400">Mechanistic Bridge:</strong> ${s.mechanistic_bridge}</div>
-                        ${s.impact_analysis ? `
-                          <div class="grid grid-cols-1 md:grid-cols-2 gap-2 pt-1.5 text-[10px]">
-                            <div class="p-2 rounded bg-slate-800/60 border border-slate-700/40">
-                              <span class="text-emerald-400 font-semibold block">Breakthrough:</span>
-                              ${s.impact_analysis.scientific_breakthrough}
-                            </div>
-                            <div class="p-2 rounded bg-slate-800/60 border border-slate-700/40">
-                              <span class="text-amber-400 font-semibold block">Application:</span>
-                              ${s.impact_analysis.real_world_application}
-                            </div>
-                          </div>
-                        ` : ''}
-                      </div>
-                    </div>
-                  `;
-                }).join('')}
-              </div>
-            </div>
-
-          </div>
-        `;
-      }).join('');
-
-      lucide.createIcons();
-    }
-
-    // Filter evaluations
-    function filterEvaluations(filter) {
-      currentFilter = filter;
-      document.querySelectorAll('.eval-filter-btn').forEach(btn => {
-        if (btn.dataset.filter === filter) {
-          btn.classList.add('bg-slate-700', 'text-white');
-          btn.classList.remove('bg-slate-800/80');
-        } else {
-          btn.classList.remove('bg-slate-700', 'text-white');
-          btn.classList.add('bg-slate-800/80');
-        }
-      });
-
-      if (filter === 'all') {
-        renderEvaluations(evaluationsData);
-      } else {
-        const filtered = evaluationsData.filter(e => {
-          const v = (e.evaluation && e.evaluation.verdict) || '';
-          return v.toLowerCase().includes(filter.toLowerCase());
+      if (sec.subsections) {
+        sec.subsections.forEach(sub => {
+          body += `<h3 class="sans">${esc(sub.title)}</h3><p>${esc(sub.body)}</p>`;
         });
-        renderEvaluations(filtered);
       }
-    }
-
-    // Search evaluations
-    function searchEvaluations(query) {
-      const q = query.toLowerCase().trim();
-      if (!q) {
-        filterEvaluations(currentFilter);
-        return;
+      if (sec.stages) {
+        body += `<div class="grid gap-3 my-6 sans">${sec.stages.map(st => `
+          <div class="stage-card flex gap-4 items-start">
+            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm">${st.n}</span>
+            <div><div class="font-semibold text-slate-100">${esc(st.title)}</div><div class="text-sm text-slate-400 mt-1">${esc(st.detail)}</div></div>
+          </div>`).join('')}</div>`;
       }
-      const filtered = evaluationsData.filter(e => {
-        const blob = JSON.stringify(e).toLowerCase();
-        return blob.includes(q);
-      });
-      renderEvaluations(filtered);
-    }
-
-    // ================= Explorer Logic =================
-    let searchDebounceTimer = null;
-    function debounceSearchTriads(val) {
-      clearTimeout(searchDebounceTimer);
-      searchDebounceTimer = setTimeout(() => {
-        currentExplorerPage = 1;
-        loadTriads();
-      }, 250);
-    }
-
-    function updateMinScore(val) {
-      document.getElementById('min-score-val').innerText = parseFloat(val).toFixed(3);
-      currentExplorerPage = 1;
-      loadTriads();
-    }
-
-    async function loadTriads() {
-      const q = document.getElementById('explorer-search').value.toLowerCase().trim();
-      const minScore = parseFloat(document.getElementById('min-score-slider').value);
-      const tbody = document.getElementById('triads-table-body');
-
-      try {
-        let items = [];
-        let total = 0;
-        let totalPages = 1;
-
-        if (!isStaticMode) {
-          try {
-            const url = `/api/triads?q=${encodeURIComponent(q)}&min_score=${minScore}&page=${currentExplorerPage}&limit=${explorerLimit}`;
-            const res = await fetch(url);
-            if (!res.ok) throw new Error('API not available');
-            const data = await res.json();
-            items = data.triads;
-            total = data.total;
-            totalPages = data.total_pages;
-          } catch (e) {
-            isStaticMode = true;
-          }
-        }
-
-        if (isStaticMode) {
-          if (allTriadsData.length === 0) {
-            const res = await fetch('data/triads.json');
-            const data = await res.json();
-            allTriadsData = data.triads || [];
-          }
-
-          let filtered = allTriadsData;
-          if (minScore > 0) {
-            filtered = filtered.filter(t => t.score >= minScore);
-          }
-          if (q) {
-            filtered = filtered.filter(t => 
-              t.title_u.toLowerCase().includes(q) ||
-              t.title_v.toLowerCase().includes(q) ||
-              t.title_w.toLowerCase().includes(q) ||
-              t.paper_id_u.includes(q) || t.paper_id_v.includes(q) || t.paper_id_w.includes(q)
-            );
-          }
-          total = filtered.length;
-          totalPages = Math.ceil(total / explorerLimit) || 1;
-          const start = (currentExplorerPage - 1) * explorerLimit;
-          items = filtered.slice(start, start + explorerLimit);
-        }
-
-        document.getElementById('triads-count-display').innerText = total.toLocaleString();
-        document.getElementById('pagination-info').innerText = `Page ${currentExplorerPage} of ${totalPages} (${total.toLocaleString()} total)`;
-        document.getElementById('btn-prev-page').disabled = (currentExplorerPage <= 1);
-        document.getElementById('btn-next-page').disabled = (currentExplorerPage >= totalPages);
-
-        if (!items || items.length === 0) {
-          tbody.innerHTML = `<tr><td colspan="6" class="text-center py-8 text-slate-500">No triads matched your criteria.</td></tr>`;
-          return;
-        }
-
-        tbody.innerHTML = items.map(t => {
-          return `
-            <tr class="hover:bg-slate-800/40 transition">
-              <td class="py-3 px-4 font-mono font-bold text-slate-400 text-center">#${t.rank}</td>
-              <td class="py-3 px-4">
-                <span class="font-mono font-bold text-emerald-400 text-xs">${t.score.toFixed(4)}</span>
-                <span class="block text-[10px] text-slate-500 font-mono">min: ${t.w_uw.toFixed(3)}</span>
-              </td>
-              <td class="py-3 px-4 max-w-[200px]"><span class="line-clamp-2">${t.title_u}</span></td>
-              <td class="py-3 px-4 max-w-[200px]"><span class="line-clamp-2">${t.title_v}</span></td>
-              <td class="py-3 px-4 max-w-[200px]"><span class="line-clamp-2">${t.title_w}</span></td>
-              <td class="py-3 px-4 text-center">
-                <button onclick="inspectTriadModal(${t.rank})" class="p-1.5 rounded-lg bg-slate-700/60 hover:bg-indigo-600 text-slate-300 hover:text-white transition" title="Inspect">
-                  <i data-lucide="eye" class="w-3.5 h-3.5"></i>
-                </button>
-              </td>
-            </tr>
-          `;
-        }).join('');
-
-        lucide.createIcons();
-      } catch (e) {
-        tbody.innerHTML = `<tr><td colspan="6" class="text-center py-8 text-rose-400">Failed to load triads data.</td></tr>`;
+      if (sec.examples) {
+        sec.examples.forEach(ex => {
+          body += `<div class="example-card"><h3 class="sans mt-0 text-emerald-400/90">${esc(ex.title)}</h3><p class="mb-0">${esc(ex.body)}</p></div>`;
+        });
+        if (sec.footnote) body += `<p class="text-sm text-slate-500 italic">${esc(sec.footnote)}</p>`;
       }
+      body += `</section>`;
     }
 
-    function changePage(delta) {
-      currentExplorerPage += delta;
-      loadTriads();
+    body += `
+      <section>
+        <h2 class="sans">Pipeline outcomes (implemented)</h2>
+        <p class="sans text-sm text-slate-400 mb-4">Observed counts from this deployment—not estimates.</p>
+        <table class="sans">
+          <thead><tr><th>Stage</th><th>Count</th></tr></thead>
+          <tbody>
+            <tr><td>Input papers / deduplicated papers</td><td>${fmt(m.input_papers)} / ${fmt(m.dedup_papers)}</td></tr>
+            <tr><td>Undirected kNN edges (k = 5)</td><td>${fmt(m.edges)}</td></tr>
+            <tr><td>Extracted 2-simplices (triangles)</td><td>${fmt(m.triangles)}</td></tr>
+            <tr><td>Ranked candidates / reviewed triads</td><td>${fmt(m.ranked_triads)} / ${fmt(m.reviewed_triads)}</td></tr>
+            <tr><td>Candidate hypotheses (5 per triad)</td><td>${fmt(m.hypotheses)}</td></tr>
+            <tr><td>LLM verdict: genuine synergy</td><td>${m.verdict_genuine ?? '—'} / ${m.reviewed_triads ?? 25}</td></tr>
+            <tr><td>LLM verdict: moderate overlap</td><td>${m.verdict_moderate ?? '—'} / ${m.reviewed_triads ?? 25}</td></tr>
+            <tr><td>LLM verdict: spurious connection</td><td>${m.verdict_spurious ?? '—'} / ${m.reviewed_triads ?? 25}</td></tr>
+          </tbody>
+        </table>
+      </section>`;
+
+    if (p.references?.length) {
+      body += `<section class="sans border-t border-slate-800 pt-8 mt-10">
+        <h2>References</h2>
+        <ol class="list-decimal pl-5 text-sm text-slate-400 space-y-2">${p.references.map(r => `<li>${esc(r)}</li>`).join('')}</ol>
+      </section>`;
     }
 
-    async function inspectTriadModal(rank) {
-      const modal = document.getElementById('triad-modal');
-      const body = document.getElementById('modal-body');
-      document.getElementById('modal-rank').innerText = `#${rank}`;
-      document.getElementById('modal-title').innerText = `Triad #${rank} Inspection`;
+    art.innerHTML = body;
+  } catch (e) {
+    art.innerHTML = '<p class="text-rose-400 sans">Could not load pipeline article.</p>';
+  }
+}
 
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      body.innerHTML = `<div class="text-center py-8 text-slate-500">Loading details...</div>`;
+function fmt(n) {
+  if (n == null || n === '') return '—';
+  return Number(n).toLocaleString();
+}
 
-      try {
-        let t = null;
-        let ev = null;
+async function loadEvaluations() {
+  const container = document.getElementById('evaluations-container');
+  try {
+    const res = await fetch('/api/evaluations');
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    evaluationsData = data.evaluations || [];
+    updateEvalFilterCounts();
+    renderEvaluations(evaluationsData);
+  } catch (e) {
+    try {
+      const res = await fetch('/data/evaluations.json');
+      const data = await res.json();
+      evaluationsData = data.evaluations || [];
+      updateEvalFilterCounts();
+      renderEvaluations(evaluationsData);
+    } catch (err) {
+      container.innerHTML = '<div class="text-rose-400 text-center py-8">Failed to load evaluations.</div>';
+    }
+  }
+}
 
-        if (!isStaticMode) {
-          try {
-            const res = await fetch(`/api/triad/${rank}`);
-            if (res.ok) {
-              const data = await res.json();
-              t = data.triad;
-              ev = data.evaluation;
-            } else {
-              isStaticMode = true;
-            }
-          } catch (e) {
-            isStaticMode = true;
-          }
-        }
+function updateEvalFilterCounts() {
+  const n = evaluationsData.length;
+  const g = evaluationsData.filter(e => (e.evaluation?.verdict || '').includes('Genuine')).length;
+  const m = evaluationsData.filter(e => (e.evaluation?.verdict || '').includes('Moderate')).length;
+  const s = evaluationsData.filter(e => (e.evaluation?.verdict || '').includes('Spurious')).length;
+  const allBtn = document.querySelector('.eval-filter-btn[data-filter="all"]');
+  if (allBtn) allBtn.textContent = `All (${n})`;
+  const gBtn = document.querySelector('.eval-filter-btn[data-filter="genuine"]');
+  if (gBtn) gBtn.textContent = `Genuine Synergy (${g})`;
+  const mBtn = document.querySelector('.eval-filter-btn[data-filter="moderate"]');
+  if (mBtn) mBtn.textContent = `Moderate Overlap (${m})`;
+  const sBtn = document.querySelector('.eval-filter-btn[data-filter="spurious"]');
+  if (sBtn) sBtn.textContent = `Spurious (${s})`;
+}
 
-        if (isStaticMode) {
-          if (allTriadsData.length === 0) {
-            const res = await fetch('data/triads.json');
-            const data = await res.json();
-            allTriadsData = data.triads || [];
-          }
-          t = allTriadsData.find(x => x.rank === rank);
-          ev = evaluationsData.find(x => x.triad_id === rank);
-        }
+function renderEvaluations(list) {
+  const container = document.getElementById('evaluations-container');
+  if (!list || list.length === 0) {
+    container.innerHTML = '<div class="text-slate-500 text-center py-12">No evaluations match the current filter.</div>';
+    return;
+  }
 
-        if (!t) throw new Error('Triad not found');
+  container.innerHTML = list.map(ev => {
+    const tid = ev.triad_id;
+    const e = ev.evaluation || {};
+    const score = e.triad_quality_score || 0;
+    const verdict = e.verdict || 'Evaluation Pending';
+    const dims = e.dimension_ratings || {};
+    const stmts = ev.research_statements || [];
+    const digest = ev.digest || {};
+    const papers = digest.papers || {};
 
-        body.innerHTML = `
-          <div class="grid grid-cols-3 gap-3 text-center pb-2 border-b border-slate-800">
-            <div class="bg-slate-800/80 p-2.5 rounded-lg">
-              <span class="text-slate-400 block text-[10px]">Score</span>
-              <span class="font-bold text-emerald-400 font-mono text-sm">${t.score.toFixed(4)}</span>
+    let badgeColor = 'bg-slate-700 text-slate-300 border-slate-600';
+    let scoreColor = 'text-slate-300';
+    if (verdict.includes('Genuine')) {
+      badgeColor = 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30';
+      scoreColor = 'text-emerald-400';
+    } else if (verdict.includes('Moderate')) {
+      badgeColor = 'bg-blue-500/10 text-blue-400 border-blue-500/30';
+      scoreColor = 'text-blue-400';
+    } else if (verdict.includes('Spurious')) {
+      badgeColor = 'bg-rose-500/10 text-rose-400 border-rose-500/30';
+      scoreColor = 'text-rose-400';
+    }
+
+    return `
+      <div class="glass-panel rounded-2xl overflow-hidden hover:shadow-glow transition-all duration-300">
+        <div class="p-6 md:p-8 border-b border-white/5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <div class="flex items-center flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-lg bg-slate-950 border border-slate-700 font-mono font-bold text-xs text-slate-300">Triad #${tid}</span>
+              <span class="px-3 py-1 rounded-lg border text-xs font-semibold ${badgeColor}">${esc(verdict)}</span>
             </div>
-            <div class="bg-slate-800/80 p-2.5 rounded-lg">
-              <span class="text-slate-400 block text-[10px]">Pairwise Cosines</span>
-              <span class="font-bold text-slate-200 font-mono text-[11px]">${t.w_uv.toFixed(3)}, ${t.w_vw.toFixed(3)}, ${t.w_uw.toFixed(3)}</span>
-            </div>
-            <div class="bg-slate-800/80 p-2.5 rounded-lg">
-              <span class="text-slate-400 block text-[10px]">AI Evaluated?</span>
-              <span class="font-bold ${ev ? 'text-emerald-400' : 'text-slate-500'} text-xs">${ev ? 'Yes (Score: ' + ev.evaluation.triad_quality_score + '/10)' : 'No (Top 25 Only)'}</span>
+            <div class="text-xs text-slate-400 pt-1">
+              Bottleneck Cosine: <span class="font-mono text-slate-200">${digest.min_edge_cosine ?? '—'}</span>
+              · Mean: <span class="font-mono text-slate-200">${digest.mean_edge_cosine ?? '—'}</span>
             </div>
           </div>
-
-          <div class="space-y-3 pt-2">
-            <div class="p-3 bg-slate-800/60 rounded-xl border border-slate-700/50">
-              <span class="text-emerald-400 font-bold block mb-1">Paper 1 (ID: ${t.paper_id_u})</span>
-              <p class="text-slate-200 font-medium">${t.title_u}</p>
+          <div class="flex items-center gap-6">
+            <div class="text-right">
+              <div class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Synergy Score</div>
+              <div class="text-3xl font-black ${scoreColor}">${score}<span class="text-sm font-normal text-slate-500">/10</span></div>
             </div>
-            <div class="p-3 bg-slate-800/60 rounded-xl border border-slate-700/50">
-              <span class="text-blue-400 font-bold block mb-1">Paper 2 (ID: ${t.paper_id_v})</span>
-              <p class="text-slate-200 font-medium">${t.title_v}</p>
-            </div>
-            <div class="p-3 bg-slate-800/60 rounded-xl border border-slate-700/50">
-              <span class="text-purple-400 font-bold block mb-1">Paper 3 (ID: ${t.paper_id_w})</span>
-              <p class="text-slate-200 font-medium">${t.title_w}</p>
+            <div class="grid grid-cols-3 gap-2 text-center text-[10px]">
+              <div class="bg-slate-950/60 px-2 py-1.5 rounded-lg border border-slate-700/40">
+                <span class="text-slate-400 block">Coherence</span>
+                <span class="font-bold text-slate-200">${dims.thematic_coherence ?? '-'}</span>
+              </div>
+              <div class="bg-slate-950/60 px-2 py-1.5 rounded-lg border border-slate-700/40">
+                <span class="text-slate-400 block">Complement</span>
+                <span class="font-bold text-slate-200">${dims.methodological_complementarity ?? '-'}</span>
+              </div>
+              <div class="bg-slate-950/60 px-2 py-1.5 rounded-lg border border-slate-700/40">
+                <span class="text-slate-400 block">Non-Trivial</span>
+                <span class="font-bold text-slate-200">${dims.non_triviality ?? '-'}</span>
+              </div>
             </div>
           </div>
-        `;
-      } catch (e) {
-        body.innerHTML = `<div class="text-rose-400 text-center py-4">Failed to load triad details.</div>`;
-      }
-    }
+        </div>
+        <div class="px-6 py-4 bg-slate-950/40 border-b border-slate-800">
+          <span class="text-[11px] font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-1.5 mb-1.5">
+            <i data-lucide="brain" class="w-3.5 h-3.5"></i> Gemini Pro Expert Critique
+          </span>
+          <p class="text-xs text-slate-300 leading-relaxed">${esc(e.detailed_reasoning || 'No reasoning available.')}</p>
+        </div>
+        <div class="p-6 border-b border-slate-800">
+          <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-3">Papers in 2-Simplex</span>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            ${['paper_1', 'paper_2', 'paper_3'].map((pk, idx) => {
+              const p = papers[pk] || {};
+              const sec = p.executive_digest || {};
+              return `
+              <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-700/50 space-y-3">
+                <div>
+                  <div class="flex justify-between text-[10px] text-slate-400 mb-1">
+                    <span class="font-bold text-emerald-400">Paper ${idx + 1}</span>
+                    <span class="font-mono">ID: ${esc(p.paper_id || '-')}</span>
+                  </div>
+                  <h4 class="text-xs font-semibold text-slate-100 line-clamp-3">${esc(p.title || 'Untitled')}</h4>
+                </div>
+                <details class="text-[11px] text-slate-400 group">
+                  <summary class="cursor-pointer text-indigo-400 font-medium list-none flex justify-between pt-2 border-t border-slate-800">
+                    <span>Read Executive Digest</span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 group-open:rotate-180 transition"></i>
+                  </summary>
+                  <div class="mt-2 space-y-2 pt-2 text-[10px] text-slate-300 max-h-48 overflow-y-auto custom-scrollbar">
+                    <div><strong class="text-slate-100 block">Abstract / Aims:</strong>${sec.abstract_and_aims ? esc(sec.abstract_and_aims.slice(0, 300)) + '…' : '—'}</div>
+                    <div><strong class="text-slate-100 block">Core Methodology:</strong>${sec.core_methodology_and_architecture ? esc(sec.core_methodology_and_architecture.slice(0, 300)) + '…' : '—'}</div>
+                  </div>
+                </details>
+              </div>`;
+            }).join('')}
+          </div>
+        </div>
+        <div class="p-6 bg-slate-950/30">
+          <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5 mb-3">
+            <i data-lucide="lightbulb" class="w-4 h-4"></i> 5 Formulated Research Statements
+          </span>
+          <div class="space-y-3">
+            ${stmts.map(s => {
+              let feasColor = 'bg-emerald-500/20 text-emerald-300';
+              if (s.estimated_feasibility?.includes('Medium')) feasColor = 'bg-blue-500/20 text-blue-300';
+              if (s.estimated_feasibility?.includes('Risk')) feasColor = 'bg-amber-500/20 text-amber-300';
+              return `
+              <div class="p-4 rounded-xl bg-slate-950/90 border border-slate-700/60 space-y-2">
+                <div class="flex justify-between gap-3">
+                  <div>
+                    <span class="text-[10px] font-bold text-slate-500 font-mono">Statement #${s.statement_id}</span>
+                    <h5 class="text-xs font-bold text-slate-100">${esc(s.title)}</h5>
+                  </div>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold whitespace-nowrap ${feasColor}">${esc(s.estimated_feasibility || 'Medium')}</span>
+                </div>
+                <p class="text-xs text-slate-300 italic border-l-2 border-emerald-500/50 pl-3">${esc(s.research_statement)}</p>
+                <div class="text-[11px] text-slate-400"><strong class="text-indigo-400">Mechanistic Bridge:</strong> ${esc(s.mechanistic_bridge)}</div>
+                ${s.impact_analysis ? `
+                <div class="grid md:grid-cols-2 gap-2 text-[10px] pt-1">
+                  <div class="p-2 rounded bg-slate-800/60 border border-slate-700/40"><span class="text-emerald-400 font-semibold block">Breakthrough:</span>${esc(s.impact_analysis.scientific_breakthrough)}</div>
+                  <div class="p-2 rounded bg-slate-800/60 border border-slate-700/40"><span class="text-amber-400 font-semibold block">Application:</span>${esc(s.impact_analysis.real_world_application)}</div>
+                </div>` : ''}
+              </div>`;
+            }).join('')}
+          </div>
+        </div>
+      </div>`;
+  }).join('');
 
-    function closeModal() {
-      const modal = document.getElementById('triad-modal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
+  lucide.createIcons();
+}
 
-    // ================= Visualizer Logic =================
-    function initNetworkGraph() {
-      loadVisualizerTriad(1);
-    }
+function filterEvaluations(filter) {
+  currentEvalFilter = filter;
+  document.querySelectorAll('.eval-filter-btn').forEach(btn => {
+    btn.classList.toggle('filter-active', btn.dataset.filter === filter);
+  });
+  if (filter === 'all') {
+    renderEvaluations(evaluationsData);
+  } else {
+    renderEvaluations(evaluationsData.filter(e =>
+      ((e.evaluation && e.evaluation.verdict) || '').toLowerCase().includes(filter)
+    ));
+  }
+}
 
-    async function loadVisualizerTriad(tid) {
-      activeVisualizerTriad = parseInt(tid);
-      const container = document.getElementById('network-canvas');
+function searchEvaluations(query) {
+  const q = query.toLowerCase().trim();
+  if (!q) {
+    filterEvaluations(currentEvalFilter);
+    return;
+  }
+  renderEvaluations(evaluationsData.filter(e => JSON.stringify(e).toLowerCase().includes(q)));
+}
 
-      try {
-        let t = null;
-        let ev = null;
+function esc(s) {
+  if (s == null) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+}
+function truncate(s, n) {
+  s = String(s);
+  return s.length > n ? s.slice(0, n - 1) + '…' : s;
+}
 
-        if (!isStaticMode) {
-          try {
-            const res = await fetch(`/api/triad/${activeVisualizerTriad}`);
-            if (res.ok) {
-              const data = await res.json();
-              t = data.triad;
-              ev = data.evaluation;
-            } else {
-              isStaticMode = true;
-            }
-          } catch (e) {
-            isStaticMode = true;
-          }
-        }
-
-        if (isStaticMode) {
-          if (allTriadsData.length === 0) {
-            const res = await fetch('data/triads.json');
-            const data = await res.json();
-            allTriadsData = data.triads || [];
-          }
-          t = allTriadsData.find(x => x.rank === activeVisualizerTriad);
-          ev = evaluationsData.find(x => x.triad_id === activeVisualizerTriad);
-        }
-
-        if (!t) return;
-
-        // Update inspector panel
-        document.getElementById('inspector-title').innerText = `Triad #${activeVisualizerTriad}`;
-        document.getElementById('inspect-p1-title').innerText = t.title_u;
-        document.getElementById('inspect-p2-title').innerText = t.title_v;
-        document.getElementById('inspect-p3-title').innerText = t.title_w;
-
-        if (ev) {
-          document.getElementById('inspector-verdict').innerText = `${ev.evaluation.verdict} (${ev.evaluation.triad_quality_score}/10)`;
-          document.getElementById('inspect-top-hypothesis').innerText = `"${ev.research_statements[0].title}"`;
-        } else {
-          document.getElementById('inspector-verdict').innerText = `Un-evaluated Triad (Tightness Score: ${t.score.toFixed(4)})`;
-          document.getElementById('inspect-top-hypothesis').innerText = `Top 1,000 Simplicial Triad`;
-        }
-
-        // Vis.js Graph Nodes & Edges
-        const nodes = new vis.DataSet([
-          { id: 1, label: 'Paper 1\n' + truncateStr(t.title_u, 30), shape: 'dot', size: 28, color: '#10b981', font: { color: '#ffffff', size: 11, face: 'sans-serif' } },
-          { id: 2, label: 'Paper 2\n' + truncateStr(t.title_v, 30), shape: 'dot', size: 28, color: '#3b82f6', font: { color: '#ffffff', size: 11, face: 'sans-serif' } },
-          { id: 3, label: 'Paper 3\n' + truncateStr(t.title_w, 30), shape: 'dot', size: 28, color: '#a855f7', font: { color: '#ffffff', size: 11, face: 'sans-serif' } },
-        ]);
-
-        const edges = new vis.DataSet([
-          { from: 1, to: 2, label: `w: ${t.w_uv.toFixed(3)}`, color: { color: '#059669', highlight: '#34d399' }, width: 3, font: { color: '#34d399', size: 10, align: 'top', strokeWidth: 0 } },
-          { from: 2, to: 3, label: `w: ${t.w_vw.toFixed(3)}`, color: { color: '#2563eb', highlight: '#60a5fa' }, width: 3, font: { color: '#60a5fa', size: 10, align: 'top', strokeWidth: 0 } },
-          { from: 1, to: 3, label: `w: ${t.w_uw.toFixed(3)}`, color: { color: '#9333ea', highlight: '#c084fc' }, width: 3, font: { color: '#c084fc', size: 10, align: 'top', strokeWidth: 0 } },
-        ]);
-
-        const graphData = { nodes: nodes, edges: edges };
-        const options = {
-          physics: {
-            solver: 'forceAtlas2Based',
-            forceAtlas2Based: {
-              gravitationalConstant: -120,
-              centralGravity: 0.01,
-              springLength: 160,
-              springConstant: 0.08
-            }
-          },
-          interaction: {
-            hover: true,
-            zoomView: true
-          }
-        };
-
-        if (networkInstance) {
-          networkInstance.destroy();
-        }
-        networkInstance = new vis.Network(container, graphData, options);
-
-      } catch (e) {
-        console.error('Failed to load visualizer triad:', e);
-      }
-    }
-
-    function truncateStr(str, n) {
-      return (str.length > n) ? str.substr(0, n - 1) + '...' : str;
-    }
-
-    function viewActiveTriadInEval() {
-      switchTab('evaluations');
-      const el = document.getElementById('eval-search-input');
-      el.value = `Triad #${activeVisualizerTriad}`;
-      searchEvaluations(`Triad #${activeVisualizerTriad}`);
-    }
-  </script>
+document.addEventListener('DOMContentLoaded', init);
+</script>
 </body>
 </html>

@@ -14,13 +14,14 @@ This project lifts pairwise scientific paper embedding graphs into **topological
 
 ## ⚡ Quickstart: Launch the Interactive Web App
 
-A full-featured, zero-dependency web application is included to explore the simplicial complex, inspect all 1,000 ranked triads, and view the Gemini Pro evaluations and 125 synthesized hypotheses.
+A full-featured web application is included to explore the simplicial complex, inspect all 1,000 ranked triads, interactively search papers and visualize kNN neighborhoods (with triangle highlights), and view the Gemini Pro evaluations and 125 synthesized hypotheses.
 
 ```bash
-cd /DATATWO/users/mridul2/paper_simplicial
+cd paper_simplicial
+pip install -r requirements.txt   # numpy required; graph explore needs local run artifacts (see project_paths.py)
 python run_webapp.py --port 8501
 ```
-Open **`http://localhost:8501`** in your browser. (Requires no external pip packages—runs directly on standard library Python).
+Open **`http://localhost:8501`** in your browser.
 
 ---
 
@@ -105,6 +106,10 @@ paper_simplicial/
 │       ├── abstracts_json/        # Individual clean JSONs per triad
 │       ├── executive_digest_json/ # Individual digest JSONs per triad
 │       └── evaluations/           # Gemini Pro ratings and 5 research statements per triad
+│
+├── webapp/                        # Single-page UI (evaluations, triads, graph explorer, pipeline article)
+│   ├── index.html
+│   └── pipeline_article.json
 │
 └── figures/                       # Representative figures and topological mesh metadata
     ├── clique_full_mesh_meta.json
