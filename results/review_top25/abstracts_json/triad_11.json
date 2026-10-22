@@ -1,0 +1,34 @@
+{
+  "rank": 11,
+  "tightness_score": 0.96967,
+  "min_edge_cosine": 0.984502,
+  "mean_edge_cosine": 0.984935,
+  "pairwise_cosine_similarities": {
+    "paper1_vs_paper2": 0.984502,
+    "paper2_vs_paper3": 0.985751,
+    "paper1_vs_paper3": 0.984551
+  },
+  "papers": {
+    "paper_1": {
+      "paper_id": "74322555",
+      "title": "Potential biological meaning and origin of cardiac progenitor cells isolated as Cardiospheres",
+      "abstract_or_lead": "Several populations of progenitor cells have been identified in the adult heart, based on the expression of specific surface markers (c-kit, Sca1, SSEA1, Isl-1), or on functional properties such as the ability to expel a vital dye (Side Population) or to spontaneously migrate from tissue explants and grow in three dimensional structures called cardiospheres (CSps), representing a niche-like microtissue with a cardiogenic gradient of differentiation. It is not clear which is the origin of these endogenous progenitor populations and how they function in vivo, given the limited regenerative capacity of the heart. Several possibilities can be envisioned. These cells could be remnants of the embryonic development, or derive from the de-differentiation of cardiomyocytes. A better understanding of their biological meaning is important not only for the extension of our knowledge in the field, but also to gain insight on the regenerative potential and differentiative fate of the cells for the clinical translation of cell therapy. To deeply investigate these issues, we approached the question from two different sides. Firstly to test the dedifferentiation  hypothesis, we used a double transgenic mouse expressing the recombinase MerCreMer under the α- Myosin-Heavy-Chain promoter, specific of differentiated cardiomyocytes, thus a pulse with 4-OH-tamoxifen (TAM) would activate Cre , allowing the expression of the reporter gene LacZ, in a spatial and temporal regulated manner. With this system, ideally all the differentiated cardiomyocytes should be irreversibly labeled after TAM treatment, even if they subsequently undergo de-differentiation. B-gal positive cells resulted very rare in culture, as shown by x-gal staining and real time PCR, suggesting that 5 cardiomyocytes de-differen",
+      "total_paper_chars": 135222,
+      "dataset_row": 228834
+    },
+    "paper_2": {
+      "paper_id": "80167180",
+      "title": "ALS-RELATED FUS PROTEIN IS MISLOCALIZED TO CYTOPLASM AND RECRUITED INTO STRESS GRANULES IN FIBROBLASTS OF ASYMPTOMATIC FUS P525L MUTATION CARRIERS",
+      "abstract_or_lead": "Symptoms onset in Amyotrophic Lateral Sclerosis (ALS) occur when over 70% of motor neurons is already lost, suggesting a relatively long pre-symptomatic phase. The description of several genes linked to ALS (e.g., SOD1, FUS, TARDP, C9orf72) has now allowed identification of pre-symptomatic carriers. These pre-symptomatic (or even preclinical) carriers can be followed up with the aim to identify the very early clinical diseaserelated changes or a valuable biomarker. These efforts seem at present the best approach for the implementation of an early symptomatic therapy or for the disease prevention. In this work, we studied the expression of FUS protein in cultured skin fibroblasts from pre-symptomatic FUS P525L mutation carriers. We cultured skin fibroblasts from two sisters belonging to an ALS family with FUS P525L mutation and carrying the same mutation, one healthy control and two patients with sporadic ALS (sALS), with no identified gene mutations. The two carriers were clinically asymptomatic, while the two patients fulfilled the El-Escorial and Awaji criteria for definite ALS. Western blot and immunocytochemistry were performed with specific antibodies to study the expression and subcellular localization of FUS protein in the skin fibroblasts. In sporadic ALS, FUS protein showed an almost exclusive nuclear localization. In the healthy control, FUS was also mostly nuclear, with some cells showing a faint cytoplasmic expression. In the FUS P525L mutation carriers, the protein was strongly expressed in both nucleus and 5 cytoplasm in most cells, with a relatively high proportion of cells showing an exclusive cytoplasmic FUS localization. Furthermore, either heat-shock or dithiothreitol were applied to assess the effect of stress on FUS expression and cytoplasmic redist",
+      "total_paper_chars": 73385,
+      "dataset_row": 276147
+    },
+    "paper_3": {
+      "paper_id": "29111879",
+      "title": "DNA Damage responses in plant stem cells",
+      "abstract_or_lead": "Plants\t\r   are\t\r   sessile\t\r   organisms\t\r   that\t\r   cannot\t\r   escape\t\r   environmental\t\r   hazards,\t\r  which\t\r   induce\t\r  DNA\t\r  damage\t\r  and\t\r  cause\t\r  mutations.\t\r  Plants\t\r  are\t\r  also\t\r  subject\t\r   to\t\r  DNA\t\r   damage\t\r   caused\t\r   by\t\r   endogenous\t\r   processes\t\r   such\t\r   as\t\r   transposon\t\r  movement.\t\r  Plant\t\r  stem\t\r  cell\t\r  populations\t\r  in\t\r  particular\t\r  must\t\r  be\t\r  protected\t\r  from\t\r  genotoxicity,\t\r  as\t\r  they\t\r  are\t\r  the\t\r  origin\t\r  of\t\r  all\t\r  organs,\t\r  together\t\r  with\t\r  the\t\r  germline.\t\r  In\t\r   accordance\t\r   with\t\r   this\t\r   premise,\t\r   plant\t\r   stem\t\r   cells\t\r   were\t\r   found\t\r   to\t\r   be\t\r  hypersensitive\t\r   to\t\r   Double\t\r   Strand\t\r   Breaks\t\r   (DSBs),\t\r   leading\t\r   to\t\r   their\t\r   specific\t\r  killing\t\r  via\t\r  the\t\r  ATAXIA\t\r  TELANGIECTASIA\t\r  MUTATED\t\r  (ATM)\t\r  and\t\r  SUPPRESSOR OF\t\r   GAMMA\t\r   RESPONSE\t\r   1\t\r   (SOG1)\t\r   genes.\t\r   However,\t\r   the\t\r   components\t\r   of\t\r   the\t\r  pathway\t\r   leading\t\r   to\t\r   programmed\t\r   cell\t\r   death\t\r   (PCD)\t\r   in\t\r   response\t\r   to\t\r   DSBs\t\r   in\t\r  plant\t\r   stem\t\r   cells\t\r   are\t\r   still\t\r   unknown,\t\r   and\t\r   the\t\r   in\t\r   vivo\t\r   DNA\t\r   damaging\t\r   agents\t\r  relevant\t\r   to\t\r   this\t\r   mechanism\t\r   have\t\r   not\t\r   been\t\r   characterised,\t\r   providing\t\r   the\t\r  starting\t\r  point\t\r  of\t\r  this\t\r  thesis.\t\r  Here,\t\r  a\t\r  candidate\t\r  gene\t\r  approach\t\r  and\t\r  a\t\r  forward\t\r  genetics\t\r   screen\t\r   in\t\r   the\t\r   root\t\r   stem\t\r   cells\t\r   did\t\r   not\t\r   yield\t\r   new\t\r   factors\t\r   of\t\r   the\t\r  pathway\t\r   leading\t\r   to\t\r   PCD\t\r   in\t\r   root\t\r   stem\t\r   cells.\t\r   However,\t\r   a\t\r   specific\t\r   ecotype\t\r  showed\t\r   an\t\r   absence\t\r   of\t\r   DSBs-­‐induced\t\r   PCD,\t\r   revealing\t\r   natural\t\r   variation\t\r   in\t\r  stem\t\r   cell",
+      "total_paper_chars": 526122,
+      "dataset_row": 472835
+    }
+  }
+}

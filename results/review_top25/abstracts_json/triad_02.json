@@ -1,0 +1,34 @@
+{
+  "rank": 2,
+  "tightness_score": 0.971755,
+  "min_edge_cosine": 0.985361,
+  "mean_edge_cosine": 0.986192,
+  "pairwise_cosine_similarities": {
+    "paper1_vs_paper2": 0.985361,
+    "paper2_vs_paper3": 0.985828,
+    "paper1_vs_paper3": 0.987388
+  },
+  "papers": {
+    "paper_1": {
+      "paper_id": "77017962",
+      "title": "Metal complexes as catalysts for the synthesis of heterocycles",
+      "abstract_or_lead": "Transition metal-based catalysts are undoubtedly one of the most powerful tools available to chemists. They mediate a plethora of reactions, and make numerous chemical processes viable while allowing cleaner/greener and safer routes. Most transformations require the use of ancillary ligands, and in practice, the actual catalytically active species might be formed either by the in situ combination of metal and ligand precursors, or directly from a preformed, well-defined organometallic complex. Pre-formed catalysts possess many advantages over in situ-generated systems. Not only are they usually better performing, but also allow strict control over the ligand/metal ratio. This is of importance since an increasing number of ligands are more expensive than common metal sources. More significantly, such control should be helpful to identify the actual catalyst, and hence, to better understand the reaction mechanism. This thesis describes the efforts in developing well-defined catalytic systems for the preparation and functionalisation of heterocycles, with a particular focus on 1,2,3- triazoles. The introductory Chapter outlines a brief overview of the chemistry of azides, including a discussion of the ligands and catalysts used for the 1,3-dipolar cycloaddition reaction of organic azides and alkynes. The synthesis, characterisation and X-ray crystal structures of novel copper(I) catalysts bearing phosphorus-based ligands is described in Chapter 2. These pre-formed catalysts have been screened in the copper(I)-catalysed azide-alkyne cycloaddition reaction. The scope and trends in reactivity are also described. The following Chapter provides an introduction to the ruthenium-catalysed azide-alkyne cycloaddition reaction and the efforts in developing water-soluble catalysts an",
+      "total_paper_chars": 486833,
+      "dataset_row": 165413
+    },
+    "paper_2": {
+      "paper_id": "9836640",
+      "title": "Investigation of novel thermal cyclisation reactions and studies on their application to the synthesis of selected natural products",
+      "abstract_or_lead": "The primary goal of this research project was to investigate the mechanism of a novel thermally activated cyclisation reaction discovered by Parsons et al. During these studies two novel reactions were discovered: Reagents and Conditions: (i) Toluene 0.1M, reflux, 4h, 32%. Reagents and Conditions: (i) Toluene, 0.01M, reflux, 4h, 53% Radical and ene pathways for the generation of these products were proposed. However, despite extensive empirical studies, no definitive proof for either mechanism was found.  The breadth of the synthetic utility of the above reactions was also investigated by synthesizing various analogues. The general application of the Parsons’ cyclisation to the synthesis of steroid cored and the complex natural product Jiadifenin was also investigated. Advanced intermediates were synthesised and invaluable information on reactivity was gained, however these investigations could not be completed due to time constraints. 11 Abbreviations (-)-DIPT: (-)-diisopropyl (D)-tartrate Boc: tert-butoxy carbonyl bp: boiling point Calcd.: calculated CIDNP: chemically induced dynamic nuclear polarization CTAB: cetyl trimethylammonium bromide d (NMR): doublet DCC: N,N’-dicyclohexylcarbodiimide DCM: dichloromethane DEPT:  distortionless enhancement by polarization transfer dix: disconnection DMAP: N,N-dimethylaminopyridine DMF: N,N-dimethylformamide DMSO: dimethylsulfoxide ee: enantiomeric excess EI: electron ionisation eq: equivalent ESI: electrospray ionisation FGI: functional group interconversion h: hour HMBC: heteronuclear multiple bond correlation HMPA: hexamethylphosphoramide HoBt: hydroxybenzotriazole HOMO: highest occupied molecular orbital HSQC: heteronuclear single quantum correlation 12 IR: infrared LDA: lithium diisopropylamide LHMDS: lithium bis(trimethyls",
+      "total_paper_chars": 247584,
+      "dataset_row": 230964
+    },
+    "paper_3": {
+      "paper_id": "16413132",
+      "title": "Studies towards the total synthesis of Herbimycin A",
+      "abstract_or_lead": "Herbimycin A (1) belongs to the ansamycin family and is a 19-membered lactam with seven stereogenic centres, making it a synthetic challenge, which was first isolated in 1979 by Omura et al. Herbimycin A (1) exhibits a broad spectrum of biological activities: herbicidal, inhibitor of angiogenesis and of the maturation of growth factor receptor tyrosine kinases. Figure 1 - Herbimycin A Since its discovery, only three total syntheses of Herbimycin A (1) have been described in the literature, along with the syntheses of advanced fragments. This thesis describes a new route to Herbimycin A (1), using a wide range of chemical reactions than those used in the previous routes from the literature. 9 The main idea is to split Herbimycin A (1) into an aromatic fragment and an aliphatic fragment as shown below in Scheme 1. Scheme 1 - Retrosynthesis highlighting both aromatic and aliphatic fragments The synthesis of aliphatic fragment (4) follows up the work of Ansell and Pietsch, past members of the Parsons group. Interesting results could be obtained and a wide range of Organic Chemistry reactions could be investigated. 10 ABBREVIATIONS Ac AHBA AIBN Aq Ar ATP BHT Bn Boc BOP Bu c C CAN cat Conc. 13 C NMR Cp CSA DBU DHQ DIBALH DIPEA Acetyl 3-amino-5-hydroxybenzoic acid Azobisisobutyronitrile Aqueous Aromatic Adenosine triphosphate Butylated hydroxytoluene Benzene Tert-butoxycarbonyl Bis(2-oxo-2oxazolidinyl)-phosphinic Butyl Concentration Carbon Ceric ammonium nitrate catalytic Concentrated Carbon Nuclear Magnetic Resonance Cyclopentadienyl Camphorsulfonic acid 1,8-Diazabicyclo[5.4.0]undec-7-ene 3-Dehydroquinic acid Diisobutylaluminium Hydride N,N-Diisopropylethylamine 11 DMAP DMF DMP DMPU DMS DMSO DNA dr EAC ee Eq. EI ER ESI Et g h HMDS HMPA 1 H NMR HPLC HRMS HSP IBX IC Imid Ipc IR",
+      "total_paper_chars": 151758,
+      "dataset_row": 234901
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "rank": 8,
+  "tightness_score": 0.970173,
+  "min_edge_cosine": 0.984843,
+  "mean_edge_cosine": 0.985105,
+  "pairwise_cosine_similarities": {
+    "paper1_vs_paper2": 0.985453,
+    "paper2_vs_paper3": 0.984843,
+    "paper1_vs_paper3": 0.985019
+  },
+  "papers": {
+    "paper_1": {
+      "paper_id": "47205734",
+      "title": "Climate change vulnerability and adaptation options : case studies of four coastal communities in Timor-Leste",
+      "abstract_or_lead": "Timor-Leste, as both a small island developing state and a fragile, post-conflict nation, faces major challenges in responding to climate change. Subsistence coastal communities are particularly prone to the impacts of global climate change, in particular increased flooding, droughts and coastal inundation. This research undertook an integrated vulnerability assessment of coastal communities in Timor-Leste. Assessments were conducted in four coastal hamlets (Beacou, Sau Loro, Vailana), which represented a range of climates and socio-economic profiles in Timor Leste. Two ‘bottom-up’ approaches were adopted: (a) rapid, participatory, community-based vulnerability assessment; and (b) a semi-quantitative assessment based on data collected from 80 household surveys, which yielded 35 indicators that were derived from the ‘risk-hazard’ and sustainable livelihoods approaches.  Identification of adaptation options, which consistutes a vital step in local adaptation planning, was undertaken in each hamlet and a review of relevant climate change policies and programs was also undertaken. All four hamlets were subject to major climate impacts primarily from flooding and droughts on coastal infrastructure, food security from both fishing and agriculture, and water security. Interstingly, exposure was not demonstrably affected by the geographical location of the case studies. Sensitivity differed only slightly depending on specific localities of infrastructure and other assets and was high for all case study sites. Adaptive capacity was found to be constrained by very low levels of of income, education and economic diversification, high levels of resource dependency, water and food insecurity, and limited access to government support and development programs—with the exception of one",
+      "total_paper_chars": 701260,
+      "dataset_row": 432401
+    },
+    "paper_2": {
+      "paper_id": "47200060",
+      "title": "Reducing carbon emissions at the City of Darwin : an evaluation of battery electric vehicles",
+      "abstract_or_lead": "The introduction of the Australian Government’s Clean Energy Future Legislation 2011 coupled with community expectation is placing pressure on councils liable under the carbon pricing mechanism (such as the City of Darwin) to reduce its carbon footprint.  One carbon mitigation option is to replace fossil-fuel powered passenger fleet vehicles with battery electric vehicles.  This thesis makes a contribution to understanding the challenges associated with implementing this activity in the City of Darwin’s fleet, and does so from a triple bottom line (financial, environmental and social) perspective.  A possible implementation scenario is outlined which includes a three phase program, where the initial phase includes the purchase of a Mitsubishi i-MiEV as an additional fleet vehicle.  The second phase suggests procuring three electric vehicles (Nissan Leaf x two and Renault Fluence Z.E.) as a trial.  The third phase is a gradual battery electric vehicle roll-out across the passenger fleet.  The research reported in this thesis applies three complementary program planning tools (program logic models, the Cynefin Framework and community-based social marketing theory) to the implementation scenario.  It is shown that they are methodologically complementary and in combination, could be used to increase the likelihood of success of the implementation scenario.  This thesis shows replacing existing fleet passenger vehicles with battery electric vehicles will reduce City of Darwin’s carbon footprint while using program planning tools will increase the likelihood of success of vehicle replacement, both from a planning, management and staff behaviour change perspective. 1",
+      "total_paper_chars": 154274,
+      "dataset_row": 434194
+    },
+    "paper_3": {
+      "paper_id": "47206386",
+      "title": "Foreign aid and the development of Bougainville : \\u27Australian aid as catalyst for economic development\\u27",
+      "abstract_or_lead": "This study explores whether the development assistance delivered by Australian Department of Foreign Affairs and Trade (DFAT) can be better utilized to achieve Bougainville’s future economic development. In investigating the factors, issues and challenges that currently constrain aid and development in Bougainville, I focus upon aid policy and procurement processes, Bougainvilleans’ socio-cultural features, the post-conflict situation, and aspects related specifically to SIDS (Small Island Development States). Analysis of these factors provided understanding of aid-driven development issues and challenges within a post-conflict, culturallybased Melanesian SIDS territory. In an attempt to address such problems, a case study of the cocoa industry has been conducted as a model to illustrate how and what aid resources can be used to assist Bougainville’s future development. A variant of neo-liberal aid-driven development theory, plus the untied aid model and formal aid management principles are adapted to develop a road-map for improving the cocoa industry with DFAT aid, in pursuit of Bougainville’s future economic development. 1",
+      "total_paper_chars": 414559,
+      "dataset_row": 434588
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "rank": 21,
+  "tightness_score": 0.968589,
+  "min_edge_cosine": 0.983347,
+  "mean_edge_cosine": 0.984994,
+  "pairwise_cosine_similarities": {
+    "paper1_vs_paper2": 0.983347,
+    "paper2_vs_paper3": 0.987264,
+    "paper1_vs_paper3": 0.98437
+  },
+  "papers": {
+    "paper_1": {
+      "paper_id": "84678314",
+      "title": "Cancer cell mechanics and cell microenvironment: An optical tweezers study",
+      "abstract_or_lead": "3 Abstract Since cancer metastasis is a complex process, a lot of research has been carried out to identify different hallmarks for its diagnosis and cure. Mechanical alterations in cancer cells during cell spreading to adjacent tissues and other organs of the body emerged as a prominent hallmark in the last decade. In this thesis we employed a mechanistic approach based on cell stiffness (elasticity) measurement as  a  marker  to  study  cell’s  mechanical  response  in  varying  microenvironmental  conditions. Mechanical interaction of the cell with the surrounding microenvironment is a blend of cell-matrix and cell-cell interactions. Therefore we adopted an approach to study cells in isolation and in the presence of their neighboring cells, plated on rigid as well as on compliant substrates. The elastic modulus was calculated using the Hertz-model. We considered three breast cell lines as model, showing three phases of cancer progression: MDA- MB-231, a highly aggressive cell line belonging to the Basal cell-like phenotype; MCF-7, a less aggressive cancer cell line, belonging to the Luminal A cell-like phenotype; and HBL-100, a nonneoplastic cell line, derived from the milk of a Caucasian woman, normal control for breast basalmyoepithelial cells. Cell elasticity can be locally measured by pulling membrane tethers, stretching or indenting the cell using optical tweezers. We introduce a simple approach to perform cell indentation by axially moving  the  cell  against  a  trapped  microbead.  Our  scheme  is  similar  to  the  AFM  vertical  cell indentation approach and can help to compare the quantitative results and thus complement AFM in a low force regime and loading rates. The elasticity trend of the three cell lines in isolated conditions showed that the aggressi",
+      "total_paper_chars": 173948,
+      "dataset_row": 280564
+    },
+    "paper_2": {
+      "paper_id": "54845801",
+      "title": "Synthesis of Well-Controlled Nanogels via Block Copolymer Self-Assembly: A Systematic Characterization of the Properties and Potential Applications",
+      "abstract_or_lead": "In the United States there is a growing need for materials that can probe and fight diseases of the heart, brain, and body as a whole. In this study nanogels, block copolymers, and copolymers were synthesized using solution polymerization and directed self-assembly. Results indicate that the nanogels are highly responsive to changes in pH and temperature and they are of a size (29 nanometers) that makes them viable drug delivery devices. Additionally, these nanogels macrogel at very low nanogel concentrations (10 – 15 weight %), which makes them reasonable candidates for dental repairs and enhancements. The present study also characterizes the process by which these nanogels and their precursors (block copolymers and copolymers) were synthesized. Our findings illustrate that solution polymerization followed by self-assembly is the most appropriate synthetic pathway for the synthesis of nanogels required for biomedical and dental interventions because the process allows the nanogels to retain the selected behavioral characteristics of the block copolymer and copolymer and, as this study specifically demonstrates, enhance certain copolymer and block copolymer traits. The copolymer, block copolymer, and nanogels that were synthesized in this study, therefore, could potentially be used to help researchers understand and treat some of the more deleterious illnesses such as Alzheimer’s disease, post-traumatic stress disorder, and Type II diabetes. 4",
+      "total_paper_chars": 46392,
+      "dataset_row": 483164
+    },
+    "paper_3": {
+      "paper_id": "54845573",
+      "title": "Multivalent Peptides as New Biomarker Probes for the Detection of Cancer Metastasis",
+      "abstract_or_lead": "Malignant tumor cells overexpress and release lipid vesicles called exosomes into the body fluids to facilitate their movement and metastasis to other parts of the body. It was found that an increased secretion of exosomes in the peripheral blood is correlated with lung cancer and melanoma metastasis. The hallmarks of exosomes are their highly curved surface (d = ~30-100 nm) that is distinct from other extracellular lipid vesicles and their enrichment with the anionic lipid phosphatidylserine (PS) in the outer leaflet of the membrane bilayer. These properties provide an opportunity in selectively targeting exosomes as potential cancer biomarkers. We have developed a novel, minimally invasive, peptide-based diagnostic tool to detect synthetic liposomes that could be used to detect exosome oversecretion in cancer patients. The successful development of this diagnostic tool for cancer metastasis will help in the proper diagnosis and therapy for cancer patients. Coulup 4",
+      "total_paper_chars": 35537,
+      "dataset_row": 485950
+    }
+  }
+}

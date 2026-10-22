@@ -1,0 +1,34 @@
+{
+  "rank": 1,
+  "tightness_score": 0.972027,
+  "min_edge_cosine": 0.985675,
+  "mean_edge_cosine": 0.986154,
+  "pairwise_cosine_similarities": {
+    "paper1_vs_paper2": 0.986478,
+    "paper2_vs_paper3": 0.98631,
+    "paper1_vs_paper3": 0.985675
+  },
+  "papers": {
+    "paper_1": {
+      "paper_id": "81572374",
+      "title": "3D energy modeling optimisation using computational design software",
+      "abstract_or_lead": "The current tendency of the population is to live in cities. This urban exodus added to the fact that the world population is still increasing, with a growth expectation of 1.3% from 2016 to 20501, highlights the necessity of increasing the number of buildings in the world and, as a consequence, the increase of house energy consumption. Nowadays the sector of the computational design is growing with a diversity of products and scopes. The aim of this study is to use one of these software to optimize the characteristics of a house in order to reduce the energy consumption of the place people live in, work in and spend time in. The use of Grasshopper has permitted to simulate the energy consumption of a house located in Barcelona and thus to optimise its characteristics in order to reduce its energy consumption, with a final reduction of 2734kWh/year, which represents a reduction of 87.6% between the non-optimised house and the optimised one. This project shows that it has been possible to use the new computational design software in order to reduce the energy consumption of the studied house. The results obtained show that this study can be used in future larger-scale projects in order to reduce the energy consumption in the residential sector. Axel Paul Galpy Massé - 6 - RESUM La tendència actual de la població és d'anar a viure a les ciutats. Aquest èxode urbà afegit al increment de la població mundial previst del 1.3% entre 2016 i 2050, ressalta la necessitat d'augmentar el nombre d’habitatges en el món i, com a conseqüència, l'increment de l'energia consumida. Actualment el sector del disseny computacional està creixent amb una gran diversitat de producte i aplicacions. L'objectiu d'aquest projecte és el d'utilitzar un d'aquests programes per optimitzar les caracterí",
+      "total_paper_chars": 258150,
+      "dataset_row": 27786
+    },
+    "paper_2": {
+      "paper_id": "41814740",
+      "title": "Modelling and simulation of a microreactor for ethanol steam reforming",
+      "abstract_or_lead": "Nowadays, the research of new energy sources to substitute fossil fuels is essential. Hydrogen represents an option with plenty of potential for this issue. The main problem of this source is its poor portability, so it needs to be obtained almost directly where it needs to be used. For this reason, it has been carried out a three dimensional computational fluid dynamics simulation study of ethanol steam reforming (ESR) in a monolithic microreactor. It has been established and implemented a kinetic model describing the ESR on a Rh-Pd/CeO2 catalyst. The model includes the ethanol decomposition into hydrogen, methane and carbon monoxide, the water gas shift (WGS) reaction, the reforming, in presence of water, of the methane (MSR) in to carbon monoxide or carbon dioxide, at different inlet velocities, pressures and temperatures. - 5 -",
+      "total_paper_chars": 119405,
+      "dataset_row": 29848
+    },
+    "paper_3": {
+      "paper_id": "87657874",
+      "title": "Simulation and optimization of an HVDC network connecting offshore windfarms with the mainland",
+      "abstract_or_lead": "In this project an algorithm capable of simulating a network connecting offshore wind farms HVDC points with consumers has been created. This simulation takes into account the analytical model that HVDC network is based on. The simulation also takes into account the control that is applied in such cases. In addition, the control of the system calculates the optimum working point to optimise the network energy transfer. Nil Falgueras Farrerons - 9 -",
+      "total_paper_chars": 85999,
+      "dataset_row": 46623
+    }
+  }
+}

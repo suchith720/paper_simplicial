@@ -1,0 +1,34 @@
+{
+  "rank": 16,
+  "tightness_score": 0.969254,
+  "min_edge_cosine": 0.983909,
+  "mean_edge_cosine": 0.985106,
+  "pairwise_cosine_similarities": {
+    "paper1_vs_paper2": 0.984649,
+    "paper2_vs_paper3": 0.983909,
+    "paper1_vs_paper3": 0.986759
+  },
+  "papers": {
+    "paper_1": {
+      "paper_id": "41337988",
+      "title": "Characterization of the Coral Disease 'Porites Bleaching with Tissue Loss' (PBTL) From Hawaii",
+      "abstract_or_lead": "Coral reefs around the world are facing many threats and have sustained severe losses in coral cover over the past few decades. Coral bleaching and disease outbreaks have contributed substantially to this reef decline, however our understanding of factors contributing to the increase in coral disease prevalence are poorly understood. Information on the disease dynamics of different diseases affecting a reef system is essential for the development of effective management strategies. The aim of this research was to characterise and build a case study of a bleaching response affecting Porites compressa in Kaneohoe Bay, Oahu, Hawaii. It manifests as a localised, discrete area on the coral colony with a bleached coenenchyme and pigmented polyps, giving the affected area a “speckled” appearance. A disease by definition is any interruption, cessation or disorder of body functions, systems or organs. Results of this study showed that this localised bleaching causes tissue loss and a reduction in the number of gametes, and hence harm to the host. It was therefore classified as a disease and named Porites bleaching with tissue loss (PBTL). In addition, PBTL does not appear to represent a common thermal bleaching response as it was present throughout the year during times when seawater temperature was well within the coral’s thermal threshold. Symbiodinium cell density in PBTL-affected areas of the coral colony was reduced by 65%, and examination of affected host tissue using light microscopy showed fragmentation and necrosis. However, no potential pathogen was observed. Transmission electron microscopy (TEM) revealed a high occurrence of potential apoptotic Symbiodinium cells and a potential increase in the abundance of virus-like particles (VLPs) in PBTL-affected tissue. However",
+      "total_paper_chars": 434718,
+      "dataset_row": 7051
+    },
+    "paper_2": {
+      "paper_id": "84678377",
+      "title": "ECOLOGY AND DIVERSITY OF MARINE MICROZOOPLANKTON",
+      "abstract_or_lead": "Protists are a taxonomic group of organisms world wild distributed with high abundance and biodiversity; their countless forms, sizes, and trophic activities constitute a continuum of species ranging from bacterial-sized cells for the smallest known species of chlorophytes to meters in length for the largest colonies of radiolaria. The enormous size range of protists, their many nutritional modes, and their rapid metabolic rates result in their pivotal ecological roles as primary producers and consumers at and near the base of marine food webs. Protists, in particular the heterotophic ones, are, with few metazoans larval stage, the major components of microzooplankton, on which this study focuses. Microzooplankton assemblage is described as a group of planktonic organisms in the size range of 10/20-200 !m; they are consumers of bacteria, cyanobacteria, other protists, viruses, and some metazoans. The quantitative importance of microzooplankton as consumers of primary production in the ocean has been recognized in the last decades; at the same time copepod predation on heterotrophic dinoflagellates and ciliates constitutes a trophic link more important than the phytoplankton–copepod link in many situations. Phagotrophic protists are the primary trophic link between minute cyanobacterial and bacterial production and higher organisms, a concept formalized more than 35 years ago in the microbial food web by Pomeroy (1974). In this study I want to provide more information on microzooplankton assemblages, describing the community composition and the role of this important component in different environments. I point out some of the factors influencing the distribution of these organisms with the aims to increase the current knowledge on microzooplankton and to contribute to t",
+      "total_paper_chars": 233688,
+      "dataset_row": 280665
+    },
+    "paper_3": {
+      "paper_id": "19905538",
+      "title": "UK fisheries, climate change and North Sea fishes:\\ud\na long-term perspective",
+      "abstract_or_lead": "North Sea demersal fishes and fisheries have changed over the past 100 years. To detect the main factors driving these changes, long-term data are needed. Using historical fisheries data that extend throughout the 20th century, this thesis aims to assess drivers influencing developments in fisheries as well as changes in the distribution and abundance of commercially important fishes in the North Sea. For English demersal fisheries, favourable political, technological and economical drivers were identified, inducing a vast rise in English fisheries in the first half of the 20th century; however, the same drivers, acting adversely, influenced the decline in recent decades and the emphasis of fisheries shifted from England to Scotland. Different trends in distribution were observed for North Sea whiting, turbot and brill between the 1920s and 2000s. Whiting distribution shifted westward between the late 1940s and1960s, whereas turbot nearly disappeared from the northern North Sea from the 1970s onwards. Brill distribution remained rather stable in the central and southern North Sea. The reasons for the longitudinal shift of whiting remained unclear as the relationships to two potential drivers, climate change and fishing pressure, were not strong. For turbot, the cause for the near disappearance from the northern North Sea is inconclusive. Commercial fisheries data were assessed reliable for distribution analysis when comparing commercial data of whiting, a commonly discarded species, and unbiased survey data. Whiting, compared to flatfish, is of secondary commercial importance. In areas where discrepancies occurred between commercial and survey data, higher discarding of whiting is suggested, as highly priced flatfish are caught there. This thesis demonstrates past condi",
+      "total_paper_chars": 296087,
+      "dataset_row": 470670
+    }
+  }
+}

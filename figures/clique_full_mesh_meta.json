@@ -1,0 +1,8 @@
+{
+  "sample_size": 42164,
+  "n_nodes": 42164,
+  "n_edges": 166993,
+  "n_triangles": 94180,
+  "method": "clique",
+  "output": "extracted_simplicial/run_english_science/figures/clique_full_mesh_all_papers.png"
+}

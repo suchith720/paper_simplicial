@@ -1,0 +1,34 @@
+{
+  "rank": 23,
+  "tightness_score": 0.96854,
+  "min_edge_cosine": 0.983133,
+  "mean_edge_cosine": 0.985158,
+  "pairwise_cosine_similarities": {
+    "paper1_vs_paper2": 0.985444,
+    "paper2_vs_paper3": 0.986896,
+    "paper1_vs_paper3": 0.983133
+  },
+  "papers": {
+    "paper_1": {
+      "paper_id": "41799270",
+      "title": "Design and Simulation of Vertical Grating Coupler for Photonic Integrated System-in-Package",
+      "abstract_or_lead": "As we approach the limits in operating speed of IC’s predicted by Moore’s Law, some alternative way of increasing velocities while reducing dimensions has to be found. In this context, optical interconnects appear to be an optimal solution that avoids the main limitations that electrical interconnects have. To implement these optical interconnects in the already well developed CMOS integrated environment, the System-in-Package (SiP) and the Silicon on Insulator (SOI) technologies arise as a good solution to achieve these goals. In this Thesis optical single mode strip nano waveguides and a grating coupler for vertical coupling to optical fibres are presented, designed and simulated. Their design parameters are optimized, and their performance analyzed and discussed. Firstly, the characteristics of large single mode rib waveguides and their direct butt coupling to fibres is studied. Their performance is found to be not good enough when the dimensions were reduced to under 1 µm, with losses as high as 14.5 dB. Therefore, nano strip waveguides are studied and simulated. They provide high light confinement and good propagation characteristics. Some performance characteristics (confinement factor, single mode region, effective index) are studied, for core widths in the range 100 – 600 nm. The vertical coupling of these nano strip waveguides to optical fibres by means of a grating coupler is simulated with the FDTD technique. The main design parameters of this grating coupler are optimized, obtaining losses of 7 dB for TE polarisation and 8.5 dB for TM. The misalignment tolerances are also analysed. The crosstalk effects between this grating and an hypothetical underlying waveguide are studied, showing that no light couples to the lower waveguide. VI Zusammenfassung Hinsichtl",
+      "total_paper_chars": 130515,
+      "dataset_row": 43645
+    },
+    "paper_2": {
+      "paper_id": "41804111",
+      "title": "Multihop Relay Station and 3 sector Cell Zooming usage for Base Station Energy Saving",
+      "abstract_or_lead": "3.3.\t\r  Frame\t\r  structure\t\r  and\t\r  throughput\t\r  calculation..........................................................11 Figure\t\r  1.\t\r   Multi-­‐hop\t\r  relay\t\r  cellular\t\r  network\t\r  layout.......................................................................8 Figure\t\r  3.\t\r   Three\t\r  sector\t\r  independent\t\r  power\t\r  adjusting. ..............................................................10 Figure\t\r  5.\t\r   Non-­‐homogeneous\t\r  user\t\r  distribuition\t\r  and\t\r  switching\t\r  ON/OFF\t\r  cells. ..........................14 Figure\t\r  6.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  outage .................................................................................17 Figure\t\r  7.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  average\t\r  user\t\r  throughput ....................................................18 Figure\t\r  8.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  energy\t\r  consumption ...........................................................19 Figure\t\r  9.\t\r   Comparison\t\r  of\t\r  the\t\r  global\t\r  energy\t\r  efficiency...............................................................19 Figure\t\r  10.\t\r   Comparison\t\r  of\t\r  the\t\r  outage\t\r  in\t\r  the\t\r  OFF\t\r  zones ..........................................................20 Figure\t\r  11.\t\r   Comparison\t\r  of\t\r  the\t\r  average\t\r  user\t\r  throughput\t\r  in\t\r  the\t\r  OFF\t\r  zones..............................21 There\t\r  are\t\r  a\t\r  lot\t\r  of\t\r  people\t\r  without\t\r  whom\t\r  this\t\r  project\t\r  would\t\r  not\t\r  have\t\r  been\t\r  possible.\t\r  First",
+      "total_paper_chars": 40447,
+      "dataset_row": 46177
+    },
+    "paper_3": {
+      "paper_id": "74351957",
+      "title": "An analysis of word sense disambiguation in Bangla and English using supervised learning and a deep neural network classifier",
+      "abstract_or_lead": "Word sense disambiguation is a significant task in natural language processing and addresses an old problem in the field of computational linguistics. Word sense disambiguation facilitates tasks like machine translation, information retrieval, text-to-speech and other application systems. Sense ambiguity is introduced because certain words for a given language can have multiple meanings. Word sense disambiguation involves identifying the correct sense of a word for a given context. Bangla language has a few cases of word sense ambiguity. Many machine learning algorithms have already been applied to disambiguate word sense including few implementations of neural networks. However, many existing word sense disambiguation systems using supervised learning and neural networks were focused only on English data. And an evaluation of their implementation on Bangla data is necessary. This thesis attempts to analyze and present results when using an updated deep neural network classifier and supervised learning algorithm for word sense disambiguation on a Bangla dataset and on an English dataset. A pre-processor for the dataset was constructed to appropriately extract features from the context sentences to build sets of refined feature vectors which are fed into the neural network. 9",
+      "total_paper_chars": 40242,
+      "dataset_row": 403654
+    }
+  }
+}

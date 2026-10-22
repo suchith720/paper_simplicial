@@ -1,0 +1,8 @@
+{
+  "n_nodes": 42164,
+  "top_triangles": 400,
+  "score_mode": "english_tight",
+  "n_triangles_ranked": 94180,
+  "nodes_in_top_triangles": 206,
+  "output": "extracted_simplicial/run_english_science/figures/clique_sparse_english_tight_top400_all_nodes.png"
+}

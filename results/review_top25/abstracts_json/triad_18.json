@@ -1,0 +1,34 @@
+{
+  "rank": 18,
+  "tightness_score": 0.969061,
+  "min_edge_cosine": 0.983824,
+  "mean_edge_cosine": 0.984994,
+  "pairwise_cosine_similarities": {
+    "paper1_vs_paper2": 0.983824,
+    "paper2_vs_paper3": 0.985866,
+    "paper1_vs_paper3": 0.985291
+  },
+  "papers": {
+    "paper_1": {
+      "paper_id": "41338845",
+      "title": "Attachment theory and music therapy: What was the relevance of attachment theory to a student’s music therapy programme for ‘at-risk’ mothers and their babies?",
+      "abstract_or_lead": "This qualitative secondary analysis research project sought to explore the relevance of attachment theory as it might apply to a music therapy programme set up and run within a residential service for ‘at risk’ mothers and their babies. The explicit purpose of the music therapy programme was to assist the mothers in bonding with their babies. The researcher was a student music therapist on placement at the facility, involved in weekly one-to-one sessions with a total of nineteen young women and their babies, over the time that each was resident at the facility. The music therapist also ran some weekly group sessions (mothers with babies) as part of the facility’s mandatory education programme. The music therapy programme took place over twenty-two weeks, with a two week break after the first ten weeks. The research analysis commenced on completion of the programme. Thematic analysis was used to look at two types of data; data from the placement (including clinical notes and personal reflective journal), and literature on attachment theory. There was an initial review of selected literature on attachment theory and music therapy. The researcher/student music therapist then carried out an inductive qualitative secondary analysis of the data that had been generated as a standard part of her practice over the period of the student placement. This was followed by a further examination of attachment theory literature to confirm key aspects of the theory. The findings from the inductive analysis were then looked at in the light of those identified key features of attachment theory. The research findings showed many strong links between key concepts of attachment theory, and the patterns that emerged from the placement data, manifesting on a number of different levels. However",
+      "total_paper_chars": 148026,
+      "dataset_row": 8676
+    },
+    "paper_2": {
+      "paper_id": "30342705",
+      "title": "Impact of physiotherapy on older adults admitted to hospital : a realistic evaluation.",
+      "abstract_or_lead": "Background: A rise in life expectancy has increased the likelihood of complex co-morbidities and disability resulting in a change in the make-up of hospitalised older adults and their rehabilitative requirements, including physiotherapy. Studies to date of the impact of physiotherapy on older adults admitted to hospital have investigated the intervention in isolation from context and have resulted in inconsistent outcomes. There remains a lack of evidence and theory regarding why physiotherapy is effective in some instances and not in others. Purpose: The thesis aims to examine the mechanisms might or might not work for patients, the influence of context on the actions of stakeholders to impact on outcomes and finally the appropriate methodology with which to investigate physiotherapy intervention. Method: Realistic evaluation (RE) was used as a framework for the study. Initial theories about the impact of physiotherapy on medically unwell older adults were expressed terms of context-mechanism-outcomes configurations and developed into hypotheses with stakeholders. Testing of hypotheses utilised a sequential mixed methods design including quantitative and qualitative measures, obtained from a convenience sample of older medically unwell patients (n=75) and a purposive sample of physiotherapists (n=6), patients and carers (n=8) respectively. Outcomes included measures of physiotherapy intervention, patient health status and hospital performance. Descriptive data analysis with subgroup comparison (frail/non-frail or cognitive impairment/cognitive impairment) was undertaken for outcome measures using Mann-Whitney U and Spearman’s correlation co-efficient. Qualitative data were analysed using framework analysis. Quantitative and qualitative study findings were reviewed, int",
+      "total_paper_chars": 642630,
+      "dataset_row": 209842
+    },
+    "paper_3": {
+      "paper_id": "1640260",
+      "title": "The Robot Club: Robots as Agents to Improve the Social Skills of Young People on the Autistic Spectrum",
+      "abstract_or_lead": "I am excited to be involved in re-running the SNAAP Robot Club, which supplements the SNAAP multimedia club with a weekly course designed both to teach children about robotics, as well as study whether robots can act as social mediators to support the development of social skills. Specifically, the children will learn how to program Lego Mindstorms NXT robots and how to make them interact and work together in the real world. While the children are programming their robots and making them collaborate with the other children’s robots, we will observe whether cooperation and socialization among the children is linked with collaboration among their robots. Before you decide whether you would like to give consent for your child to attend the club, please take the time to read the following information, which I have written to help you understand why the study is being carried out and what it will involve. The researchers The study is being carried out by Sarah Blank, Trainee Clinical Psychologist, as part of a Doctoral qualification in Clinical Psychology at the University of Hertfordshire. The study is supervised by Dr Nick Wood, Research Tutor and Clinical Psychologist and Dr Ben Robins, Senior Research Fellow. Josh Wainer who ran the previous Robot Club will also be involved. What is the purpose of the study? This study is interested in whether robots can act as mediators to support the development of social skills in young people with autism. We are particularly interested in whether the robots can be used in group settings, as it is in groups that young people with autism often feel most out of their depth. As I am sure you know, young people with high-functioning autism and/or Asperger’s syndrome are often highly motivated to interact in social settings, but are often",
+      "total_paper_chars": 282483,
+      "dataset_row": 489729
+    }
+  }
+}

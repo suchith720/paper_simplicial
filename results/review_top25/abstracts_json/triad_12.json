@@ -1,0 +1,34 @@
+{
+  "rank": 12,
+  "tightness_score": 0.969519,
+  "min_edge_cosine": 0.984267,
+  "mean_edge_cosine": 0.985017,
+  "pairwise_cosine_similarities": {
+    "paper1_vs_paper2": 0.984473,
+    "paper2_vs_paper3": 0.984267,
+    "paper1_vs_paper3": 0.98631
+  },
+  "papers": {
+    "paper_1": {
+      "paper_id": "41814740",
+      "title": "Modelling and simulation of a microreactor for ethanol steam reforming",
+      "abstract_or_lead": "Nowadays, the research of new energy sources to substitute fossil fuels is essential. Hydrogen represents an option with plenty of potential for this issue. The main problem of this source is its poor portability, so it needs to be obtained almost directly where it needs to be used. For this reason, it has been carried out a three dimensional computational fluid dynamics simulation study of ethanol steam reforming (ESR) in a monolithic microreactor. It has been established and implemented a kinetic model describing the ESR on a Rh-Pd/CeO2 catalyst. The model includes the ethanol decomposition into hydrogen, methane and carbon monoxide, the water gas shift (WGS) reaction, the reforming, in presence of water, of the methane (MSR) in to carbon monoxide or carbon dioxide, at different inlet velocities, pressures and temperatures. - 5 -",
+      "total_paper_chars": 119405,
+      "dataset_row": 29848
+    },
+    "paper_2": {
+      "paper_id": "81579992",
+      "title": "Multiproduct supplye chain analysis through by simulation with kanban and EOQ system",
+      "abstract_or_lead": "School of Industrial and Information Engineering Master of Science Programme in Management Engineering BY SIMULATION WITH KANBAN AND EOQ SYSTEM Multiproduct Supply Chain Analysis through by Simulation  Politecnico di Milano II. List of Acronyms, Abbreviations and Japanese words ................................. 4 III. List of Figures .............................................................................................. 6 IV. List of Tables ................................................................................................ 8 V. List of Graphs ............................................................................................. 10 VI. List of Annexes .......................................................................................... 12 2.1. Scope of analysis ................................................................................... 14 3. Summary of review and discussion ............................................................ 16 4. Analysis of the current literature ................................................................. 22 4.2. Strategic and Tactical Lean Supply Chain Management ....................... 24 4.3. Supply Chain Management Planning ..................................................... 27 4.3.2. Economic Order Quantity ................................................................ 30",
+      "total_paper_chars": 235571,
+      "dataset_row": 32276
+    },
+    "paper_3": {
+      "paper_id": "87657874",
+      "title": "Simulation and optimization of an HVDC network connecting offshore windfarms with the mainland",
+      "abstract_or_lead": "In this project an algorithm capable of simulating a network connecting offshore wind farms HVDC points with consumers has been created. This simulation takes into account the analytical model that HVDC network is based on. The simulation also takes into account the control that is applied in such cases. In addition, the control of the system calculates the optimum working point to optimise the network energy transfer. Nil Falgueras Farrerons - 9 -",
+      "total_paper_chars": 85999,
+      "dataset_row": 46623
+    }
+  }
+}

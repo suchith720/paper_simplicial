@@ -1,0 +1,857 @@
+{
+  "n_triads": 25,
+  "score_mode": "english_tight",
+  "description": "Human-readable top 25 triads with paper titles, extracted abstracts/leads, and pairwise similarity scores",
+  "triads": [
+    {
+      "rank": 1,
+      "tightness_score": 0.972027,
+      "min_edge_cosine": 0.985675,
+      "mean_edge_cosine": 0.986154,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.986478,
+        "paper2_vs_paper3": 0.98631,
+        "paper1_vs_paper3": 0.985675
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "81572374",
+          "title": "3D energy modeling optimisation using computational design software",
+          "abstract_or_lead": "The current tendency of the population is to live in cities. This urban exodus added to the fact that the world population is still increasing, with a growth expectation of 1.3% from 2016 to 20501, highlights the necessity of increasing the number of buildings in the world and, as a consequence, the increase of house energy consumption. Nowadays the sector of the computational design is growing with a diversity of products and scopes. The aim of this study is to use one of these software to optimize the characteristics of a house in order to reduce the energy consumption of the place people live in, work in and spend time in. The use of Grasshopper has permitted to simulate the energy consumption of a house located in Barcelona and thus to optimise its characteristics in order to reduce its energy consumption, with a final reduction of 2734kWh/year, which represents a reduction of 87.6% between the non-optimised house and the optimised one. This project shows that it has been possible to use the new computational design software in order to reduce the energy consumption of the studied house. The results obtained show that this study can be used in future larger-scale projects in order to reduce the energy consumption in the residential sector. Axel Paul Galpy Massé - 6 - RESUM La tendència actual de la població és d'anar a viure a les ciutats. Aquest èxode urbà afegit al increment de la població mundial previst del 1.3% entre 2016 i 2050, ressalta la necessitat d'augmentar el nombre d’habitatges en el món i, com a conseqüència, l'increment de l'energia consumida. Actualment el sector del disseny computacional està creixent amb una gran diversitat de producte i aplicacions. L'objectiu d'aquest projecte és el d'utilitzar un d'aquests programes per optimitzar les caracterí",
+          "total_paper_chars": 258150,
+          "dataset_row": 27786
+        },
+        "paper_2": {
+          "paper_id": "41814740",
+          "title": "Modelling and simulation of a microreactor for ethanol steam reforming",
+          "abstract_or_lead": "Nowadays, the research of new energy sources to substitute fossil fuels is essential. Hydrogen represents an option with plenty of potential for this issue. The main problem of this source is its poor portability, so it needs to be obtained almost directly where it needs to be used. For this reason, it has been carried out a three dimensional computational fluid dynamics simulation study of ethanol steam reforming (ESR) in a monolithic microreactor. It has been established and implemented a kinetic model describing the ESR on a Rh-Pd/CeO2 catalyst. The model includes the ethanol decomposition into hydrogen, methane and carbon monoxide, the water gas shift (WGS) reaction, the reforming, in presence of water, of the methane (MSR) in to carbon monoxide or carbon dioxide, at different inlet velocities, pressures and temperatures. - 5 -",
+          "total_paper_chars": 119405,
+          "dataset_row": 29848
+        },
+        "paper_3": {
+          "paper_id": "87657874",
+          "title": "Simulation and optimization of an HVDC network connecting offshore windfarms with the mainland",
+          "abstract_or_lead": "In this project an algorithm capable of simulating a network connecting offshore wind farms HVDC points with consumers has been created. This simulation takes into account the analytical model that HVDC network is based on. The simulation also takes into account the control that is applied in such cases. In addition, the control of the system calculates the optimum working point to optimise the network energy transfer. Nil Falgueras Farrerons - 9 -",
+          "total_paper_chars": 85999,
+          "dataset_row": 46623
+        }
+      }
+    },
+    {
+      "rank": 2,
+      "tightness_score": 0.971755,
+      "min_edge_cosine": 0.985361,
+      "mean_edge_cosine": 0.986192,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.985361,
+        "paper2_vs_paper3": 0.985828,
+        "paper1_vs_paper3": 0.987388
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "77017962",
+          "title": "Metal complexes as catalysts for the synthesis of heterocycles",
+          "abstract_or_lead": "Transition metal-based catalysts are undoubtedly one of the most powerful tools available to chemists. They mediate a plethora of reactions, and make numerous chemical processes viable while allowing cleaner/greener and safer routes. Most transformations require the use of ancillary ligands, and in practice, the actual catalytically active species might be formed either by the in situ combination of metal and ligand precursors, or directly from a preformed, well-defined organometallic complex. Pre-formed catalysts possess many advantages over in situ-generated systems. Not only are they usually better performing, but also allow strict control over the ligand/metal ratio. This is of importance since an increasing number of ligands are more expensive than common metal sources. More significantly, such control should be helpful to identify the actual catalyst, and hence, to better understand the reaction mechanism. This thesis describes the efforts in developing well-defined catalytic systems for the preparation and functionalisation of heterocycles, with a particular focus on 1,2,3- triazoles. The introductory Chapter outlines a brief overview of the chemistry of azides, including a discussion of the ligands and catalysts used for the 1,3-dipolar cycloaddition reaction of organic azides and alkynes. The synthesis, characterisation and X-ray crystal structures of novel copper(I) catalysts bearing phosphorus-based ligands is described in Chapter 2. These pre-formed catalysts have been screened in the copper(I)-catalysed azide-alkyne cycloaddition reaction. The scope and trends in reactivity are also described. The following Chapter provides an introduction to the ruthenium-catalysed azide-alkyne cycloaddition reaction and the efforts in developing water-soluble catalysts an",
+          "total_paper_chars": 486833,
+          "dataset_row": 165413
+        },
+        "paper_2": {
+          "paper_id": "9836640",
+          "title": "Investigation of novel thermal cyclisation reactions and studies on their application to the synthesis of selected natural products",
+          "abstract_or_lead": "The primary goal of this research project was to investigate the mechanism of a novel thermally activated cyclisation reaction discovered by Parsons et al. During these studies two novel reactions were discovered: Reagents and Conditions: (i) Toluene 0.1M, reflux, 4h, 32%. Reagents and Conditions: (i) Toluene, 0.01M, reflux, 4h, 53% Radical and ene pathways for the generation of these products were proposed. However, despite extensive empirical studies, no definitive proof for either mechanism was found.  The breadth of the synthetic utility of the above reactions was also investigated by synthesizing various analogues. The general application of the Parsons’ cyclisation to the synthesis of steroid cored and the complex natural product Jiadifenin was also investigated. Advanced intermediates were synthesised and invaluable information on reactivity was gained, however these investigations could not be completed due to time constraints. 11 Abbreviations (-)-DIPT: (-)-diisopropyl (D)-tartrate Boc: tert-butoxy carbonyl bp: boiling point Calcd.: calculated CIDNP: chemically induced dynamic nuclear polarization CTAB: cetyl trimethylammonium bromide d (NMR): doublet DCC: N,N’-dicyclohexylcarbodiimide DCM: dichloromethane DEPT:  distortionless enhancement by polarization transfer dix: disconnection DMAP: N,N-dimethylaminopyridine DMF: N,N-dimethylformamide DMSO: dimethylsulfoxide ee: enantiomeric excess EI: electron ionisation eq: equivalent ESI: electrospray ionisation FGI: functional group interconversion h: hour HMBC: heteronuclear multiple bond correlation HMPA: hexamethylphosphoramide HoBt: hydroxybenzotriazole HOMO: highest occupied molecular orbital HSQC: heteronuclear single quantum correlation 12 IR: infrared LDA: lithium diisopropylamide LHMDS: lithium bis(trimethyls",
+          "total_paper_chars": 247584,
+          "dataset_row": 230964
+        },
+        "paper_3": {
+          "paper_id": "16413132",
+          "title": "Studies towards the total synthesis of Herbimycin A",
+          "abstract_or_lead": "Herbimycin A (1) belongs to the ansamycin family and is a 19-membered lactam with seven stereogenic centres, making it a synthetic challenge, which was first isolated in 1979 by Omura et al. Herbimycin A (1) exhibits a broad spectrum of biological activities: herbicidal, inhibitor of angiogenesis and of the maturation of growth factor receptor tyrosine kinases. Figure 1 - Herbimycin A Since its discovery, only three total syntheses of Herbimycin A (1) have been described in the literature, along with the syntheses of advanced fragments. This thesis describes a new route to Herbimycin A (1), using a wide range of chemical reactions than those used in the previous routes from the literature. 9 The main idea is to split Herbimycin A (1) into an aromatic fragment and an aliphatic fragment as shown below in Scheme 1. Scheme 1 - Retrosynthesis highlighting both aromatic and aliphatic fragments The synthesis of aliphatic fragment (4) follows up the work of Ansell and Pietsch, past members of the Parsons group. Interesting results could be obtained and a wide range of Organic Chemistry reactions could be investigated. 10 ABBREVIATIONS Ac AHBA AIBN Aq Ar ATP BHT Bn Boc BOP Bu c C CAN cat Conc. 13 C NMR Cp CSA DBU DHQ DIBALH DIPEA Acetyl 3-amino-5-hydroxybenzoic acid Azobisisobutyronitrile Aqueous Aromatic Adenosine triphosphate Butylated hydroxytoluene Benzene Tert-butoxycarbonyl Bis(2-oxo-2oxazolidinyl)-phosphinic Butyl Concentration Carbon Ceric ammonium nitrate catalytic Concentrated Carbon Nuclear Magnetic Resonance Cyclopentadienyl Camphorsulfonic acid 1,8-Diazabicyclo[5.4.0]undec-7-ene 3-Dehydroquinic acid Diisobutylaluminium Hydride N,N-Diisopropylethylamine 11 DMAP DMF DMP DMPU DMS DMSO DNA dr EAC ee Eq. EI ER ESI Et g h HMDS HMPA 1 H NMR HPLC HRMS HSP IBX IC Imid Ipc IR",
+          "total_paper_chars": 151758,
+          "dataset_row": 234901
+        }
+      }
+    },
+    {
+      "rank": 3,
+      "tightness_score": 0.971736,
+      "min_edge_cosine": 0.985271,
+      "mean_edge_cosine": 0.986263,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.987844,
+        "paper2_vs_paper3": 0.985271,
+        "paper1_vs_paper3": 0.985675
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "81572374",
+          "title": "3D energy modeling optimisation using computational design software",
+          "abstract_or_lead": "The current tendency of the population is to live in cities. This urban exodus added to the fact that the world population is still increasing, with a growth expectation of 1.3% from 2016 to 20501, highlights the necessity of increasing the number of buildings in the world and, as a consequence, the increase of house energy consumption. Nowadays the sector of the computational design is growing with a diversity of products and scopes. The aim of this study is to use one of these software to optimize the characteristics of a house in order to reduce the energy consumption of the place people live in, work in and spend time in. The use of Grasshopper has permitted to simulate the energy consumption of a house located in Barcelona and thus to optimise its characteristics in order to reduce its energy consumption, with a final reduction of 2734kWh/year, which represents a reduction of 87.6% between the non-optimised house and the optimised one. This project shows that it has been possible to use the new computational design software in order to reduce the energy consumption of the studied house. The results obtained show that this study can be used in future larger-scale projects in order to reduce the energy consumption in the residential sector. Axel Paul Galpy Massé - 6 - RESUM La tendència actual de la població és d'anar a viure a les ciutats. Aquest èxode urbà afegit al increment de la població mundial previst del 1.3% entre 2016 i 2050, ressalta la necessitat d'augmentar el nombre d’habitatges en el món i, com a conseqüència, l'increment de l'energia consumida. Actualment el sector del disseny computacional està creixent amb una gran diversitat de producte i aplicacions. L'objectiu d'aquest projecte és el d'utilitzar un d'aquests programes per optimitzar les caracterí",
+          "total_paper_chars": 258150,
+          "dataset_row": 27786
+        },
+        "paper_2": {
+          "paper_id": "41822570",
+          "title": "Simulation and Optimization of Complex Energy Components and Systems",
+          "abstract_or_lead": "Grau en Enginyeria en Tecnologies Industrials “There is a driving force more powerful than steam, electricity and atomic energy: the will.” I would like to express my special appreciation and thanks to my advisors Maurizio Repetto and Paolo Lazzeroni for guiding me in this project and give me all their support, To all my family and friends for their unconditional faith and support. Simulation and optimization of complex energy components and systems           1 1. Nomenclature and units ............................................................................................. 3 3.2. Library of components ........................................................................................ 5 3.3. Demand and price profiles ................................................................................ 10 3.4.3. Nominal System Voltage (kV) .................................................................... 11 3.4.4. Dispatchable Energy Input ........................................................................ 11 3.4.5. Non-Dispatchable Energy Input ................................................................. 12 4. Description of the study case ................................................................................... 15 4.1. Description of the plant ..................................................................................... 15 4.2. Description of the components ......................................................................... 16",
+          "total_paper_chars": 83368,
+          "dataset_row": 45609
+        },
+        "paper_3": {
+          "paper_id": "87657874",
+          "title": "Simulation and optimization of an HVDC network connecting offshore windfarms with the mainland",
+          "abstract_or_lead": "In this project an algorithm capable of simulating a network connecting offshore wind farms HVDC points with consumers has been created. This simulation takes into account the analytical model that HVDC network is based on. The simulation also takes into account the control that is applied in such cases. In addition, the control of the system calculates the optimum working point to optimise the network energy transfer. Nil Falgueras Farrerons - 9 -",
+          "total_paper_chars": 85999,
+          "dataset_row": 46623
+        }
+      }
+    },
+    {
+      "rank": 4,
+      "tightness_score": 0.971583,
+      "min_edge_cosine": 0.984954,
+      "mean_edge_cosine": 0.986425,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.986478,
+        "paper2_vs_paper3": 0.984954,
+        "paper1_vs_paper3": 0.987844
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "81572374",
+          "title": "3D energy modeling optimisation using computational design software",
+          "abstract_or_lead": "The current tendency of the population is to live in cities. This urban exodus added to the fact that the world population is still increasing, with a growth expectation of 1.3% from 2016 to 20501, highlights the necessity of increasing the number of buildings in the world and, as a consequence, the increase of house energy consumption. Nowadays the sector of the computational design is growing with a diversity of products and scopes. The aim of this study is to use one of these software to optimize the characteristics of a house in order to reduce the energy consumption of the place people live in, work in and spend time in. The use of Grasshopper has permitted to simulate the energy consumption of a house located in Barcelona and thus to optimise its characteristics in order to reduce its energy consumption, with a final reduction of 2734kWh/year, which represents a reduction of 87.6% between the non-optimised house and the optimised one. This project shows that it has been possible to use the new computational design software in order to reduce the energy consumption of the studied house. The results obtained show that this study can be used in future larger-scale projects in order to reduce the energy consumption in the residential sector. Axel Paul Galpy Massé - 6 - RESUM La tendència actual de la població és d'anar a viure a les ciutats. Aquest èxode urbà afegit al increment de la població mundial previst del 1.3% entre 2016 i 2050, ressalta la necessitat d'augmentar el nombre d’habitatges en el món i, com a conseqüència, l'increment de l'energia consumida. Actualment el sector del disseny computacional està creixent amb una gran diversitat de producte i aplicacions. L'objectiu d'aquest projecte és el d'utilitzar un d'aquests programes per optimitzar les caracterí",
+          "total_paper_chars": 258150,
+          "dataset_row": 27786
+        },
+        "paper_2": {
+          "paper_id": "41814740",
+          "title": "Modelling and simulation of a microreactor for ethanol steam reforming",
+          "abstract_or_lead": "Nowadays, the research of new energy sources to substitute fossil fuels is essential. Hydrogen represents an option with plenty of potential for this issue. The main problem of this source is its poor portability, so it needs to be obtained almost directly where it needs to be used. For this reason, it has been carried out a three dimensional computational fluid dynamics simulation study of ethanol steam reforming (ESR) in a monolithic microreactor. It has been established and implemented a kinetic model describing the ESR on a Rh-Pd/CeO2 catalyst. The model includes the ethanol decomposition into hydrogen, methane and carbon monoxide, the water gas shift (WGS) reaction, the reforming, in presence of water, of the methane (MSR) in to carbon monoxide or carbon dioxide, at different inlet velocities, pressures and temperatures. - 5 -",
+          "total_paper_chars": 119405,
+          "dataset_row": 29848
+        },
+        "paper_3": {
+          "paper_id": "41822570",
+          "title": "Simulation and Optimization of Complex Energy Components and Systems",
+          "abstract_or_lead": "Grau en Enginyeria en Tecnologies Industrials “There is a driving force more powerful than steam, electricity and atomic energy: the will.” I would like to express my special appreciation and thanks to my advisors Maurizio Repetto and Paolo Lazzeroni for guiding me in this project and give me all their support, To all my family and friends for their unconditional faith and support. Simulation and optimization of complex energy components and systems           1 1. Nomenclature and units ............................................................................................. 3 3.2. Library of components ........................................................................................ 5 3.3. Demand and price profiles ................................................................................ 10 3.4.3. Nominal System Voltage (kV) .................................................................... 11 3.4.4. Dispatchable Energy Input ........................................................................ 11 3.4.5. Non-Dispatchable Energy Input ................................................................. 12 4. Description of the study case ................................................................................... 15 4.1. Description of the plant ..................................................................................... 15 4.2. Description of the components ......................................................................... 16",
+          "total_paper_chars": 83368,
+          "dataset_row": 45609
+        }
+      }
+    },
+    {
+      "rank": 5,
+      "tightness_score": 0.970865,
+      "min_edge_cosine": 0.984954,
+      "mean_edge_cosine": 0.985696,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.984954,
+        "paper2_vs_paper3": 0.985238,
+        "paper1_vs_paper3": 0.986896
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "41804111",
+          "title": "Multihop Relay Station and 3 sector Cell Zooming usage for Base Station Energy Saving",
+          "abstract_or_lead": "3.3.\t\r  Frame\t\r  structure\t\r  and\t\r  throughput\t\r  calculation..........................................................11 Figure\t\r  1.\t\r   Multi-­‐hop\t\r  relay\t\r  cellular\t\r  network\t\r  layout.......................................................................8 Figure\t\r  3.\t\r   Three\t\r  sector\t\r  independent\t\r  power\t\r  adjusting. ..............................................................10 Figure\t\r  5.\t\r   Non-­‐homogeneous\t\r  user\t\r  distribuition\t\r  and\t\r  switching\t\r  ON/OFF\t\r  cells. ..........................14 Figure\t\r  6.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  outage .................................................................................17 Figure\t\r  7.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  average\t\r  user\t\r  throughput ....................................................18 Figure\t\r  8.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  energy\t\r  consumption ...........................................................19 Figure\t\r  9.\t\r   Comparison\t\r  of\t\r  the\t\r  global\t\r  energy\t\r  efficiency...............................................................19 Figure\t\r  10.\t\r   Comparison\t\r  of\t\r  the\t\r  outage\t\r  in\t\r  the\t\r  OFF\t\r  zones ..........................................................20 Figure\t\r  11.\t\r   Comparison\t\r  of\t\r  the\t\r  average\t\r  user\t\r  throughput\t\r  in\t\r  the\t\r  OFF\t\r  zones..............................21 There\t\r  are\t\r  a\t\r  lot\t\r  of\t\r  people\t\r  without\t\r  whom\t\r  this\t\r  project\t\r  would\t\r  not\t\r  have\t\r  been\t\r  possible.\t\r  First",
+          "total_paper_chars": 40447,
+          "dataset_row": 46177
+        },
+        "paper_2": {
+          "paper_id": "41811616",
+          "title": "A GRASP-based algorithm for the optimised DIF allocation in the RINA network architecture",
+          "abstract_or_lead": "The Internet no longer meets the world’s requirements .Recognition of the Internet architecture’s inherent ﬂaws has opened a window of opportunity for fresh thinking: granting agencies in both Europe and North America are funding large programs to lay a foundation for the next Internet. The skills and perspective of the networking community are necessary but not sufﬁcient to meet the needs of those who develop and deploy networked applications. The current Internet exhibits problems due to prejudice against application servers, neglect of the functional aspects of networking, poor understanding of abstraction and composition, and conﬂation of concerns. By increasing the number of users and applications in internet worlds, the problems of this world are showing themselves more and more. The current internet has been facing significant challenges as these problems are growing, creating their solutions are more expensive and complicated, these difficulties will give us the perspective of new internet world to fill these insecure lacks. Recursive Inter Networking Architecture (RINA) is a new architecture of internet which was introduced by John Day in his book [19 ]. This new internet architecture will give us a feasible solution to overcome these problems in a secure and simple ways rather than improving current one by its good mechanism and give us a clean state solution for the current problems. This thesis first will have an overview about the current Internet and its architecture and will examine the challenges and problems that current internet is facing, then it will introduce the new architecture of Internet RINA and its characteristic and some views of how it is working and what advantages it has against the current old fashion one. Later on it will examine a speci",
+          "total_paper_chars": 148139,
+          "dataset_row": 63472
+        },
+        "paper_3": {
+          "paper_id": "74351957",
+          "title": "An analysis of word sense disambiguation in Bangla and English using supervised learning and a deep neural network classifier",
+          "abstract_or_lead": "Word sense disambiguation is a significant task in natural language processing and addresses an old problem in the field of computational linguistics. Word sense disambiguation facilitates tasks like machine translation, information retrieval, text-to-speech and other application systems. Sense ambiguity is introduced because certain words for a given language can have multiple meanings. Word sense disambiguation involves identifying the correct sense of a word for a given context. Bangla language has a few cases of word sense ambiguity. Many machine learning algorithms have already been applied to disambiguate word sense including few implementations of neural networks. However, many existing word sense disambiguation systems using supervised learning and neural networks were focused only on English data. And an evaluation of their implementation on Bangla data is necessary. This thesis attempts to analyze and present results when using an updated deep neural network classifier and supervised learning algorithm for word sense disambiguation on a Bangla dataset and on an English dataset. A pre-processor for the dataset was constructed to appropriately extract features from the context sentences to build sets of refined feature vectors which are fed into the neural network. 9",
+          "total_paper_chars": 40242,
+          "dataset_row": 403654
+        }
+      }
+    },
+    {
+      "rank": 6,
+      "tightness_score": 0.970683,
+      "min_edge_cosine": 0.984954,
+      "mean_edge_cosine": 0.985512,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.984954,
+        "paper2_vs_paper3": 0.985271,
+        "paper1_vs_paper3": 0.98631
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "41814740",
+          "title": "Modelling and simulation of a microreactor for ethanol steam reforming",
+          "abstract_or_lead": "Nowadays, the research of new energy sources to substitute fossil fuels is essential. Hydrogen represents an option with plenty of potential for this issue. The main problem of this source is its poor portability, so it needs to be obtained almost directly where it needs to be used. For this reason, it has been carried out a three dimensional computational fluid dynamics simulation study of ethanol steam reforming (ESR) in a monolithic microreactor. It has been established and implemented a kinetic model describing the ESR on a Rh-Pd/CeO2 catalyst. The model includes the ethanol decomposition into hydrogen, methane and carbon monoxide, the water gas shift (WGS) reaction, the reforming, in presence of water, of the methane (MSR) in to carbon monoxide or carbon dioxide, at different inlet velocities, pressures and temperatures. - 5 -",
+          "total_paper_chars": 119405,
+          "dataset_row": 29848
+        },
+        "paper_2": {
+          "paper_id": "41822570",
+          "title": "Simulation and Optimization of Complex Energy Components and Systems",
+          "abstract_or_lead": "Grau en Enginyeria en Tecnologies Industrials “There is a driving force more powerful than steam, electricity and atomic energy: the will.” I would like to express my special appreciation and thanks to my advisors Maurizio Repetto and Paolo Lazzeroni for guiding me in this project and give me all their support, To all my family and friends for their unconditional faith and support. Simulation and optimization of complex energy components and systems           1 1. Nomenclature and units ............................................................................................. 3 3.2. Library of components ........................................................................................ 5 3.3. Demand and price profiles ................................................................................ 10 3.4.3. Nominal System Voltage (kV) .................................................................... 11 3.4.4. Dispatchable Energy Input ........................................................................ 11 3.4.5. Non-Dispatchable Energy Input ................................................................. 12 4. Description of the study case ................................................................................... 15 4.1. Description of the plant ..................................................................................... 15 4.2. Description of the components ......................................................................... 16",
+          "total_paper_chars": 83368,
+          "dataset_row": 45609
+        },
+        "paper_3": {
+          "paper_id": "87657874",
+          "title": "Simulation and optimization of an HVDC network connecting offshore windfarms with the mainland",
+          "abstract_or_lead": "In this project an algorithm capable of simulating a network connecting offshore wind farms HVDC points with consumers has been created. This simulation takes into account the analytical model that HVDC network is based on. The simulation also takes into account the control that is applied in such cases. In addition, the control of the system calculates the optimum working point to optimise the network energy transfer. Nil Falgueras Farrerons - 9 -",
+          "total_paper_chars": 85999,
+          "dataset_row": 46623
+        }
+      }
+    },
+    {
+      "rank": 7,
+      "tightness_score": 0.970443,
+      "min_edge_cosine": 0.984785,
+      "mean_edge_cosine": 0.985437,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.985775,
+        "paper2_vs_paper3": 0.98575,
+        "paper1_vs_paper3": 0.984785
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "41824549",
+          "title": "Experimental study of the influence of an electric field on the shape of a droplet",
+          "abstract_or_lead": "The electrowetting effect has emerged as an important research topic in recent years. Manipulation of droplets by electric fields has been extensively studied employing different setups, the most common being the configuration in which the electric field is created inside the droplet. However, such a configuration has been mostly employed using conductive liquids, whereas non-conductive droplets have been barely tested under the effect of an electric field using this setup. On the other hand, the influence of an electric field on the shape of a droplet has also been of considerable interest using an alternative configuration in which the electric field is applied between two electrodes with no contact with the drop – the Taylor cone configuration. However, the effects observed employing this last setup are rather different to those obtained using the aforementioned design. While the most important effect in those experiments in which the electric field is created inside the drop is the reduction of the contact angle, the main effect found using the second configuration is the droplet elongation in the electric field direction. In order to demonstrate if dielectric and almost perfectly wetting liquid droplets are affected in the same way as other fluids already tested, the effect of an electric field on the shape of an HFE-7500 droplet has been examined under two different experimental setups by means of interferometric techniques. For the setup where the internal electric field is created, no statistically relevant reduction was measured. Nevertheless, shape deviations have been found at a certain distance of the wire through which the electric field is applied. Moreover, the existence of such deviations depends strongly on the AC frequency. Regarding the second design,",
+          "total_paper_chars": 188182,
+          "dataset_row": 32033
+        },
+        "paper_2": {
+          "paper_id": "84678314",
+          "title": "Cancer cell mechanics and cell microenvironment: An optical tweezers study",
+          "abstract_or_lead": "3 Abstract Since cancer metastasis is a complex process, a lot of research has been carried out to identify different hallmarks for its diagnosis and cure. Mechanical alterations in cancer cells during cell spreading to adjacent tissues and other organs of the body emerged as a prominent hallmark in the last decade. In this thesis we employed a mechanistic approach based on cell stiffness (elasticity) measurement as  a  marker  to  study  cell’s  mechanical  response  in  varying  microenvironmental  conditions. Mechanical interaction of the cell with the surrounding microenvironment is a blend of cell-matrix and cell-cell interactions. Therefore we adopted an approach to study cells in isolation and in the presence of their neighboring cells, plated on rigid as well as on compliant substrates. The elastic modulus was calculated using the Hertz-model. We considered three breast cell lines as model, showing three phases of cancer progression: MDA- MB-231, a highly aggressive cell line belonging to the Basal cell-like phenotype; MCF-7, a less aggressive cancer cell line, belonging to the Luminal A cell-like phenotype; and HBL-100, a nonneoplastic cell line, derived from the milk of a Caucasian woman, normal control for breast basalmyoepithelial cells. Cell elasticity can be locally measured by pulling membrane tethers, stretching or indenting the cell using optical tweezers. We introduce a simple approach to perform cell indentation by axially moving  the  cell  against  a  trapped  microbead.  Our  scheme  is  similar  to  the  AFM  vertical  cell indentation approach and can help to compare the quantitative results and thus complement AFM in a low force regime and loading rates. The elasticity trend of the three cell lines in isolated conditions showed that the aggressi",
+          "total_paper_chars": 173948,
+          "dataset_row": 280564
+        },
+        "paper_3": {
+          "paper_id": "61579264",
+          "title": "Manipulation of magnetic anisotropy in nanostructures",
+          "abstract_or_lead": "The magnetic properties of micro/nano-structure have attracted intense research interest in relation to geometrically-induced magnetism to delineate fundamental magnetic phenomena as well as focus the technological aspects in areas such as magnetic sensors, storage devices, integrated inductive components and a number of novel magnetic devices. Depending on the device applications, materials with high, medium or low magnetic anisotropy and their potential manipulation are required. The elements like geometry, crystal structure, magnetic spin configuration at the surfaces and interfaces are the basic ingredients for this manipulation. The most dramatic manifestation in this respect is the chance to manipulate the magnetic anisotropy over the intrinsic preferential direction of the magnetization, commonly observed in all ferromagnetic materials, thus opening up further possibility and functionality of ferromagnetic materials for device applications. In this thesis various types of magnetic anisotropy of different nanostructured materials and their manipulation are investigated. As a first approach detailed experimental and analytical methods for the qualitative and quantitative determination of magnetic anisotropy in nanomodulated Ni45Fe55 thin film are studied. In-plane magnetic ﬁeld rotations in modulated Ni45Fe55 revealed various rotational symmetries of magnetic anisotropy due to dipolar interaction with a crossover from lower to higher fold as a function of modulation geometry. The tendency to form vortex is in fact found to be very small, which highlights that the strong coupling between metastable dipoles is more favorable than vortex formation to minimize energy in this nanomodulated structure. Derived mathematical expressions based on magnetic dipolar interaction",
+          "total_paper_chars": 320782,
+          "dataset_row": 476518
+        }
+      }
+    },
+    {
+      "rank": 8,
+      "tightness_score": 0.970173,
+      "min_edge_cosine": 0.984843,
+      "mean_edge_cosine": 0.985105,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.985453,
+        "paper2_vs_paper3": 0.984843,
+        "paper1_vs_paper3": 0.985019
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "47205734",
+          "title": "Climate change vulnerability and adaptation options : case studies of four coastal communities in Timor-Leste",
+          "abstract_or_lead": "Timor-Leste, as both a small island developing state and a fragile, post-conflict nation, faces major challenges in responding to climate change. Subsistence coastal communities are particularly prone to the impacts of global climate change, in particular increased flooding, droughts and coastal inundation. This research undertook an integrated vulnerability assessment of coastal communities in Timor-Leste. Assessments were conducted in four coastal hamlets (Beacou, Sau Loro, Vailana), which represented a range of climates and socio-economic profiles in Timor Leste. Two ‘bottom-up’ approaches were adopted: (a) rapid, participatory, community-based vulnerability assessment; and (b) a semi-quantitative assessment based on data collected from 80 household surveys, which yielded 35 indicators that were derived from the ‘risk-hazard’ and sustainable livelihoods approaches.  Identification of adaptation options, which consistutes a vital step in local adaptation planning, was undertaken in each hamlet and a review of relevant climate change policies and programs was also undertaken. All four hamlets were subject to major climate impacts primarily from flooding and droughts on coastal infrastructure, food security from both fishing and agriculture, and water security. Interstingly, exposure was not demonstrably affected by the geographical location of the case studies. Sensitivity differed only slightly depending on specific localities of infrastructure and other assets and was high for all case study sites. Adaptive capacity was found to be constrained by very low levels of of income, education and economic diversification, high levels of resource dependency, water and food insecurity, and limited access to government support and development programs—with the exception of one",
+          "total_paper_chars": 701260,
+          "dataset_row": 432401
+        },
+        "paper_2": {
+          "paper_id": "47200060",
+          "title": "Reducing carbon emissions at the City of Darwin : an evaluation of battery electric vehicles",
+          "abstract_or_lead": "The introduction of the Australian Government’s Clean Energy Future Legislation 2011 coupled with community expectation is placing pressure on councils liable under the carbon pricing mechanism (such as the City of Darwin) to reduce its carbon footprint.  One carbon mitigation option is to replace fossil-fuel powered passenger fleet vehicles with battery electric vehicles.  This thesis makes a contribution to understanding the challenges associated with implementing this activity in the City of Darwin’s fleet, and does so from a triple bottom line (financial, environmental and social) perspective.  A possible implementation scenario is outlined which includes a three phase program, where the initial phase includes the purchase of a Mitsubishi i-MiEV as an additional fleet vehicle.  The second phase suggests procuring three electric vehicles (Nissan Leaf x two and Renault Fluence Z.E.) as a trial.  The third phase is a gradual battery electric vehicle roll-out across the passenger fleet.  The research reported in this thesis applies three complementary program planning tools (program logic models, the Cynefin Framework and community-based social marketing theory) to the implementation scenario.  It is shown that they are methodologically complementary and in combination, could be used to increase the likelihood of success of the implementation scenario.  This thesis shows replacing existing fleet passenger vehicles with battery electric vehicles will reduce City of Darwin’s carbon footprint while using program planning tools will increase the likelihood of success of vehicle replacement, both from a planning, management and staff behaviour change perspective. 1",
+          "total_paper_chars": 154274,
+          "dataset_row": 434194
+        },
+        "paper_3": {
+          "paper_id": "47206386",
+          "title": "Foreign aid and the development of Bougainville : \\u27Australian aid as catalyst for economic development\\u27",
+          "abstract_or_lead": "This study explores whether the development assistance delivered by Australian Department of Foreign Affairs and Trade (DFAT) can be better utilized to achieve Bougainville’s future economic development. In investigating the factors, issues and challenges that currently constrain aid and development in Bougainville, I focus upon aid policy and procurement processes, Bougainvilleans’ socio-cultural features, the post-conflict situation, and aspects related specifically to SIDS (Small Island Development States). Analysis of these factors provided understanding of aid-driven development issues and challenges within a post-conflict, culturallybased Melanesian SIDS territory. In an attempt to address such problems, a case study of the cocoa industry has been conducted as a model to illustrate how and what aid resources can be used to assist Bougainville’s future development. A variant of neo-liberal aid-driven development theory, plus the untied aid model and formal aid management principles are adapted to develop a road-map for improving the cocoa industry with DFAT aid, in pursuit of Bougainville’s future economic development. 1",
+          "total_paper_chars": 414559,
+          "dataset_row": 434588
+        }
+      }
+    },
+    {
+      "rank": 9,
+      "tightness_score": 0.969938,
+      "min_edge_cosine": 0.984428,
+      "mean_edge_cosine": 0.985281,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.984428,
+        "paper2_vs_paper3": 0.98675,
+        "paper1_vs_paper3": 0.984666
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "53822129",
+          "title": "Protein tyrosine phosphatase 1B (PTP1B) :  identification of new substrates and new potential mechanisms of modulation of the Ras pathway",
+          "abstract_or_lead": "Protein tyrosine phosphatases play a crucial role in signal transduction. To advance our understanding of the network based on this enzyme family, we have developed a combined experimental and computational approach to correctly place the tyrosine phosphatases in the context of a functional human interactome. We have applied this strategy to the identification of new PTP1B phosphatase substrates. We have used a Bayesian approach to integrate information about substrate preference, as determined by probing high density phospho-peptide chips, and distance in the human protein interaction network to rank phospho-proteins according to likelihood of being PTP1B substrates. By focusing on the proteins involved in the EGFR pathway, we identified PLC-, Gab1 and SHP2 as putative PTP1B substrates. A variety of in vitro and in vivo approaches were used to validate this prediction. The activity of PTP1B on PLC-, Gab1 and SHP2 tyrosine phosphorylation were also confirmed by phosphatase over-expression and siRNA knock down experiments. TC-PTP, the closest PTP1B homologue, does not dephosphorylate PLC-, Gab1 and SHP2, demonstrating a specificity of PTP1B towards these three substrates. In addition we demonstrated that PTP1B over-expression negatively affects the EGF induced association between Gab1 and SHP2 proteins leading to a decrease of MAP kinase activation. We also provide evidence of a physical association between Gab1, PTP1B and the docking protein Grb2 to form a ternary complex. 5",
+          "total_paper_chars": 106640,
+          "dataset_row": 222845
+        },
+        "paper_2": {
+          "paper_id": "80167180",
+          "title": "ALS-RELATED FUS PROTEIN IS MISLOCALIZED TO CYTOPLASM AND RECRUITED INTO STRESS GRANULES IN FIBROBLASTS OF ASYMPTOMATIC FUS P525L MUTATION CARRIERS",
+          "abstract_or_lead": "Symptoms onset in Amyotrophic Lateral Sclerosis (ALS) occur when over 70% of motor neurons is already lost, suggesting a relatively long pre-symptomatic phase. The description of several genes linked to ALS (e.g., SOD1, FUS, TARDP, C9orf72) has now allowed identification of pre-symptomatic carriers. These pre-symptomatic (or even preclinical) carriers can be followed up with the aim to identify the very early clinical diseaserelated changes or a valuable biomarker. These efforts seem at present the best approach for the implementation of an early symptomatic therapy or for the disease prevention. In this work, we studied the expression of FUS protein in cultured skin fibroblasts from pre-symptomatic FUS P525L mutation carriers. We cultured skin fibroblasts from two sisters belonging to an ALS family with FUS P525L mutation and carrying the same mutation, one healthy control and two patients with sporadic ALS (sALS), with no identified gene mutations. The two carriers were clinically asymptomatic, while the two patients fulfilled the El-Escorial and Awaji criteria for definite ALS. Western blot and immunocytochemistry were performed with specific antibodies to study the expression and subcellular localization of FUS protein in the skin fibroblasts. In sporadic ALS, FUS protein showed an almost exclusive nuclear localization. In the healthy control, FUS was also mostly nuclear, with some cells showing a faint cytoplasmic expression. In the FUS P525L mutation carriers, the protein was strongly expressed in both nucleus and 5 cytoplasm in most cells, with a relatively high proportion of cells showing an exclusive cytoplasmic FUS localization. Furthermore, either heat-shock or dithiothreitol were applied to assess the effect of stress on FUS expression and cytoplasmic redist",
+          "total_paper_chars": 73385,
+          "dataset_row": 276147
+        },
+        "paper_3": {
+          "paper_id": "60585787",
+          "title": "Regulation of cancer cell viability by p38 MAPK",
+          "abstract_or_lead": "ABSTRACT 15 Regulation of the redox state is essential to maintain cellular homeostasis. In fact, dysregulated reactive oxygen species (ROS) production has been associated with enhanced tumorigenicity in epithelial cells. However, the pro-tumorigenic effect of the accumulation of ROS can turn out to be a double-edged sword, since high levels of these species may lower the apoptotic threshold for cytotoxicity. Therefore, redox regulation plays an important role in tumor cell survival. The p38α protein kinase is an important regulator of many cellular responses. It is well established that p38α signaling negatively regulates epithelial cell transformation, but enhanced p38α kinase activity has been also correlated with bad clinical prognosis in some tumor types. This, together with the fact that p38α has been implicated in the proliferation of some cancer cell lines, led us to hypothesize that this protein kinase could be a good target for cancer therapy. We performed a screening to try to identify synthetic lethal partners of p38α, but we only found one potential candidate. We also investigated the role of p38α in the response of tumor cells to chemotherapeutic agents that induce DNA damage. Our results provide genetic and pharmacological evidence showing that inhibition of p38α cooperates with the chemotherapeutic agent cisplatin to kill tumor cells. We show that p38α inhibition results in ROS upregulation, which in turn activates the JNK pathway via inactivation of phosphatases, sensitizing human tumor cells to cisplatin-induced apoptosis. Using a mouse model for breast cancer, we also show that inhibition of p38α cooperates with cisplatin treatment to reduce tumor size and malignancy in vivo. Taken together, our results illustrate a new function of p38α that helps tum",
+          "total_paper_chars": 273700,
+          "dataset_row": 373675
+        }
+      }
+    },
+    {
+      "rank": 10,
+      "tightness_score": 0.9698,
+      "min_edge_cosine": 0.984428,
+      "mean_edge_cosine": 0.985141,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.984428,
+        "paper2_vs_paper3": 0.985751,
+        "paper1_vs_paper3": 0.985246
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "53822129",
+          "title": "Protein tyrosine phosphatase 1B (PTP1B) :  identification of new substrates and new potential mechanisms of modulation of the Ras pathway",
+          "abstract_or_lead": "Protein tyrosine phosphatases play a crucial role in signal transduction. To advance our understanding of the network based on this enzyme family, we have developed a combined experimental and computational approach to correctly place the tyrosine phosphatases in the context of a functional human interactome. We have applied this strategy to the identification of new PTP1B phosphatase substrates. We have used a Bayesian approach to integrate information about substrate preference, as determined by probing high density phospho-peptide chips, and distance in the human protein interaction network to rank phospho-proteins according to likelihood of being PTP1B substrates. By focusing on the proteins involved in the EGFR pathway, we identified PLC-, Gab1 and SHP2 as putative PTP1B substrates. A variety of in vitro and in vivo approaches were used to validate this prediction. The activity of PTP1B on PLC-, Gab1 and SHP2 tyrosine phosphorylation were also confirmed by phosphatase over-expression and siRNA knock down experiments. TC-PTP, the closest PTP1B homologue, does not dephosphorylate PLC-, Gab1 and SHP2, demonstrating a specificity of PTP1B towards these three substrates. In addition we demonstrated that PTP1B over-expression negatively affects the EGF induced association between Gab1 and SHP2 proteins leading to a decrease of MAP kinase activation. We also provide evidence of a physical association between Gab1, PTP1B and the docking protein Grb2 to form a ternary complex. 5",
+          "total_paper_chars": 106640,
+          "dataset_row": 222845
+        },
+        "paper_2": {
+          "paper_id": "80167180",
+          "title": "ALS-RELATED FUS PROTEIN IS MISLOCALIZED TO CYTOPLASM AND RECRUITED INTO STRESS GRANULES IN FIBROBLASTS OF ASYMPTOMATIC FUS P525L MUTATION CARRIERS",
+          "abstract_or_lead": "Symptoms onset in Amyotrophic Lateral Sclerosis (ALS) occur when over 70% of motor neurons is already lost, suggesting a relatively long pre-symptomatic phase. The description of several genes linked to ALS (e.g., SOD1, FUS, TARDP, C9orf72) has now allowed identification of pre-symptomatic carriers. These pre-symptomatic (or even preclinical) carriers can be followed up with the aim to identify the very early clinical diseaserelated changes or a valuable biomarker. These efforts seem at present the best approach for the implementation of an early symptomatic therapy or for the disease prevention. In this work, we studied the expression of FUS protein in cultured skin fibroblasts from pre-symptomatic FUS P525L mutation carriers. We cultured skin fibroblasts from two sisters belonging to an ALS family with FUS P525L mutation and carrying the same mutation, one healthy control and two patients with sporadic ALS (sALS), with no identified gene mutations. The two carriers were clinically asymptomatic, while the two patients fulfilled the El-Escorial and Awaji criteria for definite ALS. Western blot and immunocytochemistry were performed with specific antibodies to study the expression and subcellular localization of FUS protein in the skin fibroblasts. In sporadic ALS, FUS protein showed an almost exclusive nuclear localization. In the healthy control, FUS was also mostly nuclear, with some cells showing a faint cytoplasmic expression. In the FUS P525L mutation carriers, the protein was strongly expressed in both nucleus and 5 cytoplasm in most cells, with a relatively high proportion of cells showing an exclusive cytoplasmic FUS localization. Furthermore, either heat-shock or dithiothreitol were applied to assess the effect of stress on FUS expression and cytoplasmic redist",
+          "total_paper_chars": 73385,
+          "dataset_row": 276147
+        },
+        "paper_3": {
+          "paper_id": "29111879",
+          "title": "DNA Damage responses in plant stem cells",
+          "abstract_or_lead": "Plants\t\r   are\t\r   sessile\t\r   organisms\t\r   that\t\r   cannot\t\r   escape\t\r   environmental\t\r   hazards,\t\r  which\t\r   induce\t\r  DNA\t\r  damage\t\r  and\t\r  cause\t\r  mutations.\t\r  Plants\t\r  are\t\r  also\t\r  subject\t\r   to\t\r  DNA\t\r   damage\t\r   caused\t\r   by\t\r   endogenous\t\r   processes\t\r   such\t\r   as\t\r   transposon\t\r  movement.\t\r  Plant\t\r  stem\t\r  cell\t\r  populations\t\r  in\t\r  particular\t\r  must\t\r  be\t\r  protected\t\r  from\t\r  genotoxicity,\t\r  as\t\r  they\t\r  are\t\r  the\t\r  origin\t\r  of\t\r  all\t\r  organs,\t\r  together\t\r  with\t\r  the\t\r  germline.\t\r  In\t\r   accordance\t\r   with\t\r   this\t\r   premise,\t\r   plant\t\r   stem\t\r   cells\t\r   were\t\r   found\t\r   to\t\r   be\t\r  hypersensitive\t\r   to\t\r   Double\t\r   Strand\t\r   Breaks\t\r   (DSBs),\t\r   leading\t\r   to\t\r   their\t\r   specific\t\r  killing\t\r  via\t\r  the\t\r  ATAXIA\t\r  TELANGIECTASIA\t\r  MUTATED\t\r  (ATM)\t\r  and\t\r  SUPPRESSOR OF\t\r   GAMMA\t\r   RESPONSE\t\r   1\t\r   (SOG1)\t\r   genes.\t\r   However,\t\r   the\t\r   components\t\r   of\t\r   the\t\r  pathway\t\r   leading\t\r   to\t\r   programmed\t\r   cell\t\r   death\t\r   (PCD)\t\r   in\t\r   response\t\r   to\t\r   DSBs\t\r   in\t\r  plant\t\r   stem\t\r   cells\t\r   are\t\r   still\t\r   unknown,\t\r   and\t\r   the\t\r   in\t\r   vivo\t\r   DNA\t\r   damaging\t\r   agents\t\r  relevant\t\r   to\t\r   this\t\r   mechanism\t\r   have\t\r   not\t\r   been\t\r   characterised,\t\r   providing\t\r   the\t\r  starting\t\r  point\t\r  of\t\r  this\t\r  thesis.\t\r  Here,\t\r  a\t\r  candidate\t\r  gene\t\r  approach\t\r  and\t\r  a\t\r  forward\t\r  genetics\t\r   screen\t\r   in\t\r   the\t\r   root\t\r   stem\t\r   cells\t\r   did\t\r   not\t\r   yield\t\r   new\t\r   factors\t\r   of\t\r   the\t\r  pathway\t\r   leading\t\r   to\t\r   PCD\t\r   in\t\r   root\t\r   stem\t\r   cells.\t\r   However,\t\r   a\t\r   specific\t\r   ecotype\t\r  showed\t\r   an\t\r   absence\t\r   of\t\r   DSBs-­‐induced\t\r   PCD,\t\r   revealing\t\r   natural\t\r   variation\t\r   in\t\r  stem\t\r   cell",
+          "total_paper_chars": 526122,
+          "dataset_row": 472835
+        }
+      }
+    },
+    {
+      "rank": 11,
+      "tightness_score": 0.96967,
+      "min_edge_cosine": 0.984502,
+      "mean_edge_cosine": 0.984935,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.984502,
+        "paper2_vs_paper3": 0.985751,
+        "paper1_vs_paper3": 0.984551
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "74322555",
+          "title": "Potential biological meaning and origin of cardiac progenitor cells isolated as Cardiospheres",
+          "abstract_or_lead": "Several populations of progenitor cells have been identified in the adult heart, based on the expression of specific surface markers (c-kit, Sca1, SSEA1, Isl-1), or on functional properties such as the ability to expel a vital dye (Side Population) or to spontaneously migrate from tissue explants and grow in three dimensional structures called cardiospheres (CSps), representing a niche-like microtissue with a cardiogenic gradient of differentiation. It is not clear which is the origin of these endogenous progenitor populations and how they function in vivo, given the limited regenerative capacity of the heart. Several possibilities can be envisioned. These cells could be remnants of the embryonic development, or derive from the de-differentiation of cardiomyocytes. A better understanding of their biological meaning is important not only for the extension of our knowledge in the field, but also to gain insight on the regenerative potential and differentiative fate of the cells for the clinical translation of cell therapy. To deeply investigate these issues, we approached the question from two different sides. Firstly to test the dedifferentiation  hypothesis, we used a double transgenic mouse expressing the recombinase MerCreMer under the α- Myosin-Heavy-Chain promoter, specific of differentiated cardiomyocytes, thus a pulse with 4-OH-tamoxifen (TAM) would activate Cre , allowing the expression of the reporter gene LacZ, in a spatial and temporal regulated manner. With this system, ideally all the differentiated cardiomyocytes should be irreversibly labeled after TAM treatment, even if they subsequently undergo de-differentiation. B-gal positive cells resulted very rare in culture, as shown by x-gal staining and real time PCR, suggesting that 5 cardiomyocytes de-differen",
+          "total_paper_chars": 135222,
+          "dataset_row": 228834
+        },
+        "paper_2": {
+          "paper_id": "80167180",
+          "title": "ALS-RELATED FUS PROTEIN IS MISLOCALIZED TO CYTOPLASM AND RECRUITED INTO STRESS GRANULES IN FIBROBLASTS OF ASYMPTOMATIC FUS P525L MUTATION CARRIERS",
+          "abstract_or_lead": "Symptoms onset in Amyotrophic Lateral Sclerosis (ALS) occur when over 70% of motor neurons is already lost, suggesting a relatively long pre-symptomatic phase. The description of several genes linked to ALS (e.g., SOD1, FUS, TARDP, C9orf72) has now allowed identification of pre-symptomatic carriers. These pre-symptomatic (or even preclinical) carriers can be followed up with the aim to identify the very early clinical diseaserelated changes or a valuable biomarker. These efforts seem at present the best approach for the implementation of an early symptomatic therapy or for the disease prevention. In this work, we studied the expression of FUS protein in cultured skin fibroblasts from pre-symptomatic FUS P525L mutation carriers. We cultured skin fibroblasts from two sisters belonging to an ALS family with FUS P525L mutation and carrying the same mutation, one healthy control and two patients with sporadic ALS (sALS), with no identified gene mutations. The two carriers were clinically asymptomatic, while the two patients fulfilled the El-Escorial and Awaji criteria for definite ALS. Western blot and immunocytochemistry were performed with specific antibodies to study the expression and subcellular localization of FUS protein in the skin fibroblasts. In sporadic ALS, FUS protein showed an almost exclusive nuclear localization. In the healthy control, FUS was also mostly nuclear, with some cells showing a faint cytoplasmic expression. In the FUS P525L mutation carriers, the protein was strongly expressed in both nucleus and 5 cytoplasm in most cells, with a relatively high proportion of cells showing an exclusive cytoplasmic FUS localization. Furthermore, either heat-shock or dithiothreitol were applied to assess the effect of stress on FUS expression and cytoplasmic redist",
+          "total_paper_chars": 73385,
+          "dataset_row": 276147
+        },
+        "paper_3": {
+          "paper_id": "29111879",
+          "title": "DNA Damage responses in plant stem cells",
+          "abstract_or_lead": "Plants\t\r   are\t\r   sessile\t\r   organisms\t\r   that\t\r   cannot\t\r   escape\t\r   environmental\t\r   hazards,\t\r  which\t\r   induce\t\r  DNA\t\r  damage\t\r  and\t\r  cause\t\r  mutations.\t\r  Plants\t\r  are\t\r  also\t\r  subject\t\r   to\t\r  DNA\t\r   damage\t\r   caused\t\r   by\t\r   endogenous\t\r   processes\t\r   such\t\r   as\t\r   transposon\t\r  movement.\t\r  Plant\t\r  stem\t\r  cell\t\r  populations\t\r  in\t\r  particular\t\r  must\t\r  be\t\r  protected\t\r  from\t\r  genotoxicity,\t\r  as\t\r  they\t\r  are\t\r  the\t\r  origin\t\r  of\t\r  all\t\r  organs,\t\r  together\t\r  with\t\r  the\t\r  germline.\t\r  In\t\r   accordance\t\r   with\t\r   this\t\r   premise,\t\r   plant\t\r   stem\t\r   cells\t\r   were\t\r   found\t\r   to\t\r   be\t\r  hypersensitive\t\r   to\t\r   Double\t\r   Strand\t\r   Breaks\t\r   (DSBs),\t\r   leading\t\r   to\t\r   their\t\r   specific\t\r  killing\t\r  via\t\r  the\t\r  ATAXIA\t\r  TELANGIECTASIA\t\r  MUTATED\t\r  (ATM)\t\r  and\t\r  SUPPRESSOR OF\t\r   GAMMA\t\r   RESPONSE\t\r   1\t\r   (SOG1)\t\r   genes.\t\r   However,\t\r   the\t\r   components\t\r   of\t\r   the\t\r  pathway\t\r   leading\t\r   to\t\r   programmed\t\r   cell\t\r   death\t\r   (PCD)\t\r   in\t\r   response\t\r   to\t\r   DSBs\t\r   in\t\r  plant\t\r   stem\t\r   cells\t\r   are\t\r   still\t\r   unknown,\t\r   and\t\r   the\t\r   in\t\r   vivo\t\r   DNA\t\r   damaging\t\r   agents\t\r  relevant\t\r   to\t\r   this\t\r   mechanism\t\r   have\t\r   not\t\r   been\t\r   characterised,\t\r   providing\t\r   the\t\r  starting\t\r  point\t\r  of\t\r  this\t\r  thesis.\t\r  Here,\t\r  a\t\r  candidate\t\r  gene\t\r  approach\t\r  and\t\r  a\t\r  forward\t\r  genetics\t\r   screen\t\r   in\t\r   the\t\r   root\t\r   stem\t\r   cells\t\r   did\t\r   not\t\r   yield\t\r   new\t\r   factors\t\r   of\t\r   the\t\r  pathway\t\r   leading\t\r   to\t\r   PCD\t\r   in\t\r   root\t\r   stem\t\r   cells.\t\r   However,\t\r   a\t\r   specific\t\r   ecotype\t\r  showed\t\r   an\t\r   absence\t\r   of\t\r   DSBs-­‐induced\t\r   PCD,\t\r   revealing\t\r   natural\t\r   variation\t\r   in\t\r  stem\t\r   cell",
+          "total_paper_chars": 526122,
+          "dataset_row": 472835
+        }
+      }
+    },
+    {
+      "rank": 12,
+      "tightness_score": 0.969519,
+      "min_edge_cosine": 0.984267,
+      "mean_edge_cosine": 0.985017,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.984473,
+        "paper2_vs_paper3": 0.984267,
+        "paper1_vs_paper3": 0.98631
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "41814740",
+          "title": "Modelling and simulation of a microreactor for ethanol steam reforming",
+          "abstract_or_lead": "Nowadays, the research of new energy sources to substitute fossil fuels is essential. Hydrogen represents an option with plenty of potential for this issue. The main problem of this source is its poor portability, so it needs to be obtained almost directly where it needs to be used. For this reason, it has been carried out a three dimensional computational fluid dynamics simulation study of ethanol steam reforming (ESR) in a monolithic microreactor. It has been established and implemented a kinetic model describing the ESR on a Rh-Pd/CeO2 catalyst. The model includes the ethanol decomposition into hydrogen, methane and carbon monoxide, the water gas shift (WGS) reaction, the reforming, in presence of water, of the methane (MSR) in to carbon monoxide or carbon dioxide, at different inlet velocities, pressures and temperatures. - 5 -",
+          "total_paper_chars": 119405,
+          "dataset_row": 29848
+        },
+        "paper_2": {
+          "paper_id": "81579992",
+          "title": "Multiproduct supplye chain analysis through by simulation with kanban and EOQ system",
+          "abstract_or_lead": "School of Industrial and Information Engineering Master of Science Programme in Management Engineering BY SIMULATION WITH KANBAN AND EOQ SYSTEM Multiproduct Supply Chain Analysis through by Simulation  Politecnico di Milano II. List of Acronyms, Abbreviations and Japanese words ................................. 4 III. List of Figures .............................................................................................. 6 IV. List of Tables ................................................................................................ 8 V. List of Graphs ............................................................................................. 10 VI. List of Annexes .......................................................................................... 12 2.1. Scope of analysis ................................................................................... 14 3. Summary of review and discussion ............................................................ 16 4. Analysis of the current literature ................................................................. 22 4.2. Strategic and Tactical Lean Supply Chain Management ....................... 24 4.3. Supply Chain Management Planning ..................................................... 27 4.3.2. Economic Order Quantity ................................................................ 30",
+          "total_paper_chars": 235571,
+          "dataset_row": 32276
+        },
+        "paper_3": {
+          "paper_id": "87657874",
+          "title": "Simulation and optimization of an HVDC network connecting offshore windfarms with the mainland",
+          "abstract_or_lead": "In this project an algorithm capable of simulating a network connecting offshore wind farms HVDC points with consumers has been created. This simulation takes into account the analytical model that HVDC network is based on. The simulation also takes into account the control that is applied in such cases. In addition, the control of the system calculates the optimum working point to optimise the network energy transfer. Nil Falgueras Farrerons - 9 -",
+          "total_paper_chars": 85999,
+          "dataset_row": 46623
+        }
+      }
+    },
+    {
+      "rank": 13,
+      "tightness_score": 0.969391,
+      "min_edge_cosine": 0.984093,
+      "mean_edge_cosine": 0.985061,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.984093,
+        "paper2_vs_paper3": 0.985444,
+        "paper1_vs_paper3": 0.985647
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "41822309",
+          "title": "Effects of asynchronous seismic action in long highway bridges",
+          "abstract_or_lead": "The current study focus on the spatial variability of ground motion caused by a seismic action applied to large bridges. Four different bridges were studied and two different analysis were carried out on each of them: a synchronous analysis (where the seismic sign arrives at each pier’s foundation at the same time) and an asynchronous one (where the seismic sign arrives at each pier’s foundation with time gaps). The goal of this study is to evaluate the damage on the structure caused by both analysis carried out in each one of the four bridges and compare them, measuring the displacements of the deck, the base shear, the bending moment and the drift of the piers, in each of the cases. This study was performed considering two types of foundation ground, for both of the analysis performed, a solid rock and a compact sand, and comparing the difference of the results in each one. Both of the analysis were carried out using the software SAP2000. This study aims at showing the importance of considering the asynchrony of seismic waves and in which cases it causes more damages than a synchronous seismic sign, rather than figuring out which foundation ground is better or worse. It was concluded that the asynchronous analysis was the less favourable and that the results bring about more advantages when a better quality ground type is considered. In what matters the spatial variability of ground motion, the conclusion is that the uniform seismic excitation is not able to control the seismic design for long prestressed concrete bridges, and the influence of the multi-support excitations on the seismic responses of the long prestressed concrete bridges must be considered. Key words: spatial variability, seismic sign, synchronous analysis, asynchronous analysis, large bridges, damage",
+          "total_paper_chars": 247466,
+          "dataset_row": 39631
+        },
+        "paper_2": {
+          "paper_id": "41799270",
+          "title": "Design and Simulation of Vertical Grating Coupler for Photonic Integrated System-in-Package",
+          "abstract_or_lead": "As we approach the limits in operating speed of IC’s predicted by Moore’s Law, some alternative way of increasing velocities while reducing dimensions has to be found. In this context, optical interconnects appear to be an optimal solution that avoids the main limitations that electrical interconnects have. To implement these optical interconnects in the already well developed CMOS integrated environment, the System-in-Package (SiP) and the Silicon on Insulator (SOI) technologies arise as a good solution to achieve these goals. In this Thesis optical single mode strip nano waveguides and a grating coupler for vertical coupling to optical fibres are presented, designed and simulated. Their design parameters are optimized, and their performance analyzed and discussed. Firstly, the characteristics of large single mode rib waveguides and their direct butt coupling to fibres is studied. Their performance is found to be not good enough when the dimensions were reduced to under 1 µm, with losses as high as 14.5 dB. Therefore, nano strip waveguides are studied and simulated. They provide high light confinement and good propagation characteristics. Some performance characteristics (confinement factor, single mode region, effective index) are studied, for core widths in the range 100 – 600 nm. The vertical coupling of these nano strip waveguides to optical fibres by means of a grating coupler is simulated with the FDTD technique. The main design parameters of this grating coupler are optimized, obtaining losses of 7 dB for TE polarisation and 8.5 dB for TM. The misalignment tolerances are also analysed. The crosstalk effects between this grating and an hypothetical underlying waveguide are studied, showing that no light couples to the lower waveguide. VI Zusammenfassung Hinsichtl",
+          "total_paper_chars": 130515,
+          "dataset_row": 43645
+        },
+        "paper_3": {
+          "paper_id": "41804111",
+          "title": "Multihop Relay Station and 3 sector Cell Zooming usage for Base Station Energy Saving",
+          "abstract_or_lead": "3.3.\t\r  Frame\t\r  structure\t\r  and\t\r  throughput\t\r  calculation..........................................................11 Figure\t\r  1.\t\r   Multi-­‐hop\t\r  relay\t\r  cellular\t\r  network\t\r  layout.......................................................................8 Figure\t\r  3.\t\r   Three\t\r  sector\t\r  independent\t\r  power\t\r  adjusting. ..............................................................10 Figure\t\r  5.\t\r   Non-­‐homogeneous\t\r  user\t\r  distribuition\t\r  and\t\r  switching\t\r  ON/OFF\t\r  cells. ..........................14 Figure\t\r  6.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  outage .................................................................................17 Figure\t\r  7.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  average\t\r  user\t\r  throughput ....................................................18 Figure\t\r  8.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  energy\t\r  consumption ...........................................................19 Figure\t\r  9.\t\r   Comparison\t\r  of\t\r  the\t\r  global\t\r  energy\t\r  efficiency...............................................................19 Figure\t\r  10.\t\r   Comparison\t\r  of\t\r  the\t\r  outage\t\r  in\t\r  the\t\r  OFF\t\r  zones ..........................................................20 Figure\t\r  11.\t\r   Comparison\t\r  of\t\r  the\t\r  average\t\r  user\t\r  throughput\t\r  in\t\r  the\t\r  OFF\t\r  zones..............................21 There\t\r  are\t\r  a\t\r  lot\t\r  of\t\r  people\t\r  without\t\r  whom\t\r  this\t\r  project\t\r  would\t\r  not\t\r  have\t\r  been\t\r  possible.\t\r  First",
+          "total_paper_chars": 40447,
+          "dataset_row": 46177
+        }
+      }
+    },
+    {
+      "rank": 14,
+      "tightness_score": 0.969372,
+      "min_edge_cosine": 0.98359,
+      "mean_edge_cosine": 0.985546,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.986176,
+        "paper2_vs_paper3": 0.98359,
+        "paper1_vs_paper3": 0.986871
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "20479391",
+          "title": "An in vivo study of chromatin compaction in human cells",
+          "abstract_or_lead": "Chromatin\t\r   was\t\r   one\t\r   of\t\r   the\t\r   first\t\r   sub-­‐cellular\t\r   structures\t\r   to\t\r   be\t\r   described\t\r   in\t\r   early microscopy\t\r  studies\t\r  (Heitz\t\r  1928).\t\r  Chromatin\t\r  is\t\r  formed\t\r  from\t\r  DNA,\t\r  RNA,\t\r  histones\t\r  and other\t\r  associated\t\r  proteins.\t\r  Within\t\r  the\t\r  nucleus,\t\r  chromatin\t\r  is\t\r  arranged\t\r  as\t\r  compacted heterochromatin\t\r   and\t\r   decompacted\t\r   euchromatin.\t\r   During\t\r   cell\t\r   division,\t\r   interphase chromatin\t\r   compacts\t\r   to\t\r   form\t\r   the\t\r   mitotic\t\r   chromosomes.\t\r   The\t\r   arrangement\t\r   of chromatin\t\r   within\t\r   cells,\t\r   with\t\r   respect\t\r   to\t\r   its\t\r   compaction\t\r   state,\t\r   has\t\r   a\t\r   number\t\r   of implications\t\r  for\t\r  processes\t\r   like\t\r  transcription,\t\r  DNA\t\r  replication,\t\r  DNA\t\r  repair\t\r  and\t\r  more recently,\t\r  in\t\r  vision\t\r  of\t\r  nocturnal\t\r  animals. Most\t\r   work\t\r   on\t\r   the\t\r   study\t\r   of\t\r   chromatin\t\r   compaction\t\r   has\t\r   been\t\r   done\t\r   with\t\r   in\t\r   vitro assembled\t\r   nucleosome\t\r   arrays.\t\r   Chromatin\t\r   has\t\r   been\t\r   shown\t\r   to\t\r   compact\t\r   when\t\r   the concentration\t\r   of\t\r   polyvalent\t\r   cations\t\r   increases,\t\r   possibly\t\r   due\t\r   to\t\r   negation\t\r   of\t\r   the repulsive\t\r  forces\t\r  of\t\r  the\t\r  negatively\t\r  charged\t\r  poly-­‐phosphate\t\r  DNA\t\r  backbone.\t\r  However, these\t\r   in\t\r  vitro\t\r  studies\t\r  do\t\r  not\t\r  necessarily\t\r  reflect\t\r  the\t\r   in\t\r  vivo\t\r  chromatin\t\r  environment. An\t\r   example\t\r   of\t\r   this\t\r   difference\t\r   can\t\r   be\t\r   seen\t\r   in\t\r   the\t\r   formation\t\r   of\t\r   the\t\r   30nm\t\r   fibre\t\r   in nucleosome\t\r   arrays,\t\r  which\t\r   has\t\r   not\t\r   been\t\r   found\t\r  within\t\r  mammalian\t\r   nuclei,\t\r  where\t\r   it adopts\t\r  a\t\r  ‘beads\t\r  on\t\r  a\t\r  string’\t\r  structure,\t\r  even\t\r  in\t\r  more",
+          "total_paper_chars": 445462,
+          "dataset_row": 453791
+        },
+        "paper_2": {
+          "paper_id": "61580841",
+          "title": "Development of tumour imaging and therapy strategies utilising unengineered bacteria",
+          "abstract_or_lead": "The ability of systemically administered bacteria to target and replicate to high numbers within solid tumours is well established. Tumour localising bacteria can be exploited as biological vehicles for the delivery of nucleic acid, protein or therapeutic payloads to tumour sites and present researchers with a highly targeted and safe vehicle for tumour imaging and cancer therapy. This work aimed to utilise bacteria to activate imaging probes or prodrugs specifically within target tissue in order to facilitate the development of novel imaging and therapeutic strategies. The vast majority of existing bacterial-mediated cancer therapy strategies rely on the use of bacteria that have been genetically modified (GM) to express genes of interest. While these approaches have been shown to be effective in a preclinical setting, GM presents extra regulatory hurdles in a clinical context. Also, many strains of bacteria are not genetically tractably and hence cannot currently be engineered to express genes of interest. For this reason, the development of imaging and therapeutic systems that utilise unengineered bacteria for the activation of probes or drugs represents a significant improvement on the current gold standard. Endogenously expressed bacterial enzymes that are not found in mammalian cells can be used for the targeted activation of imaging probes or prodrugs whose activation is only achieved in the presence of these enzymes. Exploitation of the intrinsic enzymatic activity of bacteria allows the use of a wider range of bacteria and presents a more clinically relevant system than those that are currently in use. The nitroreductase (NTR) enzymes, found only in bacteria, represent one such option. Chapter 2 introduces the novel concept of utilising native bacterial NTRs fo",
+          "total_paper_chars": 268757,
+          "dataset_row": 474692
+        },
+        "paper_3": {
+          "paper_id": "54845573",
+          "title": "Multivalent Peptides as New Biomarker Probes for the Detection of Cancer Metastasis",
+          "abstract_or_lead": "Malignant tumor cells overexpress and release lipid vesicles called exosomes into the body fluids to facilitate their movement and metastasis to other parts of the body. It was found that an increased secretion of exosomes in the peripheral blood is correlated with lung cancer and melanoma metastasis. The hallmarks of exosomes are their highly curved surface (d = ~30-100 nm) that is distinct from other extracellular lipid vesicles and their enrichment with the anionic lipid phosphatidylserine (PS) in the outer leaflet of the membrane bilayer. These properties provide an opportunity in selectively targeting exosomes as potential cancer biomarkers. We have developed a novel, minimally invasive, peptide-based diagnostic tool to detect synthetic liposomes that could be used to detect exosome oversecretion in cancer patients. The successful development of this diagnostic tool for cancer metastasis will help in the proper diagnosis and therapy for cancer patients. Coulup 4",
+          "total_paper_chars": 35537,
+          "dataset_row": 485950
+        }
+      }
+    },
+    {
+      "rank": 15,
+      "tightness_score": 0.969352,
+      "min_edge_cosine": 0.984025,
+      "mean_edge_cosine": 0.98509,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.984025,
+        "paper2_vs_paper3": 0.985495,
+        "paper1_vs_paper3": 0.98575
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "84678314",
+          "title": "Cancer cell mechanics and cell microenvironment: An optical tweezers study",
+          "abstract_or_lead": "3 Abstract Since cancer metastasis is a complex process, a lot of research has been carried out to identify different hallmarks for its diagnosis and cure. Mechanical alterations in cancer cells during cell spreading to adjacent tissues and other organs of the body emerged as a prominent hallmark in the last decade. In this thesis we employed a mechanistic approach based on cell stiffness (elasticity) measurement as  a  marker  to  study  cell’s  mechanical  response  in  varying  microenvironmental  conditions. Mechanical interaction of the cell with the surrounding microenvironment is a blend of cell-matrix and cell-cell interactions. Therefore we adopted an approach to study cells in isolation and in the presence of their neighboring cells, plated on rigid as well as on compliant substrates. The elastic modulus was calculated using the Hertz-model. We considered three breast cell lines as model, showing three phases of cancer progression: MDA- MB-231, a highly aggressive cell line belonging to the Basal cell-like phenotype; MCF-7, a less aggressive cancer cell line, belonging to the Luminal A cell-like phenotype; and HBL-100, a nonneoplastic cell line, derived from the milk of a Caucasian woman, normal control for breast basalmyoepithelial cells. Cell elasticity can be locally measured by pulling membrane tethers, stretching or indenting the cell using optical tweezers. We introduce a simple approach to perform cell indentation by axially moving  the  cell  against  a  trapped  microbead.  Our  scheme  is  similar  to  the  AFM  vertical  cell indentation approach and can help to compare the quantitative results and thus complement AFM in a low force regime and loading rates. The elasticity trend of the three cell lines in isolated conditions showed that the aggressi",
+          "total_paper_chars": 173948,
+          "dataset_row": 280564
+        },
+        "paper_2": {
+          "paper_id": "42577086",
+          "title": "Nanosecond Pulsed Laser Processing of Metals and Welding of Metal-Glass Nanocomposites",
+          "abstract_or_lead": "1 Abstract In this thesis, nanosecond pulsed lasers are used as the tools to generate microstructures on metal and glass. The applications of these structures are described too. The production of micro structures is demonstrated using diode-pumped solid state (DPSS) Nd:YVO4 lasers operating at wavelengths of 532nm or 1064 nm. The laser fluence and scanning speed are important parameters to control the results. The first part of thesis is on the laser generation of microstructures on metal surfaces. Copper (Cu) and titanium (Ti) have been studied. According to the reflectivity of metals, Cu is processed by a 532nm laser and Ti is processed by a 1064nm laser. It is shown that the periods of surface microstructures are highly dependent on the hatch distance (overlapping distance between laser scanning). Only if the laser fluence is greater than a threshold, may the microstructures on metals be induced. The thresholds are measured by the diameters of ablated areas at different fluence. Laser generated surface microstructures have been applied to modify the reflectivity of a Cu sample. It was found that laser induced surface microstructures on Copper can decrease the surface reflectivity by almost 97% between 250 nm and 700 nm. To find the mechanism of how to form microstructure on metal surface with laser, laser ablation and heating models have been studied. The 1D ablated numerical model is calculated in Matlab. The pressure of metal vapour is an important parameter, as it pushes the melted metal out of surface to form microstructures after re-solidification. The second part of thesis is on glass welding with microstructures on glass surfaces. The soda-lime glasses containing silver nanoparticles (from the company Abstract 2 Codixx) have been studied and welded with Schott",
+          "total_paper_chars": 321676,
+          "dataset_row": 457248
+        },
+        "paper_3": {
+          "paper_id": "61579264",
+          "title": "Manipulation of magnetic anisotropy in nanostructures",
+          "abstract_or_lead": "The magnetic properties of micro/nano-structure have attracted intense research interest in relation to geometrically-induced magnetism to delineate fundamental magnetic phenomena as well as focus the technological aspects in areas such as magnetic sensors, storage devices, integrated inductive components and a number of novel magnetic devices. Depending on the device applications, materials with high, medium or low magnetic anisotropy and their potential manipulation are required. The elements like geometry, crystal structure, magnetic spin configuration at the surfaces and interfaces are the basic ingredients for this manipulation. The most dramatic manifestation in this respect is the chance to manipulate the magnetic anisotropy over the intrinsic preferential direction of the magnetization, commonly observed in all ferromagnetic materials, thus opening up further possibility and functionality of ferromagnetic materials for device applications. In this thesis various types of magnetic anisotropy of different nanostructured materials and their manipulation are investigated. As a first approach detailed experimental and analytical methods for the qualitative and quantitative determination of magnetic anisotropy in nanomodulated Ni45Fe55 thin film are studied. In-plane magnetic ﬁeld rotations in modulated Ni45Fe55 revealed various rotational symmetries of magnetic anisotropy due to dipolar interaction with a crossover from lower to higher fold as a function of modulation geometry. The tendency to form vortex is in fact found to be very small, which highlights that the strong coupling between metastable dipoles is more favorable than vortex formation to minimize energy in this nanomodulated structure. Derived mathematical expressions based on magnetic dipolar interaction",
+          "total_paper_chars": 320782,
+          "dataset_row": 476518
+        }
+      }
+    },
+    {
+      "rank": 16,
+      "tightness_score": 0.969254,
+      "min_edge_cosine": 0.983909,
+      "mean_edge_cosine": 0.985106,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.984649,
+        "paper2_vs_paper3": 0.983909,
+        "paper1_vs_paper3": 0.986759
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "41337988",
+          "title": "Characterization of the Coral Disease 'Porites Bleaching with Tissue Loss' (PBTL) From Hawaii",
+          "abstract_or_lead": "Coral reefs around the world are facing many threats and have sustained severe losses in coral cover over the past few decades. Coral bleaching and disease outbreaks have contributed substantially to this reef decline, however our understanding of factors contributing to the increase in coral disease prevalence are poorly understood. Information on the disease dynamics of different diseases affecting a reef system is essential for the development of effective management strategies. The aim of this research was to characterise and build a case study of a bleaching response affecting Porites compressa in Kaneohoe Bay, Oahu, Hawaii. It manifests as a localised, discrete area on the coral colony with a bleached coenenchyme and pigmented polyps, giving the affected area a “speckled” appearance. A disease by definition is any interruption, cessation or disorder of body functions, systems or organs. Results of this study showed that this localised bleaching causes tissue loss and a reduction in the number of gametes, and hence harm to the host. It was therefore classified as a disease and named Porites bleaching with tissue loss (PBTL). In addition, PBTL does not appear to represent a common thermal bleaching response as it was present throughout the year during times when seawater temperature was well within the coral’s thermal threshold. Symbiodinium cell density in PBTL-affected areas of the coral colony was reduced by 65%, and examination of affected host tissue using light microscopy showed fragmentation and necrosis. However, no potential pathogen was observed. Transmission electron microscopy (TEM) revealed a high occurrence of potential apoptotic Symbiodinium cells and a potential increase in the abundance of virus-like particles (VLPs) in PBTL-affected tissue. However",
+          "total_paper_chars": 434718,
+          "dataset_row": 7051
+        },
+        "paper_2": {
+          "paper_id": "84678377",
+          "title": "ECOLOGY AND DIVERSITY OF MARINE MICROZOOPLANKTON",
+          "abstract_or_lead": "Protists are a taxonomic group of organisms world wild distributed with high abundance and biodiversity; their countless forms, sizes, and trophic activities constitute a continuum of species ranging from bacterial-sized cells for the smallest known species of chlorophytes to meters in length for the largest colonies of radiolaria. The enormous size range of protists, their many nutritional modes, and their rapid metabolic rates result in their pivotal ecological roles as primary producers and consumers at and near the base of marine food webs. Protists, in particular the heterotophic ones, are, with few metazoans larval stage, the major components of microzooplankton, on which this study focuses. Microzooplankton assemblage is described as a group of planktonic organisms in the size range of 10/20-200 !m; they are consumers of bacteria, cyanobacteria, other protists, viruses, and some metazoans. The quantitative importance of microzooplankton as consumers of primary production in the ocean has been recognized in the last decades; at the same time copepod predation on heterotrophic dinoflagellates and ciliates constitutes a trophic link more important than the phytoplankton–copepod link in many situations. Phagotrophic protists are the primary trophic link between minute cyanobacterial and bacterial production and higher organisms, a concept formalized more than 35 years ago in the microbial food web by Pomeroy (1974). In this study I want to provide more information on microzooplankton assemblages, describing the community composition and the role of this important component in different environments. I point out some of the factors influencing the distribution of these organisms with the aims to increase the current knowledge on microzooplankton and to contribute to t",
+          "total_paper_chars": 233688,
+          "dataset_row": 280665
+        },
+        "paper_3": {
+          "paper_id": "19905538",
+          "title": "UK fisheries, climate change and North Sea fishes:\\ud\na long-term perspective",
+          "abstract_or_lead": "North Sea demersal fishes and fisheries have changed over the past 100 years. To detect the main factors driving these changes, long-term data are needed. Using historical fisheries data that extend throughout the 20th century, this thesis aims to assess drivers influencing developments in fisheries as well as changes in the distribution and abundance of commercially important fishes in the North Sea. For English demersal fisheries, favourable political, technological and economical drivers were identified, inducing a vast rise in English fisheries in the first half of the 20th century; however, the same drivers, acting adversely, influenced the decline in recent decades and the emphasis of fisheries shifted from England to Scotland. Different trends in distribution were observed for North Sea whiting, turbot and brill between the 1920s and 2000s. Whiting distribution shifted westward between the late 1940s and1960s, whereas turbot nearly disappeared from the northern North Sea from the 1970s onwards. Brill distribution remained rather stable in the central and southern North Sea. The reasons for the longitudinal shift of whiting remained unclear as the relationships to two potential drivers, climate change and fishing pressure, were not strong. For turbot, the cause for the near disappearance from the northern North Sea is inconclusive. Commercial fisheries data were assessed reliable for distribution analysis when comparing commercial data of whiting, a commonly discarded species, and unbiased survey data. Whiting, compared to flatfish, is of secondary commercial importance. In areas where discrepancies occurred between commercial and survey data, higher discarding of whiting is suggested, as highly priced flatfish are caught there. This thesis demonstrates past condi",
+          "total_paper_chars": 296087,
+          "dataset_row": 470670
+        }
+      }
+    },
+    {
+      "rank": 17,
+      "tightness_score": 0.96914,
+      "min_edge_cosine": 0.98382,
+      "mean_edge_cosine": 0.985079,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.985314,
+        "paper2_vs_paper3": 0.98382,
+        "paper1_vs_paper3": 0.986103
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "48504428",
+          "title": "A measurement of personality traits associated with rasopathy syndromes",
+          "abstract_or_lead": "The RASopathies are a category of genetically inherited disorders that involve mutations in the Ras/mitogen activated protein kinase pathway. Neurofibromatosis type 1 (NF1), Noonan syndrome, Costello syndrome, and Cardiofaciocutaneous (CFC) syndrome are among these, and the clinical phenotypes include physical dysmorphologies, growth problems, developmental delay, and elevated cancer risks.  Specific personality traits in individuals with RASopathies have been noted by clinicians and research investigators, however no systematic study has been done to date that scientifically correlates these traits to establish personality phenotypes and no systematic comparisons have been conducted between the four syndromes.  A modified version of the Big Five Questionnaire for Children by Barbaranelli et al. (2003) was administered to parents of children diagnosed with a RASopathy at the Third International Meeting on the Genetic Syndromes of the Ras/MAPK Pathway and at a Neurofibromatosis Symposium held at University of California-San Francisco. The results showed that as a group, the individuals diagnosed with a RASopathy differed significantly when compared to unaffected sibling Controls in personality traits measured, scoring lower on Agreeableness, Energy/Extraversion, Conscientiousness, Intellect/Openness, and higher on Emotional Instability.  Sense of Humor was not significantly different between the two groups.  There were also differences found within the individual RASopathy groups for each trait when compared to each other as well as the Control group. With a clearer definition of these personality traits and differences, parents, teachers, and clinicians can better diagnose, understand, and provide for these individuals.  The results from this study could be used as a st",
+          "total_paper_chars": 74384,
+          "dataset_row": 477107
+        },
+        "paper_2": {
+          "paper_id": "48504422",
+          "title": "Genetic counselors' knowledge and perspectives of cord blood banking and stem cell therapies",
+          "abstract_or_lead": "Umbilical cord blood presents a unique opportunity to gather and preserve hematopoietic stem cells for possible treatment of many diseases, including genetic conditions. Ongoing clinical trials are revealing new uses for these stem cells everyday. Genetic counselors play a significant role in prenatal, pediatric and adult care for many patients and families who may benefit from learning about cord blood banking and therapies. This study reports on genetic counselors’ knowledge and opinions of cord blood banking and stem cell therapies, as well as how often and why they are talking to their patients about it. A survey was administered to members of the NSGC via an e-blast survey which assessed respondents’ factual knowledge on cord blood banking as well as their feelings about their own knowledge and need for education on the topic. Results revealed that as a group, genetic counselors have limited knowledge of cord blood banking and stem cell therapies. Most respondents were aware of their lack of knowledge, rating their own understanding of different aspects of cord blood banking as low in spite of their agreement that cord blood banking and stem cell therapies are topics with which genetic counselors should be familiar. The majority of study participants (67%) also indicated that they would find an educational booklet useful to their practice. These results highlight an area of need in genetic counselors’ education, and the authors provide ideas for focusing future education efforts of genetic counselors on the value of stem cell therapies and cord blood banking. 1",
+          "total_paper_chars": 72428,
+          "dataset_row": 477513
+        },
+        "paper_3": {
+          "paper_id": "48504599",
+          "title": "The relationship of attachment styles and self-control on cell phone reliance",
+          "abstract_or_lead": "This study explored the relationship between attachment styles, self-control, and cell phone reliance. A total sample of 118 university students completed the Experiences in Close Relationship, Self-Control, and Cell Phone Reliance scales. Attachment anxiety and self-control were positively correlated with cell phone reliance, r = .28, p < .01 and r = -.32, p < .01, respectively. An interaction between attachment anxiety and self-control was not found. Age was not significantly correlated with cell phone reliance, however a negative correlation between age of first cell phone ownership and cell phone reliance was found (r = -.30, p < .01). The results of this study indicate self-control as a better predictor of cell phone reliance than attachment style. 1 LITERATURE REVIEW With the popularity, portability, and functionality of cell phones, people can communicate with one another quickly and easily. Multiple tasks or multiple conversations can be done at once through the use of a cell phone. This “always on and always on you” phenomenon can be observed in virtually any setting, as people’s behavior has adapted to include access to their cell phone. As with other modes of communication, such as social networking or e-mail, a person’s attachment style and level of self-control would be expected to impact their cell phone usage behavior. Attachment Theory Since its development, attachment theory has broadened from mother-infant relationships to include the development and maintenance of relationships with others and self throughout the life span (Rholes & Simpson, 2004). Bowlby (1982) theorized an infant’s attachment to its mother developed out of the need to survive and was later connected to emotional and mental states in adolescence and adulthood through the development",
+          "total_paper_chars": 74545,
+          "dataset_row": 478369
+        }
+      }
+    },
+    {
+      "rank": 18,
+      "tightness_score": 0.969061,
+      "min_edge_cosine": 0.983824,
+      "mean_edge_cosine": 0.984994,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.983824,
+        "paper2_vs_paper3": 0.985866,
+        "paper1_vs_paper3": 0.985291
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "41338845",
+          "title": "Attachment theory and music therapy: What was the relevance of attachment theory to a student’s music therapy programme for ‘at-risk’ mothers and their babies?",
+          "abstract_or_lead": "This qualitative secondary analysis research project sought to explore the relevance of attachment theory as it might apply to a music therapy programme set up and run within a residential service for ‘at risk’ mothers and their babies. The explicit purpose of the music therapy programme was to assist the mothers in bonding with their babies. The researcher was a student music therapist on placement at the facility, involved in weekly one-to-one sessions with a total of nineteen young women and their babies, over the time that each was resident at the facility. The music therapist also ran some weekly group sessions (mothers with babies) as part of the facility’s mandatory education programme. The music therapy programme took place over twenty-two weeks, with a two week break after the first ten weeks. The research analysis commenced on completion of the programme. Thematic analysis was used to look at two types of data; data from the placement (including clinical notes and personal reflective journal), and literature on attachment theory. There was an initial review of selected literature on attachment theory and music therapy. The researcher/student music therapist then carried out an inductive qualitative secondary analysis of the data that had been generated as a standard part of her practice over the period of the student placement. This was followed by a further examination of attachment theory literature to confirm key aspects of the theory. The findings from the inductive analysis were then looked at in the light of those identified key features of attachment theory. The research findings showed many strong links between key concepts of attachment theory, and the patterns that emerged from the placement data, manifesting on a number of different levels. However",
+          "total_paper_chars": 148026,
+          "dataset_row": 8676
+        },
+        "paper_2": {
+          "paper_id": "30342705",
+          "title": "Impact of physiotherapy on older adults admitted to hospital : a realistic evaluation.",
+          "abstract_or_lead": "Background: A rise in life expectancy has increased the likelihood of complex co-morbidities and disability resulting in a change in the make-up of hospitalised older adults and their rehabilitative requirements, including physiotherapy. Studies to date of the impact of physiotherapy on older adults admitted to hospital have investigated the intervention in isolation from context and have resulted in inconsistent outcomes. There remains a lack of evidence and theory regarding why physiotherapy is effective in some instances and not in others. Purpose: The thesis aims to examine the mechanisms might or might not work for patients, the influence of context on the actions of stakeholders to impact on outcomes and finally the appropriate methodology with which to investigate physiotherapy intervention. Method: Realistic evaluation (RE) was used as a framework for the study. Initial theories about the impact of physiotherapy on medically unwell older adults were expressed terms of context-mechanism-outcomes configurations and developed into hypotheses with stakeholders. Testing of hypotheses utilised a sequential mixed methods design including quantitative and qualitative measures, obtained from a convenience sample of older medically unwell patients (n=75) and a purposive sample of physiotherapists (n=6), patients and carers (n=8) respectively. Outcomes included measures of physiotherapy intervention, patient health status and hospital performance. Descriptive data analysis with subgroup comparison (frail/non-frail or cognitive impairment/cognitive impairment) was undertaken for outcome measures using Mann-Whitney U and Spearman’s correlation co-efficient. Qualitative data were analysed using framework analysis. Quantitative and qualitative study findings were reviewed, int",
+          "total_paper_chars": 642630,
+          "dataset_row": 209842
+        },
+        "paper_3": {
+          "paper_id": "1640260",
+          "title": "The Robot Club: Robots as Agents to Improve the Social Skills of Young People on the Autistic Spectrum",
+          "abstract_or_lead": "I am excited to be involved in re-running the SNAAP Robot Club, which supplements the SNAAP multimedia club with a weekly course designed both to teach children about robotics, as well as study whether robots can act as social mediators to support the development of social skills. Specifically, the children will learn how to program Lego Mindstorms NXT robots and how to make them interact and work together in the real world. While the children are programming their robots and making them collaborate with the other children’s robots, we will observe whether cooperation and socialization among the children is linked with collaboration among their robots. Before you decide whether you would like to give consent for your child to attend the club, please take the time to read the following information, which I have written to help you understand why the study is being carried out and what it will involve. The researchers The study is being carried out by Sarah Blank, Trainee Clinical Psychologist, as part of a Doctoral qualification in Clinical Psychology at the University of Hertfordshire. The study is supervised by Dr Nick Wood, Research Tutor and Clinical Psychologist and Dr Ben Robins, Senior Research Fellow. Josh Wainer who ran the previous Robot Club will also be involved. What is the purpose of the study? This study is interested in whether robots can act as mediators to support the development of social skills in young people with autism. We are particularly interested in whether the robots can be used in group settings, as it is in groups that young people with autism often feel most out of their depth. As I am sure you know, young people with high-functioning autism and/or Asperger’s syndrome are often highly motivated to interact in social settings, but are often",
+          "total_paper_chars": 282483,
+          "dataset_row": 489729
+        }
+      }
+    },
+    {
+      "rank": 19,
+      "tightness_score": 0.968931,
+      "min_edge_cosine": 0.983212,
+      "mean_edge_cosine": 0.985476,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.983212,
+        "paper2_vs_paper3": 0.986347,
+        "paper1_vs_paper3": 0.986871
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "20479391",
+          "title": "An in vivo study of chromatin compaction in human cells",
+          "abstract_or_lead": "Chromatin\t\r   was\t\r   one\t\r   of\t\r   the\t\r   first\t\r   sub-­‐cellular\t\r   structures\t\r   to\t\r   be\t\r   described\t\r   in\t\r   early microscopy\t\r  studies\t\r  (Heitz\t\r  1928).\t\r  Chromatin\t\r  is\t\r  formed\t\r  from\t\r  DNA,\t\r  RNA,\t\r  histones\t\r  and other\t\r  associated\t\r  proteins.\t\r  Within\t\r  the\t\r  nucleus,\t\r  chromatin\t\r  is\t\r  arranged\t\r  as\t\r  compacted heterochromatin\t\r   and\t\r   decompacted\t\r   euchromatin.\t\r   During\t\r   cell\t\r   division,\t\r   interphase chromatin\t\r   compacts\t\r   to\t\r   form\t\r   the\t\r   mitotic\t\r   chromosomes.\t\r   The\t\r   arrangement\t\r   of chromatin\t\r   within\t\r   cells,\t\r   with\t\r   respect\t\r   to\t\r   its\t\r   compaction\t\r   state,\t\r   has\t\r   a\t\r   number\t\r   of implications\t\r  for\t\r  processes\t\r   like\t\r  transcription,\t\r  DNA\t\r  replication,\t\r  DNA\t\r  repair\t\r  and\t\r  more recently,\t\r  in\t\r  vision\t\r  of\t\r  nocturnal\t\r  animals. Most\t\r   work\t\r   on\t\r   the\t\r   study\t\r   of\t\r   chromatin\t\r   compaction\t\r   has\t\r   been\t\r   done\t\r   with\t\r   in\t\r   vitro assembled\t\r   nucleosome\t\r   arrays.\t\r   Chromatin\t\r   has\t\r   been\t\r   shown\t\r   to\t\r   compact\t\r   when\t\r   the concentration\t\r   of\t\r   polyvalent\t\r   cations\t\r   increases,\t\r   possibly\t\r   due\t\r   to\t\r   negation\t\r   of\t\r   the repulsive\t\r  forces\t\r  of\t\r  the\t\r  negatively\t\r  charged\t\r  poly-­‐phosphate\t\r  DNA\t\r  backbone.\t\r  However, these\t\r   in\t\r  vitro\t\r  studies\t\r  do\t\r  not\t\r  necessarily\t\r  reflect\t\r  the\t\r   in\t\r  vivo\t\r  chromatin\t\r  environment. An\t\r   example\t\r   of\t\r   this\t\r   difference\t\r   can\t\r   be\t\r   seen\t\r   in\t\r   the\t\r   formation\t\r   of\t\r   the\t\r   30nm\t\r   fibre\t\r   in nucleosome\t\r   arrays,\t\r  which\t\r   has\t\r   not\t\r   been\t\r   found\t\r  within\t\r  mammalian\t\r   nuclei,\t\r  where\t\r   it adopts\t\r  a\t\r  ‘beads\t\r  on\t\r  a\t\r  string’\t\r  structure,\t\r  even\t\r  in\t\r  more",
+          "total_paper_chars": 445462,
+          "dataset_row": 453791
+        },
+        "paper_2": {
+          "paper_id": "54847455",
+          "title": "A Comparison of Lipid-Anchored and Un-Anchored DNA in the Bilayer Environment",
+          "abstract_or_lead": "Complexes of zwitterionic lipids such as phosphatidyl choline and DNA are a growing field of interest due to their potential to act as nonviral vectors for gene therapy. However, fundamental molecular interactions between these lipids and DNA are poorly understood. In this study, a few methods were employed to understand the difference in stability between DNA in bulk solution versus DNA anchored to a liposome surface. Förster resonance energy transfer was employed to capture real-time hybridization events of fifteen-mer DNA anchored to a phosphatidylcholine liposome surface. Circular dichroism was used to compare the effects of liposome interaction on DNA stability. In the presence of liposome, DNA showed a marked increase in DNA melting temperature as well as a structural shift from native B-form to a proposed B-Z intermediate form of DNA. In future works, single molecule experiments will be performed to better understand what interactions are dominating in the DNA-lipid system as indicated by quantitative data. 4",
+          "total_paper_chars": 47893,
+          "dataset_row": 485685
+        },
+        "paper_3": {
+          "paper_id": "54845573",
+          "title": "Multivalent Peptides as New Biomarker Probes for the Detection of Cancer Metastasis",
+          "abstract_or_lead": "Malignant tumor cells overexpress and release lipid vesicles called exosomes into the body fluids to facilitate their movement and metastasis to other parts of the body. It was found that an increased secretion of exosomes in the peripheral blood is correlated with lung cancer and melanoma metastasis. The hallmarks of exosomes are their highly curved surface (d = ~30-100 nm) that is distinct from other extracellular lipid vesicles and their enrichment with the anionic lipid phosphatidylserine (PS) in the outer leaflet of the membrane bilayer. These properties provide an opportunity in selectively targeting exosomes as potential cancer biomarkers. We have developed a novel, minimally invasive, peptide-based diagnostic tool to detect synthetic liposomes that could be used to detect exosome oversecretion in cancer patients. The successful development of this diagnostic tool for cancer metastasis will help in the proper diagnosis and therapy for cancer patients. Coulup 4",
+          "total_paper_chars": 35537,
+          "dataset_row": 485950
+        }
+      }
+    },
+    {
+      "rank": 20,
+      "tightness_score": 0.96887,
+      "min_edge_cosine": 0.983824,
+      "mean_edge_cosine": 0.9848,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.983824,
+        "paper2_vs_paper3": 0.986219,
+        "paper1_vs_paper3": 0.984357
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "41338845",
+          "title": "Attachment theory and music therapy: What was the relevance of attachment theory to a student’s music therapy programme for ‘at-risk’ mothers and their babies?",
+          "abstract_or_lead": "This qualitative secondary analysis research project sought to explore the relevance of attachment theory as it might apply to a music therapy programme set up and run within a residential service for ‘at risk’ mothers and their babies. The explicit purpose of the music therapy programme was to assist the mothers in bonding with their babies. The researcher was a student music therapist on placement at the facility, involved in weekly one-to-one sessions with a total of nineteen young women and their babies, over the time that each was resident at the facility. The music therapist also ran some weekly group sessions (mothers with babies) as part of the facility’s mandatory education programme. The music therapy programme took place over twenty-two weeks, with a two week break after the first ten weeks. The research analysis commenced on completion of the programme. Thematic analysis was used to look at two types of data; data from the placement (including clinical notes and personal reflective journal), and literature on attachment theory. There was an initial review of selected literature on attachment theory and music therapy. The researcher/student music therapist then carried out an inductive qualitative secondary analysis of the data that had been generated as a standard part of her practice over the period of the student placement. This was followed by a further examination of attachment theory literature to confirm key aspects of the theory. The findings from the inductive analysis were then looked at in the light of those identified key features of attachment theory. The research findings showed many strong links between key concepts of attachment theory, and the patterns that emerged from the placement data, manifesting on a number of different levels. However",
+          "total_paper_chars": 148026,
+          "dataset_row": 8676
+        },
+        "paper_2": {
+          "paper_id": "30342705",
+          "title": "Impact of physiotherapy on older adults admitted to hospital : a realistic evaluation.",
+          "abstract_or_lead": "Background: A rise in life expectancy has increased the likelihood of complex co-morbidities and disability resulting in a change in the make-up of hospitalised older adults and their rehabilitative requirements, including physiotherapy. Studies to date of the impact of physiotherapy on older adults admitted to hospital have investigated the intervention in isolation from context and have resulted in inconsistent outcomes. There remains a lack of evidence and theory regarding why physiotherapy is effective in some instances and not in others. Purpose: The thesis aims to examine the mechanisms might or might not work for patients, the influence of context on the actions of stakeholders to impact on outcomes and finally the appropriate methodology with which to investigate physiotherapy intervention. Method: Realistic evaluation (RE) was used as a framework for the study. Initial theories about the impact of physiotherapy on medically unwell older adults were expressed terms of context-mechanism-outcomes configurations and developed into hypotheses with stakeholders. Testing of hypotheses utilised a sequential mixed methods design including quantitative and qualitative measures, obtained from a convenience sample of older medically unwell patients (n=75) and a purposive sample of physiotherapists (n=6), patients and carers (n=8) respectively. Outcomes included measures of physiotherapy intervention, patient health status and hospital performance. Descriptive data analysis with subgroup comparison (frail/non-frail or cognitive impairment/cognitive impairment) was undertaken for outcome measures using Mann-Whitney U and Spearman’s correlation co-efficient. Qualitative data were analysed using framework analysis. Quantitative and qualitative study findings were reviewed, int",
+          "total_paper_chars": 642630,
+          "dataset_row": 209842
+        },
+        "paper_3": {
+          "paper_id": "80295558",
+          "title": "Clinical reasoning on an assignment : perceptions of third year Baccalaureate nursing students",
+          "abstract_or_lead": "Baccalaureate nursing students must develop strong clinical reasoning skills during their undergraduate program in order to be able to make sound clinical judgments regarding patient care.  How students understand the evolution and application of their own clinical reasoning skills is of interest to nurse educators as they seek to improve these skills.  In a qualitative study, eight third-year nursing students were interviewed about their perceptions regarding the use of clinical reasoning skills on a Clinical Judgment Exercise (CJE).  An overarching theme of Over Time emerged from the data along with two themes: Understanding of Clinical Reasoning and Making Sense of the Assignment.  The sub-themes that emerged were the same for each theme and were identified as not knowing, knowing, applying knowing and valuing knowing. Conclusions were that student participants: 1) understood their clinical reasoning skills to have progressed from year to year in their educational program, 2) perceived that their understanding of the patient’s problem and the required nursing actions deepened over the time of writing the assignment, 3) were challenged by never having had a patient as complex as the one described on the assignment, 4) perceived they were able to apply learning from the CJE to their nursing practice, and 5) perceived writing the CJE to be a stressful experience. CLINICAL REASONING 6",
+          "total_paper_chars": 221303,
+          "dataset_row": 411259
+        }
+      }
+    },
+    {
+      "rank": 21,
+      "tightness_score": 0.968589,
+      "min_edge_cosine": 0.983347,
+      "mean_edge_cosine": 0.984994,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.983347,
+        "paper2_vs_paper3": 0.987264,
+        "paper1_vs_paper3": 0.98437
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "84678314",
+          "title": "Cancer cell mechanics and cell microenvironment: An optical tweezers study",
+          "abstract_or_lead": "3 Abstract Since cancer metastasis is a complex process, a lot of research has been carried out to identify different hallmarks for its diagnosis and cure. Mechanical alterations in cancer cells during cell spreading to adjacent tissues and other organs of the body emerged as a prominent hallmark in the last decade. In this thesis we employed a mechanistic approach based on cell stiffness (elasticity) measurement as  a  marker  to  study  cell’s  mechanical  response  in  varying  microenvironmental  conditions. Mechanical interaction of the cell with the surrounding microenvironment is a blend of cell-matrix and cell-cell interactions. Therefore we adopted an approach to study cells in isolation and in the presence of their neighboring cells, plated on rigid as well as on compliant substrates. The elastic modulus was calculated using the Hertz-model. We considered three breast cell lines as model, showing three phases of cancer progression: MDA- MB-231, a highly aggressive cell line belonging to the Basal cell-like phenotype; MCF-7, a less aggressive cancer cell line, belonging to the Luminal A cell-like phenotype; and HBL-100, a nonneoplastic cell line, derived from the milk of a Caucasian woman, normal control for breast basalmyoepithelial cells. Cell elasticity can be locally measured by pulling membrane tethers, stretching or indenting the cell using optical tweezers. We introduce a simple approach to perform cell indentation by axially moving  the  cell  against  a  trapped  microbead.  Our  scheme  is  similar  to  the  AFM  vertical  cell indentation approach and can help to compare the quantitative results and thus complement AFM in a low force regime and loading rates. The elasticity trend of the three cell lines in isolated conditions showed that the aggressi",
+          "total_paper_chars": 173948,
+          "dataset_row": 280564
+        },
+        "paper_2": {
+          "paper_id": "54845801",
+          "title": "Synthesis of Well-Controlled Nanogels via Block Copolymer Self-Assembly: A Systematic Characterization of the Properties and Potential Applications",
+          "abstract_or_lead": "In the United States there is a growing need for materials that can probe and fight diseases of the heart, brain, and body as a whole. In this study nanogels, block copolymers, and copolymers were synthesized using solution polymerization and directed self-assembly. Results indicate that the nanogels are highly responsive to changes in pH and temperature and they are of a size (29 nanometers) that makes them viable drug delivery devices. Additionally, these nanogels macrogel at very low nanogel concentrations (10 – 15 weight %), which makes them reasonable candidates for dental repairs and enhancements. The present study also characterizes the process by which these nanogels and their precursors (block copolymers and copolymers) were synthesized. Our findings illustrate that solution polymerization followed by self-assembly is the most appropriate synthetic pathway for the synthesis of nanogels required for biomedical and dental interventions because the process allows the nanogels to retain the selected behavioral characteristics of the block copolymer and copolymer and, as this study specifically demonstrates, enhance certain copolymer and block copolymer traits. The copolymer, block copolymer, and nanogels that were synthesized in this study, therefore, could potentially be used to help researchers understand and treat some of the more deleterious illnesses such as Alzheimer’s disease, post-traumatic stress disorder, and Type II diabetes. 4",
+          "total_paper_chars": 46392,
+          "dataset_row": 483164
+        },
+        "paper_3": {
+          "paper_id": "54845573",
+          "title": "Multivalent Peptides as New Biomarker Probes for the Detection of Cancer Metastasis",
+          "abstract_or_lead": "Malignant tumor cells overexpress and release lipid vesicles called exosomes into the body fluids to facilitate their movement and metastasis to other parts of the body. It was found that an increased secretion of exosomes in the peripheral blood is correlated with lung cancer and melanoma metastasis. The hallmarks of exosomes are their highly curved surface (d = ~30-100 nm) that is distinct from other extracellular lipid vesicles and their enrichment with the anionic lipid phosphatidylserine (PS) in the outer leaflet of the membrane bilayer. These properties provide an opportunity in selectively targeting exosomes as potential cancer biomarkers. We have developed a novel, minimally invasive, peptide-based diagnostic tool to detect synthetic liposomes that could be used to detect exosome oversecretion in cancer patients. The successful development of this diagnostic tool for cancer metastasis will help in the proper diagnosis and therapy for cancer patients. Coulup 4",
+          "total_paper_chars": 35537,
+          "dataset_row": 485950
+        }
+      }
+    },
+    {
+      "rank": 22,
+      "tightness_score": 0.96858,
+      "min_edge_cosine": 0.983341,
+      "mean_edge_cosine": 0.98499,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.986845,
+        "paper2_vs_paper3": 0.983341,
+        "paper1_vs_paper3": 0.984785
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "41824549",
+          "title": "Experimental study of the influence of an electric field on the shape of a droplet",
+          "abstract_or_lead": "The electrowetting effect has emerged as an important research topic in recent years. Manipulation of droplets by electric fields has been extensively studied employing different setups, the most common being the configuration in which the electric field is created inside the droplet. However, such a configuration has been mostly employed using conductive liquids, whereas non-conductive droplets have been barely tested under the effect of an electric field using this setup. On the other hand, the influence of an electric field on the shape of a droplet has also been of considerable interest using an alternative configuration in which the electric field is applied between two electrodes with no contact with the drop – the Taylor cone configuration. However, the effects observed employing this last setup are rather different to those obtained using the aforementioned design. While the most important effect in those experiments in which the electric field is created inside the drop is the reduction of the contact angle, the main effect found using the second configuration is the droplet elongation in the electric field direction. In order to demonstrate if dielectric and almost perfectly wetting liquid droplets are affected in the same way as other fluids already tested, the effect of an electric field on the shape of an HFE-7500 droplet has been examined under two different experimental setups by means of interferometric techniques. For the setup where the internal electric field is created, no statistically relevant reduction was measured. Nevertheless, shape deviations have been found at a certain distance of the wire through which the electric field is applied. Moreover, the existence of such deviations depends strongly on the AC frequency. Regarding the second design,",
+          "total_paper_chars": 188182,
+          "dataset_row": 32033
+        },
+        "paper_2": {
+          "paper_id": "41825066",
+          "title": "Simulation of ballistic impacts in steel plates",
+          "abstract_or_lead": "..................................................................................................................... 4 PART I: Experimental data 2. Standardization, and international standards ................................................................. 6 3. Literature Review ............................................................................................................. 9 3.1 Context ................................................................................................................ 9 3.2 The chosen paper .............................................................................................. 13 4. Experimental test ........................................................................................................... 14 4.1 Description ........................................................................................................ 14 4.2 Experimental results and discussion ................................................................. 15 4.3 Blunt, hemispherical and conical projectile nose shape ................................... 22 PART II: Numerical simulation 5. Introducing the model ................................................................................................... 24 5.1 Constitutive relation .......................................................................................... 24 5.2 Damage law ....................................................................................................... 25 5.3 Other inputs ....................................................................................................... 25 5.4 First simulations ................................................................................................ 26 5.5 Comments on first simulations ................",
+          "total_paper_chars": 95749,
+          "dataset_row": 68491
+        },
+        "paper_3": {
+          "paper_id": "61579264",
+          "title": "Manipulation of magnetic anisotropy in nanostructures",
+          "abstract_or_lead": "The magnetic properties of micro/nano-structure have attracted intense research interest in relation to geometrically-induced magnetism to delineate fundamental magnetic phenomena as well as focus the technological aspects in areas such as magnetic sensors, storage devices, integrated inductive components and a number of novel magnetic devices. Depending on the device applications, materials with high, medium or low magnetic anisotropy and their potential manipulation are required. The elements like geometry, crystal structure, magnetic spin configuration at the surfaces and interfaces are the basic ingredients for this manipulation. The most dramatic manifestation in this respect is the chance to manipulate the magnetic anisotropy over the intrinsic preferential direction of the magnetization, commonly observed in all ferromagnetic materials, thus opening up further possibility and functionality of ferromagnetic materials for device applications. In this thesis various types of magnetic anisotropy of different nanostructured materials and their manipulation are investigated. As a first approach detailed experimental and analytical methods for the qualitative and quantitative determination of magnetic anisotropy in nanomodulated Ni45Fe55 thin film are studied. In-plane magnetic ﬁeld rotations in modulated Ni45Fe55 revealed various rotational symmetries of magnetic anisotropy due to dipolar interaction with a crossover from lower to higher fold as a function of modulation geometry. The tendency to form vortex is in fact found to be very small, which highlights that the strong coupling between metastable dipoles is more favorable than vortex formation to minimize energy in this nanomodulated structure. Derived mathematical expressions based on magnetic dipolar interaction",
+          "total_paper_chars": 320782,
+          "dataset_row": 476518
+        }
+      }
+    },
+    {
+      "rank": 23,
+      "tightness_score": 0.96854,
+      "min_edge_cosine": 0.983133,
+      "mean_edge_cosine": 0.985158,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.985444,
+        "paper2_vs_paper3": 0.986896,
+        "paper1_vs_paper3": 0.983133
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "41799270",
+          "title": "Design and Simulation of Vertical Grating Coupler for Photonic Integrated System-in-Package",
+          "abstract_or_lead": "As we approach the limits in operating speed of IC’s predicted by Moore’s Law, some alternative way of increasing velocities while reducing dimensions has to be found. In this context, optical interconnects appear to be an optimal solution that avoids the main limitations that electrical interconnects have. To implement these optical interconnects in the already well developed CMOS integrated environment, the System-in-Package (SiP) and the Silicon on Insulator (SOI) technologies arise as a good solution to achieve these goals. In this Thesis optical single mode strip nano waveguides and a grating coupler for vertical coupling to optical fibres are presented, designed and simulated. Their design parameters are optimized, and their performance analyzed and discussed. Firstly, the characteristics of large single mode rib waveguides and their direct butt coupling to fibres is studied. Their performance is found to be not good enough when the dimensions were reduced to under 1 µm, with losses as high as 14.5 dB. Therefore, nano strip waveguides are studied and simulated. They provide high light confinement and good propagation characteristics. Some performance characteristics (confinement factor, single mode region, effective index) are studied, for core widths in the range 100 – 600 nm. The vertical coupling of these nano strip waveguides to optical fibres by means of a grating coupler is simulated with the FDTD technique. The main design parameters of this grating coupler are optimized, obtaining losses of 7 dB for TE polarisation and 8.5 dB for TM. The misalignment tolerances are also analysed. The crosstalk effects between this grating and an hypothetical underlying waveguide are studied, showing that no light couples to the lower waveguide. VI Zusammenfassung Hinsichtl",
+          "total_paper_chars": 130515,
+          "dataset_row": 43645
+        },
+        "paper_2": {
+          "paper_id": "41804111",
+          "title": "Multihop Relay Station and 3 sector Cell Zooming usage for Base Station Energy Saving",
+          "abstract_or_lead": "3.3.\t\r  Frame\t\r  structure\t\r  and\t\r  throughput\t\r  calculation..........................................................11 Figure\t\r  1.\t\r   Multi-­‐hop\t\r  relay\t\r  cellular\t\r  network\t\r  layout.......................................................................8 Figure\t\r  3.\t\r   Three\t\r  sector\t\r  independent\t\r  power\t\r  adjusting. ..............................................................10 Figure\t\r  5.\t\r   Non-­‐homogeneous\t\r  user\t\r  distribuition\t\r  and\t\r  switching\t\r  ON/OFF\t\r  cells. ..........................14 Figure\t\r  6.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  outage .................................................................................17 Figure\t\r  7.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  average\t\r  user\t\r  throughput ....................................................18 Figure\t\r  8.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  energy\t\r  consumption ...........................................................19 Figure\t\r  9.\t\r   Comparison\t\r  of\t\r  the\t\r  global\t\r  energy\t\r  efficiency...............................................................19 Figure\t\r  10.\t\r   Comparison\t\r  of\t\r  the\t\r  outage\t\r  in\t\r  the\t\r  OFF\t\r  zones ..........................................................20 Figure\t\r  11.\t\r   Comparison\t\r  of\t\r  the\t\r  average\t\r  user\t\r  throughput\t\r  in\t\r  the\t\r  OFF\t\r  zones..............................21 There\t\r  are\t\r  a\t\r  lot\t\r  of\t\r  people\t\r  without\t\r  whom\t\r  this\t\r  project\t\r  would\t\r  not\t\r  have\t\r  been\t\r  possible.\t\r  First",
+          "total_paper_chars": 40447,
+          "dataset_row": 46177
+        },
+        "paper_3": {
+          "paper_id": "74351957",
+          "title": "An analysis of word sense disambiguation in Bangla and English using supervised learning and a deep neural network classifier",
+          "abstract_or_lead": "Word sense disambiguation is a significant task in natural language processing and addresses an old problem in the field of computational linguistics. Word sense disambiguation facilitates tasks like machine translation, information retrieval, text-to-speech and other application systems. Sense ambiguity is introduced because certain words for a given language can have multiple meanings. Word sense disambiguation involves identifying the correct sense of a word for a given context. Bangla language has a few cases of word sense ambiguity. Many machine learning algorithms have already been applied to disambiguate word sense including few implementations of neural networks. However, many existing word sense disambiguation systems using supervised learning and neural networks were focused only on English data. And an evaluation of their implementation on Bangla data is necessary. This thesis attempts to analyze and present results when using an updated deep neural network classifier and supervised learning algorithm for word sense disambiguation on a Bangla dataset and on an English dataset. A pre-processor for the dataset was constructed to appropriately extract features from the context sentences to build sets of refined feature vectors which are fed into the neural network. 9",
+          "total_paper_chars": 40242,
+          "dataset_row": 403654
+        }
+      }
+    },
+    {
+      "rank": 24,
+      "tightness_score": 0.968504,
+      "min_edge_cosine": 0.983227,
+      "mean_edge_cosine": 0.985026,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.983227,
+        "paper2_vs_paper3": 0.986896,
+        "paper1_vs_paper3": 0.984955
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "41823583",
+          "title": "Photodynamic therapy improvement with hyperbaric oxygen therapy for human colon cancer treatment",
+          "abstract_or_lead": "Nowadays, colorectal cancer is the third most common cancer worldwide. There are some therapies to treat this cancer, such as radiotherapy and chemotherapy. However, their efficacy can be decreased or completely inhibited by one characteristic of the tumor cells, hypoxia. Recently, has appeared one alternative therapy for those patients with inoperable colon cancer and it uses light sources to induce cell death by the production of singlet oxygen and other species of ROS. This therapy is called photodynamic therapy (PDT) but its effectiveness can be affected too by the hypoxic tumor cells. To increase the efficacy of PDT treatment it has been used the hyperbaric oxygen therapy (HBOT), which overcomes the hypoxic state of cancer cells. The combined therapies have been applied using different conditions and their effect has been analyzed by MTT assay and cell cycle and cellular viability analysis by cytometry. The obtained results revealed that combination of PDT and HBOT is promising and that results of combination of PDT followed by HBOT during 60 minutes should be further studied. -11-",
+          "total_paper_chars": 109463,
+          "dataset_row": 41543
+        },
+        "paper_2": {
+          "paper_id": "41804111",
+          "title": "Multihop Relay Station and 3 sector Cell Zooming usage for Base Station Energy Saving",
+          "abstract_or_lead": "3.3.\t\r  Frame\t\r  structure\t\r  and\t\r  throughput\t\r  calculation..........................................................11 Figure\t\r  1.\t\r   Multi-­‐hop\t\r  relay\t\r  cellular\t\r  network\t\r  layout.......................................................................8 Figure\t\r  3.\t\r   Three\t\r  sector\t\r  independent\t\r  power\t\r  adjusting. ..............................................................10 Figure\t\r  5.\t\r   Non-­‐homogeneous\t\r  user\t\r  distribuition\t\r  and\t\r  switching\t\r  ON/OFF\t\r  cells. ..........................14 Figure\t\r  6.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  outage .................................................................................17 Figure\t\r  7.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  average\t\r  user\t\r  throughput ....................................................18 Figure\t\r  8.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  energy\t\r  consumption ...........................................................19 Figure\t\r  9.\t\r   Comparison\t\r  of\t\r  the\t\r  global\t\r  energy\t\r  efficiency...............................................................19 Figure\t\r  10.\t\r   Comparison\t\r  of\t\r  the\t\r  outage\t\r  in\t\r  the\t\r  OFF\t\r  zones ..........................................................20 Figure\t\r  11.\t\r   Comparison\t\r  of\t\r  the\t\r  average\t\r  user\t\r  throughput\t\r  in\t\r  the\t\r  OFF\t\r  zones..............................21 There\t\r  are\t\r  a\t\r  lot\t\r  of\t\r  people\t\r  without\t\r  whom\t\r  this\t\r  project\t\r  would\t\r  not\t\r  have\t\r  been\t\r  possible.\t\r  First",
+          "total_paper_chars": 40447,
+          "dataset_row": 46177
+        },
+        "paper_3": {
+          "paper_id": "74351957",
+          "title": "An analysis of word sense disambiguation in Bangla and English using supervised learning and a deep neural network classifier",
+          "abstract_or_lead": "Word sense disambiguation is a significant task in natural language processing and addresses an old problem in the field of computational linguistics. Word sense disambiguation facilitates tasks like machine translation, information retrieval, text-to-speech and other application systems. Sense ambiguity is introduced because certain words for a given language can have multiple meanings. Word sense disambiguation involves identifying the correct sense of a word for a given context. Bangla language has a few cases of word sense ambiguity. Many machine learning algorithms have already been applied to disambiguate word sense including few implementations of neural networks. However, many existing word sense disambiguation systems using supervised learning and neural networks were focused only on English data. And an evaluation of their implementation on Bangla data is necessary. This thesis attempts to analyze and present results when using an updated deep neural network classifier and supervised learning algorithm for word sense disambiguation on a Bangla dataset and on an English dataset. A pre-processor for the dataset was constructed to appropriately extract features from the context sentences to build sets of refined feature vectors which are fed into the neural network. 9",
+          "total_paper_chars": 40242,
+          "dataset_row": 403654
+        }
+      }
+    },
+    {
+      "rank": 25,
+      "tightness_score": 0.968355,
+      "min_edge_cosine": 0.983715,
+      "mean_edge_cosine": 0.984385,
+      "pairwise_cosine_similarities": {
+        "paper1_vs_paper2": 0.983946,
+        "paper2_vs_paper3": 0.985495,
+        "paper1_vs_paper3": 0.983715
+      },
+      "papers": {
+        "paper_1": {
+          "paper_id": "16670091",
+          "title": "The use of ATR-FTIR to probe the release mechanism from hydrophilic matrices.",
+          "abstract_or_lead": "Hydrophilic matrices are widely used in the pharmaceutical industry as control release agents in solid oral dosage formulations. One of the key parameters that controls release in such systems is the distribution of exipients within the formulation, which in turn is governed by the processing and manufacturing procedures. This thesis explores the effect of processing on the distribution of excipients in binary and tertiary formulations obtained using different mixing procedures, (manual shaking, tumble blending and grinding) with a range of particle size distributions. Samples were prepared by compacting processed powder mixtures directly onto a diamond attenuated total reflectance (ATR) crystal using an in-house built compaction cell which proved to be a successful tool for small scale tablet manufacturing. For this study the following exipients were used; the hydrophilic matrix HPMC grade K4M, the drug 6-hydroxy buspirone hydrochloride and citric acid. The homogeneity of the formulations were determined by the reproducibility of the spectra obtained from the tablets after compaction and the concentration of exipients within the samples was successfully predicted using Partial Least Squares (PLS) data analysis. The distribution of the components was confirmed using Near Infrared imaging with principal components analysis (PCA). Standard dissolution tests of the binary and tertiary systems gave an indication about the release behaviour of the formulations in different dissolution media. Total dissolution of the drug was observed in 0.1N HCl for binary mixtures and in both pH 6.8 buffer and 0.1 N HCl for tertiary formulations highlighting the impact of citric acid on the dissolution results and confirming the pH dependence of the system. The release of drug was also stud",
+          "total_paper_chars": 325484,
+          "dataset_row": 86583
+        },
+        "paper_2": {
+          "paper_id": "42577086",
+          "title": "Nanosecond Pulsed Laser Processing of Metals and Welding of Metal-Glass Nanocomposites",
+          "abstract_or_lead": "1 Abstract In this thesis, nanosecond pulsed lasers are used as the tools to generate microstructures on metal and glass. The applications of these structures are described too. The production of micro structures is demonstrated using diode-pumped solid state (DPSS) Nd:YVO4 lasers operating at wavelengths of 532nm or 1064 nm. The laser fluence and scanning speed are important parameters to control the results. The first part of thesis is on the laser generation of microstructures on metal surfaces. Copper (Cu) and titanium (Ti) have been studied. According to the reflectivity of metals, Cu is processed by a 532nm laser and Ti is processed by a 1064nm laser. It is shown that the periods of surface microstructures are highly dependent on the hatch distance (overlapping distance between laser scanning). Only if the laser fluence is greater than a threshold, may the microstructures on metals be induced. The thresholds are measured by the diameters of ablated areas at different fluence. Laser generated surface microstructures have been applied to modify the reflectivity of a Cu sample. It was found that laser induced surface microstructures on Copper can decrease the surface reflectivity by almost 97% between 250 nm and 700 nm. To find the mechanism of how to form microstructure on metal surface with laser, laser ablation and heating models have been studied. The 1D ablated numerical model is calculated in Matlab. The pressure of metal vapour is an important parameter, as it pushes the melted metal out of surface to form microstructures after re-solidification. The second part of thesis is on glass welding with microstructures on glass surfaces. The soda-lime glasses containing silver nanoparticles (from the company Abstract 2 Codixx) have been studied and welded with Schott",
+          "total_paper_chars": 321676,
+          "dataset_row": 457248
+        },
+        "paper_3": {
+          "paper_id": "61579264",
+          "title": "Manipulation of magnetic anisotropy in nanostructures",
+          "abstract_or_lead": "The magnetic properties of micro/nano-structure have attracted intense research interest in relation to geometrically-induced magnetism to delineate fundamental magnetic phenomena as well as focus the technological aspects in areas such as magnetic sensors, storage devices, integrated inductive components and a number of novel magnetic devices. Depending on the device applications, materials with high, medium or low magnetic anisotropy and their potential manipulation are required. The elements like geometry, crystal structure, magnetic spin configuration at the surfaces and interfaces are the basic ingredients for this manipulation. The most dramatic manifestation in this respect is the chance to manipulate the magnetic anisotropy over the intrinsic preferential direction of the magnetization, commonly observed in all ferromagnetic materials, thus opening up further possibility and functionality of ferromagnetic materials for device applications. In this thesis various types of magnetic anisotropy of different nanostructured materials and their manipulation are investigated. As a first approach detailed experimental and analytical methods for the qualitative and quantitative determination of magnetic anisotropy in nanomodulated Ni45Fe55 thin film are studied. In-plane magnetic ﬁeld rotations in modulated Ni45Fe55 revealed various rotational symmetries of magnetic anisotropy due to dipolar interaction with a crossover from lower to higher fold as a function of modulation geometry. The tendency to form vortex is in fact found to be very small, which highlights that the strong coupling between metastable dipoles is more favorable than vortex formation to minimize energy in this nanomodulated structure. Derived mathematical expressions based on magnetic dipolar interaction",
+          "total_paper_chars": 320782,
+          "dataset_row": 476518
+        }
+      }
+    }
+  ]
+}

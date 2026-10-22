@@ -1,0 +1,34 @@
+{
+  "rank": 22,
+  "tightness_score": 0.96858,
+  "min_edge_cosine": 0.983341,
+  "mean_edge_cosine": 0.98499,
+  "pairwise_cosine_similarities": {
+    "paper1_vs_paper2": 0.986845,
+    "paper2_vs_paper3": 0.983341,
+    "paper1_vs_paper3": 0.984785
+  },
+  "papers": {
+    "paper_1": {
+      "paper_id": "41824549",
+      "title": "Experimental study of the influence of an electric field on the shape of a droplet",
+      "abstract_or_lead": "The electrowetting effect has emerged as an important research topic in recent years. Manipulation of droplets by electric fields has been extensively studied employing different setups, the most common being the configuration in which the electric field is created inside the droplet. However, such a configuration has been mostly employed using conductive liquids, whereas non-conductive droplets have been barely tested under the effect of an electric field using this setup. On the other hand, the influence of an electric field on the shape of a droplet has also been of considerable interest using an alternative configuration in which the electric field is applied between two electrodes with no contact with the drop – the Taylor cone configuration. However, the effects observed employing this last setup are rather different to those obtained using the aforementioned design. While the most important effect in those experiments in which the electric field is created inside the drop is the reduction of the contact angle, the main effect found using the second configuration is the droplet elongation in the electric field direction. In order to demonstrate if dielectric and almost perfectly wetting liquid droplets are affected in the same way as other fluids already tested, the effect of an electric field on the shape of an HFE-7500 droplet has been examined under two different experimental setups by means of interferometric techniques. For the setup where the internal electric field is created, no statistically relevant reduction was measured. Nevertheless, shape deviations have been found at a certain distance of the wire through which the electric field is applied. Moreover, the existence of such deviations depends strongly on the AC frequency. Regarding the second design,",
+      "total_paper_chars": 188182,
+      "dataset_row": 32033
+    },
+    "paper_2": {
+      "paper_id": "41825066",
+      "title": "Simulation of ballistic impacts in steel plates",
+      "abstract_or_lead": "..................................................................................................................... 4 PART I: Experimental data 2. Standardization, and international standards ................................................................. 6 3. Literature Review ............................................................................................................. 9 3.1 Context ................................................................................................................ 9 3.2 The chosen paper .............................................................................................. 13 4. Experimental test ........................................................................................................... 14 4.1 Description ........................................................................................................ 14 4.2 Experimental results and discussion ................................................................. 15 4.3 Blunt, hemispherical and conical projectile nose shape ................................... 22 PART II: Numerical simulation 5. Introducing the model ................................................................................................... 24 5.1 Constitutive relation .......................................................................................... 24 5.2 Damage law ....................................................................................................... 25 5.3 Other inputs ....................................................................................................... 25 5.4 First simulations ................................................................................................ 26 5.5 Comments on first simulations ................",
+      "total_paper_chars": 95749,
+      "dataset_row": 68491
+    },
+    "paper_3": {
+      "paper_id": "61579264",
+      "title": "Manipulation of magnetic anisotropy in nanostructures",
+      "abstract_or_lead": "The magnetic properties of micro/nano-structure have attracted intense research interest in relation to geometrically-induced magnetism to delineate fundamental magnetic phenomena as well as focus the technological aspects in areas such as magnetic sensors, storage devices, integrated inductive components and a number of novel magnetic devices. Depending on the device applications, materials with high, medium or low magnetic anisotropy and their potential manipulation are required. The elements like geometry, crystal structure, magnetic spin configuration at the surfaces and interfaces are the basic ingredients for this manipulation. The most dramatic manifestation in this respect is the chance to manipulate the magnetic anisotropy over the intrinsic preferential direction of the magnetization, commonly observed in all ferromagnetic materials, thus opening up further possibility and functionality of ferromagnetic materials for device applications. In this thesis various types of magnetic anisotropy of different nanostructured materials and their manipulation are investigated. As a first approach detailed experimental and analytical methods for the qualitative and quantitative determination of magnetic anisotropy in nanomodulated Ni45Fe55 thin film are studied. In-plane magnetic ﬁeld rotations in modulated Ni45Fe55 revealed various rotational symmetries of magnetic anisotropy due to dipolar interaction with a crossover from lower to higher fold as a function of modulation geometry. The tendency to form vortex is in fact found to be very small, which highlights that the strong coupling between metastable dipoles is more favorable than vortex formation to minimize energy in this nanomodulated structure. Derived mathematical expressions based on magnetic dipolar interaction",
+      "total_paper_chars": 320782,
+      "dataset_row": 476518
+    }
+  }
+}

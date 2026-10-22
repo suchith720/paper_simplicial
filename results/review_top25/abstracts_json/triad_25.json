@@ -1,0 +1,34 @@
+{
+  "rank": 25,
+  "tightness_score": 0.968355,
+  "min_edge_cosine": 0.983715,
+  "mean_edge_cosine": 0.984385,
+  "pairwise_cosine_similarities": {
+    "paper1_vs_paper2": 0.983946,
+    "paper2_vs_paper3": 0.985495,
+    "paper1_vs_paper3": 0.983715
+  },
+  "papers": {
+    "paper_1": {
+      "paper_id": "16670091",
+      "title": "The use of ATR-FTIR to probe the release mechanism from hydrophilic matrices.",
+      "abstract_or_lead": "Hydrophilic matrices are widely used in the pharmaceutical industry as control release agents in solid oral dosage formulations. One of the key parameters that controls release in such systems is the distribution of exipients within the formulation, which in turn is governed by the processing and manufacturing procedures. This thesis explores the effect of processing on the distribution of excipients in binary and tertiary formulations obtained using different mixing procedures, (manual shaking, tumble blending and grinding) with a range of particle size distributions. Samples were prepared by compacting processed powder mixtures directly onto a diamond attenuated total reflectance (ATR) crystal using an in-house built compaction cell which proved to be a successful tool for small scale tablet manufacturing. For this study the following exipients were used; the hydrophilic matrix HPMC grade K4M, the drug 6-hydroxy buspirone hydrochloride and citric acid. The homogeneity of the formulations were determined by the reproducibility of the spectra obtained from the tablets after compaction and the concentration of exipients within the samples was successfully predicted using Partial Least Squares (PLS) data analysis. The distribution of the components was confirmed using Near Infrared imaging with principal components analysis (PCA). Standard dissolution tests of the binary and tertiary systems gave an indication about the release behaviour of the formulations in different dissolution media. Total dissolution of the drug was observed in 0.1N HCl for binary mixtures and in both pH 6.8 buffer and 0.1 N HCl for tertiary formulations highlighting the impact of citric acid on the dissolution results and confirming the pH dependence of the system. The release of drug was also stud",
+      "total_paper_chars": 325484,
+      "dataset_row": 86583
+    },
+    "paper_2": {
+      "paper_id": "42577086",
+      "title": "Nanosecond Pulsed Laser Processing of Metals and Welding of Metal-Glass Nanocomposites",
+      "abstract_or_lead": "1 Abstract In this thesis, nanosecond pulsed lasers are used as the tools to generate microstructures on metal and glass. The applications of these structures are described too. The production of micro structures is demonstrated using diode-pumped solid state (DPSS) Nd:YVO4 lasers operating at wavelengths of 532nm or 1064 nm. The laser fluence and scanning speed are important parameters to control the results. The first part of thesis is on the laser generation of microstructures on metal surfaces. Copper (Cu) and titanium (Ti) have been studied. According to the reflectivity of metals, Cu is processed by a 532nm laser and Ti is processed by a 1064nm laser. It is shown that the periods of surface microstructures are highly dependent on the hatch distance (overlapping distance between laser scanning). Only if the laser fluence is greater than a threshold, may the microstructures on metals be induced. The thresholds are measured by the diameters of ablated areas at different fluence. Laser generated surface microstructures have been applied to modify the reflectivity of a Cu sample. It was found that laser induced surface microstructures on Copper can decrease the surface reflectivity by almost 97% between 250 nm and 700 nm. To find the mechanism of how to form microstructure on metal surface with laser, laser ablation and heating models have been studied. The 1D ablated numerical model is calculated in Matlab. The pressure of metal vapour is an important parameter, as it pushes the melted metal out of surface to form microstructures after re-solidification. The second part of thesis is on glass welding with microstructures on glass surfaces. The soda-lime glasses containing silver nanoparticles (from the company Abstract 2 Codixx) have been studied and welded with Schott",
+      "total_paper_chars": 321676,
+      "dataset_row": 457248
+    },
+    "paper_3": {
+      "paper_id": "61579264",
+      "title": "Manipulation of magnetic anisotropy in nanostructures",
+      "abstract_or_lead": "The magnetic properties of micro/nano-structure have attracted intense research interest in relation to geometrically-induced magnetism to delineate fundamental magnetic phenomena as well as focus the technological aspects in areas such as magnetic sensors, storage devices, integrated inductive components and a number of novel magnetic devices. Depending on the device applications, materials with high, medium or low magnetic anisotropy and their potential manipulation are required. The elements like geometry, crystal structure, magnetic spin configuration at the surfaces and interfaces are the basic ingredients for this manipulation. The most dramatic manifestation in this respect is the chance to manipulate the magnetic anisotropy over the intrinsic preferential direction of the magnetization, commonly observed in all ferromagnetic materials, thus opening up further possibility and functionality of ferromagnetic materials for device applications. In this thesis various types of magnetic anisotropy of different nanostructured materials and their manipulation are investigated. As a first approach detailed experimental and analytical methods for the qualitative and quantitative determination of magnetic anisotropy in nanomodulated Ni45Fe55 thin film are studied. In-plane magnetic ﬁeld rotations in modulated Ni45Fe55 revealed various rotational symmetries of magnetic anisotropy due to dipolar interaction with a crossover from lower to higher fold as a function of modulation geometry. The tendency to form vortex is in fact found to be very small, which highlights that the strong coupling between metastable dipoles is more favorable than vortex formation to minimize energy in this nanomodulated structure. Derived mathematical expressions based on magnetic dipolar interaction",
+      "total_paper_chars": 320782,
+      "dataset_row": 476518
+    }
+  }
+}

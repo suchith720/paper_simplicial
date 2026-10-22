@@ -1,0 +1,34 @@
+{
+  "rank": 13,
+  "tightness_score": 0.969391,
+  "min_edge_cosine": 0.984093,
+  "mean_edge_cosine": 0.985061,
+  "pairwise_cosine_similarities": {
+    "paper1_vs_paper2": 0.984093,
+    "paper2_vs_paper3": 0.985444,
+    "paper1_vs_paper3": 0.985647
+  },
+  "papers": {
+    "paper_1": {
+      "paper_id": "41822309",
+      "title": "Effects of asynchronous seismic action in long highway bridges",
+      "abstract_or_lead": "The current study focus on the spatial variability of ground motion caused by a seismic action applied to large bridges. Four different bridges were studied and two different analysis were carried out on each of them: a synchronous analysis (where the seismic sign arrives at each pier’s foundation at the same time) and an asynchronous one (where the seismic sign arrives at each pier’s foundation with time gaps). The goal of this study is to evaluate the damage on the structure caused by both analysis carried out in each one of the four bridges and compare them, measuring the displacements of the deck, the base shear, the bending moment and the drift of the piers, in each of the cases. This study was performed considering two types of foundation ground, for both of the analysis performed, a solid rock and a compact sand, and comparing the difference of the results in each one. Both of the analysis were carried out using the software SAP2000. This study aims at showing the importance of considering the asynchrony of seismic waves and in which cases it causes more damages than a synchronous seismic sign, rather than figuring out which foundation ground is better or worse. It was concluded that the asynchronous analysis was the less favourable and that the results bring about more advantages when a better quality ground type is considered. In what matters the spatial variability of ground motion, the conclusion is that the uniform seismic excitation is not able to control the seismic design for long prestressed concrete bridges, and the influence of the multi-support excitations on the seismic responses of the long prestressed concrete bridges must be considered. Key words: spatial variability, seismic sign, synchronous analysis, asynchronous analysis, large bridges, damage",
+      "total_paper_chars": 247466,
+      "dataset_row": 39631
+    },
+    "paper_2": {
+      "paper_id": "41799270",
+      "title": "Design and Simulation of Vertical Grating Coupler for Photonic Integrated System-in-Package",
+      "abstract_or_lead": "As we approach the limits in operating speed of IC’s predicted by Moore’s Law, some alternative way of increasing velocities while reducing dimensions has to be found. In this context, optical interconnects appear to be an optimal solution that avoids the main limitations that electrical interconnects have. To implement these optical interconnects in the already well developed CMOS integrated environment, the System-in-Package (SiP) and the Silicon on Insulator (SOI) technologies arise as a good solution to achieve these goals. In this Thesis optical single mode strip nano waveguides and a grating coupler for vertical coupling to optical fibres are presented, designed and simulated. Their design parameters are optimized, and their performance analyzed and discussed. Firstly, the characteristics of large single mode rib waveguides and their direct butt coupling to fibres is studied. Their performance is found to be not good enough when the dimensions were reduced to under 1 µm, with losses as high as 14.5 dB. Therefore, nano strip waveguides are studied and simulated. They provide high light confinement and good propagation characteristics. Some performance characteristics (confinement factor, single mode region, effective index) are studied, for core widths in the range 100 – 600 nm. The vertical coupling of these nano strip waveguides to optical fibres by means of a grating coupler is simulated with the FDTD technique. The main design parameters of this grating coupler are optimized, obtaining losses of 7 dB for TE polarisation and 8.5 dB for TM. The misalignment tolerances are also analysed. The crosstalk effects between this grating and an hypothetical underlying waveguide are studied, showing that no light couples to the lower waveguide. VI Zusammenfassung Hinsichtl",
+      "total_paper_chars": 130515,
+      "dataset_row": 43645
+    },
+    "paper_3": {
+      "paper_id": "41804111",
+      "title": "Multihop Relay Station and 3 sector Cell Zooming usage for Base Station Energy Saving",
+      "abstract_or_lead": "3.3.\t\r  Frame\t\r  structure\t\r  and\t\r  throughput\t\r  calculation..........................................................11 Figure\t\r  1.\t\r   Multi-­‐hop\t\r  relay\t\r  cellular\t\r  network\t\r  layout.......................................................................8 Figure\t\r  3.\t\r   Three\t\r  sector\t\r  independent\t\r  power\t\r  adjusting. ..............................................................10 Figure\t\r  5.\t\r   Non-­‐homogeneous\t\r  user\t\r  distribuition\t\r  and\t\r  switching\t\r  ON/OFF\t\r  cells. ..........................14 Figure\t\r  6.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  outage .................................................................................17 Figure\t\r  7.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  average\t\r  user\t\r  throughput ....................................................18 Figure\t\r  8.\t\r   Comparison\t\r  of\t\r  the\t\r  total\t\r  energy\t\r  consumption ...........................................................19 Figure\t\r  9.\t\r   Comparison\t\r  of\t\r  the\t\r  global\t\r  energy\t\r  efficiency...............................................................19 Figure\t\r  10.\t\r   Comparison\t\r  of\t\r  the\t\r  outage\t\r  in\t\r  the\t\r  OFF\t\r  zones ..........................................................20 Figure\t\r  11.\t\r   Comparison\t\r  of\t\r  the\t\r  average\t\r  user\t\r  throughput\t\r  in\t\r  the\t\r  OFF\t\r  zones..............................21 There\t\r  are\t\r  a\t\r  lot\t\r  of\t\r  people\t\r  without\t\r  whom\t\r  this\t\r  project\t\r  would\t\r  not\t\r  have\t\r  been\t\r  possible.\t\r  First",
+      "total_paper_chars": 40447,
+      "dataset_row": 46177
+    }
+  }
+}

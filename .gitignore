@@ -1,0 +1,43 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env.bak/
+venv.bak/
+topo_simplicial_env/
+
+# Large data and chunk files
+*.npz
+*.npy
+*.pkl
+embeddings_en/
+chunk_*.npz
+lang_scores_*.npz
+*.tar.gz
+*.zip
+
+# OS & IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp

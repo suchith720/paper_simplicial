@@ -1,0 +1,34 @@
+{
+  "rank": 9,
+  "tightness_score": 0.969938,
+  "min_edge_cosine": 0.984428,
+  "mean_edge_cosine": 0.985281,
+  "pairwise_cosine_similarities": {
+    "paper1_vs_paper2": 0.984428,
+    "paper2_vs_paper3": 0.98675,
+    "paper1_vs_paper3": 0.984666
+  },
+  "papers": {
+    "paper_1": {
+      "paper_id": "53822129",
+      "title": "Protein tyrosine phosphatase 1B (PTP1B) :  identification of new substrates and new potential mechanisms of modulation of the Ras pathway",
+      "abstract_or_lead": "Protein tyrosine phosphatases play a crucial role in signal transduction. To advance our understanding of the network based on this enzyme family, we have developed a combined experimental and computational approach to correctly place the tyrosine phosphatases in the context of a functional human interactome. We have applied this strategy to the identification of new PTP1B phosphatase substrates. We have used a Bayesian approach to integrate information about substrate preference, as determined by probing high density phospho-peptide chips, and distance in the human protein interaction network to rank phospho-proteins according to likelihood of being PTP1B substrates. By focusing on the proteins involved in the EGFR pathway, we identified PLC-, Gab1 and SHP2 as putative PTP1B substrates. A variety of in vitro and in vivo approaches were used to validate this prediction. The activity of PTP1B on PLC-, Gab1 and SHP2 tyrosine phosphorylation were also confirmed by phosphatase over-expression and siRNA knock down experiments. TC-PTP, the closest PTP1B homologue, does not dephosphorylate PLC-, Gab1 and SHP2, demonstrating a specificity of PTP1B towards these three substrates. In addition we demonstrated that PTP1B over-expression negatively affects the EGF induced association between Gab1 and SHP2 proteins leading to a decrease of MAP kinase activation. We also provide evidence of a physical association between Gab1, PTP1B and the docking protein Grb2 to form a ternary complex. 5",
+      "total_paper_chars": 106640,
+      "dataset_row": 222845
+    },
+    "paper_2": {
+      "paper_id": "80167180",
+      "title": "ALS-RELATED FUS PROTEIN IS MISLOCALIZED TO CYTOPLASM AND RECRUITED INTO STRESS GRANULES IN FIBROBLASTS OF ASYMPTOMATIC FUS P525L MUTATION CARRIERS",
+      "abstract_or_lead": "Symptoms onset in Amyotrophic Lateral Sclerosis (ALS) occur when over 70% of motor neurons is already lost, suggesting a relatively long pre-symptomatic phase. The description of several genes linked to ALS (e.g., SOD1, FUS, TARDP, C9orf72) has now allowed identification of pre-symptomatic carriers. These pre-symptomatic (or even preclinical) carriers can be followed up with the aim to identify the very early clinical diseaserelated changes or a valuable biomarker. These efforts seem at present the best approach for the implementation of an early symptomatic therapy or for the disease prevention. In this work, we studied the expression of FUS protein in cultured skin fibroblasts from pre-symptomatic FUS P525L mutation carriers. We cultured skin fibroblasts from two sisters belonging to an ALS family with FUS P525L mutation and carrying the same mutation, one healthy control and two patients with sporadic ALS (sALS), with no identified gene mutations. The two carriers were clinically asymptomatic, while the two patients fulfilled the El-Escorial and Awaji criteria for definite ALS. Western blot and immunocytochemistry were performed with specific antibodies to study the expression and subcellular localization of FUS protein in the skin fibroblasts. In sporadic ALS, FUS protein showed an almost exclusive nuclear localization. In the healthy control, FUS was also mostly nuclear, with some cells showing a faint cytoplasmic expression. In the FUS P525L mutation carriers, the protein was strongly expressed in both nucleus and 5 cytoplasm in most cells, with a relatively high proportion of cells showing an exclusive cytoplasmic FUS localization. Furthermore, either heat-shock or dithiothreitol were applied to assess the effect of stress on FUS expression and cytoplasmic redist",
+      "total_paper_chars": 73385,
+      "dataset_row": 276147
+    },
+    "paper_3": {
+      "paper_id": "60585787",
+      "title": "Regulation of cancer cell viability by p38 MAPK",
+      "abstract_or_lead": "ABSTRACT 15 Regulation of the redox state is essential to maintain cellular homeostasis. In fact, dysregulated reactive oxygen species (ROS) production has been associated with enhanced tumorigenicity in epithelial cells. However, the pro-tumorigenic effect of the accumulation of ROS can turn out to be a double-edged sword, since high levels of these species may lower the apoptotic threshold for cytotoxicity. Therefore, redox regulation plays an important role in tumor cell survival. The p38α protein kinase is an important regulator of many cellular responses. It is well established that p38α signaling negatively regulates epithelial cell transformation, but enhanced p38α kinase activity has been also correlated with bad clinical prognosis in some tumor types. This, together with the fact that p38α has been implicated in the proliferation of some cancer cell lines, led us to hypothesize that this protein kinase could be a good target for cancer therapy. We performed a screening to try to identify synthetic lethal partners of p38α, but we only found one potential candidate. We also investigated the role of p38α in the response of tumor cells to chemotherapeutic agents that induce DNA damage. Our results provide genetic and pharmacological evidence showing that inhibition of p38α cooperates with the chemotherapeutic agent cisplatin to kill tumor cells. We show that p38α inhibition results in ROS upregulation, which in turn activates the JNK pathway via inactivation of phosphatases, sensitizing human tumor cells to cisplatin-induced apoptosis. Using a mouse model for breast cancer, we also show that inhibition of p38α cooperates with cisplatin treatment to reduce tumor size and malignancy in vivo. Taken together, our results illustrate a new function of p38α that helps tum",
+      "total_paper_chars": 273700,
+      "dataset_row": 373675
+    }
+  }
+}

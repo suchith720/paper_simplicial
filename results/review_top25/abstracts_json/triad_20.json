@@ -1,0 +1,34 @@
+{
+  "rank": 20,
+  "tightness_score": 0.96887,
+  "min_edge_cosine": 0.983824,
+  "mean_edge_cosine": 0.9848,
+  "pairwise_cosine_similarities": {
+    "paper1_vs_paper2": 0.983824,
+    "paper2_vs_paper3": 0.986219,
+    "paper1_vs_paper3": 0.984357
+  },
+  "papers": {
+    "paper_1": {
+      "paper_id": "41338845",
+      "title": "Attachment theory and music therapy: What was the relevance of attachment theory to a student’s music therapy programme for ‘at-risk’ mothers and their babies?",
+      "abstract_or_lead": "This qualitative secondary analysis research project sought to explore the relevance of attachment theory as it might apply to a music therapy programme set up and run within a residential service for ‘at risk’ mothers and their babies. The explicit purpose of the music therapy programme was to assist the mothers in bonding with their babies. The researcher was a student music therapist on placement at the facility, involved in weekly one-to-one sessions with a total of nineteen young women and their babies, over the time that each was resident at the facility. The music therapist also ran some weekly group sessions (mothers with babies) as part of the facility’s mandatory education programme. The music therapy programme took place over twenty-two weeks, with a two week break after the first ten weeks. The research analysis commenced on completion of the programme. Thematic analysis was used to look at two types of data; data from the placement (including clinical notes and personal reflective journal), and literature on attachment theory. There was an initial review of selected literature on attachment theory and music therapy. The researcher/student music therapist then carried out an inductive qualitative secondary analysis of the data that had been generated as a standard part of her practice over the period of the student placement. This was followed by a further examination of attachment theory literature to confirm key aspects of the theory. The findings from the inductive analysis were then looked at in the light of those identified key features of attachment theory. The research findings showed many strong links between key concepts of attachment theory, and the patterns that emerged from the placement data, manifesting on a number of different levels. However",
+      "total_paper_chars": 148026,
+      "dataset_row": 8676
+    },
+    "paper_2": {
+      "paper_id": "30342705",
+      "title": "Impact of physiotherapy on older adults admitted to hospital : a realistic evaluation.",
+      "abstract_or_lead": "Background: A rise in life expectancy has increased the likelihood of complex co-morbidities and disability resulting in a change in the make-up of hospitalised older adults and their rehabilitative requirements, including physiotherapy. Studies to date of the impact of physiotherapy on older adults admitted to hospital have investigated the intervention in isolation from context and have resulted in inconsistent outcomes. There remains a lack of evidence and theory regarding why physiotherapy is effective in some instances and not in others. Purpose: The thesis aims to examine the mechanisms might or might not work for patients, the influence of context on the actions of stakeholders to impact on outcomes and finally the appropriate methodology with which to investigate physiotherapy intervention. Method: Realistic evaluation (RE) was used as a framework for the study. Initial theories about the impact of physiotherapy on medically unwell older adults were expressed terms of context-mechanism-outcomes configurations and developed into hypotheses with stakeholders. Testing of hypotheses utilised a sequential mixed methods design including quantitative and qualitative measures, obtained from a convenience sample of older medically unwell patients (n=75) and a purposive sample of physiotherapists (n=6), patients and carers (n=8) respectively. Outcomes included measures of physiotherapy intervention, patient health status and hospital performance. Descriptive data analysis with subgroup comparison (frail/non-frail or cognitive impairment/cognitive impairment) was undertaken for outcome measures using Mann-Whitney U and Spearman’s correlation co-efficient. Qualitative data were analysed using framework analysis. Quantitative and qualitative study findings were reviewed, int",
+      "total_paper_chars": 642630,
+      "dataset_row": 209842
+    },
+    "paper_3": {
+      "paper_id": "80295558",
+      "title": "Clinical reasoning on an assignment : perceptions of third year Baccalaureate nursing students",
+      "abstract_or_lead": "Baccalaureate nursing students must develop strong clinical reasoning skills during their undergraduate program in order to be able to make sound clinical judgments regarding patient care.  How students understand the evolution and application of their own clinical reasoning skills is of interest to nurse educators as they seek to improve these skills.  In a qualitative study, eight third-year nursing students were interviewed about their perceptions regarding the use of clinical reasoning skills on a Clinical Judgment Exercise (CJE).  An overarching theme of Over Time emerged from the data along with two themes: Understanding of Clinical Reasoning and Making Sense of the Assignment.  The sub-themes that emerged were the same for each theme and were identified as not knowing, knowing, applying knowing and valuing knowing. Conclusions were that student participants: 1) understood their clinical reasoning skills to have progressed from year to year in their educational program, 2) perceived that their understanding of the patient’s problem and the required nursing actions deepened over the time of writing the assignment, 3) were challenged by never having had a patient as complex as the one described on the assignment, 4) perceived they were able to apply learning from the CJE to their nursing practice, and 5) perceived writing the CJE to be a stressful experience. CLINICAL REASONING 6",
+      "total_paper_chars": 221303,
+      "dataset_row": 411259
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "run": "extracted_simplicial/run_english_science",
+  "n_triangles_total": 94180,
+  "note": "Top 5 by english_tight on FULL clique complex (all 94180 triangles after filter)",
+  "top5": [
+    {
+      "rank": 1,
+      "score": 0.9720268697854135,
+      "nodes": [
+        2508,
+        2668,
+        3981
+      ],
+      "edge_weights": [
+        0.9864781498908997,
+        0.9863095879554749,
+        0.9856745004653931
+      ],
+      "titles": [
+        "3D energy modeling optimisation using computational design software",
+        "Modelling and simulation of a microreactor for ethanol steam reforming",
+        "Simulation and optimization of an HVDC network connecting offshore windfarms with the mainland"
+      ],
+      "paper_ids": [
+        "81572374",
+        "41814740",
+        "87657874"
+      ],
+      "row_idx": [
+        27786,
+        29848,
+        46623
+      ],
+      "min_edge": 0.9856745004653931,
+      "mean_edge": 0.9861540794372559,
+      "min_corpus_en": 0.2691466212272644,
+      "min_title_en": 0.44999998807907104
+    },
+    {
+      "rank": 2,
+      "score": 0.9717552378910554,
+      "nodes": [
+        13161,
+        19896,
+        20543
+      ],
+      "edge_weights": [
+        0.9853612184524536,
+        0.985827624797821,
+        0.9873879551887512
+      ],
+      "titles": [
+        "Metal complexes as catalysts for the synthesis of heterocycles",
+        "Investigation of novel thermal cyclisation reactions and studies on their application to the synthesis of selected natural products",
+        "Studies towards the total synthesis of Herbimycin A"
+      ],
+      "paper_ids": [
+        "77017962",
+        "9836640",
+        "16413132"
+      ],
+      "row_idx": [
+        165413,
+        230964,
+        234901
+      ],
+      "min_edge": 0.9853612184524536,
+      "mean_edge": 0.9861922661463419,
+      "min_corpus_en": 0.2878228724002838,
+      "min_title_en": 0.5874999761581421
+    },
+    {
+      "rank": 3,
+      "score": 0.9717360612216427,
+      "nodes": [
+        2508,
+        3908,
+        3981
+      ],
+      "edge_weights": [
+        0.9878437519073486,
+        0.9852712154388428,
+        0.9856745004653931
+      ],
+      "titles": [
+        "3D energy modeling optimisation using computational design software",
+        "Simulation and Optimization of Complex Energy Components and Systems",
+        "Simulation and optimization of an HVDC network connecting offshore windfarms with the mainland"
+      ],
+      "paper_ids": [
+        "81572374",
+        "41822570",
+        "87657874"
+      ],
+      "row_idx": [
+        27786,
+        45609,
+        46623
+      ],
+      "min_edge": 0.9852712154388428,
+      "mean_edge": 0.9862631559371948,
+      "min_corpus_en": 0.2691466212272644,
+      "min_title_en": 0.44999998807907104
+    },
+    {
+      "rank": 4,
+      "score": 0.971582770914623,
+      "nodes": [
+        2508,
+        2668,
+        3908
+      ],
+      "edge_weights": [
+        0.9864781498908997,
+        0.9849539399147034,
+        0.9878437519073486
+      ],
+      "titles": [
+        "3D energy modeling optimisation using computational design software",
+        "Modelling and simulation of a microreactor for ethanol steam reforming",
+        "Simulation and Optimization of Complex Energy Components and Systems"
+      ],
+      "paper_ids": [
+        "81572374",
+        "41814740",
+        "41822570"
+      ],
+      "row_idx": [
+        27786,
+        29848,
+        45609
+      ],
+      "min_edge": 0.9849539399147034,
+      "mean_edge": 0.9864252805709839,
+      "min_corpus_en": 0.2691466212272644,
+      "min_title_en": 0.44999998807907104
+    },
+    {
+      "rank": 5,
+      "score": 0.9708646531240872,
+      "nodes": [
+        3932,
+        5273,
+        30006
+      ],
+      "edge_weights": [
+        0.9849537014961243,
+        0.9852384328842163,
+        0.9868961572647095
+      ],
+      "titles": [
+        "Multihop Relay Station and 3 sector Cell Zooming usage for Base Station Energy Saving",
+        "A GRASP-based algorithm for the optimised DIF allocation in the RINA network architecture",
+        "An analysis of word sense disambiguation in Bangla and English using supervised learning and a deep neural network classifier"
+      ],
+      "paper_ids": [
+        "41804111",
+        "41811616",
+        "74351957"
+      ],
+      "row_idx": [
+        46177,
+        63472,
+        403654
+      ],
+      "min_edge": 0.9849537014961243,
+      "mean_edge": 0.9856960972150167,
+      "min_corpus_en": 0.25943395495414734,
+      "min_title_en": 0.5346153974533081
+    }
+  ]
+}

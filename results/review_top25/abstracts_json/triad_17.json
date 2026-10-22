@@ -1,0 +1,34 @@
+{
+  "rank": 17,
+  "tightness_score": 0.96914,
+  "min_edge_cosine": 0.98382,
+  "mean_edge_cosine": 0.985079,
+  "pairwise_cosine_similarities": {
+    "paper1_vs_paper2": 0.985314,
+    "paper2_vs_paper3": 0.98382,
+    "paper1_vs_paper3": 0.986103
+  },
+  "papers": {
+    "paper_1": {
+      "paper_id": "48504428",
+      "title": "A measurement of personality traits associated with rasopathy syndromes",
+      "abstract_or_lead": "The RASopathies are a category of genetically inherited disorders that involve mutations in the Ras/mitogen activated protein kinase pathway. Neurofibromatosis type 1 (NF1), Noonan syndrome, Costello syndrome, and Cardiofaciocutaneous (CFC) syndrome are among these, and the clinical phenotypes include physical dysmorphologies, growth problems, developmental delay, and elevated cancer risks.  Specific personality traits in individuals with RASopathies have been noted by clinicians and research investigators, however no systematic study has been done to date that scientifically correlates these traits to establish personality phenotypes and no systematic comparisons have been conducted between the four syndromes.  A modified version of the Big Five Questionnaire for Children by Barbaranelli et al. (2003) was administered to parents of children diagnosed with a RASopathy at the Third International Meeting on the Genetic Syndromes of the Ras/MAPK Pathway and at a Neurofibromatosis Symposium held at University of California-San Francisco. The results showed that as a group, the individuals diagnosed with a RASopathy differed significantly when compared to unaffected sibling Controls in personality traits measured, scoring lower on Agreeableness, Energy/Extraversion, Conscientiousness, Intellect/Openness, and higher on Emotional Instability.  Sense of Humor was not significantly different between the two groups.  There were also differences found within the individual RASopathy groups for each trait when compared to each other as well as the Control group. With a clearer definition of these personality traits and differences, parents, teachers, and clinicians can better diagnose, understand, and provide for these individuals.  The results from this study could be used as a st",
+      "total_paper_chars": 74384,
+      "dataset_row": 477107
+    },
+    "paper_2": {
+      "paper_id": "48504422",
+      "title": "Genetic counselors' knowledge and perspectives of cord blood banking and stem cell therapies",
+      "abstract_or_lead": "Umbilical cord blood presents a unique opportunity to gather and preserve hematopoietic stem cells for possible treatment of many diseases, including genetic conditions. Ongoing clinical trials are revealing new uses for these stem cells everyday. Genetic counselors play a significant role in prenatal, pediatric and adult care for many patients and families who may benefit from learning about cord blood banking and therapies. This study reports on genetic counselors’ knowledge and opinions of cord blood banking and stem cell therapies, as well as how often and why they are talking to their patients about it. A survey was administered to members of the NSGC via an e-blast survey which assessed respondents’ factual knowledge on cord blood banking as well as their feelings about their own knowledge and need for education on the topic. Results revealed that as a group, genetic counselors have limited knowledge of cord blood banking and stem cell therapies. Most respondents were aware of their lack of knowledge, rating their own understanding of different aspects of cord blood banking as low in spite of their agreement that cord blood banking and stem cell therapies are topics with which genetic counselors should be familiar. The majority of study participants (67%) also indicated that they would find an educational booklet useful to their practice. These results highlight an area of need in genetic counselors’ education, and the authors provide ideas for focusing future education efforts of genetic counselors on the value of stem cell therapies and cord blood banking. 1",
+      "total_paper_chars": 72428,
+      "dataset_row": 477513
+    },
+    "paper_3": {
+      "paper_id": "48504599",
+      "title": "The relationship of attachment styles and self-control on cell phone reliance",
+      "abstract_or_lead": "This study explored the relationship between attachment styles, self-control, and cell phone reliance. A total sample of 118 university students completed the Experiences in Close Relationship, Self-Control, and Cell Phone Reliance scales. Attachment anxiety and self-control were positively correlated with cell phone reliance, r = .28, p < .01 and r = -.32, p < .01, respectively. An interaction between attachment anxiety and self-control was not found. Age was not significantly correlated with cell phone reliance, however a negative correlation between age of first cell phone ownership and cell phone reliance was found (r = -.30, p < .01). The results of this study indicate self-control as a better predictor of cell phone reliance than attachment style. 1 LITERATURE REVIEW With the popularity, portability, and functionality of cell phones, people can communicate with one another quickly and easily. Multiple tasks or multiple conversations can be done at once through the use of a cell phone. This “always on and always on you” phenomenon can be observed in virtually any setting, as people’s behavior has adapted to include access to their cell phone. As with other modes of communication, such as social networking or e-mail, a person’s attachment style and level of self-control would be expected to impact their cell phone usage behavior. Attachment Theory Since its development, attachment theory has broadened from mother-infant relationships to include the development and maintenance of relationships with others and self throughout the life span (Rholes & Simpson, 2004). Bowlby (1982) theorized an infant’s attachment to its mother developed out of the need to survive and was later connected to emotional and mental states in adolescence and adulthood through the development",
+      "total_paper_chars": 74545,
+      "dataset_row": 478369
+    }
+  }
+}
