@@ -131,20 +131,57 @@
       border-left-color: #34d399;
     }
     #network { border-radius: 16px; }
-    .medium-article { font-family: 'Instrument Serif', Georgia, serif; }
-    .medium-article .sans { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
-    .medium-article h1 { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 2.25rem; line-height: 1.15; letter-spacing: -0.02em; }
-    .medium-article .subtitle { font-size: 1.25rem; line-height: 1.5; color: #94a3b8; font-weight: 400; }
-    .medium-article .lead { font-size: 1.125rem; line-height: 1.75; color: #cbd5e1; }
-    .medium-article h2 { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #f1f5f9; }
-    .medium-article h3 { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 1.1rem; margin-top: 1.5rem; color: #e2e8f0; }
-    .medium-article p { margin-bottom: 1.25rem; color: #cbd5e1; line-height: 1.8; }
-    .medium-article .pullquote { border-left: 4px solid #10b981; padding: 0.75rem 0 0.75rem 1.25rem; margin: 2rem 0; font-size: 1.15rem; font-style: italic; color: #e2e8f0; background: rgba(16,185,129,0.06); border-radius: 0 8px 8px 0; }
-    .medium-article .stage-card { border: 1px solid #334155; border-radius: 12px; padding: 1rem; background: #0f172a; }
-    .medium-article table { width: 100%; border-collapse: collapse; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; }
-    .medium-article th, .medium-article td { border-bottom: 1px solid #334155; padding: 0.65rem 0.5rem; text-align: left; }
-    .medium-article th { color: #94a3b8; font-weight: 600; }
-    .medium-article .example-card { background: #0f172a; border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+    #graph-tooltip {
+      position: fixed;
+      z-index: 9999;
+      pointer-events: none;
+      max-width: 320px;
+      padding: 0.65rem 0.85rem;
+      border-radius: 10px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      font-size: 11px;
+      line-height: 1.45;
+      color: #e2e8f0;
+      display: none;
+    }
+    #graph-tooltip .gt-node { font-family: ui-monospace, monospace; color: #34d399; font-weight: 600; }
+    #graph-tooltip .gt-pid { font-family: ui-monospace, monospace; color: #94a3b8; font-size: 10px; }
+    #graph-tooltip .gt-title { margin-top: 0.35rem; color: #f1f5f9; }
+    .graph-stat-chip {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 0.5rem 0.4rem;
+      text-align: center;
+    }
+    .graph-stat-chip .val { font-size: 1.1rem; font-weight: 700; color: #67e8f9; }
+    .graph-stat-chip .lbl { font-size: 9px; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b; margin-top: 2px; }
+    .tri-card {
+      background: rgba(7, 11, 20, 0.6);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 0.55rem 0.65rem;
+    }
+    .tri-card .tri-meta { font-size: 10px; color: #64748b; margin-bottom: 0.35rem; }
+    .tri-card .tri-paper { font-size: 10px; color: #cbd5e1; line-height: 1.35; margin-top: 0.25rem; }
+    .tri-card .tri-paper span { color: #34d399; font-family: ui-monospace, monospace; font-size: 9px; }
+    .pipeline-doc { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 0.9375rem; line-height: 1.65; color: #cbd5e1; }
+    .pipeline-doc h1 { font-size: 1.75rem; font-weight: 700; line-height: 1.25; color: #f8fafc; letter-spacing: -0.02em; }
+    .pipeline-doc .doc-kicker { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #34d399; }
+    .pipeline-doc .doc-subtitle { font-size: 1rem; color: #94a3b8; margin-top: 0.75rem; }
+    .pipeline-doc h2 { font-size: 1.125rem; font-weight: 700; color: #f1f5f9; margin-top: 2rem; margin-bottom: 0.65rem; }
+    .pipeline-doc h3 { font-size: 0.95rem; font-weight: 600; color: #e2e8f0; margin-top: 1.25rem; margin-bottom: 0.35rem; }
+    .pipeline-doc p { margin-bottom: 0.85rem; }
+    .pipeline-doc .doc-lead { color: #94a3b8; font-size: 0.95rem; }
+    .pipeline-doc .doc-quote { border-left: 3px solid #34d399; padding-left: 1rem; margin: 1.25rem 0; color: #94a3b8; font-size: 0.9rem; }
+    .pipeline-doc .stage-card { border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.75rem; background: rgba(7,11,20,0.5); }
+    .pipeline-doc table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; margin-top: 0.5rem; }
+    .pipeline-doc th, .pipeline-doc td { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0.5rem 0.35rem; text-align: left; }
+    .pipeline-doc th { color: #64748b; font-weight: 600; font-size: 0.7rem; text-transform: uppercase; }
+    .pipeline-doc .example-card { background: rgba(7,11,20,0.5); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.85rem; margin-bottom: 0.65rem; }
+    .pipeline-doc .example-card h3 { margin-top: 0; color: #67e8f9; font-size: 0.875rem; }
   </style>
 </head>
 <body class="text-slate-100 min-h-screen flex flex-col antialiased">
@@ -265,14 +302,28 @@
     <div class="grid lg:grid-cols-3 gap-4">
       <div class="lg:col-span-2 glass-panel rounded-2xl h-[540px] relative overflow-hidden">
         <div id="network" class="w-full h-full bg-ink-950/50"></div>
-        <p class="absolute bottom-3 left-3 text-[10px] text-slate-400 glass-panel px-3 py-1.5 rounded-full">▲ Filled faces = triangles · hover for titles</p>
+        <p class="absolute bottom-3 left-3 text-[10px] text-slate-400 glass-panel px-3 py-1.5 rounded-full">▲ Filled faces = triangles · hover nodes for details</p>
       </div>
-      <div class="glass-panel rounded-2xl p-5 text-xs space-y-4">
-        <h3 class="font-bold text-slate-100 text-sm flex items-center gap-2"><i data-lucide="activity" class="w-4 h-4 text-cyan-400"></i> Subgraph summary</h3>
-        <div id="graph-summary" class="text-slate-400 space-y-1">Select a paper and click Search.</div>
-        <div>
-          <h4 class="text-slate-500 font-medium mb-1">Triangles in this subgraph</h4>
-          <ul id="triangle-list" class="max-h-48 overflow-y-auto custom-scrollbar text-[10px] text-slate-400 space-y-1"></ul>
+      <div class="glass-panel rounded-2xl p-5 text-sm flex flex-col gap-3 max-h-[540px] min-h-[540px]">
+        <h3 class="font-bold text-slate-100 text-sm flex items-center gap-2 shrink-0">
+          <i data-lucide="panel-right" class="w-4 h-4 text-cyan-400"></i> Subgraph inspector
+        </h3>
+        <div id="graph-sidebar-empty" class="text-slate-500 text-xs leading-relaxed">
+          Select a paper and run <strong class="text-slate-400">Search &amp; draw graph</strong>. This panel shows the focal paper, kNN neighborhood stats, and every 2-simplex (triangle) in the induced subgraph.
+        </div>
+        <div id="graph-sidebar-content" class="hidden flex flex-col gap-3 min-h-0 flex-1 overflow-hidden">
+          <div id="graph-center-card" class="rounded-xl border border-emerald-500/25 bg-emerald-500/5 p-3 shrink-0"></div>
+          <div class="grid grid-cols-3 gap-2 shrink-0" id="graph-stat-chips"></div>
+          <div class="shrink-0">
+            <h4 class="text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Papers in view</h4>
+            <ul id="graph-node-list" class="max-h-24 overflow-y-auto custom-scrollbar text-[10px] text-slate-400 space-y-1"></ul>
+          </div>
+          <div class="min-h-0 flex-1 flex flex-col">
+            <h4 class="text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-1.5 shrink-0">
+              2-simplices <span id="triangle-count-label" class="text-cyan-400/80 normal-case tracking-normal"></span>
+            </h4>
+            <div id="triangle-list" class="overflow-y-auto custom-scrollbar flex-1 space-y-2 pr-0.5"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -280,7 +331,7 @@
 
   <!-- ARTICLE -->
   <section id="view-article" class="tab-panel hidden">
-    <article id="pipeline-article" class="medium-article max-w-2xl mx-auto glass-panel rounded-3xl px-6 sm:px-12 py-12 sm:py-16 shadow-card">
+    <article id="pipeline-article" class="pipeline-doc max-w-3xl mx-auto glass-panel rounded-2xl px-6 sm:px-10 py-10 sm:py-12 shadow-card">
       <p class="text-slate-500 text-center sans text-sm">Loading article…</p>
     </article>
   </section>
@@ -289,6 +340,7 @@
 <footer class="border-t border-white/5 py-6 text-center text-[11px] text-slate-600 font-medium">
   Paper Simplicial Discovery · OSI Hackathon 2026 · Higher-order literature exploration
 </footer>
+<div id="graph-tooltip" aria-hidden="true"></div>
 
 <script>
 /** GitHub Pages: …/paper_simplicial/webapp/ — local server: / */
@@ -643,30 +695,16 @@ async function runGraphExplore() {
   }
   if (data.error) { alert(data.error); return; }
 
-  document.getElementById('graph-summary').innerHTML = `
-    <div><strong class="text-slate-300">Center:</strong> node ${data.center_node}</div>
-    <div><strong class="text-slate-300">Nodes:</strong> ${data.n_nodes} · <strong>Edges:</strong> ${data.n_edges} · <strong>Triangles:</strong> ${data.n_triangles}</div>`;
+  renderGraphSidebar(data);
 
-  const triList = document.getElementById('triangle-list');
-  if (!data.triangles?.length) {
-    triList.innerHTML = '<li>No 2-simplices among these papers.</li>';
-  } else {
-    triList.innerHTML = data.triangles.slice(0, 40).map((tr, i) => {
-      const titles = tr.map(id => {
-        const n = data.nodes.find(x => x.id === id);
-        return n ? truncate(n.title, 40) : id;
-      });
-      return `<li>#${i+1}: ${titles.join(' · ')}</li>`;
-    }).join('') + (data.triangles.length > 40 ? `<li>… +${data.triangles.length - 40} more</li>` : '');
-  }
-
+  const nodeById = Object.fromEntries(data.nodes.map(n => [n.id, n]));
   const visNodes = new vis.DataSet(data.nodes.map(n => ({
     id: n.id,
     label: n.is_center ? '★ ' + truncate(n.title, 28) : truncate(n.title, 28),
-    title: `<b>node ${n.id}</b><br>id: ${esc(n.paper_id)}<br>${esc(n.title)}`,
     color: n.is_center ? '#10b981' : '#6366f1',
     size: n.is_center ? 22 : 14,
-    font: { size: 10, color: '#e2e8f0' }
+    font: { size: 10, color: '#e2e8f0' },
+    _meta: { paper_id: n.paper_id, title: n.title, is_center: n.is_center },
   })));
   const visEdges = new vis.DataSet(data.edges.map(e => ({
     from: e.from, to: e.to,
@@ -684,10 +722,108 @@ async function runGraphExplore() {
       barnesHut: { gravitationalConstant: -8000, springLength: 120, avoidOverlap: 0.2 },
       stabilization: { iterations: 120 }
     },
-    interaction: { hover: true, tooltipDelay: 80 },
+    interaction: { hover: true, tooltipDelay: 120 },
     edges: { smooth: { type: 'continuous' } }
   });
   bindTriangleFaces(network, graphTriangles);
+  bindGraphTooltips(network, nodeById);
+}
+
+function edgeWeightBetween(edges, a, b) {
+  for (const e of edges) {
+    if ((e.from === a && e.to === b) || (e.from === b && e.to === a)) return e.weight;
+  }
+  return null;
+}
+
+function renderGraphSidebar(data) {
+  document.getElementById('graph-sidebar-empty').classList.add('hidden');
+  const panel = document.getElementById('graph-sidebar-content');
+  panel.classList.remove('hidden');
+
+  const center = data.nodes.find(n => n.id === data.center_node) || data.nodes.find(n => n.is_center);
+  const centerEl = document.getElementById('graph-center-card');
+  if (center) {
+    centerEl.innerHTML = `
+      <p class="text-[10px] uppercase tracking-wider text-emerald-400/90 font-semibold mb-1">Focal paper (kNN center)</p>
+      <p class="text-xs font-mono text-emerald-300">node ${center.id} · paper_id ${esc(center.paper_id)}</p>
+      <p class="text-sm text-slate-100 mt-1.5 leading-snug">${esc(center.title)}</p>
+      <p class="text-[10px] text-slate-500 mt-2">Neighborhood radius: ${data.n_neighbors_requested} hop(s) · ${data.n_nodes} papers in induced subgraph</p>`;
+  }
+
+  const chips = [
+    { val: data.n_nodes, lbl: 'Nodes' },
+    { val: data.n_edges, lbl: 'Edges' },
+    { val: data.n_triangles, lbl: 'Triangles' },
+  ];
+  document.getElementById('graph-stat-chips').innerHTML = chips.map(c => `
+    <div class="graph-stat-chip"><div class="val">${c.val}</div><div class="lbl">${c.lbl}</div></div>`).join('');
+
+  const sortedNodes = [...data.nodes].sort((a, b) =>
+    (b.is_center ? 1 : 0) - (a.is_center ? 1 : 0) || a.id - b.id);
+  document.getElementById('graph-node-list').innerHTML = sortedNodes.map(n => `
+    <li class="flex gap-2 ${n.is_center ? 'text-emerald-400/90' : ''}">
+      <span class="font-mono shrink-0">${n.is_center ? '★' : '·'} ${n.id}</span>
+      <span class="line-clamp-1">${esc(truncate(n.title, 52))}</span>
+    </li>`).join('');
+
+  const triList = document.getElementById('triangle-list');
+  const tris = data.triangles || [];
+  document.getElementById('triangle-count-label').textContent = tris.length ? `(${tris.length})` : '';
+  if (!tris.length) {
+    triList.innerHTML = '<p class="text-xs text-slate-500">No closed 3-cliques in this subgraph — pairwise kNN links exist but no mutual triangle.</p>';
+    return;
+  }
+  const show = tris.slice(0, 50);
+  triList.innerHTML = show.map((tri, i) => {
+    const ws = [
+      edgeWeightBetween(data.edges, tri[0], tri[1]),
+      edgeWeightBetween(data.edges, tri[1], tri[2]),
+      edgeWeightBetween(data.edges, tri[0], tri[2]),
+    ].filter(w => w != null);
+    const meanW = ws.length ? (ws.reduce((a, b) => a + b, 0) / ws.length).toFixed(4) : '—';
+    const minW = ws.length ? Math.min(...ws).toFixed(4) : '—';
+    const papers = tri.map(id => data.nodes.find(x => x.id === id)).filter(Boolean);
+    return `<div class="tri-card">
+      <div class="tri-meta">2-simplex #${i + 1} · nodes (${tri.join(', ')}) · mean cos ${meanW} · min ${minW}</div>
+      ${papers.map(p => `<div class="tri-paper"><span>${p.id}</span> ${esc(truncate(p.title, 72))}</div>`).join('')}
+    </div>`;
+  }).join('') + (tris.length > 50 ? `<p class="text-[10px] text-slate-500 text-center pt-1">+ ${tris.length - 50} more triangles</p>` : '');
+}
+
+function bindGraphTooltips(net, nodeById) {
+  const tip = document.getElementById('graph-tooltip');
+  if (!tip) return;
+
+  function showNodeTip(nodeId, ev) {
+    const n = nodeById[nodeId];
+    if (!n) return;
+    tip.innerHTML = `
+      <div class="gt-node">${n.is_center ? '★ ' : ''}Node ${n.id}</div>
+      <div class="gt-pid">paper_id ${esc(n.paper_id)}</div>
+      <div class="gt-title">${esc(n.title)}</div>`;
+    tip.style.display = 'block';
+    moveTip(ev);
+  }
+
+  function moveTip(ev) {
+    const x = (ev.clientX ?? ev.pageX ?? 0) + 14;
+    const y = (ev.clientY ?? ev.pageY ?? 0) + 14;
+    tip.style.left = Math.min(x, window.innerWidth - 340) + 'px';
+    tip.style.top = Math.min(y, window.innerHeight - 120) + 'px';
+  }
+
+  function hideTip() {
+    tip.style.display = 'none';
+  }
+
+  function pointerEvent(p) {
+    return p.event?.srcEvent || p.event || p.pointer?.DOM || { clientX: 0, clientY: 0 };
+  }
+  net.on('hoverNode', (p) => showNodeTip(p.node, pointerEvent(p)));
+  net.on('blurNode', hideTip);
+  net.on('dragging', (p) => { if (p.nodes?.length) moveTip(pointerEvent(p)); });
+  net.on('hoverEdge', hideTip);
 }
 
 /** Draw filled 2-simplex faces under edges/nodes (vis-network beforeDrawing). */
@@ -737,50 +873,50 @@ async function loadPipelineArticle() {
     let body = '';
 
     body += `
-      <header class="sans mb-10 pb-8 border-b border-slate-700/80">
-        <p class="text-xs uppercase tracking-[0.2em] text-emerald-400 font-semibold mb-3">Architecture & pipeline</p>
-        <h1 class="text-white font-bold">${esc(p.title)}</h1>
-        <p class="subtitle mt-4">${esc(p.subtitle)}</p>
-        <p class="text-sm text-slate-500 mt-6">${esc(p.byline)} · ${p.read_minutes || 10} min read</p>
-        ${p.github ? `<p class="mt-2 text-sm"><a href="${esc(p.github)}" class="text-indigo-400 hover:underline sans" target="_blank" rel="noopener">Code &amp; demo on GitHub</a></p>` : ''}
+      <header class="mb-8 pb-6 border-b border-white/10">
+        <p class="doc-kicker mb-2">Architecture &amp; pipeline</p>
+        <h1>${esc(p.title)}</h1>
+        <p class="doc-subtitle">${esc(p.subtitle)}</p>
+        <p class="text-xs text-slate-500 mt-4">${esc(p.byline)} · ${p.read_minutes || 10} min read</p>
+        ${p.github ? `<p class="mt-2 text-sm"><a href="${esc(p.github)}" class="text-cyan-400 hover:underline" target="_blank" rel="noopener">Repository on GitHub</a></p>` : ''}
       </header>`;
 
-    body += `<section><h2 class="sans">Abstract</h2><p class="lead">${esc(p.abstract)}</p></section>`;
+    body += `<section><h2>Abstract</h2><p class="doc-lead">${esc(p.abstract)}</p></section>`;
 
     for (const sec of (p.sections || [])) {
-      body += `<section id="${esc(sec.id)}"><h2 class="sans">${esc(sec.heading)}</h2>`;
+      body += `<section id="${esc(sec.id)}"><h2>${esc(sec.heading)}</h2>`;
       if (sec.paragraphs) {
         sec.paragraphs.forEach(para => { body += `<p>${esc(para)}</p>`; });
       }
       if (sec.pullquote) {
-        body += `<blockquote class="pullquote">${esc(sec.pullquote)}</blockquote>`;
+        body += `<blockquote class="doc-quote">${esc(sec.pullquote)}</blockquote>`;
       }
       if (sec.subsections) {
         sec.subsections.forEach(sub => {
-          body += `<h3 class="sans">${esc(sub.title)}</h3><p>${esc(sub.body)}</p>`;
+          body += `<h3>${esc(sub.title)}</h3><p>${esc(sub.body)}</p>`;
         });
       }
       if (sec.stages) {
-        body += `<div class="grid gap-3 my-6 sans">${sec.stages.map(st => `
-          <div class="stage-card flex gap-4 items-start">
-            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm">${st.n}</span>
-            <div><div class="font-semibold text-slate-100">${esc(st.title)}</div><div class="text-sm text-slate-400 mt-1">${esc(st.detail)}</div></div>
+        body += `<div class="grid gap-2 my-4">${sec.stages.map(st => `
+          <div class="stage-card flex gap-3 items-start">
+            <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold text-xs">${st.n}</span>
+            <div><div class="font-semibold text-slate-100 text-sm">${esc(st.title)}</div><div class="text-xs text-slate-400 mt-0.5">${esc(st.detail)}</div></div>
           </div>`).join('')}</div>`;
       }
       if (sec.examples) {
         sec.examples.forEach(ex => {
-          body += `<div class="example-card"><h3 class="sans mt-0 text-emerald-400/90">${esc(ex.title)}</h3><p class="mb-0">${esc(ex.body)}</p></div>`;
+          body += `<div class="example-card"><h3>${esc(ex.title)}</h3><p class="mb-0 text-sm">${esc(ex.body)}</p></div>`;
         });
-        if (sec.footnote) body += `<p class="text-sm text-slate-500 italic">${esc(sec.footnote)}</p>`;
+        if (sec.footnote) body += `<p class="text-xs text-slate-500">${esc(sec.footnote)}</p>`;
       }
       body += `</section>`;
     }
 
     body += `
       <section>
-        <h2 class="sans">Pipeline outcomes (implemented)</h2>
-        <p class="sans text-sm text-slate-400 mb-4">Observed counts from this deployment—not estimates.</p>
-        <table class="sans">
+        <h2>Pipeline outcomes (implemented)</h2>
+        <p class="text-xs text-slate-500 mb-3">Observed counts from this deployment—not estimates.</p>
+        <table>
           <thead><tr><th>Stage</th><th>Count</th></tr></thead>
           <tbody>
             <tr><td>Input papers / deduplicated papers</td><td>${fmt(m.input_papers)} / ${fmt(m.dedup_papers)}</td></tr>
@@ -796,15 +932,15 @@ async function loadPipelineArticle() {
       </section>`;
 
     if (p.references?.length) {
-      body += `<section class="sans border-t border-slate-800 pt-8 mt-10">
+      body += `<section class="border-t border-white/10 pt-6 mt-8">
         <h2>References</h2>
-        <ol class="list-decimal pl-5 text-sm text-slate-400 space-y-2">${p.references.map(r => `<li>${esc(r)}</li>`).join('')}</ol>
+        <ol class="list-decimal pl-5 text-xs text-slate-400 space-y-1.5">${p.references.map(r => `<li>${esc(r)}</li>`).join('')}</ol>
       </section>`;
     }
 
     art.innerHTML = body;
   } catch (e) {
-    art.innerHTML = '<p class="text-rose-400 sans">Could not load pipeline article.</p>';
+    art.innerHTML = '<p class="text-rose-400 text-sm">Could not load pipeline article.</p>';
   }
 }
 
