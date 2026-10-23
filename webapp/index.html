@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -163,10 +163,40 @@
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 10px;
       padding: 0.55rem 0.65rem;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .tri-card:hover {
+      border-color: rgba(34, 211, 238, 0.4);
+      background: rgba(15, 23, 42, 0.85);
     }
     .tri-card .tri-meta { font-size: 10px; color: #64748b; margin-bottom: 0.35rem; }
-    .tri-card .tri-paper { font-size: 10px; color: #cbd5e1; line-height: 1.35; margin-top: 0.25rem; }
+    .tri-card .tri-paper { font-size: 10px; color: #cbd5e1; line-height: 1.35; margin-top: 0.25rem; cursor: pointer; }
+    .tri-card .tri-paper:hover { color: #34d399; }
     .tri-card .tri-paper span { color: #34d399; font-family: ui-monospace, monospace; font-size: 9px; }
+    .hop-crumb {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.25rem 0.6rem; border-radius: 9999px;
+      font-size: 11px; font-family: 'JetBrains Mono', monospace;
+      background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(255,255,255,0.1);
+      color: #cbd5e1; cursor: pointer; transition: all 0.15s ease;
+    }
+    .hop-crumb:hover { border-color: rgba(52, 211, 153, 0.5); color: #fff; }
+    .hop-crumb.active {
+      background: rgba(16, 185, 129, 0.18);
+      border-color: rgba(52, 211, 153, 0.65);
+      color: #6ee7b7; font-weight: 600;
+    }
+    .ctrl-pill {
+      padding: 0.3rem 0.65rem; border-radius: 0.5rem; font-size: 11px; font-weight: 600;
+      background: rgba(7, 11, 20, 0.82); border: 1px solid rgba(255,255,255,0.1);
+      color: #94a3b8; cursor: pointer; transition: all 0.15s ease; backdrop-filter: blur(8px);
+    }
+    .ctrl-pill:hover { color: #f1f5f9; border-color: rgba(255,255,255,0.22); }
+    .ctrl-pill.active {
+      background: rgba(16, 185, 129, 0.18);
+      border-color: rgba(52, 211, 153, 0.5);
+      color: #34d399;
+    }
     .pipeline-doc { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 0.9375rem; line-height: 1.65; color: #cbd5e1; }
     .pipeline-doc h1 { font-size: 1.75rem; font-weight: 700; line-height: 1.25; color: #f8fafc; letter-spacing: -0.02em; }
     .pipeline-doc .doc-kicker { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #34d399; }
@@ -182,38 +212,165 @@
     .pipeline-doc th { color: #64748b; font-weight: 600; font-size: 0.7rem; text-transform: uppercase; }
     .pipeline-doc .example-card { background: rgba(7,11,20,0.5); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.85rem; margin-bottom: 0.65rem; }
     .pipeline-doc .example-card h3 { margin-top: 0; color: #67e8f9; font-size: 0.875rem; }
+
+    /* ======================================================================
+       LIGHT THEME OVERRIDES (html.light)
+       ====================================================================== */
+    html.light {
+      --glass: rgba(255, 255, 255, 0.84);
+      --glass-border: rgba(15, 23, 42, 0.10);
+      --gradient-brand: linear-gradient(135deg, #0284c7 0%, #4f46e5 50%, #059669 100%);
+    }
+    html.light body {
+      background-color: #f8fafc;
+      color: #0f172a;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(14, 165, 233, 0.12), transparent),
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(99, 102, 241, 0.10), transparent),
+        radial-gradient(ellipse 50% 30% at 50% 100%, rgba(16, 185, 129, 0.08), transparent);
+    }
+    html.light .glass-panel {
+      background: var(--glass);
+      border-color: var(--glass-border);
+      box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.07);
+    }
+    html.light .tab-btn { color: #475569; }
+    html.light .tab-btn:hover { color: #0f172a; background: rgba(15, 23, 42, 0.05); }
+    html.light .tab-btn.tab-active {
+      color: #ffffff;
+      background: var(--gradient-brand);
+      box-shadow: 0 4px 16px -4px rgba(2, 132, 199, 0.45);
+    }
+    html.light .btn-primary { color: #ffffff; }
+    html.light .input-modern {
+      background: #ffffff;
+      border-color: rgba(15, 23, 42, 0.15);
+      color: #0f172a;
+    }
+    html.light .input-modern::placeholder { color: #64748b; }
+    html.light .chip {
+      background: rgba(15, 23, 42, 0.05);
+      border-color: rgba(15, 23, 42, 0.10);
+      color: #334155;
+    }
+    html.light .ctrl-pill {
+      background: rgba(255, 255, 255, 0.90);
+      border-color: rgba(15, 23, 42, 0.14);
+      color: #334155;
+    }
+    html.light .ctrl-pill:hover { color: #0f172a; border-color: rgba(15, 23, 42, 0.30); }
+    html.light .ctrl-pill.active {
+      background: rgba(14, 165, 233, 0.14);
+      border-color: rgba(2, 132, 199, 0.45);
+      color: #0369a1;
+    }
+    html.light .hop-crumb {
+      background: #ffffff;
+      border-color: rgba(15, 23, 42, 0.14);
+      color: #334155;
+    }
+    html.light .hop-crumb.active {
+      background: rgba(16, 185, 129, 0.14);
+      border-color: rgba(5, 150, 105, 0.50);
+      color: #047857;
+    }
+    html.light .graph-stat-chip {
+      background: #f1f5f9;
+      border-color: rgba(15, 23, 42, 0.08);
+    }
+    html.light .graph-stat-chip .val { color: #0284c7; }
+    html.light .graph-stat-chip .lbl { color: #475569; }
+    html.light .tri-card {
+      background: #f8fafc;
+      border-color: rgba(15, 23, 42, 0.09);
+    }
+    html.light .tri-card:hover {
+      background: #f1f5f9;
+      border-color: rgba(2, 132, 199, 0.4);
+    }
+    html.light .tri-card .tri-paper { color: #334155; }
+    html.light .tri-card .tri-paper span { color: #059669; }
+    html.light #graph-tooltip {
+      background: rgba(255, 255, 255, 0.97);
+      border-color: rgba(15, 23, 42, 0.16);
+      color: #0f172a;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.14);
+    }
+    html.light #graph-tooltip .gt-node { color: #059669; }
+    html.light #graph-tooltip .gt-pid { color: #64748b; }
+    html.light #graph-tooltip .gt-title { color: #0f172a; }
+    html.light .pipeline-doc { color: #334155; }
+    html.light .pipeline-doc h1, html.light .pipeline-doc h2, html.light .pipeline-doc h3 { color: #0f172a; }
+    html.light .pipeline-doc .stage-card, html.light .pipeline-doc .example-card {
+      background: #f8fafc;
+      border-color: rgba(15, 23, 42, 0.10);
+    }
+    html.light .pipeline-doc .example-card h3 { color: #0284c7; }
+    html.light .text-slate-100, html.light .text-slate-200, html.light .text-white { color: #0f172a !important; }
+    html.light .text-slate-300 { color: #334155 !important; }
+    html.light .text-slate-400 { color: #475569 !important; }
+    html.light .text-cyan-300, html.light .text-cyan-400 { color: #0284c7 !important; }
+    html.light .text-emerald-300, html.light .text-emerald-400 { color: #059669 !important; }
+    html.light .bg-slate-950, html.light .bg-slate-950\/80, html.light .bg-slate-950\/90,
+    html.light .bg-slate-950\/60, html.light .bg-slate-950\/40, html.light .bg-slate-950\/30,
+    html.light .bg-ink-950\/80, html.light .bg-ink-950\/50 {
+      background-color: rgba(241, 245, 249, 0.85) !important;
+    }
+    html.light .border-slate-800, html.light .border-slate-700, html.light .border-slate-700\/50,
+    html.light .border-slate-700\/60, html.light .border-slate-700\/40, html.light .border-white\/5,
+    html.light .border-white\/10 {
+      border-color: rgba(15, 23, 42, 0.10) !important;
+    }
+    html.light .divide-slate-800 > :not([hidden]) ~ :not([hidden]) {
+      border-color: rgba(15, 23, 42, 0.08) !important;
+    }
   </style>
 </head>
 <body class="text-slate-100 min-h-screen flex flex-col antialiased">
 
 <header class="sticky top-0 z-50 glass-panel border-b border-white/5">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-    <div class="flex items-center gap-4">
-      <div class="relative w-12 h-12 rounded-2xl flex items-center justify-center shadow-glow" style="background: var(--gradient-brand);">
-        <i data-lucide="shapes" class="w-6 h-6 text-ink-950"></i>
+  <div class="max-w-[1920px] mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-3">
+    <!-- Brand -->
+    <div class="flex items-center gap-3">
+      <div class="relative w-9 h-9 rounded-xl flex items-center justify-center shadow-glow shrink-0" style="background: var(--gradient-brand);">
+        <i data-lucide="shapes" class="w-5 h-5 text-ink-950"></i>
       </div>
       <div>
-        <h1 class="text-lg font-extrabold tracking-tight brand-text">Paper Simplicial Discovery</h1>
-        <p class="text-[11px] text-slate-400 font-medium mt-0.5" id="header-stats">Loading corpus stats…</p>
+        <h1 class="text-sm sm:text-base font-extrabold tracking-tight brand-text leading-tight">Paper Simplicial Discovery</h1>
+        <p class="text-[10px] text-slate-400 font-medium" id="header-stats">Loading corpus stats…</p>
       </div>
     </div>
-    <div class="flex flex-wrap gap-2" id="header-chips">
-      <span class="chip"><i data-lucide="layers" class="w-3 h-3 text-cyan-400"></i> 2-Simplices</span>
-      <span class="chip"><i data-lucide="sparkles" class="w-3 h-3 text-violet-400"></i> LLM Hypotheses</span>
+
+    <!-- Navigation Tabs -->
+    <div class="flex items-center gap-1.5 overflow-x-auto custom-scrollbar">
+      <button type="button" data-tab="graph" class="tab-btn tab-active">🌐 3D Neighborhood Graph</button>
+      <button type="button" data-tab="evaluations" class="tab-btn">✦ Top 25 Evaluations</button>
+      <button type="button" data-tab="explorer" class="tab-btn">1,000 Triads</button>
+      <button type="button" data-tab="article" class="tab-btn">Architecture</button>
     </div>
-  </div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 pb-4 flex gap-2 overflow-x-auto custom-scrollbar">
-    <button type="button" data-tab="evaluations" class="tab-btn tab-active">✦ Top 25 Evaluations</button>
-    <button type="button" data-tab="explorer" class="tab-btn">1,000 Triads</button>
-    <button type="button" data-tab="graph" class="tab-btn">Neighborhood Graph</button>
-    <button type="button" data-tab="article" class="tab-btn">Architecture</button>
+
+    <!-- Live Topological Invariants & Theme Switcher -->
+    <div class="flex items-center gap-2" id="header-chips">
+      <div id="topo-invariant-pill" class="hidden xl:flex items-center gap-2 px-3 py-1 rounded-lg bg-slate-950/80 border border-white/10 text-[11px] font-mono text-slate-300">
+        <span title="0-Simplices (Papers in 3D view)"><strong id="topo-v" class="text-sky-400">0</strong> V</span>·
+        <span title="Active 1-Simplices (k-NN Edges ≥ τ)"><strong id="topo-e" class="text-emerald-400">0</strong> E</span>·
+        <span title="Closed 2-Simplices (Triangles ≥ τ)"><strong id="topo-t" class="text-amber-400">0</strong> Δ₂</span>·
+        <span title="Open Boundary Holes / Unfilled Triangles"><strong id="topo-holes" class="text-fuchsia-400">0</strong> ◇ Holes</span>·
+        <span title="3-Simplices (4-Clique Tetrahedra)"><strong id="topo-tet" class="text-rose-400">0</strong> Δ₃</span>·
+        <span title="Euler Characteristic χ = |V| - |E| + |Δ₂| - |Δ₃|">χ=<strong id="topo-chi" class="text-lime-400">0</strong></span>
+      </div>
+      <button type="button" id="theme-toggle-btn" onclick="toggleTheme()" class="ctrl-pill flex items-center gap-1.5" title="Switch between Dark and Light theme">
+        <span id="theme-toggle-icon">☀️</span>
+        <span id="theme-toggle-label">Light Mode</span>
+      </button>
+    </div>
   </div>
 </header>
 
-<main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-8">
+<main class="flex-1 max-w-[1920px] w-full mx-auto px-3 sm:px-4 py-3">
 
   <!-- TOP 25 EVALUATIONS (from original webapp) -->
-  <section id="view-evaluations" class="tab-panel space-y-6">
+  <section id="view-evaluations" class="tab-panel hidden space-y-6 max-w-7xl mx-auto py-3">
     <div class="glass-panel p-5 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div class="flex items-center gap-2 overflow-x-auto custom-scrollbar pb-1 md:pb-0">
         <span class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mr-2 shrink-0">Verdict</span>
@@ -237,7 +394,7 @@
   </section>
 
   <!-- TOP 1000 EXPLORER -->
-  <section id="view-explorer" class="tab-panel hidden space-y-5">
+  <section id="view-explorer" class="tab-panel hidden space-y-5 max-w-7xl mx-auto py-3">
     <div class="glass-panel rounded-2xl p-5 flex flex-wrap gap-4 items-center">
       <div class="flex-1 min-w-[240px]">
         <input id="triad-search" type="text" placeholder="Search titles or paper IDs…"
@@ -260,6 +417,7 @@
               <th class="p-3">Paper 1</th>
               <th class="p-3">Paper 2</th>
               <th class="p-3">Paper 3</th>
+              <th class="p-3 w-28 text-right">3D Graph</th>
             </tr>
           </thead>
           <tbody id="triad-tbody" class="divide-y divide-slate-800"></tbody>
@@ -275,62 +433,206 @@
     </div>
   </section>
 
-  <!-- NEIGHBORHOOD GRAPH -->
-  <section id="view-graph" class="tab-panel hidden space-y-5">
-    <div class="glass-panel rounded-2xl p-6 space-y-4">
-      <p class="text-sm text-slate-400 leading-relaxed">Search by <span class="text-cyan-300 font-semibold">node id</span>, <span class="text-violet-300 font-semibold">paper_id</span>, or <span class="text-emerald-300 font-semibold">title</span> — select a match, choose up to 20 neighbors, then visualize filled 2-simplices.</p>
-      <div class="grid md:grid-cols-2 gap-4">
-        <div>
-          <label class="text-xs text-slate-400 block mb-1">Search query</label>
-          <input id="paper-query" type="text" placeholder="e.g. 2508, energy simulation, 81572374"
-            class="input-modern w-full px-4 py-2.5 text-sm">
-          <div id="paper-results" class="mt-2 max-h-48 overflow-y-auto custom-scrollbar glass-panel rounded-xl hidden"></div>
-          <p id="paper-selected" class="text-[11px] text-emerald-400 mt-2 hidden"></p>
-        </div>
-        <div class="space-y-3">
-          <label class="text-xs text-slate-400 flex justify-between">
-            <span>Neighbors to explore</span>
-            <span class="font-mono text-emerald-400" id="neighbor-val">5</span>
-          </label>
-          <input id="neighbor-count" type="range" min="1" max="20" value="5" class="w-full accent-emerald-500">
-          <button type="button" id="graph-search-btn" class="btn-primary w-full py-3 text-sm disabled:opacity-40">
-            Search & draw graph
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="grid lg:grid-cols-3 gap-4">
-      <div class="lg:col-span-2 glass-panel rounded-2xl h-[540px] relative overflow-hidden">
-        <div id="network" class="w-full h-full bg-ink-950/50"></div>
-        <p class="absolute bottom-3 left-3 text-[10px] text-slate-400 glass-panel px-3 py-1.5 rounded-full">▲ Filled faces = triangles · hover nodes for details</p>
-      </div>
-      <div class="glass-panel rounded-2xl p-5 text-sm flex flex-col gap-3 max-h-[540px] min-h-[540px]">
-        <h3 class="font-bold text-slate-100 text-sm flex items-center gap-2 shrink-0">
-          <i data-lucide="panel-right" class="w-4 h-4 text-cyan-400"></i> Subgraph inspector
-        </h3>
-        <div id="graph-sidebar-empty" class="text-slate-500 text-xs leading-relaxed">
-          Select a paper and run <strong class="text-slate-400">Search &amp; draw graph</strong>. This panel shows the focal paper, kNN neighborhood stats, and every 2-simplex (triangle) in the induced subgraph.
-        </div>
-        <div id="graph-sidebar-content" class="hidden flex flex-col gap-3 min-h-0 flex-1 overflow-hidden">
-          <div id="graph-center-card" class="rounded-xl border border-emerald-500/25 bg-emerald-500/5 p-3 shrink-0"></div>
-          <div class="grid grid-cols-3 gap-2 shrink-0" id="graph-stat-chips"></div>
-          <div class="shrink-0">
-            <h4 class="text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Papers in view</h4>
-            <ul id="graph-node-list" class="max-h-24 overflow-y-auto custom-scrollbar text-[10px] text-slate-400 space-y-1"></ul>
+  <!-- 3D NEIGHBORHOOD GRAPH: USER-FRIENDLY 3-COLUMN WORKBENCH -->
+  <section id="view-graph" class="tab-panel">
+    <div id="graph-workbench" class="grid grid-cols-12 gap-3 h-[740px]">
+
+      <!-- LEFT SIDEBAR (3 cols): Search, Filtration Sliders (k & τ), Domain Clusters -->
+      <aside id="graph-left-sidebar" class="col-span-12 md:col-span-3 glass-panel rounded-2xl p-3 flex flex-col gap-2.5 h-full overflow-y-auto custom-scrollbar">
+        <!-- 1. Search & Query Constellation -->
+        <div class="space-y-1.5 shrink-0">
+          <div class="flex items-center justify-between">
+            <label for="paper-query" class="text-xs font-bold uppercase tracking-wider text-sky-400">1. Query &amp; Traverse</label>
+            <p id="paper-selected" class="text-xs font-mono text-emerald-400 truncate hidden"></p>
           </div>
-          <div class="min-h-0 flex-1 flex flex-col">
-            <h4 class="text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-1.5 shrink-0">
-              2-simplices <span id="triangle-count-label" class="text-cyan-400/80 normal-case tracking-normal"></span>
-            </h4>
-            <div id="triangle-list" class="overflow-y-auto custom-scrollbar flex-1 space-y-2 pr-0.5"></div>
+          <div class="relative">
+            <input id="paper-query" type="text" placeholder="Topic, title, paper_id, or node…"
+              class="input-modern w-full pl-3 pr-12 py-1.5 text-xs">
+            <button type="button" onclick="clearPaperQuery()" class="absolute right-1.5 top-1 text-xs px-1.5 py-0.5 rounded bg-white/5 hover:bg-white/10 text-slate-400">Clear</button>
+          </div>
+
+          <div class="grid grid-cols-2 gap-1.5">
+            <button type="button" id="graph-search-btn" class="btn-primary py-1.5 px-2 text-xs font-bold flex items-center justify-center gap-1">
+              <span>🎯 Traverse</span>
+            </button>
+            <button type="button" id="graph-multiseed-btn" onclick="runMultiSeedQueryExplore()" class="py-1.5 px-2 rounded-xl border border-cyan-400/35 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-200 font-semibold text-xs transition flex items-center justify-center gap-1" title="Build a 3D constellation from Top 3 query matches">
+              <span>🌐 Top-3 Query</span>
+            </button>
+          </div>
+
+          <!-- Quick Presets -->
+          <div class="flex flex-wrap items-center gap-1 pt-0.5">
+            <button type="button" onclick="quickPresetQuery('solid electrolyte lithium')" class="ctrl-pill text-xs py-0.5 px-2">Electrolyte</button>
+            <button type="button" onclick="quickPresetQuery('perovskite solar cell')" class="ctrl-pill text-xs py-0.5 px-2">Perovskite</button>
+            <button type="button" onclick="quickPresetQuery('high entropy alloy')" class="ctrl-pill text-xs py-0.5 px-2">Alloys</button>
+            <button type="button" onclick="exploreTriadByRank(1)" class="ctrl-pill text-xs py-0.5 px-2 text-emerald-300 border-emerald-500/30">★ Triad #1</button>
+          </div>
+
+          <!-- Inline Search Results (Never overlaps the 3D Canvas!) -->
+          <div id="paper-results" class="max-h-40 overflow-y-auto custom-scrollbar rounded-xl bg-slate-950/90 border border-sky-500/30 hidden"></div>
+        </div>
+
+        <!-- 2. Twin Filtration Sliders: k-NN (k) & Simplicial Threshold (τ) -->
+        <div class="pt-2 border-t border-white/10 space-y-2 shrink-0">
+          <div class="text-xs font-bold uppercase tracking-wider text-amber-400">2. Simplicial Filtration</div>
+
+          <!-- k-NN Slider -->
+          <div class="rounded-xl bg-slate-950/55 border border-white/10 p-2 space-y-1">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-semibold text-slate-200">k-NN Neighbors (<code class="text-emerald-300">k</code>)</span>
+              <span class="font-mono font-bold text-emerald-400 text-xs"><span id="neighbor-val">12</span> / hop</span>
+            </div>
+            <input id="neighbor-count" type="range" min="3" max="30" value="12" class="w-full accent-emerald-400 cursor-pointer">
+          </div>
+
+          <!-- Simplicial Threshold (τ) Slider -->
+          <div class="rounded-xl bg-slate-950/55 border border-white/10 p-2 space-y-1">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-semibold text-slate-200">Threshold (<code class="text-cyan-300">τ</code>)</span>
+              <div class="flex items-center gap-1.5">
+                <span class="font-mono font-bold text-cyan-300 text-xs" id="tau-val">0.9750</span>
+                <button type="button" onclick="resetTauThreshold()" class="text-xs px-1.5 py-0.5 rounded bg-white/10 hover:bg-white/20 text-slate-200 font-mono" title="Reset τ to include all edges">Reset</button>
+              </div>
+            </div>
+            <input id="tau-slider" type="range" min="0.7000" max="0.9900" step="0.0002" value="0.7000" class="w-full accent-cyan-400 cursor-pointer">
+            <div class="flex justify-between text-xs text-slate-400 font-mono">
+              <span id="tau-min-lbl">min 0.700</span>
+              <span id="tau-max-lbl">max 0.990</span>
+            </div>
+            <div id="tau-active-summary" class="text-xs font-mono text-cyan-300 text-center">All simplices active</div>
+          </div>
+
+          <!-- Options -->
+          <div class="grid grid-cols-1 gap-1 text-xs">
+            <label class="inline-flex items-center gap-2 cursor-pointer select-none text-slate-300">
+              <input id="accumulate-trail" type="checkbox" checked class="accent-emerald-400 rounded">
+              <span>Accumulate hops along 3D trail</span>
+            </label>
+            <label class="inline-flex items-center gap-2 cursor-pointer select-none text-slate-300">
+              <input id="show-query-anchor" type="checkbox" checked class="accent-amber-400 rounded">
+              <span>Show 3D Query Beacon (Q)</span>
+            </label>
           </div>
         </div>
+
+        <!-- 3. Scientific Domain Clusters -->
+        <div class="pt-2 border-t border-white/10 space-y-1.5 flex-1 min-h-0 flex flex-col">
+          <div class="flex items-center justify-between shrink-0">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">3. Scientific Domains</span>
+            <button type="button" id="clear-cluster-btn" onclick="setClusterFilter(null)" class="text-xs text-cyan-400 hover:underline hidden">Show All</button>
+          </div>
+          <div class="flex flex-col gap-1 overflow-y-auto custom-scrollbar flex-1 pr-0.5" id="cluster-filter-bar"></div>
+        </div>
+      </aside>
+
+      <!-- CENTER COLUMN (6 cols): Docked Toolbar + Giant Unobstructed 3D Simplicial Viewport + Docked Footer -->
+      <div id="graph-viewport-card" class="col-span-12 md:col-span-6 glass-panel rounded-2xl h-full overflow-hidden flex flex-col min-w-0">
+        <!-- Docked Top Toolbar (Never floats over or blocks the 3D Canvas!) -->
+        <div class="px-3 py-2 border-b border-white/10 bg-slate-950/60 flex flex-wrap items-center justify-between gap-2 shrink-0">
+          <!-- Breadcrumb Trail -->
+          <div id="traversal-bar" class="flex items-center gap-1 text-xs min-w-0 flex-1 overflow-x-auto custom-scrollbar">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400 shrink-0">Trail:</span>
+            <button type="button" id="hop-prev-btn" onclick="stepTraversalHistory(-1)" disabled class="ctrl-pill py-0.5 px-1.5 disabled:opacity-30 shrink-0" title="Shortcut: [">←</button>
+            <button type="button" id="hop-next-btn" onclick="stepTraversalHistory(1)" disabled class="ctrl-pill py-0.5 px-1.5 disabled:opacity-30 shrink-0" title="Shortcut: ]">→</button>
+            <div id="traversal-crumbs" class="flex items-center gap-1 overflow-x-auto custom-scrollbar"></div>
+            <button type="button" onclick="exportTraversalTrailJson()" class="ctrl-pill py-0.5 px-1.5 text-cyan-300 shrink-0" title="Export trail JSON">⬇ JSON</button>
+            <button type="button" onclick="resetTraversalTrail()" class="ctrl-pill py-0.5 px-1.5 text-rose-300 shrink-0" title="Reset trail">Reset</button>
+          </div>
+
+          <!-- 3D View Controls -->
+          <div id="controls-3d-bar" class="flex flex-wrap items-center gap-1 shrink-0">
+            <button type="button" id="btn-mode-3d" onclick="setGraphRenderMode('3d')" class="ctrl-pill active">3D</button>
+            <button type="button" id="btn-mode-2d" onclick="setGraphRenderMode('2d')" class="ctrl-pill">2D</button>
+            <button type="button" id="btn-toggle-faces" onclick="toggle3DFaces()" class="ctrl-pill active" title="Toggle filled 2-simplex triangles">▲ Δ₂</button>
+            <button type="button" id="btn-toggle-holes" onclick="toggle3DHoles()" class="ctrl-pill active border-fuchsia-500/40 text-fuchsia-300" title="Toggle Open Boundary Holes (Unfilled Triangles)">◇ Holes</button>
+            <button type="button" id="btn-toggle-tetra" onclick="toggle3DTetra()" class="ctrl-pill active" title="Toggle 3-simplex tetrahedra">Δ₃</button>
+            <button type="button" id="btn-toggle-labels" onclick="toggle3DLabels()" class="ctrl-pill active">Labels</button>
+            <button type="button" id="btn-toggle-orbit" onclick="toggle3DOrbit()" class="ctrl-pill" title="Shortcut: Space">Orbit</button>
+            <button type="button" onclick="reset3DCamera()" class="ctrl-pill" title="Shortcut: R">Reset</button>
+            <button type="button" id="btn-expand-3d" onclick="toggleExpand3DViewport()" class="ctrl-pill text-sky-300 border-sky-500/30" title="Hide sidebars to maximize 3D canvas">⛶ Maximize</button>
+          </div>
+        </div>
+
+        <!-- Unobstructed 3D / 2D Canvas Container -->
+        <div class="relative flex-1 min-h-0 w-full">
+          <canvas id="network-3d" class="w-full h-full block cursor-grab active:cursor-grabbing"></canvas>
+          <div id="network" class="w-full h-full bg-ink-950/50 hidden"></div>
+        </div>
+
+        <!-- Docked Bottom Status Bar (Never floats over or blocks the 3D Canvas!) -->
+        <div class="px-3 py-1.5 border-t border-white/10 bg-slate-950/70 flex items-center justify-between gap-2 text-xs shrink-0">
+          <div id="canvas-hover-banner" class="hidden flex items-center gap-1.5 truncate text-slate-100 font-medium"></div>
+          <div id="canvas-default-hint" class="text-xs text-slate-400 truncate">
+            <strong>Drag:</strong> Rotate · <strong>Scroll:</strong> Zoom · <strong>Shift+Drag:</strong> Pan · <strong>Click Node:</strong> Inspect in Right Panel · <strong>Double-Click / [1–9]:</strong> Hop
+          </div>
+          <span id="bridge-status-pill" class="text-xs text-cyan-300 font-mono hidden shrink-0"></span>
+        </div>
       </div>
+
+      <!-- RIGHT SIDEBAR (3 cols): Dedicated Selected Node Description Box + Simplicial Discovery Lists -->
+      <aside id="graph-inspector-panel" class="col-span-12 md:col-span-3 glass-panel rounded-2xl p-3 text-sm flex flex-col gap-2.5 h-full overflow-hidden">
+        <div class="flex items-center justify-between gap-2 shrink-0 border-b border-white/10 pb-1.5">
+          <span class="font-bold text-slate-100 text-xs uppercase tracking-wider flex items-center gap-1.5">
+            <i data-lucide="compass" class="w-4 h-4 text-cyan-400"></i>
+            <span>Selected Paper &amp; Simplices</span>
+          </span>
+          <span id="inspector-hop-badge" class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 hidden">Hop #1</span>
+        </div>
+
+        <div id="graph-sidebar-empty" class="text-slate-500 text-xs leading-relaxed py-6 text-center">
+          Select or search a paper to launch the <strong class="text-slate-300">3D Simplicial Neighborhood Graph</strong>.
+        </div>
+
+        <div id="graph-sidebar-content" class="hidden flex flex-col gap-2.5 min-h-0 flex-1 overflow-hidden">
+          <!-- Dedicated Selected Paper Card (Docked in Right Sidebar — NEVER overlaps 3D graph!) -->
+          <div id="inspector-paper-card" class="rounded-xl border border-sky-500/30 bg-slate-950/65 p-3 shrink-0 space-y-2 shadow-inner"></div>
+
+          <!-- Subgraph Inspector Tabs: Open Holes (Gaps) | Closed Δ₂ Faces | Papers in View -->
+          <div class="grid grid-cols-3 gap-1 p-1 rounded-xl bg-slate-950/70 border border-white/10 shrink-0 text-xs font-semibold">
+            <button type="button" id="insp-tab-holes" onclick="switchInspectorTab('holes')" class="py-1 px-1.5 rounded-lg transition text-fuchsia-300 bg-fuchsia-500/15 border border-fuchsia-500/30">
+              ◇ Holes (<span id="insp-count-holes">0</span>)
+            </button>
+            <button type="button" id="insp-tab-tris" onclick="switchInspectorTab('tris')" class="py-1 px-1.5 rounded-lg transition text-slate-400 hover:text-slate-200">
+              ▲ Δ₂ (<span id="insp-count-tris">0</span>)
+            </button>
+            <button type="button" id="insp-tab-nodes" onclick="switchInspectorTab('nodes')" class="py-1 px-1.5 rounded-lg transition text-slate-400 hover:text-slate-200">
+              ● Papers (<span id="insp-count-nodes">0</span>)
+            </button>
+          </div>
+
+          <!-- Tab 1: Open Boundary Holes ("Unfilled Triangles") List -->
+          <div id="insp-pane-holes" class="min-h-0 flex-1 flex flex-col overflow-hidden">
+            <div class="flex items-center justify-between mb-1 shrink-0">
+              <span class="text-xs font-semibold uppercase tracking-wider text-fuchsia-300">Open Boundary Holes</span>
+              <span class="text-xs text-slate-400">Click to highlight</span>
+            </div>
+            <div id="open-holes-list" class="overflow-y-auto custom-scrollbar flex-1 space-y-2 pr-1"></div>
+          </div>
+
+          <!-- Tab 2: Closed 2-Simplices (Δ₂ Triangles) List -->
+          <div id="insp-pane-tris" class="hidden min-h-0 flex-1 flex flex-col overflow-hidden">
+            <div class="flex items-center justify-between mb-1 shrink-0">
+              <span class="text-xs font-semibold uppercase tracking-wider text-amber-300">Closed 2-Simplices (Δ₂)</span>
+              <span id="triangle-count-label" class="text-xs text-cyan-400 font-mono"></span>
+            </div>
+            <div id="triangle-list" class="overflow-y-auto custom-scrollbar flex-1 space-y-2 pr-1"></div>
+          </div>
+
+          <!-- Tab 3: All Papers in 3D View -->
+          <div id="insp-pane-nodes" class="hidden min-h-0 flex-1 flex flex-col overflow-hidden">
+            <div class="flex items-center justify-between mb-1 shrink-0">
+              <span class="text-xs font-semibold uppercase tracking-wider text-sky-300">Papers in 3D View</span>
+              <span class="text-xs text-cyan-400 font-mono">Click to Hop</span>
+            </div>
+            <ul id="graph-node-list" class="overflow-y-auto custom-scrollbar flex-1 text-xs text-slate-300 space-y-1 pr-1"></ul>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
   <!-- ARTICLE -->
-  <section id="view-article" class="tab-panel hidden">
+  <section id="view-article" class="tab-panel hidden max-w-4xl mx-auto py-3">
     <article id="pipeline-article" class="pipeline-doc max-w-3xl mx-auto glass-panel rounded-2xl px-6 sm:px-10 py-10 sm:py-12 shadow-card">
       <p class="text-slate-500 text-center sans text-sm">Loading article…</p>
     </article>
@@ -362,6 +664,9 @@ async function fetchJsonOrApi(apiPath, staticPath) {
       if (res.ok) return res.json();
     } catch (_) { /* fall through to static */ }
   }
+  if (window.__EMBEDDED_STATIC__ && window.__EMBEDDED_STATIC__[staticPath]) {
+    return window.__EMBEDDED_STATIC__[staticPath];
+  }
   const res = await fetch(dataUrl(staticPath));
   if (!res.ok) throw new Error('Failed to load ' + staticPath);
   return res.json();
@@ -370,6 +675,10 @@ async function fetchJsonOrApi(apiPath, staticPath) {
 let graphBundle = null;
 async function ensureGraphBundle() {
   if (graphBundle) return graphBundle;
+  if (window.__EMBEDDED_STATIC__ && window.__EMBEDDED_STATIC__['/data/graph.json']) {
+    graphBundle = window.__EMBEDDED_STATIC__['/data/graph.json'];
+    return graphBundle;
+  }
   const res = await fetch(dataUrl('/data/graph.json'));
   if (!res.ok) throw new Error('graph.json missing — run scripts/export_webapp_static_data.py');
   graphBundle = await res.json();
@@ -489,6 +798,12 @@ function buildGraphIndexes(g) {
   if (g._adj) return g;
   const adj = new Map();
   const edgeW = new Map();
+  const pidMap = new Map();
+  if (g.paper_ids) {
+    for (let i = 0; i < g.paper_ids.length; i++) {
+      pidMap.set(String(g.paper_ids[i]), i);
+    }
+  }
   for (const [u, v, w] of g.edges) {
     if (!adj.has(u)) adj.set(u, new Set());
     if (!adj.has(v)) adj.set(v, new Set());
@@ -499,18 +814,134 @@ function buildGraphIndexes(g) {
   }
   g._adj = adj;
   g._edgeW = edgeW;
+  g._pidMap = pidMap;
   return g;
 }
 
-async function graphExploreStatic(center, neighbors) {
+function computeStatic3DLayout(nodesOut, edgesOut, triangles, center, seedSet, adj) {
+  const n = nodesOut.length;
+  if (!n) return;
+  const idToIdx = new Map(nodesOut.map((nd, i) => [nd.id, i]));
+  const golden = Math.PI * (3 - Math.sqrt(5));
+  const directCenter = adj.get(center) || new Set();
+  const pos = nodesOut.map((nd, i) => {
+    const nid = nd.id;
+    if (nid === center) {
+      nd.hop_distance = 0;
+      return [0, 0, 0];
+    }
+    if (seedSet.has(nid)) {
+      nd.hop_distance = 0;
+      const ang = (i * golden) % (2 * Math.PI);
+      return [75 * Math.cos(ang), 75 * Math.sin(ang), ((i % 3) - 1) * 45];
+    }
+    const isDirect = directCenter.has(nid);
+    nd.hop_distance = isDirect ? 1 : 2;
+    const rad = isDirect ? 135 : 215;
+    const y = 1 - (2 * ((i + 0.5) / Math.max(2, n)));
+    const r = Math.sqrt(Math.max(0, 1 - y * y));
+    const theta = i * golden + (nid % 19) * 0.17;
+    return [rad * r * Math.cos(theta), rad * y, rad * r * Math.sin(theta)];
+  });
+
+  for (let step = 0; step < 36; step++) {
+    const fx = new Float64Array(n);
+    const fy = new Float64Array(n);
+    const fz = new Float64Array(n);
+    for (let i = 0; i < n; i++) {
+      for (let j = i + 1; j < n; j++) {
+        const dx = pos[i][0] - pos[j][0];
+        const dy = pos[i][1] - pos[j][1];
+        const dz = pos[i][2] - pos[j][2];
+        const d2 = dx * dx + dy * dy + dz * dz + 4;
+        const d = Math.sqrt(d2);
+        const rep = 11500 / d2;
+        fx[i] += (dx / d) * rep; fy[i] += (dy / d) * rep; fz[i] += (dz / d) * rep;
+        fx[j] -= (dx / d) * rep; fy[j] -= (dy / d) * rep; fz[j] -= (dz / d) * rep;
+      }
+    }
+    for (const e of edgesOut) {
+      const ui = idToIdx.get(e.from);
+      const vi = idToIdx.get(e.to);
+      if (ui == null || vi == null) continue;
+      const dx = pos[vi][0] - pos[ui][0];
+      const dy = pos[vi][1] - pos[ui][1];
+      const dz = pos[vi][2] - pos[ui][2];
+      const d = Math.sqrt(dx * dx + dy * dy + dz * dz) + 1e-4;
+      const target = 135 * (1.18 - 0.25 * (e.weight || 0.8));
+      const f = 0.055 * (d - target);
+      fx[ui] += (dx / d) * f; fy[ui] += (dy / d) * f; fz[ui] += (dz / d) * f;
+      fx[vi] -= (dx / d) * f; fy[vi] -= (dy / d) * f; fz[vi] -= (dz / d) * f;
+    }
+    for (const tri of triangles) {
+      const i0 = idToIdx.get(tri[0]), i1 = idToIdx.get(tri[1]), i2 = idToIdx.get(tri[2]);
+      if (i0 == null || i1 == null || i2 == null) continue;
+      const cx = (pos[i0][0] + pos[i1][0] + pos[i2][0]) / 3;
+      const cy = (pos[i0][1] + pos[i1][1] + pos[i2][1]) / 3;
+      const cz = (pos[i0][2] + pos[i1][2] + pos[i2][2]) / 3;
+      for (const idx of [i0, i1, i2]) {
+        fx[idx] += 0.015 * (cx - pos[idx][0]);
+        fy[idx] += 0.015 * (cy - pos[idx][1]);
+        fz[idx] += 0.015 * (cz - pos[idx][2]);
+      }
+    }
+    for (let i = 0; i < n; i++) {
+      const nid = nodesOut[i].id;
+      if (nid === center && seedSet.size <= 1) continue;
+      const rNow = Math.sqrt(pos[i][0] * pos[i][0] + pos[i][1] * pos[i][1] + pos[i][2] * pos[i][2]) + 1e-4;
+      const rShell = seedSet.has(nid) ? 75 : (directCenter.has(nid) ? 135 : 215);
+      const radialF = 0.08 * (rShell - rNow);
+      fx[i] += (pos[i][0] / rNow) * radialF;
+      fy[i] += (pos[i][1] / rNow) * radialF;
+      fz[i] += (pos[i][2] / rNow) * radialF;
+      pos[i][0] += Math.max(-18, Math.min(18, fx[i])) * 0.45;
+      pos[i][1] += Math.max(-18, Math.min(18, fy[i])) * 0.45;
+      pos[i][2] += Math.max(-18, Math.min(18, fz[i])) * 0.45;
+    }
+  }
+  let maxR = 1;
+  for (let i = 0; i < n; i++) {
+    const rNow = Math.sqrt(pos[i][0] * pos[i][0] + pos[i][1] * pos[i][1] + pos[i][2] * pos[i][2]);
+    if (rNow > maxR) maxR = rNow;
+  }
+  const scale = 205 / maxR;
+  nodesOut.forEach((nd, i) => {
+    nd.x = Math.round(pos[i][0] * scale * 100) / 100;
+    nd.y = Math.round(pos[i][1] * scale * 100) / 100;
+    nd.z = Math.round(pos[i][2] * scale * 100) / 100;
+  });
+}
+
+async function graphExploreStatic(center, neighbors, extraSeeds = [], queryStr = '') {
   const g = buildGraphIndexes(await ensureGraphBundle());
+  const seedSet = new Set();
+  for (const s of extraSeeds) {
+    if (typeof s === 'number' && s >= 0 && s < g.n_nodes) seedSet.add(s);
+    else if (g._pidMap?.has(String(s))) seedSet.add(g._pidMap.get(String(s)));
+    else if (/^\d+$/.test(String(s)) && parseInt(s, 10) < g.n_nodes) seedSet.add(parseInt(s, 10));
+  }
+  if ((center == null || center < 0) && seedSet.size > 0) {
+    center = [...seedSet][0];
+  }
   if (center < 0 || center >= g.n_nodes) return { error: 'node out of range' };
-  const nodesSet = expandNeighborhoodStatic(center, neighbors, g);
+  seedSet.add(center);
+
+  const nodesSet = new Set();
+  for (const snode of seedSet) {
+    const sub = expandNeighborhoodStatic(snode, neighbors, g);
+    sub.forEach(x => nodesSet.add(x));
+  }
   const { nodesOut, edgesOut, triangles } = inducedSubgraphStatic(nodesSet, g);
-  nodesOut.forEach(n => { n.is_center = n.id === center; });
+  computeStatic3DLayout(nodesOut, edgesOut, triangles, center, seedSet, g._adj);
+  nodesOut.forEach(n => {
+    n.is_center = n.id === center;
+    n.is_seed = seedSet.has(n.id);
+    n.query_score = queryStr ? Math.round(scorePaperQuery(queryStr, n.id, g) * 100) / 100 : 0;
+  });
   return {
     center_node: center,
-    n_neighbors_requested: Math.min(20, Math.max(1, neighbors)),
+    seeds: [...seedSet],
+    n_neighbors_requested: Math.min(35, Math.max(1, neighbors)),
     n_nodes: nodesOut.length,
     n_edges: edgesOut.length,
     n_triangles: triangles.length,
@@ -530,6 +961,112 @@ let paperSearchTimer = null;
 let evaluationsData = [];
 let currentEvalFilter = 'all';
 
+// --- Theme Management (Dark / Light) ---
+function applyTheme(theme) {
+  const isLight = theme === 'light';
+  document.documentElement.classList.toggle('light', isLight);
+  const iconEl = document.getElementById('theme-toggle-icon');
+  const lblEl = document.getElementById('theme-toggle-label');
+  if (iconEl) iconEl.textContent = isLight ? '🌙' : '☀️';
+  if (lblEl) lblEl.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+  try { localStorage.setItem('paper_simplicial_theme', theme); } catch (_) {}
+  if (currentGraphData && graphRenderMode === '2d') {
+    render2DVisNetwork(currentGraphData);
+  }
+}
+
+function toggleTheme() {
+  const isLight = document.documentElement.classList.contains('light');
+  applyTheme(isLight ? 'dark' : 'light');
+}
+
+// --- 6-Domain Scientific Cluster Palette (from earlier 3D prototype design) ---
+const DOMAIN_CLUSTERS = [
+  { id: 'energy', name: 'Electrochemistry & Batteries', color: '#38bdf8', keywords: ['electrolyte', 'battery', 'lithium', 'cathode', 'anode', 'ion', 'electrochemical', 'capacitor', 'fuel cell', 'redox', 'oxide'] },
+  { id: 'catalysis', name: 'Catalysis, Solar & Surfaces', color: '#34d399', keywords: ['perovskite', 'solar', 'photovoltaic', 'catalyst', 'catalytic', 'hydrogen', 'adsorption', 'reforming', 'reactor', 'co2', 'membrane'] },
+  { id: 'alloys', name: 'Alloys, Ceramics & Structural', color: '#f59e0b', keywords: ['alloy', 'steel', 'ceramic', 'microstructure', 'mechanical', 'fracture', 'sintering', 'grain', 'corrosion', 'metal', 'phase', 'composite'] },
+  { id: 'polymers', name: 'Polymers, Bio & Soft Matter', color: '#f43f5e', keywords: ['polymer', 'hydrogel', 'protein', 'cell', 'biomedical', 'scaffold', 'drug', 'lipid', 'tissue', 'elastomer', 'membrane'] },
+  { id: 'comp', name: 'Computational, ML & Design', color: '#a3e635', keywords: ['simulation', 'modelling', 'modeling', 'neural', 'learning', 'optimization', 'optimisation', 'dft', 'ab initio', 'algorithm', 'finite element', 'prediction'] },
+  { id: 'quantum', name: 'Quantum, Optics & Condensed', color: '#2dd4bf', keywords: ['quantum', 'magnetic', 'spin', 'phonon', 'optical', 'laser', 'superconductor', 'topological', 'band', 'dielectric', 'thin film', 'nanowire'] },
+];
+
+function classifyPaperCluster(title, nodeId = 0) {
+  const t = (title || '').toLowerCase();
+  let bestCluster = null;
+  let bestHits = 0;
+  for (const cl of DOMAIN_CLUSTERS) {
+    let hits = 0;
+    for (const kw of cl.keywords) {
+      if (t.includes(kw)) hits++;
+    }
+    if (hits > bestHits) {
+      bestHits = hits;
+      bestCluster = cl;
+    }
+  }
+  return bestCluster || DOMAIN_CLUSTERS[nodeId % DOMAIN_CLUSTERS.length];
+}
+
+function hexToRgb(hex) {
+  const clean = (hex || '#38bdf8').replace('#', '');
+  const num = parseInt(clean, 16);
+  return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+}
+
+// --- 3D Simplicial Graph & Traversal State ---
+let graphRenderMode = '3d'; // '3d' or '2d'
+let currentGraphData = null;
+let traversalHistory = []; // [{ node, title, paper_id, seeds }]
+let traversalIndex = -1;
+let visitedNodesOrder = []; // ordered list of focal nodes visited along the trail
+let hoveredTriangleIndex = -1;
+let hoveredHoleIndex = -1;
+let selectedHoleIndex = -1;
+let activeInspectorTab = 'holes'; // 'holes' | 'tris' | 'nodes'
+let is3DFullWidth = false;
+let inspectedNodeId = null;
+let hovered3DNodeId = null;
+let activeBridgePath = []; // highlighted shortest k-NN bridge path nodes
+
+const state3D = {
+  nodes: [],
+  nodeMap: new Map(),
+  allEdges: [],
+  allTriangles: [],
+  edges: [],
+  triangles: [],
+  tetrahedra: [],
+  openHoles: [], // [{ u, v, w, pivot, missingEdge, w1, w2, missingW, score, holeType, isCrossDomain }]
+  minTau: 0.70,
+  tauRangeMin: 0.70,
+  tauRangeMax: 0.99,
+  activeClusterId: null,
+  yaw: -0.55,
+  pitch: 0.30,
+  distance: 335,
+  targetYaw: -0.55,
+  targetPitch: 0.30,
+  targetDistance: 335,
+  panX: 0,
+  panY: 0,
+  camTarget: { x: 0, y: 0, z: 0 },
+  camCurrent: { x: 0, y: 0, z: 0 },
+  showFaces: true,
+  showHoles: true,
+  showTetra: true,
+  showLabels: true,
+  autoOrbit: false,
+  isDragging: false,
+  dragButton: 0,
+  dragStartX: 0,
+  dragStartY: 0,
+  dragMoved: false,
+  projectedNodes: new Map(), // id -> { sx, sy, sz, scale, r }
+  focusNeighborsOrdered: [], // ordered 1-hop neighbors of active/focal node for [1-9] hotkeys
+  animFrame: null,
+  physicsTicks: 0,
+};
+
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => switchTab(btn.dataset.tab));
 });
@@ -540,11 +1077,29 @@ function switchTab(name) {
   document.querySelectorAll('.tab-btn').forEach(b => {
     b.classList.toggle('tab-active', b.dataset.tab === name);
   });
-  lucide.createIcons();
+  if (typeof lucide !== 'undefined') lucide.createIcons();
+  if (name === 'graph') {
+    resize3DCanvas();
+    if (!currentGraphData) {
+      if (allTriads.length > 0) {
+        exploreTriadByRank(1, false);
+      } else {
+        selectedPaperNode = 2508;
+        runGraphExplore();
+      }
+    }
+  }
 }
 
 async function init() {
-  lucide.createIcons();
+  try {
+    const savedTheme = localStorage.getItem('paper_simplicial_theme');
+    if (savedTheme === 'light') applyTheme('light');
+  } catch (_) {}
+
+  if (typeof lucide !== 'undefined') lucide.createIcons();
+  init3DCanvasEvents();
+  initKeyboardShortcuts();
   try {
     const stats = await fetchJsonOrApi('/api/stats', '/data/stats.json');
     document.getElementById('header-stats').textContent =
@@ -568,12 +1123,60 @@ async function init() {
   document.getElementById('triad-next').addEventListener('click', () => { triadPage++; renderTriads(); });
 
   document.getElementById('paper-query').addEventListener('input', onPaperQueryInput);
+  document.getElementById('paper-query').addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      document.getElementById('paper-results').classList.add('hidden');
+      runGraphExplore();
+    }
+  });
   document.getElementById('neighbor-count').addEventListener('input', e => {
     document.getElementById('neighbor-val').textContent = e.target.value;
   });
-  document.getElementById('graph-search-btn').addEventListener('click', runGraphExplore);
+  document.getElementById('neighbor-count').addEventListener('change', () => {
+    if (currentGraphData) runGraphExplore({ fromHistory: true });
+  });
+  const tauSlider = document.getElementById('tau-slider');
+  if (tauSlider) {
+    tauSlider.addEventListener('input', e => {
+      state3D.minTau = parseFloat(e.target.value);
+      document.getElementById('tau-val').textContent = state3D.minTau.toFixed(4);
+      rebuildFiltrationSimplices();
+    });
+  }
+  document.getElementById('graph-search-btn').addEventListener('click', () => runGraphExplore());
 
+  start3DRenderLoop();
+  selectedPaperNode = 2508;
+  runGraphExplore();
   loadPipelineArticle();
+}
+
+function initKeyboardShortcuts() {
+  window.addEventListener('keydown', e => {
+    if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
+    if (document.getElementById('view-graph')?.classList.contains('hidden')) return;
+    if (e.key >= '1' && e.key <= '9') {
+      const idx = parseInt(e.key, 10) - 1;
+      const targetNbr = state3D.focusNeighborsOrdered[idx];
+      if (targetNbr) {
+        e.preventDefault();
+        traverseToPaper(targetNbr.id);
+      }
+    } else if (e.key === '[') {
+      e.preventDefault();
+      stepTraversalHistory(-1);
+    } else if (e.key === ']') {
+      e.preventDefault();
+      stepTraversalHistory(1);
+    } else if (e.key === ' ') {
+      e.preventDefault();
+      toggle3DOrbit();
+    } else if (e.key === 'r' || e.key === 'R') {
+      e.preventDefault();
+      reset3DCamera();
+    }
+  });
 }
 
 function filteredTriads() {
@@ -600,7 +1203,7 @@ function renderTriads() {
 
   const tbody = document.getElementById('triad-tbody');
   if (!page.length) {
-    tbody.innerHTML = '<tr><td colspan="5" class="p-6 text-center text-slate-500">No matches</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="6" class="p-6 text-center text-slate-500">No matches</td></tr>';
     return;
   }
   tbody.innerHTML = page.map(t => `
@@ -610,12 +1213,87 @@ function renderTriads() {
       <td class="p-3 max-w-xs"><span class="line-clamp-2">${esc(t.title_u)}</span></td>
       <td class="p-3 max-w-xs"><span class="line-clamp-2">${esc(t.title_v)}</span></td>
       <td class="p-3 max-w-xs"><span class="line-clamp-2">${esc(t.title_w)}</span></td>
+      <td class="p-3 text-right">
+        <button type="button" onclick="exploreTriadByRank(${t.rank})" class="ctrl-pill text-emerald-300 border-emerald-500/30 hover:bg-emerald-500/20 whitespace-nowrap">
+          Explore 3D →
+        </button>
+      </td>
     </tr>`).join('');
+}
+
+function clearPaperQuery() {
+  const inp = document.getElementById('paper-query');
+  inp.value = '';
+  document.getElementById('paper-results').classList.add('hidden');
+  updateSubgraphQueryScores('');
+}
+
+function quickPresetQuery(q) {
+  const inp = document.getElementById('paper-query');
+  inp.value = q;
+  selectedPaperNode = null;
+  searchPapers().then(() => {
+    runGraphExplore();
+  });
+}
+
+async function exploreTriadByRank(rank, doSwitch = true) {
+  const t = allTriads.find(x => x.rank === rank);
+  if (!t) return;
+  if (doSwitch) switchTab('graph');
+  const pids = [t.paper_id_u, t.paper_id_v, t.paper_id_w].filter(Boolean);
+  await exploreSeedGroup(pids, `Triad #${rank}`);
+}
+
+async function exploreSeedGroup(seedsList, label = '') {
+  const neighbors = parseInt(document.getElementById('neighbor-count').value, 10);
+  const q = document.getElementById('paper-query').value.trim();
+  let data = null;
+  if (!STATIC_MODE) {
+    try {
+      const url = `/api/graph/explore?seeds=${encodeURIComponent(seedsList.join(','))}&neighbors=${neighbors}&q=${encodeURIComponent(q)}`;
+      const res = await fetch(url);
+      if (res.ok) data = await res.json();
+    } catch (_) { data = null; }
+  }
+  if (!data || data.error) {
+    data = await graphExploreStatic(-1, neighbors, seedsList, q);
+  }
+  if (data.error) { alert(data.error); return; }
+  selectedPaperNode = data.center_node;
+  const centerObj = data.nodes.find(n => n.id === data.center_node) || data.nodes[0];
+  if (centerObj) {
+    pushTraversalHistory({
+      node: centerObj.id,
+      title: label ? `${label}: ${centerObj.title}` : centerObj.title,
+      paper_id: centerObj.paper_id,
+      seeds: data.seeds || [centerObj.id],
+    });
+  }
+  applyGraphData(data);
 }
 
 function onPaperQueryInput() {
   clearTimeout(paperSearchTimer);
-  paperSearchTimer = setTimeout(searchPapers, 200);
+  const q = document.getElementById('paper-query').value.trim();
+  updateSubgraphQueryScores(q);
+  paperSearchTimer = setTimeout(searchPapers, 180);
+}
+
+function updateSubgraphQueryScores(q) {
+  if (!state3D.nodes.length) return;
+  const qLow = q.toLowerCase().trim();
+  const words = qLow.match(/[a-z0-9]+/g) || [];
+  state3D.nodes.forEach(n => {
+    if (!qLow) { n.query_score = 0; return; }
+    const tLow = (n.title || '').toLowerCase();
+    const pid = String(n.paper_id || '').toLowerCase();
+    if (qLow === String(n.id) || qLow === pid) { n.query_score = 9000; return; }
+    if (tLow.includes(qLow)) { n.query_score = 3000 + qLow.length; return; }
+    let ov = 0;
+    words.forEach(w => { if (tLow.includes(w)) ov++; });
+    n.query_score = ov > 0 ? ov * 100 : 0;
+  });
 }
 
 async function searchPapers() {
@@ -623,7 +1301,7 @@ async function searchPapers() {
   const box = document.getElementById('paper-results');
   if (q.length < 1) {
     box.classList.add('hidden');
-    return;
+    return [];
   }
   let hits;
   if (!STATIC_MODE) {
@@ -639,84 +1317,331 @@ async function searchPapers() {
   if (!hits.length) {
     box.innerHTML = '<div class="p-3 text-slate-500 text-xs">No papers matched.</div>';
     box.classList.remove('hidden');
-    return;
+    return [];
   }
-  box.innerHTML = hits.map(h => `
-    <button type="button" class="paper-hit w-full text-left p-2.5 border-b border-slate-800 text-xs block ${selectedPaperNode === h.node ? 'selected' : ''}"
+  box.innerHTML = hits.map(h => {
+    const cl = classifyPaperCluster(h.title, h.node);
+    return `
+    <div class="paper-hit w-full text-left p-2.5 border-b border-slate-800 text-xs flex items-center justify-between gap-2 ${selectedPaperNode === h.node ? 'selected' : ''}"
       data-node="${h.node}">
-      <span class="text-emerald-400 font-mono">node ${h.node}</span>
-      <span class="text-slate-500 font-mono ml-2">id ${esc(h.paper_id)}</span>
-      <div class="text-slate-200 mt-0.5 line-clamp-2">${esc(h.title)}</div>
-    </button>`).join('');
+      <div class="min-w-0 flex-1 cursor-pointer" onclick="selectAndTraversePaper(${h.node})">
+        <span class="inline-block w-2 h-2 rounded-full mr-1" style="background:${cl.color}"></span>
+        <span class="text-sky-400 font-mono">node ${h.node}</span>
+        <span class="text-slate-500 font-mono ml-2">id ${esc(h.paper_id)}</span>
+        <div class="text-slate-200 mt-0.5 line-clamp-2">${esc(h.title)}</div>
+      </div>
+      <div class="flex items-center gap-1 shrink-0">
+        ${currentGraphData && currentGraphData.center_node !== h.node ? `
+          <button type="button" onclick="findBridgePathFromCenter(${h.node})" class="ctrl-pill text-amber-300 border-amber-500/30" title="Find shortest k-NN bridge path from current center">
+            🔗 Bridge
+          </button>
+        ` : ''}
+        <button type="button" onclick="selectAndTraversePaper(${h.node})" class="ctrl-pill text-emerald-300 border-emerald-500/30">
+          Hop 3D →
+        </button>
+      </div>
+    </div>`;
+  }).join('');
   box.classList.remove('hidden');
-  box.querySelectorAll('.paper-hit').forEach(btn => {
-    btn.addEventListener('click', () => selectPaper(parseInt(btn.dataset.node, 10), btn.textContent));
-  });
+  return hits;
 }
 
-function selectPaper(node, label) {
+function selectPaper(node) {
   selectedPaperNode = node;
-  document.getElementById('paper-selected').textContent = 'Selected: node ' + node;
-  document.getElementById('paper-selected').classList.remove('hidden');
+  const selEl = document.getElementById('paper-selected');
+  selEl.textContent = 'Active focal node: ' + node;
+  selEl.classList.remove('hidden');
   document.querySelectorAll('.paper-hit').forEach(el => {
     el.classList.toggle('selected', parseInt(el.dataset.node, 10) === node);
   });
 }
 
-async function runGraphExplore() {
-  if (selectedPaperNode == null) {
-    const q = document.getElementById('paper-query').value.trim();
-    if (!q) { alert('Enter a query and select a paper from the list.'); return; }
-    let hit = null;
-    if (!STATIC_MODE) {
-      try {
-        const data = await fetch('/api/papers/search?q=' + encodeURIComponent(q) + '&limit=1').then(r => r.json());
-        hit = data.results?.[0];
-      } catch (_) {}
-    }
-    if (!hit) {
-      const g = buildGraphIndexes(await ensureGraphBundle());
-      const hits = searchPapersStatic(q, 1, g);
-      hit = hits[0];
-    }
-    if (!hit) { alert('No paper found.'); return; }
-    selectedPaperNode = hit.node;
+function selectAndTraversePaper(node) {
+  selectPaper(node);
+  document.getElementById('paper-results').classList.add('hidden');
+  traverseToPaper(node);
+}
+
+async function runMultiSeedQueryExplore() {
+  const q = document.getElementById('paper-query').value.trim();
+  if (!q) {
+    alert('Enter a search query first to build a Top-3 Query Constellation.');
+    return;
   }
-  const neighbors = parseInt(document.getElementById('neighbor-count').value, 10);
-  let data;
+  let hits = null;
   if (!STATIC_MODE) {
     try {
-      const url = `/api/graph/explore?node=${selectedPaperNode}&neighbors=${neighbors}`;
-      data = await fetch(url).then(r => r.json());
+      const data = await fetch('/api/papers/search?q=' + encodeURIComponent(q) + '&limit=3').then(r => r.json());
+      hits = data.results || [];
+    } catch (_) {}
+  }
+  if (!hits) {
+    const g = buildGraphIndexes(await ensureGraphBundle());
+    hits = searchPapersStatic(q, 3, g);
+  }
+  if (!hits.length) { alert('No matching papers found for query.'); return; }
+  document.getElementById('paper-results').classList.add('hidden');
+  const seedNodes = hits.map(h => h.node);
+  await exploreSeedGroup(seedNodes, `Query "${truncate(q, 22)}" (Top ${seedNodes.length})`);
+}
+
+async function findBridgePathFromCenter(targetNodeId) {
+  const srcNode = currentGraphData?.center_node ?? selectedPaperNode;
+  if (srcNode == null || srcNode === targetNodeId) return;
+  document.getElementById('paper-results').classList.add('hidden');
+  let pathNodes = null;
+  if (!STATIC_MODE) {
+    try {
+      const res = await fetch(`/api/graph/shortest_path?from=${srcNode}&to=${targetNodeId}`);
+      if (res.ok) {
+        const j = await res.json();
+        pathNodes = j.path;
+      }
+    } catch (_) {}
+  }
+  if (!pathNodes) {
+    // Client-side BFS fallback over static bundle
+    const g = buildGraphIndexes(await ensureGraphBundle());
+    const qBfs = [srcNode];
+    const parent = new Map([[srcNode, null]]);
+    let found = false;
+    while (qBfs.length > 0 && parent.size < 25000) {
+      const cur = qBfs.shift();
+      if (cur === targetNodeId) { found = true; break; }
+      for (const nb of (g._adj.get(cur) || [])) {
+        if (!parent.has(nb)) {
+          parent.set(nb, cur);
+          if (nb === targetNodeId) { found = true; break; }
+          qBfs.push(nb);
+        }
+      }
+      if (found) break;
+    }
+    if (found) {
+      pathNodes = [];
+      let c = targetNodeId;
+      while (c != null) { pathNodes.push(c); c = parent.get(c); }
+      pathNodes.reverse();
+    } else {
+      pathNodes = [srcNode, targetNodeId];
+    }
+  }
+  activeBridgePath = pathNodes;
+  const pill = document.getElementById('bridge-status-pill');
+  if (pill) {
+    pill.textContent = `🔗 Shortest kNN Bridge (${pathNodes.length - 1} hops): ${pathNodes.map(n => '#' + n).join(' → ')}`;
+    pill.classList.remove('hidden');
+  }
+  await exploreSeedGroup(pathNodes, `Bridge #${srcNode}→#${targetNodeId}`);
+}
+
+function exportTraversalTrailJson() {
+  if (!currentGraphData) return;
+  const payload = {
+    exported_at: new Date().toISOString(),
+    traversal_trail: traversalHistory,
+    active_cluster_filter: state3D.activeClusterId,
+    filtration_tau: state3D.minTau,
+    subgraph: {
+      center_node: currentGraphData.center_node,
+      nodes: state3D.nodes.map(n => ({
+        id: n.id, paper_id: n.paper_id, title: n.title,
+        cluster: n.cluster?.name, x: n.x, y: n.y, z: n.z
+      })),
+      edges: state3D.edges,
+      triangles_2simplices: state3D.triangles,
+      tetrahedra_3simplices: state3D.tetrahedra,
+    }
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `paper_simplicial_3d_trail_node_${currentGraphData.center_node}.json`;
+  a.click();
+}
+
+async function traverseToPaper(nodeId, opts = {}) {
+  selectedPaperNode = nodeId;
+  selectPaper(nodeId);
+  await runGraphExplore(opts);
+}
+
+function pushTraversalHistory(entry) {
+  if (traversalIndex >= 0 && traversalHistory[traversalIndex]?.node === entry.node) {
+    traversalHistory[traversalIndex] = entry;
+  } else {
+    traversalHistory = traversalHistory.slice(0, traversalIndex + 1);
+    traversalHistory.push(entry);
+    traversalIndex = traversalHistory.length - 1;
+  }
+  if (!visitedNodesOrder.includes(entry.node)) {
+    visitedNodesOrder.push(entry.node);
+  }
+  renderTraversalBar();
+}
+
+function stepTraversalHistory(delta) {
+  const nextIdx = traversalIndex + delta;
+  if (nextIdx < 0 || nextIdx >= traversalHistory.length) return;
+  traversalIndex = nextIdx;
+  const target = traversalHistory[traversalIndex];
+  selectedPaperNode = target.node;
+  selectPaper(target.node);
+  renderTraversalBar();
+  runGraphExplore({ fromHistory: true, explicitSeeds: target.seeds });
+}
+
+function jumpTraversalHistory(idx) {
+  if (idx < 0 || idx >= traversalHistory.length) return;
+  traversalIndex = idx;
+  const target = traversalHistory[traversalIndex];
+  selectedPaperNode = target.node;
+  selectPaper(target.node);
+  renderTraversalBar();
+  runGraphExplore({ fromHistory: true, explicitSeeds: target.seeds });
+}
+
+function resetTraversalTrail() {
+  traversalHistory = [];
+  traversalIndex = -1;
+  visitedNodesOrder = [];
+  activeBridgePath = [];
+  document.getElementById('bridge-status-pill')?.classList.add('hidden');
+  renderTraversalBar();
+  if (selectedPaperNode != null) {
+    runGraphExplore();
+  }
+}
+
+function renderTraversalBar() {
+  const prevBtn = document.getElementById('hop-prev-btn');
+  const nextBtn = document.getElementById('hop-next-btn');
+  const crumbsEl = document.getElementById('traversal-crumbs');
+  const badge = document.getElementById('inspector-hop-badge');
+  if (prevBtn) prevBtn.disabled = traversalIndex <= 0;
+  if (nextBtn) nextBtn.disabled = traversalIndex < 0 || traversalIndex >= traversalHistory.length - 1;
+
+  if (!traversalHistory.length) {
+    crumbsEl.innerHTML = '<span class="text-[11px] text-slate-500 italic">No hops yet — search a query or click any paper to begin traversing.</span>';
+    if (badge) badge.classList.add('hidden');
+    return;
+  }
+  if (badge) {
+    badge.textContent = `Hop #${traversalIndex + 1} / ${traversalHistory.length}`;
+    badge.classList.remove('hidden');
+  }
+  crumbsEl.innerHTML = traversalHistory.map((item, idx) => {
+    const cl = classifyPaperCluster(item.title, item.node);
+    return `
+    ${idx > 0 ? '<span class="text-slate-500 font-mono text-xs">→</span>' : ''}
+    <button type="button" onclick="jumpTraversalHistory(${idx})" class="hop-crumb ${idx === traversalIndex ? 'active' : ''}" title="${esc(item.title)}">
+      <span class="w-2 h-2 rounded-full shrink-0" style="background:${cl.color}"></span>
+      <span>${idx + 1}. ${esc(truncate(item.title, 20))}</span>
+    </button>`;
+  }).join('');
+}
+
+async function runGraphExplore(opts = {}) {
+  const q = document.getElementById('paper-query').value.trim();
+  if (selectedPaperNode == null || opts.forceQueryLookup) {
+    if (q) {
+      let hit = null;
+      if (!STATIC_MODE) {
+        try {
+          const data = await fetch('/api/papers/search?q=' + encodeURIComponent(q) + '&limit=1').then(r => r.json());
+          hit = data.results?.[0];
+        } catch (_) {}
+      }
+      if (!hit) {
+        const g = buildGraphIndexes(await ensureGraphBundle());
+        const hits = searchPapersStatic(q, 1, g);
+        hit = hits[0];
+      }
+      if (hit) {
+        selectedPaperNode = hit.node;
+        selectPaper(hit.node);
+      }
+    }
+    if (selectedPaperNode == null) {
+      alert('Enter a query or select a paper to explore.');
+      return;
+    }
+  }
+
+  const neighbors = parseInt(document.getElementById('neighbor-count').value, 10);
+  const accumulate = document.getElementById('accumulate-trail')?.checked;
+
+  let seedNodes = [selectedPaperNode];
+  if (opts.explicitSeeds?.length) {
+    seedNodes = [...new Set([...opts.explicitSeeds, selectedPaperNode])];
+  } else if (accumulate && visitedNodesOrder.length > 0) {
+    const recentVisited = visitedNodesOrder.slice(-5);
+    seedNodes = [...new Set([...recentVisited, selectedPaperNode])];
+  }
+
+  let data = null;
+  if (!STATIC_MODE) {
+    try {
+      const url = `/api/graph/explore?node=${selectedPaperNode}&seeds=${encodeURIComponent(seedNodes.join(','))}&neighbors=${neighbors}&q=${encodeURIComponent(q)}`;
+      const res = await fetch(url);
+      if (res.ok) data = await res.json();
     } catch (_) { data = null; }
   }
-  if (data == null) {
-    data = await graphExploreStatic(selectedPaperNode, neighbors);
+  if (!data || data.error) {
+    data = await graphExploreStatic(selectedPaperNode, neighbors, seedNodes, q);
   }
   if (data.error) { alert(data.error); return; }
 
-  renderGraphSidebar(data);
+  const centerObj = data.nodes.find(n => n.id === data.center_node) || data.nodes[0];
+  if (!opts.fromHistory && centerObj) {
+    pushTraversalHistory({
+      node: centerObj.id,
+      title: centerObj.title,
+      paper_id: centerObj.paper_id,
+      seeds: seedNodes,
+    });
+  }
 
-  const nodeById = Object.fromEntries(data.nodes.map(n => [n.id, n]));
-  const visNodes = new vis.DataSet(data.nodes.map(n => ({
+  applyGraphData(data);
+}
+
+function applyGraphData(data) {
+  currentGraphData = data;
+  loadDataInto3DScene(data);
+  render2DVisNetwork(data);
+  if (inspectedNodeId != null && state3D.nodeMap.has(inspectedNodeId)) {
+    showNodeHudCard(inspectedNodeId);
+  } else {
+    showNodeHudCard(data.center_node);
+  }
+}
+
+function render2DVisNetwork(data) {
+  const container = document.getElementById('network');
+  if (!container || typeof vis === 'undefined') return;
+  const isLight = document.documentElement.classList.contains('light');
+  const nodeById = Object.fromEntries(state3D.nodes.map(n => [n.id, n]));
+  const visNodes = new vis.DataSet(state3D.nodes.map(n => ({
     id: n.id,
     label: n.is_center ? '★ ' + truncate(n.title, 28) : truncate(n.title, 28),
-    color: n.is_center ? '#10b981' : '#6366f1',
-    size: n.is_center ? 22 : 14,
-    font: { size: 10, color: '#e2e8f0' },
+    color: {
+      background: n.color,
+      border: n.is_center ? '#ffffff' : n.color,
+      highlight: { background: n.color, border: '#ffffff' }
+    },
+    size: n.is_center ? 23 : 15,
+    font: { size: 11, color: isLight ? '#0f172a' : '#f1f5f9' },
     _meta: { paper_id: n.paper_id, title: n.title, is_center: n.is_center },
   })));
-  const visEdges = new vis.DataSet(data.edges.map(e => ({
+  const visEdges = new vis.DataSet(state3D.edges.map(e => ({
     from: e.from, to: e.to,
     label: e.weight.toFixed(3),
     width: 1 + e.weight * 2,
-    color: { color: '#64748b', highlight: '#94a3b8' },
-    font: { size: 9, align: 'middle', color: '#94a3b8' }
+    color: { color: isLight ? '#94a3b8' : '#64748b', highlight: '#38bdf8' },
+    font: { size: 9, align: 'middle', color: isLight ? '#475569' : '#94a3b8' }
   })));
 
-  const container = document.getElementById('network');
   if (network) network.destroy();
-  graphTriangles = data.triangles || [];
   network = new vis.Network(container, { nodes: visNodes, edges: visEdges }, {
     physics: {
       barnesHut: { gravitationalConstant: -8000, springLength: 120, avoidOverlap: 0.2 },
@@ -725,8 +1650,1242 @@ async function runGraphExplore() {
     interaction: { hover: true, tooltipDelay: 120 },
     edges: { smooth: { type: 'continuous' } }
   });
-  bindTriangleFaces(network, graphTriangles);
+  bindTriangleFaces(network, state3D.triangles);
   bindGraphTooltips(network, nodeById);
+  network.on('click', (params) => {
+    if (params.nodes?.length) {
+      showNodeHudCard(params.nodes[0]);
+    }
+  });
+  network.on('doubleClick', (params) => {
+    if (params.nodes?.length) {
+      traverseToPaper(params.nodes[0]);
+    }
+  });
+}
+
+// ============================================================================
+// 3D INTERACTIVE SIMPLICIAL FLAG COMPLEX ENGINE (MATCHING PROTOTYPE PALETTE)
+// ============================================================================
+function setGraphRenderMode(mode) {
+  graphRenderMode = mode;
+  const c3d = document.getElementById('network-3d');
+  const c2d = document.getElementById('network');
+  const b3d = document.getElementById('btn-mode-3d');
+  const b2d = document.getElementById('btn-mode-2d');
+  const orbitBtn = document.getElementById('btn-toggle-orbit');
+  if (c3d) c3d.classList.remove('hidden');
+  if (c2d) c2d.classList.add('hidden');
+
+  if (mode === '3d') {
+    b3d?.classList.add('active');
+    b2d?.classList.remove('active');
+    orbitBtn?.classList.remove('opacity-40');
+    state3D.targetYaw = -0.55;
+    state3D.targetPitch = 0.30;
+    state3D.nodes.forEach(nd => {
+      nd.tx = nd.x3d ?? nd.x;
+      nd.ty = nd.y3d ?? nd.y;
+      nd.tz = nd.z3d ?? nd.z;
+    });
+    state3D.physicsTicks = 50;
+  } else {
+    b3d?.classList.remove('active');
+    b2d?.classList.add('active');
+    state3D.autoOrbit = false;
+    orbitBtn?.classList.remove('active');
+    orbitBtn?.classList.add('opacity-40');
+    state3D.targetYaw = 0;
+    state3D.targetPitch = 0;
+    state3D.panX = 0;
+    state3D.panY = 0;
+    state3D.camTarget = { x: 0, y: 0, z: 0 };
+    state3D.nodes.forEach(nd => {
+      nd.tx = nd.x2d ?? nd.x;
+      nd.ty = nd.y2d ?? nd.y;
+      nd.tz = 0;
+    });
+    state3D.physicsTicks = 50;
+  }
+  resize3DCanvas();
+}
+
+function toggle3DFaces() {
+  state3D.showFaces = !state3D.showFaces;
+  const btn = document.getElementById('btn-toggle-faces');
+  if (btn) {
+    btn.textContent = '▲ Δ₂';
+    btn.classList.toggle('active', state3D.showFaces);
+  }
+}
+
+function toggle3DHoles() {
+  state3D.showHoles = !state3D.showHoles;
+  const btn = document.getElementById('btn-toggle-holes');
+  if (btn) {
+    btn.textContent = '◇ Holes';
+    btn.classList.toggle('active', state3D.showHoles);
+  }
+}
+
+function toggle3DTetra() {
+  state3D.showTetra = !state3D.showTetra;
+  const btn = document.getElementById('btn-toggle-tetra');
+  if (btn) {
+    btn.textContent = 'Δ₃';
+    btn.classList.toggle('active', state3D.showTetra);
+  }
+}
+
+function toggle3DLabels() {
+  state3D.showLabels = !state3D.showLabels;
+  const btn = document.getElementById('btn-toggle-labels');
+  if (btn) {
+    btn.textContent = 'Labels';
+    btn.classList.toggle('active', state3D.showLabels);
+  }
+}
+
+function toggle3DOrbit() {
+  state3D.autoOrbit = !state3D.autoOrbit;
+  const btn = document.getElementById('btn-toggle-orbit');
+  if (btn) btn.classList.toggle('active', state3D.autoOrbit);
+}
+
+function toggleExpand3DViewport() {
+  is3DFullWidth = !is3DFullWidth;
+  const leftSb = document.getElementById('graph-left-sidebar');
+  const vp = document.getElementById('graph-viewport-card');
+  const insp = document.getElementById('graph-inspector-panel');
+  const btn = document.getElementById('btn-expand-3d');
+  if (leftSb) leftSb.classList.toggle('hidden', is3DFullWidth);
+  if (insp) insp.classList.toggle('hidden', is3DFullWidth);
+  if (vp) {
+    vp.classList.toggle('md:col-span-6', !is3DFullWidth);
+    vp.classList.toggle('md:col-span-12', is3DFullWidth);
+  }
+  if (btn) {
+    btn.textContent = is3DFullWidth ? '◫ Split View' : '⛶ Maximize';
+    btn.classList.toggle('active', is3DFullWidth);
+  }
+  setTimeout(resize3DCanvas, 30);
+}
+
+function switchInspectorTab(tab) {
+  activeInspectorTab = tab;
+  for (const t of ['holes', 'tris', 'nodes']) {
+    const pane = document.getElementById('insp-pane-' + t);
+    const btn = document.getElementById('insp-tab-' + t);
+    const isAct = t === tab;
+    if (pane) pane.classList.toggle('hidden', !isAct);
+    if (btn) {
+      if (isAct) {
+        const activeCls = t === 'holes'
+          ? 'text-fuchsia-300 bg-fuchsia-500/15 border border-fuchsia-500/30'
+          : (t === 'tris' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/30' : 'text-sky-300 bg-sky-500/15 border border-sky-500/30');
+        btn.className = `py-1.5 px-2 rounded-lg transition ${activeCls}`;
+      } else {
+        btn.className = 'py-1.5 px-2 rounded-lg transition text-slate-400 hover:text-slate-200';
+      }
+    }
+  }
+}
+
+function resetTauThreshold() {
+  const tauSlider = document.getElementById('tau-slider');
+  state3D.minTau = state3D.tauRangeMin;
+  if (tauSlider) tauSlider.value = String(state3D.minTau);
+  const tauVal = document.getElementById('tau-val');
+  if (tauVal) tauVal.textContent = state3D.minTau.toFixed(4);
+  rebuildFiltrationSimplices();
+}
+
+function calibrateTauSlider(edges) {
+  const tauSlider = document.getElementById('tau-slider');
+  if (!tauSlider || !edges || !edges.length) return;
+  const ws = edges.map(e => e.weight).filter(w => typeof w === 'number');
+  if (!ws.length) return;
+  const minW = Math.min(...ws);
+  const maxW = Math.max(...ws);
+  const pad = Math.max(0.0002, (maxW - minW) * 0.04);
+  const rMin = Math.max(0.1, minW - pad);
+  const rMax = Math.min(0.9999, maxW);
+  const step = Math.max(0.0001, (rMax - rMin) / 140);
+
+  state3D.tauRangeMin = rMin;
+  state3D.tauRangeMax = rMax;
+  state3D.minTau = rMin;
+
+  tauSlider.min = rMin.toFixed(5);
+  tauSlider.max = rMax.toFixed(5);
+  tauSlider.step = step.toFixed(5);
+  tauSlider.value = rMin.toFixed(5);
+
+  const tauVal = document.getElementById('tau-val');
+  if (tauVal) tauVal.textContent = rMin.toFixed(4);
+  const minLbl = document.getElementById('tau-min-lbl');
+  if (minLbl) minLbl.textContent = `min ${minW.toFixed(4)}`;
+  const maxLbl = document.getElementById('tau-max-lbl');
+  if (maxLbl) maxLbl.textContent = `max ${maxW.toFixed(4)}`;
+}
+
+function reset3DCamera() {
+  state3D.targetYaw = graphRenderMode === '2d' ? 0 : -0.55;
+  state3D.targetPitch = graphRenderMode === '2d' ? 0 : 0.30;
+  state3D.targetDistance = 335;
+  state3D.panX = 0;
+  state3D.panY = 0;
+  const centerNode = state3D.nodes.find(n => n.is_center);
+  if (centerNode && graphRenderMode === '3d') {
+    state3D.camTarget = { x: centerNode.x, y: centerNode.y, z: centerNode.z };
+  } else {
+    state3D.camTarget = { x: 0, y: 0, z: 0 };
+  }
+}
+
+function setClusterFilter(clusterId) {
+  state3D.activeClusterId = state3D.activeClusterId === clusterId ? null : clusterId;
+  renderClusterFilterBar();
+  if (currentGraphData) renderGraphSidebar(currentGraphData);
+}
+
+function renderClusterFilterBar() {
+  const bar = document.getElementById('cluster-filter-bar');
+  const clearBtn = document.getElementById('clear-cluster-btn');
+  if (!bar) return;
+  const counts = {};
+  for (const n of state3D.nodes) {
+    const cid = n.cluster?.id;
+    if (cid) counts[cid] = (counts[cid] || 0) + 1;
+  }
+  if (clearBtn) clearBtn.classList.toggle('hidden', !state3D.activeClusterId);
+  bar.innerHTML = DOMAIN_CLUSTERS.map(cl => {
+    const c = counts[cl.id] || 0;
+    const isSelected = state3D.activeClusterId === cl.id;
+    const isDimmed = state3D.activeClusterId && !isSelected;
+    return `
+      <button type="button" onclick="setClusterFilter('${cl.id}')"
+        class="w-full text-left px-2.5 py-1.5 rounded-lg border text-[11px] flex items-center justify-between transition ${isSelected ? 'border-sky-400/60 bg-sky-500/15 text-white font-semibold' : 'border-slate-800/80 bg-slate-900/50 text-slate-300 hover:border-slate-700'} ${isDimmed ? 'opacity-45' : ''}">
+        <span class="flex items-center gap-2 min-w-0">
+          <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${cl.color}"></span>
+          <span class="truncate">${cl.name}</span>
+        </span>
+        <span class="font-mono text-[10px] text-slate-400 ml-2 shrink-0">${c}</span>
+      </button>
+    `;
+  }).join('');
+}
+
+function resize3DCanvas() {
+  const canvas = document.getElementById('network-3d');
+  if (!canvas) return;
+  const rect = canvas.parentElement.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  if (rect.width > 0 && rect.height > 0) {
+    canvas.width = Math.floor(rect.width * dpr);
+    canvas.height = Math.floor(rect.height * dpr);
+  }
+}
+
+window.addEventListener('resize', resize3DCanvas);
+
+function compute2DPlanarCoords(nodes, edges, centerId) {
+  const n = nodes.length;
+  if (!n) return;
+  const idxMap = new Map(nodes.map((nd, i) => [nd.id, i]));
+  const p2 = nodes.map((nd, i) => {
+    if (nd.id === centerId) return [0, 0];
+    const ring = nd.hop_distance === 1 ? 115 : 190;
+    const ang = (i * 2.3999632) % (Math.PI * 2);
+    return [ring * Math.cos(ang), ring * Math.sin(ang)];
+  });
+  for (let step = 0; step < 32; step++) {
+    const fx = new Float64Array(n);
+    const fy = new Float64Array(n);
+    for (let i = 0; i < n; i++) {
+      for (let j = i + 1; j < n; j++) {
+        const dx = p2[i][0] - p2[j][0];
+        const dy = p2[i][1] - p2[j][1];
+        const d2 = dx * dx + dy * dy + 9;
+        const d = Math.sqrt(d2);
+        const rep = 9500 / d2;
+        fx[i] += (dx / d) * rep; fy[i] += (dy / d) * rep;
+        fx[j] -= (dx / d) * rep; fy[j] -= (dy / d) * rep;
+      }
+    }
+    for (const e of edges) {
+      const ui = idxMap.get(e.from), vi = idxMap.get(e.to);
+      if (ui == null || vi == null) continue;
+      const dx = p2[vi][0] - p2[ui][0];
+      const dy = p2[vi][1] - p2[ui][1];
+      const d = Math.hypot(dx, dy) + 1e-4;
+      const f = 0.06 * (d - 115);
+      fx[ui] += (dx / d) * f; fy[ui] += (dy / d) * f;
+      fx[vi] -= (dx / d) * f; fy[vi] -= (dy / d) * f;
+    }
+    for (let i = 0; i < n; i++) {
+      if (nodes[i].id === centerId) continue;
+      const rNow = Math.hypot(p2[i][0], p2[i][1]) + 1e-4;
+      const rTarget = nodes[i].hop_distance === 1 ? 115 : 185;
+      const rf = 0.08 * (rTarget - rNow);
+      fx[i] += (p2[i][0] / rNow) * rf;
+      fy[i] += (p2[i][1] / rNow) * rf;
+      p2[i][0] += Math.max(-15, Math.min(15, fx[i])) * 0.45;
+      p2[i][1] += Math.max(-15, Math.min(15, fy[i])) * 0.45;
+    }
+  }
+  let maxR = 1;
+  for (let i = 0; i < n; i++) {
+    const r = Math.hypot(p2[i][0], p2[i][1]);
+    if (r > maxR) maxR = r;
+  }
+  const sc = 195 / maxR;
+  nodes.forEach((nd, i) => {
+    nd.x2d = Math.round(p2[i][0] * sc * 100) / 100;
+    nd.y2d = Math.round(p2[i][1] * sc * 100) / 100;
+  });
+}
+
+function loadDataInto3DScene(data) {
+  resize3DCanvas();
+  const prevMap = state3D.nodeMap;
+  const newNodes = (data.nodes || []).map((n, i) => {
+    const prev = prevMap.get(n.id);
+    const cl = classifyPaperCluster(n.title, n.id);
+    const x3d = n.x ?? (Math.cos(i) * 110);
+    const y3d = n.y ?? (Math.sin(i) * 110);
+    const z3d = n.z ?? ((i % 5 - 2) * 45);
+    return {
+      ...n,
+      cluster: cl,
+      color: cl.color,
+      degree: 0,
+      triangleCount: 0,
+      tetraCount: 0,
+      holeCount: 0,
+      x3d,
+      y3d,
+      z3d,
+      x2d: x3d,
+      y2d: y3d,
+      x: prev ? prev.x : x3d,
+      y: prev ? prev.y : y3d,
+      z: prev ? prev.z : z3d,
+      tx: x3d,
+      ty: y3d,
+      tz: z3d,
+    };
+  });
+  compute2DPlanarCoords(newNodes, data.edges || [], data.center_node);
+  if (graphRenderMode === '2d') {
+    newNodes.forEach(nd => {
+      nd.tx = nd.x2d;
+      nd.ty = nd.y2d;
+      nd.tz = 0;
+    });
+  }
+  state3D.nodes = newNodes;
+  state3D.nodeMap = new Map(newNodes.map(n => [n.id, n]));
+  state3D.allEdges = data.edges || [];
+  state3D.allTriangles = data.triangles || [];
+  state3D.physicsTicks = 75;
+  hoveredHoleIndex = -1;
+  selectedHoleIndex = -1;
+
+  calibrateTauSlider(state3D.allEdges);
+  rebuildFiltrationSimplices();
+  renderClusterFilterBar();
+
+  const focal = state3D.nodeMap.get(data.center_node) || newNodes[0];
+  if (focal && graphRenderMode === '3d') {
+    state3D.camTarget = { x: focal.tx ?? focal.x, y: focal.ty ?? focal.y, z: focal.tz ?? focal.z };
+  } else {
+    state3D.camTarget = { x: 0, y: 0, z: 0 };
+  }
+}
+
+function rebuildFiltrationSimplices() {
+  const tau = state3D.minTau;
+  const filteredEdges = state3D.allEdges.filter(e => e.weight >= tau);
+  const adj = new Map();
+  const edgeW = new Map();
+  const allEdgeW = new Map();
+
+  for (const e of state3D.allEdges) {
+    const k = e.from < e.to ? `${e.from},${e.to}` : `${e.to},${e.from}`;
+    allEdgeW.set(k, e.weight);
+  }
+
+  state3D.nodes.forEach(n => {
+    n.degree = 0;
+    n.triangleCount = 0;
+    n.tetraCount = 0;
+    n.holeCount = 0;
+    adj.set(n.id, new Set());
+  });
+  for (const e of filteredEdges) {
+    adj.get(e.from)?.add(e.to);
+    adj.get(e.to)?.add(e.from);
+    const key = e.from < e.to ? `${e.from},${e.to}` : `${e.to},${e.from}`;
+    edgeW.set(key, e.weight);
+    const nu = state3D.nodeMap.get(e.from);
+    const nv = state3D.nodeMap.get(e.to);
+    if (nu) nu.degree++;
+    if (nv) nv.degree++;
+  }
+
+  // 1. Extract closed 2-simplices (triangles) and 3-simplices (4-clique tetrahedra) at threshold tau
+  const nodeIds = state3D.nodes.map(n => n.id).sort((a, b) => a - b);
+  const tris = [];
+  const closedTriKeys = new Set();
+  const tetra = [];
+  for (let i = 0; i < nodeIds.length; i++) {
+    const a = nodeIds[i];
+    const na = adj.get(a);
+    for (let j = i + 1; j < nodeIds.length; j++) {
+      const b = nodeIds[j];
+      if (!na?.has(b)) continue;
+      const nb = adj.get(b);
+      for (let k = j + 1; k < nodeIds.length; k++) {
+        const c = nodeIds[k];
+        if (!na.has(c) || !nb?.has(c)) continue;
+        tris.push([a, b, c]);
+        closedTriKeys.add(`${a},${b},${c}`);
+        state3D.nodeMap.get(a).triangleCount++;
+        state3D.nodeMap.get(b).triangleCount++;
+        state3D.nodeMap.get(c).triangleCount++;
+        const nc = adj.get(c);
+        for (let l = k + 1; l < nodeIds.length; l++) {
+          const d = nodeIds[l];
+          if (na.has(d) && nb.has(d) && nc?.has(d)) {
+            tetra.push([a, b, c, d]);
+            state3D.nodeMap.get(a).tetraCount++;
+            state3D.nodeMap.get(b).tetraCount++;
+            state3D.nodeMap.get(c).tetraCount++;
+            state3D.nodeMap.get(d).tetraCount++;
+          }
+        }
+      }
+    }
+  }
+
+  // 2. OPEN BOUNDARY HOLE ("UNFILLED TRIANGLE") DETECTOR
+  // Detects:
+  //   (A) τ-Opened Triangles: 3-cliques in the base k-NN subgraph where 2 edges ≥ τ and the 3rd edge < τ
+  //   (B) 4-Cycle Topological Holes & Structural Open Wedges: Pivot paper v connected to both u and w (w_uv ≥ τ, w_vw ≥ τ),
+  //       where the closing link (u, w) is missing in E_τ (unbridged triad candidate).
+  const candidateHoles = [];
+  const seenMissingTriples = new Set();
+
+  // Pass A: τ-Opened Triangles from base subgraph
+  for (const baseTri of state3D.allTriangles) {
+    const [a, b, c] = [...baseTri].sort((x, y) => x - y);
+    const key = `${a},${b},${c}`;
+    if (closedTriKeys.has(key)) continue;
+    const pairs = [
+      { u: a, w: b, pivot: c, k1: a < c ? `${a},${c}` : `${c},${a}`, k2: b < c ? `${b},${c}` : `${c},${b}`, km: `${a},${b}` },
+      { u: a, w: c, pivot: b, k1: a < b ? `${a},${b}` : `${b},${a}`, k2: b < c ? `${b},${c}` : `${c},${b}`, km: `${a},${c}` },
+      { u: b, w: c, pivot: a, k1: a < b ? `${a},${b}` : `${b},${a}`, k2: a < c ? `${a},${c}` : `${c},${a}`, km: `${b},${c}` },
+    ];
+    for (const p of pairs) {
+      const w1 = edgeW.get(p.k1);
+      const w2 = edgeW.get(p.k2);
+      if (w1 != null && w2 != null && !edgeW.has(p.km)) {
+        const nu = state3D.nodeMap.get(p.u);
+        const nv = state3D.nodeMap.get(p.pivot);
+        const nw = state3D.nodeMap.get(p.w);
+        const isCross = nu?.cluster?.id !== nw?.cluster?.id;
+        const missingW = allEdgeW.get(p.km) ?? null;
+        const score = Math.sqrt(w1 * w2) + (isCross ? 0.008 : 0) + 0.015;
+        seenMissingTriples.add(key);
+        candidateHoles.push({
+          u: p.u,
+          v: p.pivot,
+          w: p.w,
+          pivot: p.pivot,
+          missingEdge: [p.u, p.w],
+          w1,
+          w2,
+          missingW,
+          score,
+          holeType: 'tau-opened',
+          typeLabel: 'τ-Filtration Boundary Hole',
+          isCrossDomain: isCross,
+        });
+        break;
+      }
+    }
+  }
+
+  // Pass B: Structural Open Wedges & 4-Cycle H₁ Holes in E_τ
+  for (const pivotId of nodeIds) {
+    const nbs = [...(adj.get(pivotId) || [])].sort((a, b) => a - b);
+    if (nbs.length < 2) continue;
+    for (let i = 0; i < nbs.length; i++) {
+      const u = nbs[i];
+      for (let j = i + 1; j < nbs.length; j++) {
+        const w = nbs[j];
+        if (adj.get(u)?.has(w)) continue; // Already closed triangle
+        const triKey = [u, pivotId, w].sort((x, y) => x - y).join(',');
+        if (seenMissingTriples.has(triKey)) continue;
+        seenMissingTriples.add(triKey);
+
+        const k1 = u < pivotId ? `${u},${pivotId}` : `${pivotId},${u}`;
+        const k2 = w < pivotId ? `${w},${pivotId}` : `${pivotId},${w}`;
+        const w1 = edgeW.get(k1) || 0.95;
+        const w2 = edgeW.get(k2) || 0.95;
+
+        // Check if u and w share a second common neighbor (forming a 4-cycle H₁ hole!)
+        let secondPivot = null;
+        for (const nbU of (adj.get(u) || [])) {
+          if (nbU !== pivotId && adj.get(w)?.has(nbU)) {
+            secondPivot = nbU;
+            break;
+          }
+        }
+
+        const nu = state3D.nodeMap.get(u);
+        const nw = state3D.nodeMap.get(w);
+        const isCross = nu?.cluster?.id !== nw?.cluster?.id;
+        const centerBonus = (pivotId === currentGraphData?.center_node || u === currentGraphData?.center_node || w === currentGraphData?.center_node) ? 0.006 : 0;
+        const cycleBonus = secondPivot != null ? 0.010 : 0;
+        const crossBonus = isCross ? 0.005 : 0;
+        const score = Math.sqrt(w1 * w2) + centerBonus + cycleBonus + crossBonus;
+
+        candidateHoles.push({
+          u,
+          v: pivotId,
+          w,
+          pivot: pivotId,
+          secondPivot,
+          missingEdge: [u, w],
+          w1,
+          w2,
+          missingW: allEdgeW.get(`${u},${w}`) ?? null,
+          score,
+          holeType: secondPivot != null ? '4-cycle-hole' : 'open-wedge',
+          typeLabel: secondPivot != null ? `H₁ 4-Cycle Hole (via #${secondPivot})` : 'Open k-NN Wedge Gap',
+          isCrossDomain: isCross,
+        });
+      }
+    }
+  }
+
+  candidateHoles.sort((a, b) => b.score - a.score);
+  state3D.openHoles = candidateHoles.slice(0, 20);
+  for (const h of state3D.openHoles) {
+    if (state3D.nodeMap.get(h.u)) state3D.nodeMap.get(h.u).holeCount++;
+    if (state3D.nodeMap.get(h.v)) state3D.nodeMap.get(h.v).holeCount++;
+    if (state3D.nodeMap.get(h.w)) state3D.nodeMap.get(h.w).holeCount++;
+  }
+
+  state3D.edges = filteredEdges;
+  state3D.triangles = tris;
+  state3D.tetrahedra = tetra;
+  graphTriangles = tris;
+
+  // Update Topological Invariants in header pill (|V|, |E|, |Δ₂|, |◇ Holes|, |Δ₃|, χ)
+  const vCount = state3D.nodes.length;
+  const eCount = filteredEdges.length;
+  const tCount = tris.length;
+  const hCount = state3D.openHoles.length;
+  const tetCount = tetra.length;
+  const chi = vCount - eCount + tCount - tetCount;
+  const elV = document.getElementById('topo-v');
+  if (elV) {
+    elV.textContent = vCount;
+    document.getElementById('topo-e').textContent = eCount;
+    document.getElementById('topo-t').textContent = tCount;
+    const elH = document.getElementById('topo-holes');
+    if (elH) elH.textContent = hCount;
+    document.getElementById('topo-tet').textContent = tetCount;
+    document.getElementById('topo-chi').textContent = chi;
+  }
+
+  const tauSummary = document.getElementById('tau-active-summary');
+  if (tauSummary) {
+    tauSummary.textContent = `${eCount}/${state3D.allEdges.length} edges · ${tCount} Δ₂ · ${hCount} ◇ holes`;
+  }
+
+  if (currentGraphData) {
+    renderGraphSidebar(currentGraphData);
+    showNodeHudCard(inspectedNodeId ?? currentGraphData.center_node);
+  }
+}
+
+function step3DLayoutInterpolation() {
+  if (state3D.physicsTicks <= 0) return;
+  state3D.physicsTicks--;
+  for (const nd of state3D.nodes) {
+    if (nd.tx != null) {
+      nd.x += (nd.tx - nd.x) * 0.14;
+      nd.y += (nd.ty - nd.y) * 0.14;
+      nd.z += (nd.tz - nd.z) * 0.14;
+    }
+  }
+}
+
+function projectPoint3D(x, y, z, width, height) {
+  const rx = x - state3D.camCurrent.x;
+  const ry = y - state3D.camCurrent.y;
+  const rz = z - state3D.camCurrent.z;
+
+  const cosY = Math.cos(state3D.yaw), sinY = Math.sin(state3D.yaw);
+  const x1 = rx * cosY - rz * sinY;
+  const z1 = rx * sinY + rz * cosY;
+
+  const cosP = Math.cos(state3D.pitch), sinP = Math.sin(state3D.pitch);
+  const y2 = ry * cosP - z1 * sinP;
+  const z2 = ry * sinP + z1 * cosP;
+
+  const depth = z2 + state3D.distance;
+  if (depth < 25) return null;
+  const fov = Math.min(width, height) * 1.08;
+  const scale = fov / depth;
+  return {
+    sx: width * 0.5 + state3D.panX + x1 * scale,
+    sy: height * 0.5 + state3D.panY - y2 * scale,
+    sz: depth,
+    scale,
+  };
+}
+
+function start3DRenderLoop() {
+  function frame(now) {
+    state3D.animFrame = requestAnimationFrame(frame);
+    const canvas = document.getElementById('network-3d');
+    if (!canvas || canvas.offsetParent === null) return;
+    if (canvas.width === 0 || canvas.height === 0) resize3DCanvas();
+
+    const isLight = document.documentElement.classList.contains('light');
+    canvas.style.background = isLight
+      ? 'radial-gradient(circle at 50% 45%, #f8fafc 0%, #e2e8f0 100%)'
+      : 'radial-gradient(circle at 50% 45%, #111827 0%, #070b14 100%)';
+
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.width / dpr;
+    const h = canvas.height / dpr;
+    ctx.save();
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, w, h);
+
+    if (state3D.autoOrbit && !state3D.isDragging) {
+      state3D.targetYaw += 0.0035;
+    }
+
+    // Smooth spring camera orbit & fly-to interpolation
+    state3D.yaw += (state3D.targetYaw - state3D.yaw) * 0.14;
+    state3D.pitch += (state3D.targetPitch - state3D.pitch) * 0.14;
+    state3D.distance += (state3D.targetDistance - state3D.distance) * 0.14;
+    state3D.camCurrent.x += (state3D.camTarget.x - state3D.camCurrent.x) * 0.11;
+    state3D.camCurrent.y += (state3D.camTarget.y - state3D.camCurrent.y) * 0.11;
+    state3D.camCurrent.z += (state3D.camTarget.z - state3D.camCurrent.z) * 0.11;
+
+    step3DLayoutInterpolation();
+
+    const focusId = hovered3DNodeId ?? inspectedNodeId ?? currentGraphData?.center_node;
+    const focusNbrIds = new Set();
+    const focusNbrList = [];
+    for (const e of state3D.edges) {
+      if (e.from === focusId) {
+        focusNbrIds.add(e.to);
+        const nb = state3D.nodeMap.get(e.to);
+        if (nb) focusNbrList.push({ id: e.to, weight: e.weight, node: nb });
+      } else if (e.to === focusId) {
+        focusNbrIds.add(e.from);
+        const nb = state3D.nodeMap.get(e.from);
+        if (nb) focusNbrList.push({ id: e.from, weight: e.weight, node: nb });
+      }
+    }
+    focusNbrList.sort((a, b) => b.weight - a.weight);
+    state3D.focusNeighborsOrdered = focusNbrList;
+
+    // Subtle reference rings (XY planar in 2D mode, XZ orbital in 3D mode)
+    ctx.strokeStyle = isLight ? 'rgba(15, 23, 42, 0.06)' : 'rgba(148, 163, 184, 0.06)';
+    ctx.lineWidth = 1;
+    for (const ringR of [125, 200]) {
+      ctx.beginPath();
+      let started = false;
+      for (let a = 0; a <= 48; a++) {
+        const ang = (a / 48) * Math.PI * 2;
+        const p = graphRenderMode === '2d'
+          ? projectPoint3D(state3D.camTarget.x + ringR * Math.cos(ang), state3D.camTarget.y + ringR * Math.sin(ang), 0, w, h)
+          : projectPoint3D(state3D.camTarget.x + ringR * Math.cos(ang), state3D.camTarget.y, state3D.camTarget.z + ringR * Math.sin(ang), w, h);
+        if (!p) continue;
+        if (!started) { ctx.moveTo(p.sx, p.sy); started = true; }
+        else ctx.lineTo(p.sx, p.sy);
+      }
+      ctx.stroke();
+    }
+
+    // Project all 0-simplices (paper nodes)
+    state3D.projectedNodes.clear();
+    for (const nd of state3D.nodes) {
+      const p = projectPoint3D(nd.x, nd.y, nd.z, w, h);
+      if (p) {
+        const baseR = 5.6 + Math.min(4.8, (nd.triangleCount || 0) * 0.45 + (nd.degree || 1) * 0.35) + (nd.query_score > 0 ? 2.2 : 0);
+        const mult = nd.id === focusId ? 1.38 : (nd.id === hovered3DNodeId ? 1.25 : (nd.is_center ? 1.22 : 1.0));
+        p.r = Math.max(4.5, Math.min(24, baseR * p.scale * 0.85)) * mult;
+        state3D.projectedNodes.set(nd.id, p);
+      }
+    }
+
+    // 1. Render 3-Simplices (4-Clique Tetrahedra, Δ₃)
+    if (state3D.showTetra && state3D.tetrahedra.length > 0) {
+      for (const tet of state3D.tetrahedra) {
+        const [a, b, c, d] = tet;
+        const pa = state3D.projectedNodes.get(a), pb = state3D.projectedNodes.get(b);
+        const pc = state3D.projectedNodes.get(c), pd = state3D.projectedNodes.get(d);
+        if (!pa || !pb || !pc || !pd) continue;
+        const na = state3D.nodeMap.get(a);
+        if (state3D.activeClusterId && !tet.some(id => state3D.nodeMap.get(id)?.cluster?.id === state3D.activeClusterId)) continue;
+        const isIncident = tet.includes(focusId);
+        const rgb = hexToRgb(na?.color || '#f43f5e');
+        const alpha = isIncident ? 0.15 : 0.045;
+        ctx.fillStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`;
+        for (const [u, v, q] of [[pa, pb, pc], [pa, pb, pd], [pa, pc, pd], [pb, pc, pd]]) {
+          ctx.beginPath();
+          ctx.moveTo(u.sx, u.sy);
+          ctx.lineTo(v.sx, v.sy);
+          ctx.lineTo(q.sx, q.sy);
+          ctx.closePath();
+          ctx.fill();
+        }
+      }
+    }
+
+    // 2. Render 2-Simplices (Filled 3-Clique Triangles, Δ₂, depth-sorted back-to-front)
+    if (state3D.showFaces && state3D.triangles.length > 0) {
+      const sortedTris = state3D.triangles.map((tri, idx) => {
+        const pa = state3D.projectedNodes.get(tri[0]);
+        const pb = state3D.projectedNodes.get(tri[1]);
+        const pc = state3D.projectedNodes.get(tri[2]);
+        if (!pa || !pb || !pc) return null;
+        const avgZ = (pa.sz + pb.sz + pc.sz) / 3;
+        return { tri, idx, pa, pb, pc, avgZ };
+      }).filter(Boolean).sort((a, b) => b.avgZ - a.avgZ);
+
+      for (const item of sortedTris) {
+        const { tri, idx, pa, pb, pc } = item;
+        if (state3D.activeClusterId && !tri.some(id => state3D.nodeMap.get(id)?.cluster?.id === state3D.activeClusterId)) continue;
+        const na = state3D.nodeMap.get(tri[0]);
+        const rgb = hexToRgb(na?.color || '#38bdf8');
+        const isIncident = idx === hoveredTriangleIndex || tri.includes(focusId);
+        const fillAlpha = idx === hoveredTriangleIndex ? 0.36 : (isIncident ? 0.22 : 0.075);
+
+        ctx.beginPath();
+        ctx.moveTo(pa.sx, pa.sy);
+        ctx.lineTo(pb.sx, pb.sy);
+        ctx.lineTo(pc.sx, pc.sy);
+        ctx.closePath();
+        ctx.fillStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${fillAlpha})`;
+        ctx.fill();
+
+        if (isIncident) {
+          ctx.strokeStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.52)`;
+          ctx.lineWidth = idx === hoveredTriangleIndex ? 1.8 : 1.0;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // 2B. Render Open Boundary Holes ("Unfilled Triangles" / Candidate Discovery Gaps, ◇)
+    const activeHoleIdx = hoveredHoleIndex >= 0 ? hoveredHoleIndex : selectedHoleIndex;
+    if ((state3D.showHoles || activeHoleIdx >= 0) && state3D.openHoles.length > 0) {
+      const maxAmbientHoles = state3D.showHoles ? 5 : 0;
+      state3D.openHoles.forEach((hole, idx) => {
+        const isHighlighted = idx === activeHoleIdx;
+        if (!isHighlighted && idx >= maxAmbientHoles) return;
+        const pu = state3D.projectedNodes.get(hole.u);
+        const pv = state3D.projectedNodes.get(hole.v);
+        const pw = state3D.projectedNodes.get(hole.w);
+        if (!pu || !pv || !pw) return;
+        if (state3D.activeClusterId && ![hole.u, hole.v, hole.w].some(id => state3D.nodeMap.get(id)?.cluster?.id === state3D.activeClusterId)) return;
+
+        ctx.save();
+        // Subtle magenta open-face wash
+        ctx.beginPath();
+        ctx.moveTo(pu.sx, pu.sy);
+        ctx.lineTo(pv.sx, pv.sy);
+        ctx.lineTo(pw.sx, pw.sy);
+        ctx.closePath();
+        ctx.fillStyle = isHighlighted ? 'rgba(232, 121, 249, 0.22)' : 'rgba(232, 121, 249, 0.05)';
+        ctx.fill();
+
+        // Highlight the two existing wedge arms when hovered/selected
+        if (isHighlighted) {
+          ctx.strokeStyle = 'rgba(244, 114, 182, 0.85)';
+          ctx.lineWidth = 2.0;
+          ctx.beginPath();
+          ctx.moveTo(pu.sx, pu.sy);
+          ctx.lineTo(pv.sx, pv.sy);
+          ctx.lineTo(pw.sx, pw.sy);
+          ctx.stroke();
+        }
+
+        // Animated dashed magenta line across the MISSING edge (u <--> w)
+        ctx.strokeStyle = isHighlighted ? '#f0abfc' : 'rgba(232, 121, 249, 0.65)';
+        ctx.lineWidth = isHighlighted ? 2.8 : 1.5;
+        ctx.setLineDash(isHighlighted ? [7, 4] : [5, 5]);
+        ctx.lineDashOffset = -(now * 0.03) % 22;
+        ctx.beginPath();
+        ctx.moveTo(pu.sx, pu.sy);
+        ctx.lineTo(pw.sx, pw.sy);
+        ctx.stroke();
+
+        // Midpoint "◇ Open Gap" badge on the missing edge
+        const mx = (pu.sx + pw.sx) * 0.5;
+        const my = (pu.sy + pw.sy) * 0.5;
+        if (isHighlighted) {
+          ctx.setLineDash([]);
+          const badgeTxt = `◇ Open Gap (#${hole.u} ↔ #${hole.w})`;
+          ctx.font = '700 10.5px "JetBrains Mono", monospace';
+          const tw = ctx.measureText(badgeTxt).width + 12;
+          ctx.fillStyle = 'rgba(74, 4, 78, 0.92)';
+          ctx.strokeStyle = '#e879f9';
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.roundRect(mx - tw / 2, my - 10, tw, 20, 6);
+          ctx.fill();
+          ctx.stroke();
+          ctx.fillStyle = '#f5d0fe';
+          ctx.textAlign = 'center';
+          ctx.fillText(badgeTxt, mx, my + 3.5);
+        }
+        ctx.restore();
+      });
+    }
+
+    // 3. Render 1-Simplices (k-NN Edges)
+    const focusNodeObj = state3D.nodeMap.get(focusId);
+    for (const e of state3D.edges) {
+      const pu = state3D.projectedNodes.get(e.from);
+      const pv = state3D.projectedNodes.get(e.to);
+      if (!pu || !pv) continue;
+      const nu = state3D.nodeMap.get(e.from);
+      const nv = state3D.nodeMap.get(e.to);
+      if (state3D.activeClusterId && nu?.cluster?.id !== state3D.activeClusterId && nv?.cluster?.id !== state3D.activeClusterId) continue;
+
+      const isFocusEdge = e.from === focusId || e.to === focusId;
+      ctx.beginPath();
+      ctx.moveTo(pu.sx, pu.sy);
+      ctx.lineTo(pv.sx, pv.sy);
+
+      if (isFocusEdge && focusNodeObj) {
+        const rgb = hexToRgb(focusNodeObj.color);
+        ctx.strokeStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.88)`;
+        ctx.lineWidth = 2.0;
+      } else {
+        ctx.strokeStyle = isLight ? 'rgba(100, 116, 139, 0.26)' : 'rgba(148, 163, 184, 0.20)';
+        ctx.lineWidth = 1.0;
+      }
+      ctx.stroke();
+    }
+
+    // 4. Render Traversal Trail & Active Bridge Path in 3D
+    if (traversalHistory.length > 1) {
+      ctx.save();
+      ctx.strokeStyle = '#38bdf8';
+      ctx.lineWidth = 2.6;
+      ctx.setLineDash([6, 4]);
+      ctx.lineDashOffset = -(now * 0.025) % 20;
+      ctx.beginPath();
+      let started = false;
+      for (let i = 0; i <= traversalIndex; i++) {
+        const p = state3D.projectedNodes.get(traversalHistory[i]?.node);
+        if (!p) continue;
+        if (!started) { ctx.moveTo(p.sx, p.sy); started = true; }
+        else ctx.lineTo(p.sx, p.sy);
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    if (activeBridgePath.length > 1) {
+      ctx.save();
+      ctx.strokeStyle = '#f59e0b';
+      ctx.lineWidth = 3.0;
+      ctx.setLineDash([5, 3]);
+      ctx.beginPath();
+      let started = false;
+      for (const nid of activeBridgePath) {
+        const p = state3D.projectedNodes.get(nid);
+        if (!p) continue;
+        if (!started) { ctx.moveTo(p.sx, p.sy); started = true; }
+        else ctx.lineTo(p.sx, p.sy);
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // 5. Render 3D Query Anchor Beacon (Q) & Seed Rays
+    const showQ = document.getElementById('show-query-anchor')?.checked;
+    const qText = document.getElementById('paper-query')?.value.trim();
+    const matchedNodes = state3D.nodes.filter(n => n.query_score > 0);
+    if (showQ && qText && matchedNodes.length > 0) {
+      let qx = 0, qy = 85, qz = 0;
+      matchedNodes.slice(0, 5).forEach(m => { qx += m.x; qz += m.z; });
+      qx /= Math.min(5, matchedNodes.length);
+      qz /= Math.min(5, matchedNodes.length);
+      const pq = projectPoint3D(qx, qy, qz, w, h);
+      if (pq) {
+        ctx.save();
+        ctx.setLineDash([4, 4]);
+        ctx.strokeStyle = 'rgba(56, 189, 248, 0.68)';
+        ctx.lineWidth = 1.6;
+        matchedNodes.slice(0, 6).forEach(m => {
+          const pm = state3D.projectedNodes.get(m.id);
+          if (!pm) return;
+          ctx.beginPath();
+          ctx.moveTo(pq.sx, pq.sy);
+          ctx.lineTo(pm.sx, pm.sy);
+          ctx.stroke();
+        });
+        ctx.restore();
+
+        const qr = Math.max(7, 10 * pq.scale);
+        ctx.save();
+        ctx.translate(pq.sx, pq.sy);
+        ctx.rotate(Math.PI / 4);
+        ctx.fillStyle = '#38bdf8';
+        ctx.fillRect(-qr * 0.65, -qr * 0.65, qr * 1.3, qr * 1.3);
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 1.8;
+        ctx.strokeRect(-qr * 0.65, -qr * 0.65, qr * 1.3, qr * 1.3);
+        ctx.restore();
+
+        ctx.font = '600 11px "Plus Jakarta Sans", sans-serif';
+        ctx.fillStyle = isLight ? '#0284c7' : '#38bdf8';
+        ctx.fillText(`Q: "${truncate(qText, 20)}"`, pq.sx + 12, pq.sy + 4);
+      }
+    }
+
+    // 6. Render 0-Simplices (Paper Nodes, depth-sorted back-to-front, matching prototype design)
+    const activeHole = activeHoleIdx >= 0 ? state3D.openHoles[activeHoleIdx] : null;
+    const holeNodeSet = activeHole ? new Set([activeHole.u, activeHole.v, activeHole.w]) : null;
+
+    const sortedNodes = [...state3D.nodes].map(nd => ({
+      nd,
+      p: state3D.projectedNodes.get(nd.id),
+    })).filter(x => x.p).sort((a, b) => b.p.sz - a.p.sz);
+
+    const candidateLabels = [];
+
+    for (const { nd, p } of sortedNodes) {
+      const isSel = nd.id === focusId;
+      const isHov = nd.id === hovered3DNodeId;
+      const isNbr = focusNbrIds.has(nd.id);
+      const isQuerySeed = nd.query_score > 0;
+      const isInActiveHole = holeNodeSet ? holeNodeSet.has(nd.id) : false;
+      const clusterMatch = !state3D.activeClusterId || nd.cluster?.id === state3D.activeClusterId;
+
+      let alpha = 0.92;
+      if (!clusterMatch) alpha = 0.16;
+      else if (holeNodeSet && !isInActiveHole) alpha = 0.30;
+      else if (qText && matchedNodes.length > 0 && !isQuerySeed && !isSel && !isNbr) alpha = 0.42;
+
+      const rgb = hexToRgb(nd.color);
+
+      // Outer luminous halo for selected, hovered, center, hole-highlighted, or query-matched paper
+      if (isSel || isHov || nd.is_center || isQuerySeed || isInActiveHole) {
+        ctx.beginPath();
+        ctx.arc(p.sx, p.sy, p.r + 5.8, 0, Math.PI * 2);
+        ctx.fillStyle = isInActiveHole
+          ? 'rgba(232, 121, 249, 0.38)'
+          : (isSel || nd.is_center ? `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.34)` : 'rgba(56, 189, 248, 0.24)');
+        ctx.fill();
+      }
+
+      // Crisp luminous circle body (exact prototype aesthetic)
+      ctx.beginPath();
+      ctx.arc(p.sx, p.sy, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`;
+      ctx.fill();
+
+      ctx.lineWidth = (isSel || nd.is_center || isInActiveHole) ? 2.4 : (isNbr || isQuerySeed ? 1.5 : 0.9);
+      ctx.strokeStyle = isInActiveHole
+        ? '#f0abfc'
+        : ((isSel || nd.is_center)
+          ? (isLight ? '#0f172a' : '#ffffff')
+          : (isNbr || isQuerySeed ? (isLight ? 'rgba(15,23,42,0.75)' : 'rgba(255,255,255,0.82)') : 'rgba(15, 23, 42, 0.65)'));
+      ctx.stroke();
+
+      // Queue label for collision-free front-to-back placement
+      if (clusterMatch && (state3D.showLabels || isSel || isHov || isNbr || isQuerySeed || isInActiveHole)) {
+        const nbrRankIdx = focusNbrList.findIndex(x => x.id === nd.id);
+        const prefix = nd.is_center ? '★ ' : (nbrRankIdx >= 0 && nbrRankIdx < 9 ? `[${nbrRankIdx + 1}] ` : '');
+        const shortTitle = truncate(nd.title.split(':')[0], isSel || isHov || isInActiveHole ? 36 : 26);
+        const priority = (isHov ? 100 : 0) + (isSel ? 90 : 0) + (isInActiveHole ? 80 : 0) + (nd.is_center ? 75 : 0) + (isQuerySeed ? 60 : 0) + (nbrRankIdx >= 0 && nbrRankIdx < 9 ? 50 - nbrRankIdx : 10);
+        candidateLabels.push({
+          nd, p, label: prefix + shortTitle,
+          isImportant: isSel || isHov || nd.is_center || isInActiveHole,
+          isHighlighted: isSel || isNbr || isQuerySeed || isInActiveHole || isHov,
+          priority
+        });
+      }
+    }
+
+    // 7. Render Collision-Free Node Labels with Subtle Pill Backdrop
+    candidateLabels.sort((a, b) => b.priority - a.priority || a.p.sz - b.p.sz);
+    const placedBoxes = [];
+    for (const item of candidateLabels) {
+      const { p, label, isImportant, isHighlighted } = item;
+      ctx.font = isImportant
+        ? '600 11.5px "Plus Jakarta Sans", sans-serif'
+        : '500 10.5px "Plus Jakarta Sans", sans-serif';
+      const tw = ctx.measureText(label).width;
+      const lx = p.sx + p.r + 6;
+      const ly = p.sy - 8;
+      const bw = tw + 10;
+      const bh = 17;
+
+      if (!isImportant) {
+        let collides = false;
+        for (const box of placedBoxes) {
+          if (lx < box.x + box.w + 4 && lx + bw + 4 > box.x && ly < box.y + box.h + 2 && ly + bh + 2 > box.y) {
+            collides = true;
+            break;
+          }
+        }
+        if (collides) continue;
+      }
+      placedBoxes.push({ x: lx, y: ly, w: bw, h: bh });
+
+      ctx.fillStyle = isLight
+        ? (isImportant ? 'rgba(255, 255, 255, 0.92)' : 'rgba(248, 250, 252, 0.78)')
+        : (isImportant ? 'rgba(15, 23, 42, 0.88)' : 'rgba(15, 23, 42, 0.66)');
+      ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(lx - 4, ly, bw, bh, 4);
+      else ctx.rect(lx - 4, ly, bw, bh);
+      ctx.fill();
+
+      ctx.textAlign = 'left';
+      ctx.fillStyle = isLight
+        ? `rgba(15, 23, 42, ${isHighlighted ? 0.98 : 0.80})`
+        : `rgba(241, 245, 249, ${isHighlighted ? 0.98 : 0.82})`;
+      ctx.fillText(label, lx, p.sy + 3.5);
+    }
+
+    ctx.restore();
+  }
+
+  requestAnimationFrame(frame);
+}
+
+function pick3DNodeAt(clientX, clientY) {
+  const canvas = document.getElementById('network-3d');
+  if (!canvas) return null;
+  const rect = canvas.getBoundingClientRect();
+  const mx = clientX - rect.left;
+  const my = clientY - rect.top;
+  let best = null;
+  let bestDist = Infinity;
+  for (const [id, p] of state3D.projectedNodes.entries()) {
+    const nd = state3D.nodeMap.get(id);
+    if (state3D.activeClusterId && nd?.cluster?.id !== state3D.activeClusterId) continue;
+    const dx = mx - p.sx;
+    const dy = my - p.sy;
+    const d = Math.sqrt(dx * dx + dy * dy);
+    const hitR = Math.max(13, p.r + 5);
+    if (d <= hitR && d < bestDist) {
+      bestDist = d;
+      best = id;
+    }
+  }
+  return best;
+}
+
+function init3DCanvasEvents() {
+  const canvas = document.getElementById('network-3d');
+  if (!canvas) return;
+  const tip = document.getElementById('graph-tooltip');
+  const hoverBanner = document.getElementById('canvas-hover-banner');
+
+  canvas.addEventListener('mousedown', e => {
+    state3D.isDragging = true;
+    state3D.dragButton = e.button;
+    state3D.dragStartX = e.clientX;
+    state3D.dragStartY = e.clientY;
+    state3D.dragMoved = false;
+  });
+
+  window.addEventListener('mousemove', e => {
+    if (state3D.isDragging) {
+      const dx = e.clientX - state3D.dragStartX;
+      const dy = e.clientY - state3D.dragStartY;
+      if (Math.abs(dx) + Math.abs(dy) > 3) state3D.dragMoved = true;
+      state3D.dragStartX = e.clientX;
+      state3D.dragStartY = e.clientY;
+      if (graphRenderMode === '2d' || e.shiftKey || state3D.dragButton === 2) {
+        state3D.panX += dx;
+        state3D.panY += dy;
+      } else {
+        state3D.targetYaw += dx * 0.0065;
+        state3D.targetPitch = Math.max(-1.42, Math.min(1.42, state3D.targetPitch + dy * 0.0065));
+      }
+      if (tip) tip.style.display = 'none';
+      return;
+    }
+  });
+
+  canvas.addEventListener('mousemove', e => {
+    if (state3D.isDragging) return;
+    const hitId = pick3DNodeAt(e.clientX, e.clientY);
+    hovered3DNodeId = hitId;
+    canvas.style.cursor = hitId != null ? 'pointer' : 'grab';
+    if (tip) tip.style.display = 'none';
+    const defHint = document.getElementById('canvas-default-hint');
+    if (hitId != null && hoverBanner) {
+      const n = state3D.nodeMap.get(hitId);
+      if (n) {
+        hoverBanner.innerHTML = `
+          <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${n.color}"></span>
+          <span class="font-mono text-xs text-sky-400 shrink-0">${n.is_center ? '★ Focal' : 'Node ' + n.id}</span>
+          <span class="font-semibold text-white truncate">${esc(n.title)}</span>
+          <span class="text-xs font-mono text-slate-300 shrink-0 ml-2">${n.degree}E · ${n.triangleCount}Δ₂ · ${n.holeCount || 0}◇ · Click inspect / Dbl-click hop</span>
+        `;
+        hoverBanner.classList.remove('hidden');
+        if (defHint) defHint.classList.add('hidden');
+      }
+    } else if (hoverBanner) {
+      hoverBanner.classList.add('hidden');
+      if (defHint) defHint.classList.remove('hidden');
+    }
+  });
+
+  canvas.addEventListener('mouseleave', () => {
+    hovered3DNodeId = null;
+    if (tip) tip.style.display = 'none';
+    if (hoverBanner) hoverBanner.classList.add('hidden');
+    const defHint = document.getElementById('canvas-default-hint');
+    if (defHint) defHint.classList.remove('hidden');
+  });
+
+  window.addEventListener('mouseup', e => {
+    if (!state3D.isDragging) return;
+    const moved = state3D.dragMoved;
+    state3D.isDragging = false;
+    if (!moved && e.target === canvas) {
+      const hitId = pick3DNodeAt(e.clientX, e.clientY);
+      if (hitId != null) {
+        const nd = state3D.nodeMap.get(hitId);
+        if (nd) {
+          state3D.camTarget = { x: nd.x, y: nd.y, z: nd.z };
+        }
+        showNodeHudCard(hitId);
+      }
+    }
+  });
+
+  canvas.addEventListener('dblclick', e => {
+    const hitId = pick3DNodeAt(e.clientX, e.clientY);
+    if (hitId != null) {
+      traverseToPaper(hitId);
+    }
+  });
+
+  canvas.addEventListener('wheel', e => {
+    e.preventDefault();
+    const factor = e.deltaY > 0 ? 1.09 : 0.91;
+    state3D.targetDistance = Math.max(120, Math.min(1100, state3D.targetDistance * factor));
+  }, { passive: false });
+
+  canvas.addEventListener('contextmenu', e => e.preventDefault());
+}
+
+/**
+ * Renders the selected or focal paper's full details into the Docked Right Inspector Panel
+ * (#inspector-paper-card) so it NEVER overlaps or obscures the 3D graph canvas.
+ */
+function showNodeHudCard(nodeId) {
+  inspectedNodeId = nodeId;
+  const card = document.getElementById('inspector-paper-card');
+  if (!card || !currentGraphData) return;
+  const nd = state3D.nodeMap.get(nodeId) || currentGraphData.nodes.find(x => x.id === nodeId);
+  if (!nd) return;
+
+  const connected = [];
+  for (const e of state3D.edges) {
+    if (e.from === nodeId || e.to === nodeId) {
+      const otherId = e.from === nodeId ? e.to : e.from;
+      const otherNode = state3D.nodeMap.get(otherId);
+      if (otherNode) connected.push({ node: otherNode, weight: e.weight });
+    }
+  }
+  connected.sort((a, b) => b.weight - a.weight);
+
+  card.innerHTML = `
+    <div class="flex items-center justify-between gap-2">
+      <span class="inline-flex items-center gap-1.5 text-[10px] font-semibold px-2 py-0.5 rounded-md" style="background:${nd.color}22; color:${nd.color}">
+        <span class="w-2 h-2 rounded-full" style="background:${nd.color}"></span>
+        ${esc(nd.cluster?.name || 'Materials Science')}
+      </span>
+      <span class="text-[10px] font-mono text-slate-400">node #${nd.id} · id ${esc(nd.paper_id)}</span>
+    </div>
+    <p class="text-xs sm:text-[13px] font-bold text-slate-100 leading-snug">${nd.is_center ? '★ ' : ''}${esc(nd.title)}</p>
+    <div class="grid grid-cols-4 gap-1 text-center text-[10px]">
+      <div class="p-1 rounded bg-slate-900/80 border border-white/5">
+        <span class="font-bold text-sky-400 block">${nd.degree ?? connected.length}</span>
+        <span class="text-slate-400 text-[9px]">Edges</span>
+      </div>
+      <div class="p-1 rounded bg-slate-900/80 border border-white/5">
+        <span class="font-bold text-amber-400 block">${nd.triangleCount ?? 0}</span>
+        <span class="text-slate-400 text-[9px]">▲ Δ₂</span>
+      </div>
+      <div class="p-1 rounded bg-slate-900/80 border border-white/5">
+        <span class="font-bold text-fuchsia-400 block">${nd.holeCount ?? 0}</span>
+        <span class="text-slate-400 text-[9px]">◇ Holes</span>
+      </div>
+      <div class="p-1 rounded bg-slate-900/80 border border-white/5">
+        <span class="font-bold text-rose-400 block">${nd.tetraCount ?? 0}</span>
+        <span class="text-slate-400 text-[9px]">Δ₃ Tetra</span>
+      </div>
+    </div>
+    <div class="flex flex-wrap items-center justify-between gap-1.5 pt-1.5 border-t border-white/10">
+      ${!nd.is_center ? `
+        <button type="button" onclick="findBridgePathFromCenter(${nd.id})" class="ctrl-pill text-amber-300 border-amber-500/30">
+          🔗 Bridge Path
+        </button>
+        <button type="button" onclick="traverseToPaper(${nd.id})" class="px-3 py-1 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-[11px] transition shadow">
+          🚀 Hop to Paper →
+        </button>
+      ` : '<span class="text-[10px] text-emerald-400 font-semibold">★ Active Center Paper (Click any node or [1–9] to hop)</span>'}
+    </div>
+    ${connected.length ? `
+      <div class="pt-1.5 border-t border-white/5">
+        <div class="text-[9px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Direct k-NN Neighbors (Click or press [1–9] to hop):</div>
+        <div class="flex flex-wrap gap-1 max-h-14 overflow-y-auto custom-scrollbar">
+          ${connected.slice(0, 9).map((c, idx) => `
+            <button type="button" onclick="traverseToPaper(${c.node.id})" onmouseenter="hovered3DNodeId=${c.node.id}" onmouseleave="hovered3DNodeId=null"
+              class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-900/90 hover:bg-sky-500/20 border border-white/10 hover:border-sky-400/40 text-slate-300 transition flex items-center gap-1" title="${esc(c.node.title)}">
+              <span class="w-1.5 h-1.5 rounded-full" style="background:${c.node.color}"></span>
+              <span class="text-sky-400">[${idx + 1}]</span>
+              <span>#${c.node.id} (${(c.weight * 100).toFixed(1)}%)</span>
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    ` : ''}
+  `;
+}
+
+function selectOpenHoleIn3D(idx) {
+  selectedHoleIndex = selectedHoleIndex === idx ? -1 : idx;
+  const hole = state3D.openHoles[idx];
+  if (hole) {
+    const nu = state3D.nodeMap.get(hole.u);
+    const nv = state3D.nodeMap.get(hole.v);
+    const nw = state3D.nodeMap.get(hole.w);
+    if (nu && nv && nw) {
+      state3D.camTarget = {
+        x: (nu.x + nv.x + nw.x) / 3,
+        y: (nu.y + nv.y + nw.y) / 3,
+        z: (nu.z + nv.z + nw.z) / 3,
+      };
+    }
+  }
+  if (currentGraphData) renderGraphSidebar(currentGraphData);
 }
 
 function edgeWeightBetween(edges, a, b) {
@@ -741,54 +2900,115 @@ function renderGraphSidebar(data) {
   const panel = document.getElementById('graph-sidebar-content');
   panel.classList.remove('hidden');
 
-  const center = data.nodes.find(n => n.id === data.center_node) || data.nodes.find(n => n.is_center);
-  const centerEl = document.getElementById('graph-center-card');
-  if (center) {
-    centerEl.innerHTML = `
-      <p class="text-[10px] uppercase tracking-wider text-emerald-400/90 font-semibold mb-1">Focal paper (kNN center)</p>
-      <p class="text-xs font-mono text-emerald-300">node ${center.id} · paper_id ${esc(center.paper_id)}</p>
-      <p class="text-sm text-slate-100 mt-1.5 leading-snug">${esc(center.title)}</p>
-      <p class="text-[10px] text-slate-500 mt-2">Neighborhood radius: ${data.n_neighbors_requested} hop(s) · ${data.n_nodes} papers in induced subgraph</p>`;
+  const holes = state3D.openHoles || [];
+  const tris = state3D.triangles || [];
+  const visibleNodes = state3D.nodes.filter(n => !state3D.activeClusterId || n.cluster?.id === state3D.activeClusterId);
+
+  const cHoles = document.getElementById('insp-count-holes');
+  const cTris = document.getElementById('insp-count-tris');
+  const cNodes = document.getElementById('insp-count-nodes');
+  if (cHoles) cHoles.textContent = holes.length;
+  if (cTris) cTris.textContent = tris.length;
+  if (cNodes) cNodes.textContent = visibleNodes.length;
+
+  // 1. Populate Open Boundary Holes ("Unfilled Triangles") List
+  const holesEl = document.getElementById('open-holes-list');
+  if (holesEl) {
+    if (!holes.length) {
+      holesEl.innerHTML = '<p class="text-xs text-slate-500 p-2">No open boundary holes in this view — increase k-NN neighbors (k) or raise Simplicial Threshold (τ) slightly to crack closed Δ₂ triangles into open boundary holes.</p>';
+    } else {
+      holesEl.innerHTML = holes.map((h, idx) => {
+        const pu = state3D.nodeMap.get(h.u);
+        const pv = state3D.nodeMap.get(h.v);
+        const pw = state3D.nodeMap.get(h.w);
+        const isSel = selectedHoleIndex === idx;
+        return `
+          <div class="tri-card cursor-pointer transition ${isSel ? 'border-fuchsia-400 bg-fuchsia-500/15' : 'hover:border-fuchsia-500/40'}"
+            onmouseenter="hoveredHoleIndex=${idx}" onmouseleave="hoveredHoleIndex=-1"
+            onclick="selectOpenHoleIn3D(${idx})">
+            <div class="tri-meta flex items-center justify-between gap-1">
+              <span class="font-bold text-fuchsia-300 flex items-center gap-1">
+                <span>◇ Hole #${idx + 1}</span>
+                <span class="px-1.5 py-0.2 rounded bg-fuchsia-500/20 text-fuchsia-200 text-[9px]">${esc(h.typeLabel)}</span>
+                ${h.isCrossDomain ? '<span class="px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 text-[9px]">Cross-Domain</span>' : ''}
+              </span>
+              <span class="font-mono text-fuchsia-300 text-[10px]">synergy ${h.score.toFixed(3)}</span>
+            </div>
+            <div class="text-[10px] text-slate-400 mb-1 font-mono">
+              Pivot <strong class="text-emerald-300">#${h.v}</strong> bridges unconnected pair
+              <strong class="text-fuchsia-300">#${h.u} ⇢ #${h.w}</strong>
+              ${h.missingW != null ? `(filtered edge ${h.missingW.toFixed(4)} &lt; τ)` : '(missing in k-NN)'}
+            </div>
+            ${[
+              { p: pv, role: 'Pivot' },
+              { p: pu, role: 'End A' },
+              { p: pw, role: 'End B' }
+            ].filter(x => x.p).map(({ p, role }) => `
+              <div class="tri-paper flex items-center gap-1.5" onclick="event.stopPropagation(); traverseToPaper(${p.id})" title="Click to hop to node #${p.id}">
+                <span class="w-2 h-2 rounded-full shrink-0" style="background:${p.color}"></span>
+                <span class="text-[9px] font-mono px-1 rounded bg-white/5 text-slate-300 shrink-0">${role} #${p.id}</span>
+                <span class="truncate">${esc(truncate(p.title, 54))}</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }).join('');
+    }
   }
 
-  const chips = [
-    { val: data.n_nodes, lbl: 'Nodes' },
-    { val: data.n_edges, lbl: 'Edges' },
-    { val: data.n_triangles, lbl: 'Triangles' },
-  ];
-  document.getElementById('graph-stat-chips').innerHTML = chips.map(c => `
-    <div class="graph-stat-chip"><div class="val">${c.val}</div><div class="lbl">${c.lbl}</div></div>`).join('');
-
-  const sortedNodes = [...data.nodes].sort((a, b) =>
-    (b.is_center ? 1 : 0) - (a.is_center ? 1 : 0) || a.id - b.id);
-  document.getElementById('graph-node-list').innerHTML = sortedNodes.map(n => `
-    <li class="flex gap-2 ${n.is_center ? 'text-emerald-400/90' : ''}">
-      <span class="font-mono shrink-0">${n.is_center ? '★' : '·'} ${n.id}</span>
-      <span class="line-clamp-1">${esc(truncate(n.title, 52))}</span>
-    </li>`).join('');
-
+  // 2. Populate Closed 2-Simplices (Δ₂ Triangles) List
   const triList = document.getElementById('triangle-list');
-  const tris = data.triangles || [];
-  document.getElementById('triangle-count-label').textContent = tris.length ? `(${tris.length})` : '';
-  if (!tris.length) {
-    triList.innerHTML = '<p class="text-xs text-slate-500">No closed 3-cliques in this subgraph — pairwise kNN links exist but no mutual triangle.</p>';
-    return;
+  const triCountLbl = document.getElementById('triangle-count-label');
+  if (triCountLbl) triCountLbl.textContent = `${tris.length} Δ₂ · ${state3D.tetrahedra.length} Δ₃`;
+  if (triList) {
+    if (!tris.length) {
+      triList.innerHTML = '<p class="text-xs text-slate-500 p-2">No closed 3-cliques above threshold τ — click "Reset τ" or lower the Simplicial Threshold (τ) slider.</p>';
+    } else {
+      const show = tris.slice(0, 50);
+      triList.innerHTML = show.map((tri, i) => {
+        const ws = [
+          edgeWeightBetween(state3D.edges, tri[0], tri[1]),
+          edgeWeightBetween(state3D.edges, tri[1], tri[2]),
+          edgeWeightBetween(state3D.edges, tri[0], tri[2]),
+        ].filter(w => w != null);
+        const minW = ws.length ? Math.min(...ws).toFixed(4) : '—';
+        const papers = tri.map(id => state3D.nodeMap.get(id)).filter(Boolean);
+        const uniqueClusters = new Set(papers.map(p => p.cluster?.id)).size;
+        const isBridge = uniqueClusters >= 2;
+        return `<div class="tri-card" onmouseenter="hoveredTriangleIndex=${i}" onmouseleave="hoveredTriangleIndex=-1">
+          <div class="tri-meta flex items-center justify-between gap-1">
+            <span class="font-semibold text-amber-400">▲ Δ₂ #${i + 1} ${isBridge ? '<span class="px-1.5 py-0.2 rounded bg-amber-500/15 text-amber-300 text-[9px] ml-1">Cross-Domain Bridge</span>' : ''}</span>
+            <span class="font-mono text-sky-400">min_w ${minW}</span>
+          </div>
+          ${papers.map(p => `
+            <div class="tri-paper flex items-center gap-1.5" onclick="traverseToPaper(${p.id})" title="Click to traverse to node ${p.id}">
+              <span class="w-2 h-2 rounded-full shrink-0" style="background:${p.color}"></span>
+              <span>#${p.id}</span>
+              <span class="truncate">${esc(truncate(p.title, 58))}</span>
+            </div>`).join('')}
+        </div>`;
+      }).join('') + (tris.length > 50 ? `<p class="text-[10px] text-slate-500 text-center pt-1">+ ${tris.length - 50} more 2-simplices</p>` : '');
+    }
   }
-  const show = tris.slice(0, 50);
-  triList.innerHTML = show.map((tri, i) => {
-    const ws = [
-      edgeWeightBetween(data.edges, tri[0], tri[1]),
-      edgeWeightBetween(data.edges, tri[1], tri[2]),
-      edgeWeightBetween(data.edges, tri[0], tri[2]),
-    ].filter(w => w != null);
-    const meanW = ws.length ? (ws.reduce((a, b) => a + b, 0) / ws.length).toFixed(4) : '—';
-    const minW = ws.length ? Math.min(...ws).toFixed(4) : '—';
-    const papers = tri.map(id => data.nodes.find(x => x.id === id)).filter(Boolean);
-    return `<div class="tri-card">
-      <div class="tri-meta">2-simplex #${i + 1} · nodes (${tri.join(', ')}) · mean cos ${meanW} · min ${minW}</div>
-      ${papers.map(p => `<div class="tri-paper"><span>${p.id}</span> ${esc(truncate(p.title, 72))}</div>`).join('')}
-    </div>`;
-  }).join('') + (tris.length > 50 ? `<p class="text-[10px] text-slate-500 text-center pt-1">+ ${tris.length - 50} more triangles</p>` : '');
+
+  // 3. Populate Papers in View List
+  const visitedSet = new Set(traversalHistory.map(h => h.node));
+  const sortedNodes = [...visibleNodes].sort((a, b) =>
+    (b.is_center ? 1 : 0) - (a.is_center ? 1 : 0) ||
+    (b.triangleCount * 2 + b.degree) - (a.triangleCount * 2 + a.degree));
+  const nodeListEl = document.getElementById('graph-node-list');
+  if (nodeListEl) {
+    nodeListEl.innerHTML = sortedNodes.map(n => `
+      <li onclick="traverseToPaper(${n.id})" onmouseenter="hovered3DNodeId=${n.id}" onmouseleave="hovered3DNodeId=null"
+          class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-white/5 cursor-pointer transition ${n.is_center ? 'text-emerald-400 font-semibold bg-emerald-500/10' : (visitedSet.has(n.id) ? 'text-sky-400' : 'text-slate-300')}">
+        <div class="flex items-center gap-2 min-w-0 flex-1">
+          <span class="w-2 h-2 rounded-full shrink-0" style="background:${n.color}"></span>
+          <span class="font-mono shrink-0">${n.is_center ? '★' : (visitedSet.has(n.id) ? '●' : '·')}${n.id}</span>
+          <span class="line-clamp-1">${esc(truncate(n.title, 46))}</span>
+        </div>
+        <span class="text-[9px] font-mono text-slate-400 shrink-0">▲${n.triangleCount} · ◇${n.holeCount || 0}</span>
+      </li>`).join('');
+  }
 }
 
 function bindGraphTooltips(net, nodeById) {
@@ -1013,6 +3233,9 @@ function renderEvaluations(list) {
             <div class="flex items-center flex-wrap gap-2">
               <span class="px-3 py-1 rounded-lg bg-slate-950 border border-slate-700 font-mono font-bold text-xs text-slate-300">Triad #${tid}</span>
               <span class="px-3 py-1 rounded-lg border text-xs font-semibold ${badgeColor}">${esc(verdict)}</span>
+              <button type="button" onclick="exploreTriadByRank(${tid})" class="ctrl-pill text-emerald-300 border-emerald-500/30 hover:bg-emerald-500/20">
+                Explore Triad in 3D Graph →
+              </button>
             </div>
             <div class="text-xs text-slate-400 pt-1">
               Bottleneck Cosine: <span class="font-mono text-slate-200">${digest.min_edge_cosine ?? '—'}</span>
@@ -1107,7 +3330,7 @@ function renderEvaluations(list) {
       </div>`;
   }).join('');
 
-  lucide.createIcons();
+  if (typeof lucide !== 'undefined') lucide.createIcons();
 }
 
 function filterEvaluations(filter) {
